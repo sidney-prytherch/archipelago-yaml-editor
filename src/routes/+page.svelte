@@ -2,27 +2,35 @@
 	import { read } from '$app/server';
 	import { datapackage } from './datapackage';
 	import jsyaml from 'js-yaml';
-	
-  	
+	import './interfaces'
+	//import { type Game, type Item, type ItemLink, type PlandoData, type PlandoItem, type Trigger } from './interfaces';
+
   	/**
 	 * @type {HTMLInputElement}
 	 */
   	let input;
-	let text;
 
 	function onChange() {
 		const file = input.files?.[0];
 		if (file) {
 			const reader = new FileReader();
 			reader.addEventListener("load", function () {
-				const text = reader.result;
-				let thing = jsyaml.load(reader.result);
-				console.log(thing);
-				console.log(thing?.["Hollow Knight"][Object.keys(thing?.["Hollow Knight"])[0]]);
+				let gameSettings = jsyaml.load(reader.result);
+				console.log(gameSettings);
+				console.log(gameSettings?.["Hollow Knight"][Object.keys(gameSettings?.["Hollow Knight"])[0]]);
+				setGame(gameSettings);
 			});
 			const text = reader.readAsText(file);
 			return;
 		}
+	}
+
+
+	/**
+	 * @param {any} gameSettings
+	 */
+	function setGame(gameSettings) {
+		console.log(gameSettings);
 	}
 </script>
 
