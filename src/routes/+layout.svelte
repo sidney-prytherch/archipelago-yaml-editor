@@ -20,7 +20,7 @@
 	}
 
 	main {
-		flex: 1;
+		flex: 5;
 		display: flex;
 		flex-direction: column;
 		padding: 1rem;
