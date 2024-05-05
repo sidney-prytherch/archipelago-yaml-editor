@@ -48,7 +48,7 @@
 		console.log(gameSettings);
 	}
 
-	function move() {
+	function expandOrShorten() {
 		console.log(`Previous: expanded = ${expanded}`);
 		if (expanded) {
 			let gamesList = Object.values(games);
@@ -104,7 +104,7 @@
 						<td><input type="number" bind:value={games.superMarioWorld} min="0" max="50" /></td>
 					</tr> -->
 				</table>
-				<button class="btn" on:click={move}
+				<button class="btn" on:click={expandOrShorten}
 					><i class:rotated={expanded} class="fa-solid fa-turn-down"></i></button
 				>
 			</div>
