@@ -134,8 +134,8 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>Archipelago YAML Editor</title>
+	<meta name="description" content="Amazing YAML Editor" />
 </svelte:head>
 
 <section>
