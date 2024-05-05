@@ -8,6 +8,9 @@
 	//import { type Game, type Item, type ItemLink, type PlandoData, type PlandoItem, type Trigger } from './interfaces';
 
 	/**
+	 * @typedef {{name: string, weight: number, hide: boolean}} GameData
+	 */
+	/**
 	 * @type {HTMLInputElement}
 	 */
 	let input;
@@ -18,14 +21,12 @@
 	let options = {};
 	let expanded = true;
 	/**
-	 * @type {{ [x: string]: {name: string, weight: number, hide: boolean}; }}
+	 * @type {{ [x: string]: GameData; }}
 	 */
 	let games = {
-		"0": { name: 'Hollow Knight', weight: 25, hide: false },
-		"1": { name: 'Super Mario World', weight: 0, hide: false }
+		'0': { name: 'Hollow Knight', weight: 25, hide: false },
+		'1': { name: 'Super Mario World', weight: 0, hide: false }
 	};
-
-
 
 	function onChange() {
 		const file = input.files?.[0];
@@ -49,10 +50,9 @@
 	}
 
 	function expandOrShorten() {
-		console.log(`Previous: expanded = ${expanded}`);
 		if (expanded) {
 			let gamesList = Object.values(games);
-			let gamesWithZeroWeight = gamesList.filter(game => game.weight == 0)
+			let gamesWithZeroWeight = gamesList.filter((game) => game.weight == 0);
 			if (gamesWithZeroWeight.length == gamesList.length - 1) {
 				for (let game of gamesWithZeroWeight) {
 					game.hide = true;
@@ -68,6 +68,50 @@
 			expanded = !expanded;
 		}
 	}
+
+	/**
+	 * @param {GameData} game
+	 * @returns {number}
+	 */
+	function getPercent(game) {
+		let percent =
+			Math.round(
+				(10000 * game.weight) /
+					Object.values(games).reduce((total, current) => (total += current.weight), 0)
+			) / 100;
+		return percent || 0;
+	}
+
+	/**
+	 * @param {GameData} selectedGame
+	 */
+	function deselectOtherOptions(selectedGame) {
+		let gamesList = Object.values(games);
+		for (let game of gamesList) {
+			if (game === selectedGame) {
+				game.weight = 50;
+			} else {
+				game.weight = 0;
+			}
+		}
+		games = games;
+	}
+
+	/**
+	 * @param {GameData} selectedGame
+	 */
+	function selectOption(selectedGame) {
+		selectedGame.weight = 50;
+		games = games;
+	}
+
+	/**
+	 * @param {GameData} selectedGame
+	 */
+	function deselectOption(selectedGame) {
+		selectedGame.weight = 0;
+		games = games;
+	}
 </script>
 
 <svelte:head>
@@ -81,6 +125,12 @@
 	<hr />
 	<div class:row={!expanded} class="outer container">
 		<div class="key">
+			<button
+				title={expanded ? 'minimize options' : 'expand options'}
+				class="carrot"
+				on:click={expandOrShorten}
+				><i class:rotated={expanded} class="fa-solid fa-carrot"></i></button
+			>
 			<h3>game</h3>
 		</div>
 		<div class="inner container">
@@ -90,23 +140,47 @@
 					{#each Object.keys(games) as gameIndex}
 						<tr class={games[gameIndex].hide ? 'hidden' : ''}>
 							<td><input type="text" bind:value={games[gameIndex].name} /></td>
-							<td class:hidden={!expanded}><span>
-								{
-							Math.round(10000 * games[gameIndex].weight / (Object.values(games).reduce(((total, current) => total += current.weight), 0))) / 100
-								}%</span></td>
-							<td class:hidden={!expanded}><input type="range" bind:value={games[gameIndex].weight} min="0" max="50" /></td>
-							<td class:hidden={!expanded}><input type="number" bind:value={games[gameIndex].weight} min="0" max="50" /></td>
-							
+							<td class:hidden={!expanded}><span> {getPercent(games[gameIndex])}%</span></td>
+							<td class:hidden={!expanded}>
+								<div class="container">
+									<button
+										class="option-button left"
+										title="Decrease to 0"
+										on:click={() => deselectOption(games[gameIndex])}
+									>
+										<i class:rotated={expanded} class="fa-solid fa-minus"></i>
+									</button>
+									<input
+										class="center"
+										type="range"
+										bind:value={games[gameIndex].weight}
+										min="0"
+										max="50"
+									/>
+									<button
+										class="option-button right"
+										title="Increase to 50"
+										on:click={() => selectOption(games[gameIndex])}
+									>
+										<i class:rotated={expanded} class="fa-solid fa-plus"></i>
+									</button>
+								</div>
+							</td>
+							<td class:hidden={!expanded}
+								><input type="number" bind:value={games[gameIndex].weight} min="0" max="50" /></td
+							>
+							<td class:hidden={!expanded}>
+								<button
+									class="option-button"
+									title="Select this option and remove others"
+									on:click={() => deselectOtherOptions(games[gameIndex])}
+								>
+									<i class:rotated={expanded} class="fa-solid fa-arrow-left"></i>
+								</button>
+							</td>
 						</tr>
 					{/each}
-					<!-- <tr>
-						<td><input type="text" value="Super Mario World" /></td>
-						<td><input type="number" bind:value={games.superMarioWorld} min="0" max="50" /></td>
-					</tr> -->
 				</table>
-				<button class="btn" on:click={expandOrShorten}
-					><i class:rotated={expanded} class="fa-solid fa-turn-down"></i></button
-				>
 			</div>
 		</div>
 	</div>
@@ -166,9 +240,11 @@
 	}
 
 	.vl {
-		background-color: darkslategray;
+		background-color: rgb(255, 153, 0);
 		width: 3px;
 		margin: 0 8px;
+		min-width: 3px;
+		margin-left: 31px;
 	}
 
 	.key {
@@ -179,7 +255,6 @@
 	}
 
 	.otherstuff {
-		width: 100%;
 		/* background-color: brown; */
 		padding: 8px;
 	}
@@ -196,7 +271,6 @@
 	.btn,
 	table,
 	.outer,
-	td,
 	input {
 		padding: 8px;
 	}
@@ -218,13 +292,23 @@
 		box-sizing: border-box;
 	}
 
-	.fa-turn-down {
-		transform: rotate(90deg);
+	.carrot {
+		cursor: pointer;
+		border: none;
+		height: 50px;
+		width: 50px;
+		background-color: transparent;
+		color: rgb(255, 153, 0);
+	}
+
+	.fa-carrot {
+  		font-size: 30px !important;
+		transform: rotate(-135deg);
 		transition: transform 0.5s;
 	}
 
-	.fa-turn-down.rotated {
-		transform: rotate(180deg);
+	.fa-carrot.rotated {
+		transform: rotate(-45deg);
 	}
 
 	table {
@@ -253,6 +337,7 @@
 
 	table tr td:nth-child(1) {
 		width: 35%;
+		min-width: 50px;
 	}
 
 	table tr td:nth-child(2) {
@@ -280,7 +365,6 @@
 	input[type='number'] {
 		width: 50%;
 		min-width: 60px;
-
 	}
 
 	input[type='text'],
@@ -294,5 +378,24 @@
 	input[type='text']:focus {
 		border-color: #ccc;
 		background-color: #eee;
+	}
+	@media only screen and (max-width: 640px) {
+		input[type='range'] {
+			display: none;
+		}
+
+		table tr td:nth-child(1) {
+			width: 45%;
+		}
+
+		table tr td:nth-child(3) {
+			width: 15%;
+		}
+	}
+
+	@media only screen and (max-width: 400px) {
+		table tr td:nth-child(3) {
+			display: none;
+		}
 	}
 </style>
