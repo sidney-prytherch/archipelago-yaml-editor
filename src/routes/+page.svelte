@@ -8,6 +8,9 @@
 	//import { type Game, type Item, type ItemLink, type PlandoData, type PlandoItem, type Trigger } from './interfaces';
 
 	/**
+	 * @typedef {GameData[]} GameList
+	 */
+	/**
 	 * @typedef {{name: string, weight: number, hide: boolean}} GameData
 	 */
 	/**
@@ -21,12 +24,12 @@
 	let options = {};
 	let expanded = true;
 	/**
-	 * @type {{ [x: string]: GameData; }}
+	 * @type {GameList}
 	 */
-	let games = {
-		'0': { name: 'Hollow Knight', weight: 25, hide: false },
-		'1': { name: 'Super Mario World', weight: 0, hide: false }
-	};
+	let games = [
+		{ name: 'Hollow Knight', weight: 50, hide: false },
+		{ name: 'Super Mario World', weight: 0, hide: false }
+	];
 
 	function onChange() {
 		const file = input.files?.[0];
@@ -112,6 +115,22 @@
 		selectedGame.weight = 0;
 		games = games;
 	}
+
+	function addOption() {
+		games = [...games, { name: '', weight: 50, hide: false }];
+	}
+
+	/**
+	 * @param {GameData} selectedGame
+	 */
+	function removeOption(selectedGame) {
+		games.forEach((game, index) => {
+			if (game == selectedGame) {
+				games.splice(index, 1);
+			}
+		});
+		games = games;
+	}
 </script>
 
 <svelte:head>
@@ -124,63 +143,66 @@
 	<input accept=".yml, .yaml" bind:this={input} on:change={onChange} type="file" />
 	<hr />
 	<div class:row={!expanded} class="outer container">
-		<div class="key">
 			<button
 				title={expanded ? 'minimize options' : 'expand options'}
-				class="carrot"
+				class="carrot key"
 				on:click={expandOrShorten}
-				><i class:rotated={expanded} class="fa-solid fa-carrot"></i></button
 			>
-			<h3>game</h3>
-		</div>
+				<i class:rotated={expanded} class="fa-solid fa-carrot"></i>
+				<h3>game</h3>
+			</button>
 		<div class="inner container">
 			<div class:hidden={!expanded} class="vl" />
 			<div class="otherstuff container" class:col={expanded}>
 				<table class="value">
-					{#each Object.keys(games) as gameIndex}
-						<tr class={games[gameIndex].hide ? 'hidden' : ''}>
-							<td><input type="text" bind:value={games[gameIndex].name} /></td>
-							<td class:hidden={!expanded}><span> {getPercent(games[gameIndex])}%</span></td>
+					{#each games as game}
+						<tr class={game.hide ? 'hidden' : ''}>
+							<td><input class:minimized-data={!expanded} type="text" placeholder="Enter game name" bind:value={game.name} /></td>
+							<td class:hidden={!expanded}><span> {getPercent(game)}%</span></td>
 							<td class:hidden={!expanded}>
-								<div class="container">
+								<div class="container vertical-center">
 									<button
-										class="option-button left"
+										class="round-button"
 										title="Decrease to 0"
-										on:click={() => deselectOption(games[gameIndex])}
+										on:click={() => deselectOption(game)}
 									>
-										<i class:rotated={expanded} class="fa-solid fa-minus"></i>
+										<i class:rotated={expanded} class="fa-solid fa-circle-minus"></i>
 									</button>
-									<input
-										class="center"
-										type="range"
-										bind:value={games[gameIndex].weight}
-										min="0"
-										max="50"
-									/>
+									<input type="range" bind:value={game.weight} min="0" max="50" />
 									<button
-										class="option-button right"
+										class="round-button"
 										title="Increase to 50"
-										on:click={() => selectOption(games[gameIndex])}
+										on:click={() => selectOption(game)}
 									>
-										<i class:rotated={expanded} class="fa-solid fa-plus"></i>
+										<i class:rotated={expanded} class="fa-solid fa-circle-plus"></i>
 									</button>
 								</div>
 							</td>
 							<td class:hidden={!expanded}
-								><input type="number" bind:value={games[gameIndex].weight} min="0" max="50" /></td
+								><input type="number" bind:value={game.weight} min="0" max="50" /></td
 							>
 							<td class:hidden={!expanded}>
 								<button
-									class="option-button"
+									class="round-button secret"
 									title="Select this option and remove others"
-									on:click={() => deselectOtherOptions(games[gameIndex])}
+									on:click={() => deselectOtherOptions(game)}
 								>
-									<i class:rotated={expanded} class="fa-solid fa-arrow-left"></i>
+									<i class:rotated={expanded} class="fa-solid fa-wand-sparkles"></i>
+								</button>
+								<button
+									class="round-button secret"
+									title="Select this option and remove others"
+									on:click={() => removeOption(game)}
+								>
+									<i class:rotated={expanded} class="fa-solid fa-xmark"></i>
 								</button>
 							</td>
 						</tr>
 					{/each}
 				</table>
+				<div class:hidden={!expanded} class="container end">
+					<button class="create-row-button" on:click={addOption}>Add Option</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -221,9 +243,18 @@
 </section>
 
 <style>
+	* {
+		/* border: solid 1px black; */
+		font-size: large;
+	}
+
+	.end {
+		justify-content: flex-end;
+	}
+
 	.hidden {
-		display: none;
-		visibility: hidden;
+		display: none !important;
+		visibility: hidden !important;
 	}
 	.outer {
 		flex-direction: column; /* By default, stack elements vertically */
@@ -239,12 +270,27 @@
 		/* background-color: aqua; */
 	}
 
+	tr:hover .secret {
+		visibility: visible;
+	}
+
+	.secret {
+		visibility: hidden;
+	}
+
+	.fa-circle-plus,
+	.fa-circle-minus,
+	.fa-wand-sparkles,
+	.fa-xmark {
+		font-size: 25px !important;
+	}
+
 	.vl {
 		background-color: rgb(255, 153, 0);
 		width: 3px;
 		margin: 0 8px;
 		min-width: 3px;
-		margin-left: 31px;
+		margin-left: 21px;
 	}
 
 	.key {
@@ -268,41 +314,42 @@
 	}
 
 	.key,
-	.btn,
 	table,
-	.outer,
-	input {
+	input,
+	.create-row-button {
 		padding: 8px;
 	}
 
-	.btn,
-	table {
+	.create-row-button {
 		margin: 8px;
+		border-radius: 5px;
+		border-color: dodgerblue;
+		color: dodgerblue;
+		background-color: transparent;
+
 	}
 
-	.btn {
-		height: 50px;
-		width: 50px;
-		background-color: DodgerBlue;
-		border: none;
-		color: white;
-		font-size: 16px;
+	.minimized-data {
+		text-align: start !important;
+	}
+
+	h3 {
+		color: black;
+		padding-left: 15px;
+	}
+
+	button {
 		cursor: pointer;
-		border-radius: 4px;
-		box-sizing: border-box;
 	}
 
 	.carrot {
-		cursor: pointer;
 		border: none;
-		height: 50px;
-		width: 50px;
 		background-color: transparent;
 		color: rgb(255, 153, 0);
 	}
 
 	.fa-carrot {
-  		font-size: 30px !important;
+		font-size: 30px !important;
 		transform: rotate(-135deg);
 		transition: transform 0.5s;
 	}
@@ -312,16 +359,14 @@
 	}
 
 	table {
-		table-layout: fixed;
 		flex: 1;
 		/* background-color: green; */
 	}
 
 	table,
-	td,
-	th {
-		border-left: 0px solid;
-		border-right: 0px solid;
+	td {
+		/* border-left: 0px solid;
+		border-right: 0px solid; */
 		border-collapse: collapse;
 	}
 
@@ -335,25 +380,30 @@
 		background-color: #eee;
 	}
 
-	table tr td:nth-child(1) {
-		width: 35%;
-		min-width: 50px;
+	.round-button {
+		color: dodgerblue;
+		background-color: transparent;
+		border: none;
+		box-sizing: border-box;
 	}
 
-	table tr td:nth-child(2) {
-		width: 10%;
+	table tr td:nth-child(1) {
+		width: 40%;
+		min-width: 128px;
+	}
+
+	table tr td:nth-child(2),
+	table tr td:nth-child(4) {
+		width: 0%;
+		min-width: 64px;
 	}
 
 	table tr td:nth-child(3) {
-		width: 25%;
-	}
-
-	table tr td:nth-child(4) {
-		width: 15%;
+		width: 40%;
 	}
 
 	table tr td:nth-child(5) {
-		width: 15%;
+		width: 10%;
 	}
 
 	input {
@@ -363,23 +413,25 @@
 	}
 
 	input[type='number'] {
-		width: 50%;
+		width: 100%;
 		min-width: 60px;
 	}
 
 	input[type='text'],
 	input[type='range'] {
+		border: none;
 		width: 100%;
-		border: 1px solid transparent;
 		background-color: transparent;
 		text-align: center;
 	}
 
 	input[type='text']:focus {
+		width: 100%;
 		border-color: #ccc;
 		background-color: #eee;
 	}
-	@media only screen and (max-width: 640px) {
+
+	@media only screen and (max-width: 600px) {
 		input[type='range'] {
 			display: none;
 		}
@@ -393,7 +445,7 @@
 		}
 	}
 
-	@media only screen and (max-width: 400px) {
+	@media only screen and (max-width: 450px) {
 		table tr td:nth-child(3) {
 			display: none;
 		}
