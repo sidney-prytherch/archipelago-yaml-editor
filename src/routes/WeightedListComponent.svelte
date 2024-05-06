@@ -1,103 +1,97 @@
 <script>
-
-	import jsyaml from 'js-yaml';
 	import './interfaces';
 	import '@fortawesome/fontawesome-free/css/all.min.css';
 
-
-	/**
-	 * @type {{ [x: string]: any; }}
-	 */
-	let gameSettings = {};
-	let options = {};
 	let expanded = true;
 	/**
-	 * @type {gameData[]}
+	 * @type {optionData[]}
 	 */
-    export let games = [];
-
+	export let weightedOptions = [];
+	/**
+	 * @type {string[]}
+	 */
+	export let optionKeys = [];
 
 	function expandOrShorten() {
 		if (expanded) {
-			let gamesList = Object.values(games);
-			let gamesWithZeroWeight = gamesList.filter((game) => game.weight == 0);
-			if (gamesWithZeroWeight.length == gamesList.length - 1) {
-				for (let game of gamesWithZeroWeight) {
-					game.hide = true;
+			let optionsList = Object.values(weightedOptions);
+			let optionsWithZeroWeight = optionsList.filter((option) => option.weight == 0);
+			if (optionsWithZeroWeight.length == optionsList.length - 1) {
+				for (let option of optionsWithZeroWeight) {
+					option.hide = true;
 				}
-				games = games;
+				weightedOptions = weightedOptions;
 				expanded = !expanded;
 			}
 		} else {
-			for (let game of Object.values(games)) {
-				game.hide = false;
+			for (let option of Object.values(weightedOptions)) {
+				option.hide = false;
 			}
-			games = games;
+			weightedOptions = weightedOptions;
 			expanded = !expanded;
 		}
 	}
 
 	/**
-	 * @param {gameData} game
+	 * @param {optionData} option
 	 * @returns {number}
 	 */
-	function getPercent(game) {
+	function getPercent(option) {
 		let percent =
 			Math.round(
-				(10000 * game.weight) /
-					Object.values(games).reduce((total, current) => (total += current.weight), 0)
+				(10000 * option.weight) /
+					Object.values(weightedOptions).reduce((total, current) => (total += current.weight), 0)
 			) / 100;
 		return percent || 0;
 	}
 
 	/**
-	 * @param {gameData} selectedGame
+	 * @param {optionData} selectedOption
 	 */
-	function deselectOtherOptions(selectedGame) {
-		let gamesList = Object.values(games);
-		for (let game of gamesList) {
-			if (game === selectedGame) {
-				game.weight = 50;
+	function deselectOtherOptions(selectedOption) {
+		let optionsList = Object.values(weightedOptions);
+		for (let option of optionsList) {
+			if (option === selectedOption) {
+				option.weight = 50;
 			} else {
-				game.weight = 0;
+				option.weight = 0;
 			}
 		}
-		games = games;
+		weightedOptions = weightedOptions;
 	}
 
 	/**
-	 * @param {gameData} selectedGame
+	 * @param {optionData} selectedOption
 	 */
-	function selectOption(selectedGame) {
-		selectedGame.weight = 50;
-		games = games;
+	function selectOption(selectedOption) {
+		selectedOption.weight = 50;
+		weightedOptions = weightedOptions;
 	}
 
 	/**
-	 * @param {gameData} selectedGame
+	 * @param {optionData} selectedOption
 	 */
-	function deselectOption(selectedGame) {
-		selectedGame.weight = 0;
-		games = games;
+	function deselectOption(selectedOption) {
+		selectedOption.weight = 0;
+		weightedOptions = weightedOptions;
 	}
 
 	function addOption() {
-		games = [...games, { name: '', weight: 50, hide: false }];
+		weightedOptions = [...weightedOptions, { name: '', weight: 50, hide: false }];
 	}
 
 	/**
-	 * @param {gameData} selectedGame
+	 * @param {optionData} selectedOption
 	 */
-	function removeOption(selectedGame) {
-		games.forEach((game, index) => {
-			if (game == selectedGame) {
-				games.splice(index, 1);
+	function removeOption(selectedOption) {
+		weightedOptions.forEach((option, index) => {
+			if (option == selectedOption) {
+				weightedOptions.splice(index, 1);
 			}
 		});
-		games = games;
+		weightedOptions = weightedOptions;
 	}
 </script>
-
 
 <div class:row={!expanded} class="outer container">
 	<button
@@ -106,57 +100,67 @@
 		on:click={expandOrShorten}
 	>
 		<i class:rotated={expanded} class="fa-solid fa-carrot"></i>
-		<h3>game</h3>
+		<h3>option</h3>
 	</button>
 	<div class="inner container">
 		<div class:hidden={!expanded} class="vl" />
 		<div class="otherstuff container" class:col={expanded}>
 			<table class="value">
-				{#each games as game}
-					<tr class={game.hide ? 'hidden' : ''}>
-						<td
-							><input
-								class:minimized-data={!expanded}
-								type="text"
-								placeholder="Enter game name"
-								bind:value={game.name}
-							/></td
-						>
-						<td class:hidden={!expanded}><span> {getPercent(game)}%</span></td>
+				{#each weightedOptions as option}
+					<tr class={option.hide ? 'hidden' : ''}>
+						<td>
+							<div class:container={!expanded}>
+								{#if optionKeys.length === 0}
+									<input
+										class:minimized-data={!expanded}
+										type="text"
+										placeholder="Enter option name"
+										bind:value={option.name}
+									/>
+								{:else}
+									<select>
+										{#each optionKeys as option}
+											<option value={option}>{option}</option>
+										{/each}
+									</select>
+								{/if}
+							</div>
+						</td>
+						<td class:hidden={!expanded}><span> {getPercent(option)}%</span></td>
 						<td class:hidden={!expanded}>
 							<div class="container vertical-center">
 								<button
 									class="round-button"
 									title="Decrease to 0"
-									on:click={() => deselectOption(game)}
+									on:click={() => deselectOption(option)}
 								>
 									<i class:rotated={expanded} class="fa-solid fa-circle-minus"></i>
 								</button>
-								<input type="range" bind:value={game.weight} min="0" max="50" />
+								<input type="range" bind:value={option.weight} min="0" max="50" />
 								<button
 									class="round-button"
 									title="Increase to 50"
-									on:click={() => selectOption(game)}
+									on:click={() => selectOption(option)}
 								>
 									<i class:rotated={expanded} class="fa-solid fa-circle-plus"></i>
 								</button>
 							</div>
 						</td>
 						<td class:hidden={!expanded}
-							><input type="number" bind:value={game.weight} min="0" max="50" /></td
+							><input type="number" bind:value={option.weight} min="0" max="50" /></td
 						>
 						<td class:hidden={!expanded}>
 							<button
 								class="round-button secret"
 								title="Select this option and remove others"
-								on:click={() => deselectOtherOptions(game)}
+								on:click={() => deselectOtherOptions(option)}
 							>
 								<i class:rotated={expanded} class="fa-solid fa-wand-sparkles"></i>
 							</button>
 							<button
 								class="round-button secret"
 								title="Select this option and remove others"
-								on:click={() => removeOption(game)}
+								on:click={() => removeOption(option)}
 							>
 								<i class:rotated={expanded} class="fa-solid fa-xmark"></i>
 							</button>
@@ -255,7 +259,6 @@
 		border-color: dodgerblue;
 		color: dodgerblue;
 		background-color: transparent;
-
 	}
 
 	.minimized-data {
@@ -345,15 +348,19 @@
 	}
 
 	input[type='text'],
+	select,
 	input[type='range'] {
 		border: none;
-		width: 100%;
 		background-color: transparent;
 		text-align: center;
 	}
 
-	input[type='text']:focus {
+	input[type='text'],
+	input[type='range'] {
 		width: 100%;
+	}
+
+	input[type='text']:focus {
 		border-color: #ccc;
 		background-color: #eee;
 	}

@@ -3,8 +3,8 @@
  */
 
 /**
- * @exports  gameData
- * @typedef  gameData
+ * @exports  optionData
+ * @typedef  optionData
  * @type     {Object}
  * @property {string} name
  * @property {number} weight

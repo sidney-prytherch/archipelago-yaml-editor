@@ -2,9 +2,10 @@
 	import { read } from '$app/server';
 	import { datapackage } from './datapackage';
 	import jsyaml from 'js-yaml';
-	import OptionComponent from './OptionComponent.svelte';
+	import OptionComponent from './WeightedListComponent.svelte';
 	import './interfaces';
 	import '@fortawesome/fontawesome-free/css/all.min.css';
+	import StringListComponent from './WeightedListComponent.svelte';
 
 	//import { type Game, type Item, type ItemLink, type PlandoData, type PlandoItem, type Trigger } from './interfaces';
 
@@ -17,12 +18,13 @@
 	 */
 	let gameSettings = {};
 	/**
-	 * @type {gameData[]}
+	 * @type {optionData[]}
 	 */
 	let games = [
 		{ name: 'Hollow Knight', weight: 50, hide: false },
 		{ name: 'Super Mario World', weight: 0, hide: false }
 	];
+	let gameOptions = ['Hollow Knight', 'Super Mario World', 'Super Mario 64', 'A Link to the Past'];
 
 	function onChange() {
 		const file = input.files?.[0];
@@ -56,7 +58,7 @@
 	<h1>Amazing YAML editor</h1>
 	<input accept=".yml, .yaml" bind:this={input} on:change={onChange} type="file" />
 	<hr />
-	<OptionComponent bind:games={games} />
+	<StringListComponent bind:weightedOptions={games} bind:optionKeys={gameOptions} />
 	
 
 	<!-- {#each Object.keys(gameSettings) as key}
