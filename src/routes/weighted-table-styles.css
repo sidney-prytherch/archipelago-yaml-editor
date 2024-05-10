@@ -1,0 +1,28 @@
+table tr td:nth-child(1) {
+    width: 50%;
+    min-width: 128px;
+}
+
+table tr td:nth-child(2) {
+    width: 50%;
+}
+
+table tr td:nth-child(3) {
+    min-width: 60px;
+}
+
+table {
+    padding: 8px;
+    flex: 1;
+}
+
+td {
+    text-align: center;
+}
+
+table,
+td {
+    /* border-left: 0px solid;
+    border-right: 0px solid; */
+    border-collapse: collapse;
+}

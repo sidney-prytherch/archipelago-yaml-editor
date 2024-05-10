@@ -1,0 +1,35 @@
+
+.round-button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    color: dodgerblue;
+    white-space: nowrap
+}
+
+button {
+    cursor: pointer;
+}
+
+button > i {
+    font-size: 25px !important;
+
+}
+
+.create-row-button {
+    margin: 8px;
+    border-radius: 5px;
+    border-color: dodgerblue;
+    color: dodgerblue;
+    background-color: transparent;
+    padding: 8px;
+}
+
+tr:hover .secret {
+    visibility: visible;
+}
+
+.secret {
+    visibility: hidden;
+}

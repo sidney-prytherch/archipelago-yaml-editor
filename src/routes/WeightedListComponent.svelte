@@ -1,21 +1,24 @@
-<script>
-	import './interfaces';
+<script lang="ts">
+	import RangeSlider from 'svelte-range-slider-pips';
+
+
+    import type { OptionData } from './types';
 	import '@fortawesome/fontawesome-free/css/all.min.css';
+	import WeightComponent from './WeightComponent.svelte';
 
 	let expanded = true;
-	/**
-	 * @type {optionData[]}
-	 */
-	export let weightedOptions = [];
-	/**
-	 * @type {string[]}
-	 */
-	export let optionKeys = [];
+	export let weightedOptions:OptionData[] = [];
+	export let optionKeys: string[] = [];
+	export let optionName = "";
+	let _refs: HTMLSelectElement[] = [];
+	let refs: string[] = [];
+	$: refs = _refs.map(it => it == null ? '' : it.value);
 
 	function expandOrShorten() {
+		console.log(weightedOptions)
 		if (expanded) {
 			let optionsList = Object.values(weightedOptions);
-			let optionsWithZeroWeight = optionsList.filter((option) => option.weight == 0);
+			let optionsWithZeroWeight = optionsList.filter((option) => option.weight[0] == 0);
 			if (optionsWithZeroWeight.length == optionsList.length - 1) {
 				for (let option of optionsWithZeroWeight) {
 					option.hide = true;
@@ -32,123 +35,85 @@
 		}
 	}
 
-	/**
-	 * @param {optionData} option
-	 * @returns {number}
-	 */
-	function getPercent(option) {
+	function getPercent(option:OptionData):number {
 		let percent =
 			Math.round(
-				(10000 * option.weight) /
-					Object.values(weightedOptions).reduce((total, current) => (total += current.weight), 0)
+				(10000 * option.weight[0]) /
+					Object.values(weightedOptions).reduce((total, current) => (total += current.weight[0]), 0)
 			) / 100;
 		return percent || 0;
 	}
 
-	/**
-	 * @param {optionData} selectedOption
-	 */
-	function deselectOtherOptions(selectedOption) {
+	function deselectOtherOptions(selectedOption:OptionData) {
 		let optionsList = Object.values(weightedOptions);
 		for (let option of optionsList) {
 			if (option === selectedOption) {
-				option.weight = 50;
+				option.weight[0] = 50;
 			} else {
-				option.weight = 0;
+				option.weight[0] = 0;
 			}
 		}
 		weightedOptions = weightedOptions;
 	}
 
-	/**
-	 * @param {optionData} selectedOption
-	 */
-	function selectOption(selectedOption) {
-		selectedOption.weight = 50;
+	function selectOption(selectedOption:OptionData) {
+		selectedOption.weight[0] = 50;
 		weightedOptions = weightedOptions;
 	}
 
-	/**
-	 * @param {optionData} selectedOption
-	 */
-	function deselectOption(selectedOption) {
-		selectedOption.weight = 0;
+	function deselectOption(selectedOption:OptionData) {
+		selectedOption.weight[0] = 0;
 		weightedOptions = weightedOptions;
 	}
 
 	function addOption() {
-		weightedOptions = [...weightedOptions, { name: '', weight: 50, hide: false }];
+		weightedOptions = [...weightedOptions, { name: '', weight: [50], hide: false }];
 	}
 
-	/**
-	 * @param {optionData} selectedOption
-	 */
-	function removeOption(selectedOption) {
-		weightedOptions.forEach((option, index) => {
-			if (option == selectedOption) {
-				weightedOptions.splice(index, 1);
-			}
-		});
+	function removeOption(optionIndex:number) {
+		weightedOptions.splice(optionIndex, 1);
 		weightedOptions = weightedOptions;
 	}
 </script>
 
-<div class:row={!expanded} class="outer container">
+<div class:row={!expanded} class="horizontal container">
 	<button
 		title={expanded ? 'minimize options' : 'expand options'}
 		class="carrot key"
 		on:click={expandOrShorten}
 	>
 		<i class:rotated={expanded} class="fa-solid fa-carrot"></i>
-		<h3>option</h3>
+		<h3>{optionName}</h3>
 	</button>
-	<div class="inner container">
+	<div class="vertical container">
 		<div class:hidden={!expanded} class="vl" />
 		<div class="otherstuff container" class:col={expanded}>
 			<table class="value">
-				{#each weightedOptions as option}
+				{#each weightedOptions as option, optionIndex}
 					<tr class={option.hide ? 'hidden' : ''}>
 						<td>
 							<div class:container={!expanded}>
 								{#if optionKeys.length === 0}
 									<input
+										class:single-input={optionKeys.length == 0}
 										class:minimized-data={!expanded}
 										type="text"
 										placeholder="Enter option name"
 										bind:value={option.name}
 									/>
 								{:else}
-									<select>
-										{#each optionKeys as option}
-											<option value={option}>{option}</option>
+									<select 
+									bind:this={_refs[optionIndex]}
+									on:change={() => refs = refs}
+									bind:value={option.name}>
+										{#each optionKeys as optionKey}
+											<option disabled={refs.includes(optionKey)} value={optionKey}>{optionKey}</option>
 										{/each}
 									</select>
 								{/if}
 							</div>
 						</td>
-						<td class:hidden={!expanded}><span> {getPercent(option)}%</span></td>
-						<td class:hidden={!expanded}>
-							<div class="container vertical-center">
-								<button
-									class="round-button"
-									title="Decrease to 0"
-									on:click={() => deselectOption(option)}
-								>
-									<i class:rotated={expanded} class="fa-solid fa-circle-minus"></i>
-								</button>
-								<input type="range" bind:value={option.weight} min="0" max="50" />
-								<button
-									class="round-button"
-									title="Increase to 50"
-									on:click={() => selectOption(option)}
-								>
-									<i class:rotated={expanded} class="fa-solid fa-circle-plus"></i>
-								</button>
-							</div>
-						</td>
-						<td class:hidden={!expanded}
-							><input type="number" bind:value={option.weight} min="0" max="50" /></td
-						>
+						<td class:hidden={!expanded}><WeightComponent getPercent={getPercent} bind:option={option}/></td>
 						<td class:hidden={!expanded}>
 							<button
 								class="round-button secret"
@@ -160,7 +125,7 @@
 							<button
 								class="round-button secret"
 								title="Select this option and remove others"
-								on:click={() => removeOption(option)}
+								on:click={() => removeOption(optionIndex)}
 							>
 								<i class:rotated={expanded} class="fa-solid fa-xmark"></i>
 							</button>
@@ -169,13 +134,16 @@
 				{/each}
 			</table>
 			<div class:hidden={!expanded} class="container end">
-				<button class="create-row-button" on:click={addOption}>Add Option</button>
+				<button class="create-row-button" disabled={refs.length === optionKeys.length} on:click={addOption}>Add Option</button>
 			</div>
 		</div>
 	</div>
 </div>
 
 <style>
+    @import './weighted-table-styles.css';
+	@import './button-styles.css';
+
 	*:not(h1) {
 		/* border: solid 1px black; */
 		font-size: large;
@@ -189,11 +157,12 @@
 		display: none !important;
 		visibility: hidden !important;
 	}
-	.outer {
+
+	.horizontal {
 		flex-direction: column; /* By default, stack elements vertically */
 	}
 
-	.inner {
+	.vertical {
 		flex-direction: row; /* By default, stack elements vertically */
 	}
 
@@ -201,21 +170,6 @@
 		width: 100%;
 		display: flex;
 		/* background-color: aqua; */
-	}
-
-	tr:hover .secret {
-		visibility: visible;
-	}
-
-	.secret {
-		visibility: hidden;
-	}
-
-	.fa-circle-plus,
-	.fa-circle-minus,
-	.fa-wand-sparkles,
-	.fa-xmark {
-		font-size: 25px !important;
 	}
 
 	.vl {
@@ -238,7 +192,7 @@
 		padding: 8px;
 	}
 
-	.outer.row {
+	.horizontal.row {
 		flex-direction: row;
 	}
 
@@ -247,19 +201,10 @@
 	}
 
 	.key,
-	table,
-	input,
-	.create-row-button {
+	input {
 		padding: 8px;
 	}
 
-	.create-row-button {
-		margin: 8px;
-		border-radius: 5px;
-		border-color: dodgerblue;
-		color: dodgerblue;
-		background-color: transparent;
-	}
 
 	.minimized-data {
 		text-align: start !important;
@@ -268,10 +213,6 @@
 	h3 {
 		color: black;
 		padding-left: 15px;
-	}
-
-	button {
-		cursor: pointer;
 	}
 
 	.carrot {
@@ -290,50 +231,12 @@
 		transform: rotate(-45deg);
 	}
 
-	table {
-		flex: 1;
-		/* background-color: green; */
-	}
-
-	table,
-	td {
-		/* border-left: 0px solid;
-		border-right: 0px solid; */
-		border-collapse: collapse;
-	}
-
-	td {
-		text-align: center;
+	.single-input {
+        margin-left: 14px;
 	}
 
 	input[type='number'] {
 		border: 1px solid #ccc;
-	}
-
-	.round-button {
-		color: dodgerblue;
-		background-color: transparent;
-		border: none;
-		box-sizing: border-box;
-	}
-
-	table tr td:nth-child(1) {
-		width: 40%;
-		min-width: 128px;
-	}
-
-	table tr td:nth-child(2),
-	table tr td:nth-child(4) {
-		width: 0%;
-		min-width: 64px;
-	}
-
-	table tr td:nth-child(3) {
-		width: 40%;
-	}
-
-	table tr td:nth-child(5) {
-		width: 10%;
 	}
 
 	input {
@@ -348,40 +251,19 @@
 	}
 
 	input[type='text'],
-	select,
-	input[type='range'] {
+	select {
 		border: none;
+   		outline: 0px;
 		background-color: transparent;
 		text-align: center;
 	}
 
-	input[type='text'],
-	input[type='range'] {
+	input[type='text'] {
 		width: 100%;
 	}
 
 	input[type='text']:focus {
 		border-color: #ccc;
 		background-color: #eee;
-	}
-
-	@media only screen and (max-width: 600px) {
-		input[type='range'] {
-			display: none;
-		}
-
-		table tr td:nth-child(1) {
-			width: 45%;
-		}
-
-		table tr td:nth-child(3) {
-			width: 15%;
-		}
-	}
-
-	@media only screen and (max-width: 450px) {
-		table tr td:nth-child(3) {
-			display: none;
-		}
 	}
 </style>
