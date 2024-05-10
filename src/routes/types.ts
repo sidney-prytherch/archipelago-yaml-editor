@@ -1,10 +1,12 @@
 interface NumberRange {
     min: number,
-    max: number
+    max: number,
+    default?: number
 }
 
 interface OptionData {
-    name: string,
+    name?: string,
+    range?: number[],
     weight: number[],
     hide: boolean
 };

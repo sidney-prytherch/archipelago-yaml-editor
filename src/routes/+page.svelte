@@ -5,7 +5,7 @@
 	import WeightedNumberListComponent from './WeightedNumberListComponent.svelte';
 	import '@fortawesome/fontawesome-free/css/all.min.css';
 	import WeightedListComponent from './WeightedListComponent.svelte';
-	import type { OptionData } from './types';
+	import type { NumberRange, OptionData } from './types';
 
 	//import { type Game, type Item, type ItemLink, type PlandoData, type PlandoItem, type Trigger } from './interfaces';
 
@@ -17,7 +17,16 @@
 		{ name: 'Hollow Knight', weight: [50], hide: false },
 		{ name: 'Super Mario World', weight: [0], hide: false }
 	];
+	let gameinputs: OptionData[] = [
+		{ name: 'Hollow Knight', weight: [50], hide: false },
+		{ name: 'Super Mario World', weight: [0], hide: false }
+	];
 	let gameOptions = ['Hollow Knight', 'Super Mario World', 'Super Mario 64', 'A Link to the Past'];
+	let ranges: OptionData[] = [
+		{ range: [32], weight: [50], hide: false },
+		{ range: [24,26], weight: [0], hide: false }
+	];
+	let rangesOptions: NumberRange = { min: 20, max: 40, default: 32 };
 	// let requires = [
 	// 	{ name: 'plando', value: "items" },
 	// 	{ name: 'version', value: "0.4.6" }
@@ -63,45 +72,15 @@
 			bind:optionKeys={gameOptions}
 			optionName="game"
 		/>
-		<WeightedNumberListComponent
-			bind:weightedOptions={games}
+		<WeightedListComponent
+			bind:weightedOptions={gameinputs}
 			optionName="game"
-			optionRange={{ min: 0, max: 100 }}
 		/>
-
-		<!-- {#each Object.keys(gameSettings) as key}
-		<div class="container">
-			{#if typeof gameSettings[key] === 'object'}
-				<span class="key">{key}</span>
-				<div class="container full-width">
-					<div class="vl" />
-					<div class="right"></div>
-				</div>
-			{:else if typeof gameSettings[key] === 'string'}
-				<span class="key min-width">{key}</span>
-				<div class="vl hidden" />
-				<input type="text" value={gameSettings[key]} />
-			{/if}
-		</div> -->
-
-		<!-- <button class="btn"><i class="fa-solid fa-turn-down"></i></button>
-
-		{#if typeof gameSettings[key] === 'string'}
-			<tr>
-				<td>{key}</td>
-				<td colspan="2">
-					{#if key === 'description'}
-						<textarea placeholder="Write a description for these settings" rows="2">
-							{gameSettings[key]}
-						</textarea>
-					{:else}
-						<input type="text" value={gameSettings[key]} />
-					{/if}
-				</td>
-			</tr>
-		{/if}
-		<hr /> -->
-		<!-- {/each} -->
+		<WeightedNumberListComponent
+			bind:weightedOptions={ranges}
+			optionName="range"
+			optionRange={rangesOptions}
+		/>
 	</section>
 </main>
 

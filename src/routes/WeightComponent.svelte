@@ -1,10 +1,11 @@
 <script lang="ts">
 	import RangeSlider from 'svelte-range-slider-pips';
-	import type { NumberRange, OptionData } from './types';
+	import type { OptionData, NumberRange } from './types';
 
 	export let option: OptionData;
-	export const optionRange: NumberRange = { min: 0, max: 100 };
 	export let getPercent: (option: OptionData) => {};
+	const weightDefault: NumberRange = {min: 0, max: 50, default: 25}
+
 
 	function selectOption() {
 		option.weight[0] = 50;
@@ -23,7 +24,7 @@
 		<i class="fa-solid fa-circle-minus"></i>
 	</button>
 	<div class="slider">
-		<RangeSlider min={0} max={50} bind:values={option.weight} />
+		<RangeSlider float min={weightDefault.min} max={weightDefault.max} bind:values={option.weight} />
 	</div>
 	<button class="round-button" title="Increase to 50" on:click={() => selectOption()}>
 		<i class="fa-solid fa-circle-plus"></i>

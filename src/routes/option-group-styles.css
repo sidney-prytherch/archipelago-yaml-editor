@@ -1,0 +1,154 @@
+* {
+    /* border: 1px solid #000; */
+    font-size: large
+}
+
+.fa-carrot.rotated {
+    transform: rotate(-45deg)
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden !important
+}
+
+.add-options-buttons {
+    justify-content: center !important
+}
+
+textarea {
+    text-align: start !important;
+    margin-left: 23px;
+    background-color: transparent;
+    box-sizing: border-box
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around
+}
+
+.horizontal {
+    flex-direction: column
+}
+
+.vertical {
+    flex-direction: row
+}
+
+.minimized-data {
+    text-align: start !important
+}
+
+.single-input {
+    padding-left: 14px
+}
+
+input[type=number] {
+    border: 1px solid #ccc;
+    width: 100%;
+    min-width: 60px
+}
+
+input, textarea {
+    padding: 10px;
+    border-radius: 4px;
+    box-sizing: border-box
+}
+
+input[type=text], select {
+    border: none;
+    outline: 0;
+    background-color: transparent;
+    text-align: center
+}
+
+input[type=text], textarea {
+    width: 100%
+}
+
+input[type=text]:focus, textarea:focus {
+    background-color: #ffffffaa
+}
+
+:not(h1) {
+    font-size: large
+}
+
+.outer {
+    flex-direction: column
+}
+
+tr:hover .secret {
+    visibility: visible
+}
+
+.secret {
+    visibility: hidden
+}
+
+.vl {
+    background-color: #f90;
+    width: 3px;
+    margin: 0 8px 0 21px;
+    min-width: 3px
+}
+
+.key {
+    justify-content: left;
+    align-items: center;
+    display: flex
+}
+
+.create-row-button, .key, table {
+    padding: 8px
+}
+
+.create-row-button {
+    margin: 8px;
+    border-radius: 5px;
+    border-color: #1e90ff;
+    color: #1e90ff
+}
+
+h3 {
+    color: #000;
+    padding-left: 15px
+}
+
+button {
+    cursor: pointer;
+    background-color: transparent
+}
+
+table {
+    flex: 1
+}
+
+table, td {
+    border-collapse: collapse
+}
+
+td {
+    text-align: center
+}
+
+.round-button {
+    flex-grow: 4;
+    color: #1e90ff;
+    border: none;
+    box-sizing: border-box
+}
+
+.slider-div {
+    width: 100%;
+    min-width: 60px
+}
+
+.fa-carrot {
+    font-size: 30px !important;
+    transform: rotate(-135deg);
+    transition: transform .5s;
+    color: #f90
+}

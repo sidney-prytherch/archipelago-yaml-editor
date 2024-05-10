@@ -2,7 +2,6 @@
 .round-button {
     margin: 0;
     padding: 0;
-    border: none;
     background: none;
     color: dodgerblue;
     white-space: nowrap
@@ -10,6 +9,7 @@
 
 button {
     cursor: pointer;
+    border: none;
 }
 
 button > i {
