@@ -108,7 +108,7 @@
 				{/each}
 			</table>
 			<div class:hidden={!expanded} class="container add-options-buttons">
-				<button class="create-row-button" disabled={refs.length === optionKeys.length} on:click={addOption}>Add Option</button>
+				<button class="create-row-button" disabled={optionKeys.length > 0 && refs.length === optionKeys.length} on:click={addOption}>Add Option</button>
 			</div>
 		</div>
 	</div>
