@@ -18,62 +18,35 @@
 	}
 </script>
 
-<div class="container">
+<div class="container center-aligned">
 	<span>{getPercent(option)}%</span>
-	<button class="round-button" title="Decrease to 0" on:click={() => deselectOption()}>
-		<i class="fa-solid fa-circle-minus"></i>
-	</button>
 	<div class="slider">
 		<RangeSlider float min={weightDefault.min} max={weightDefault.max} bind:values={option.weight} />
 	</div>
-	<button class="round-button" title="Increase to 50" on:click={() => selectOption()}>
-		<i class="fa-solid fa-circle-plus"></i>
-	</button>
+	<!-- <button class="round-button" title="Decrease to 0" on:click={() => deselectOption()}>
+		<i class="fa-solid fa-circle-minus"></i>
+	</button> -->
 	<input type="number" bind:value={option.weight[0]} min="0" max="50" />
+	<!-- <button class="round-button" title="Increase to 50" on:click={() => selectOption()}>
+		<i class="fa-solid fa-circle-plus"></i>
+	</button> -->
 </div>
 
 <style>
 	@import './button-styles.css';
+	@import './option-group-styles.css';
 
-	span {
-		min-width: 60px;
-	}
-
-	.container {
-		display: flex;
-		align-items: center;
-	}
-
-	input[type='number'] {
-		border: 1px solid #ccc;
-		min-width: 60px;
-		padding: 8px;
-		border-radius: 4px;
-		box-sizing: border-box;
-	}
-
-	.slider {
-		width: 100%;
-		flex-grow: 1; /* Take up all remaining space */
-		margin: 0; /* Add margin for better spacing */
-	}
-
-	* {
-		/* border: solid 1px black; */
-		font-size: large;
-	}
-
-	.fa-circle-minus {
-		padding-left: 8px;
-	}
-
-	.fa-circle-plus {
-		padding-right: 8px;
+	button, input {
+		display: none;
 	}
 
 	@media only screen and (max-width: 600px) {
 		.slider {
 			display: none;
+		}
+
+		button, input {
+			display:inline-block;
 		}
 	}
 
@@ -82,4 +55,6 @@
 			display: none;
 		}
 	}
+
+	
 </style>

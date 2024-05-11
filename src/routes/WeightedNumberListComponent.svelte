@@ -1,5 +1,4 @@
 <script lang="ts">
-
 	import '@fortawesome/fontawesome-free/css/all.min.css';
 	import type { NumberRange, OptionData } from './types';
 	import RangeSlider from 'svelte-range-slider-pips';
@@ -43,11 +42,17 @@
 	}
 
 	function addRangeOption() {
-		weightedOptions = [...weightedOptions, { range: [optionRange.min, optionRange.max], weight: [50], hide: false }];
+		weightedOptions = [
+			...weightedOptions,
+			{ range: [optionRange.min, optionRange.max], weight: [50], hide: false }
+		];
 	}
 
 	function addNumberOption() {
-		weightedOptions = [...weightedOptions, { range: [optionRange.default || optionRange.min], weight: [50], hide: false }];
+		weightedOptions = [
+			...weightedOptions,
+			{ range: [optionRange.default || optionRange.min], weight: [50], hide: false }
+		];
 	}
 
 	function deselectOtherOptions(option: OptionData) {
@@ -59,7 +64,6 @@
 		removeOptionHelper(weightedOptions, option);
 		weightedOptions = weightedOptions;
 	}
-
 </script>
 
 <div class:vertical={!expanded} class="horizontal container">
@@ -78,9 +82,23 @@
 				{#each weightedOptions as option}
 					<tr class={option.hide ? 'hidden' : ''}>
 						<td>
-							<div class:container={!expanded}>
+							<div class="container">
 								<div class="slider-div">
-									<RangeSlider float min={optionRange.min} max={optionRange.max} range={(option.range) ? option.range.length > 1 : false} bind:values={option.range} />
+									<RangeSlider
+										float
+										min={optionRange.min}
+										max={optionRange.max}
+										range={option.range ? option.range.length > 1 : false}
+										bind:values={option.range}
+									/>
+								</div>
+								<div class="key">
+									<select disabled={option.range ? option.range.length <= 1 : true}>
+										<option value="random">random</option>
+										<option value="random-low">random-low</option>
+										<option value="random-middle">random-middle</option>
+										<option value="random-high">random-high</option>
+									</select>
 								</div>
 							</div>
 						</td>
@@ -88,7 +106,7 @@
 
 						<td class:hidden={!expanded}>
 							<div class="secret">
-								<WeightedOptionButtonsComponent {deselectOtherOptions} {removeOption} bind:option={option}/>
+								<WeightedOptionButtonsComponent {deselectOtherOptions} {removeOption} bind:option />
 							</div>
 						</td>
 					</tr>
@@ -106,4 +124,6 @@
 	@import './weighted-table-styles.css';
 	@import './button-styles.css';
 	@import './option-group-styles.css';
+
+	
 </style>
