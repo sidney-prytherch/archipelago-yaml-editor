@@ -6,27 +6,27 @@
 	export let getPercent: (option: OptionData) => {};
 	const weightDefault: NumberRange = { min: 0, max: 50, default: 25 };
 
-	function selectOption() {
-		option.weight[0] = 50;
-		option = option;
-	}
+	// function selectOption() {
+	// 	option.weight[0] = 50;
+	// 	option = option;
+	// }
 
-	function deselectOption() {
-		option.weight[0] = 0;
-		option = option;
-	}
+	// function deselectOption() {
+	// 	option.weight[0] = 0;
+	// 	option = option;
+	// }
 </script>
 
 <div class="container center-aligned">
-	<span>{getPercent(option)}%</span>
 	<div class="slider">
 		<RangeSlider
 			float
 			min={weightDefault.min}
 			max={weightDefault.max}
 			pips
-			all="label"
-			rest={false}
+			pipstep={10}
+			first="label"
+			last="label"
 			bind:values={option.weight}
 		/>
 	</div>
@@ -37,6 +37,7 @@
 	<!-- <button class="round-button" title="Increase to 50" on:click={() => selectOption()}>
 		<i class="fa-solid fa-circle-plus"></i>
 	</button> -->
+	<span>{getPercent(option)}%</span>
 </div>
 
 <style>

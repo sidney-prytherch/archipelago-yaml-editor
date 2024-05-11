@@ -10,6 +10,21 @@
 	export let weightedOptions: OptionData[] = [];
 	export let optionRange: NumberRange;
 	export let optionName = '';
+	let pipStep = 0;
+	const rangeLength = optionRange.max - optionRange.min;
+	const pipStepRange = [Math.round(rangeLength / 10.0), Math.round(rangeLength / 2.0)];
+	for (
+		let potentialPipStep = pipStepRange[0];
+		potentialPipStep < pipStepRange[1];
+		potentialPipStep++
+	) {
+		console.log(potentialPipStep);
+		if (rangeLength % potentialPipStep === 0) {
+			pipStep = potentialPipStep;
+			break;
+		}
+	}
+	
 
 	function expandOrShorten() {
 		console.log(weightedOptions);
@@ -84,16 +99,30 @@
 						<td>
 							<div class="container">
 								<div class="slider-div">
-									<RangeSlider
-										float
-										min={optionRange.min}
-										max={optionRange.max}
-										range={option.range ? option.range.length > 1 : false}
-										bind:values={option.range}
-										pips
-										all="label"
-										rest={false}
-									/>
+									{#if pipStep > 0}
+										<RangeSlider
+											float
+											min={optionRange.min}
+											max={optionRange.max}
+											range={option.range ? option.range.length > 1 : false}
+											bind:values={option.range}
+											pips
+											pipstep={pipStep}
+											first="label"
+											last="label"
+										/>
+									{:else}
+										<RangeSlider
+											float
+											min={optionRange.min}
+											max={optionRange.max}
+											range={option.range ? option.range.length > 1 : false}
+											bind:values={option.range}
+											pips
+											all="label"
+											rest={false}
+										/>
+									{/if}
 								</div>
 								<div class="key">
 									<select disabled={option.range ? option.range.length <= 1 : true}>
@@ -105,7 +134,7 @@
 								</div>
 							</div>
 						</td>
-						<td hidden={!expanded}><WeightComponent {getPercent} bind:option /></td>
+						<td class:hidden={!expanded}><WeightComponent {getPercent} bind:option /></td>
 
 						<td class:hidden={!expanded}>
 							<div class="secret">
@@ -127,6 +156,4 @@
 	@import './weighted-table-styles.css';
 	@import './button-styles.css';
 	@import './option-group-styles.css';
-
-	
 </style>
