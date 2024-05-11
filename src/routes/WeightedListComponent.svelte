@@ -72,7 +72,7 @@
 		<div class="container" class:horizontal={expanded}>
 			<table class="value">
 				{#each weightedOptions as option, optionIndex}
-					<tr class={option.hide ? 'hidden' : ''}>
+					<tr class:borderless={!expanded} class:hidden={option.hide}>
 						<td>
 							<div class:container={!expanded} class:key={!expanded}>
 								{#if optionKeys.length === 0}

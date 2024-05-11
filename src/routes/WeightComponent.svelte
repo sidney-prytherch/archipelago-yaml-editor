@@ -4,8 +4,7 @@
 
 	export let option: OptionData;
 	export let getPercent: (option: OptionData) => {};
-	const weightDefault: NumberRange = {min: 0, max: 50, default: 25}
-
+	const weightDefault: NumberRange = { min: 0, max: 50, default: 25 };
 
 	function selectOption() {
 		option.weight[0] = 50;
@@ -21,7 +20,15 @@
 <div class="container center-aligned">
 	<span>{getPercent(option)}%</span>
 	<div class="slider">
-		<RangeSlider float min={weightDefault.min} max={weightDefault.max} bind:values={option.weight} />
+		<RangeSlider
+			float
+			min={weightDefault.min}
+			max={weightDefault.max}
+			pips
+			all="label"
+			rest={false}
+			bind:values={option.weight}
+		/>
 	</div>
 	<!-- <button class="round-button" title="Decrease to 0" on:click={() => deselectOption()}>
 		<i class="fa-solid fa-circle-minus"></i>
@@ -36,7 +43,8 @@
 	@import './button-styles.css';
 	@import './option-group-styles.css';
 
-	button, input {
+	button,
+	input {
 		display: none;
 	}
 
@@ -45,8 +53,9 @@
 			display: none;
 		}
 
-		button, input {
-			display:inline-block;
+		button,
+		input {
+			display: inline-block;
 		}
 	}
 
@@ -55,6 +64,4 @@
 			display: none;
 		}
 	}
-
-	
 </style>

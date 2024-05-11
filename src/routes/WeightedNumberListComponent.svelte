@@ -80,7 +80,7 @@
 		<div class="container" class:horizontal={expanded}>
 			<table class="value">
 				{#each weightedOptions as option}
-					<tr class={option.hide ? 'hidden' : ''}>
+					<tr class:borderless={!expanded} class:hidden={option.hide}>
 						<td>
 							<div class="container">
 								<div class="slider-div">
@@ -90,6 +90,9 @@
 										max={optionRange.max}
 										range={option.range ? option.range.length > 1 : false}
 										bind:values={option.range}
+										pips
+										all="label"
+										rest={false}
 									/>
 								</div>
 								<div class="key">

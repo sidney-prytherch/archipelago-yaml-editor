@@ -11,6 +11,14 @@ table tr td:nth-child(3) {
     min-width: 60px
 }
 
+tr {
+    border-bottom: 1px gray solid;
+}
+
+.borderless {
+    border-bottom: none;
+}
+
 table {
     padding: 8px;
     flex: 1
