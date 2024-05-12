@@ -65,8 +65,7 @@
 <main>
 	<section>
 		<h1>Amazing YAML editor</h1>
-		<input accept=".yml, .yaml" bind:this={input} on:change={onChange} type="file" />
-		<hr />
+		<!-- <input accept=".yml, .yaml" bind:this={input} on:change={onChange} type="file" /> -->
 		<StringComponent bind:optionValue={name} optionName="name" />
 		<MultilineStringComponent bind:optionValue={description} optionName="description" />
 		<WeightedListComponent

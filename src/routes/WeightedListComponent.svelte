@@ -61,7 +61,7 @@
 <div class:vertical={!expanded} class="horizontal container yaml-option">
 	<button
 		title={expanded ? 'minimize options' : 'expand options'}
-		class="key"
+		class="option-group-key"
 		on:click={expandOrShorten}
 	>
 		<i class:rotated={expanded} class="fa-solid fa-carrot"></i>

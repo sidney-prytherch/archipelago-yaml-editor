@@ -1,6 +1,5 @@
 * {
-    font-size: large;  
-    /* border: 1px solid #000 !important; */
+    font-size: large
 }
 
 .fa-carrot.rotated {
@@ -9,6 +8,7 @@
 
 .yaml-option {
     border-bottom: 1px solid gray;
+    padding: 4px 0
 }
 
 .hidden {
@@ -18,10 +18,6 @@
 
 .add-options-buttons {
     justify-content: center !important
-}
-
-textarea, input {
-    margin: 8px;
 }
 
 textarea {
@@ -37,7 +33,6 @@ textarea {
 }
 
 .slider {
-    /* width: 100%; */
     flex-grow: 1;
     margin: 0
 }
@@ -60,12 +55,18 @@ textarea {
     text-align: start !important
 }
 
+li>input {
+    margin: 0;
+    text-align: start !important
+}
+
 input[type=number] {
     border: 1px solid #ccc;
     min-width: 60px
 }
 
 input, textarea {
+    margin: 8px;
     padding: 8px;
     border-radius: 4px;
     box-sizing: border-box
@@ -79,8 +80,7 @@ input[type=text], select {
 }
 
 input[type=text], textarea {
-    flex-grow: 1;
-    /* width: 100% */
+    flex-grow: 1
 }
 
 input[type=text]:focus, textarea:focus {
@@ -106,18 +106,25 @@ tr:hover .secret {
 .vl {
     background-color: #f90;
     width: 3px;
-    margin: 0 8px 0 25px;
+    margin: 0 8px 0 27px;
     border-radius: 2px;
     min-width: 3px
 }
 
-.key {
+.key, .option-group-key {
     justify-content: left;
-    align-items: start;
-    display: flex;
+    display: flex
 }
 
-.create-row-button, .key, table {
+.key {
+    align-items: center;
+}
+
+.option-group-key {
+    align-items: start;
+}
+
+.create-row-button, .key, .option-group-key, table {
     padding: 0
 }
 
@@ -129,9 +136,7 @@ tr:hover .secret {
 
 h3 {
     white-space: nowrap;
-    color: #000;
-    margin: 8px;
-    padding: 8px;
+    color: #000
 }
 
 button {
@@ -171,7 +176,7 @@ span {
     font-size: 30px !important;
     transform: rotate(-135deg);
     transition: transform .5s;
-    padding: 12px;
+    padding: 14px;
     color: #f90
 }
 
