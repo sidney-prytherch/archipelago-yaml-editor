@@ -95,6 +95,7 @@
 		<div class="container" class:horizontal={expanded}>
 			<table class="value">
 				{#each weightedOptions as option}
+				{@const isRange = option.range ? option.range.length > 1 : false}
 					<tr class:borderless={!expanded} class:hidden={option.hide}>
 						<td>
 							<div class="container">
@@ -104,7 +105,7 @@
 											float
 											min={optionRange.min}
 											max={optionRange.max}
-											range={option.range ? option.range.length > 1 : false}
+											range={isRange}
 											bind:values={option.range}
 											pips
 											pipstep={pipStep}
@@ -116,7 +117,7 @@
 											float
 											min={optionRange.min}
 											max={optionRange.max}
-											range={option.range ? option.range.length > 1 : false}
+											range={isRange}
 											bind:values={option.range}
 											pips
 											all="label"
@@ -125,7 +126,7 @@
 									{/if}
 								</div>
 								<div class="key">
-									<select disabled={option.range ? option.range.length <= 1 : true}>
+									<select class:hidden={!expanded && !isRange} class:invisible={!isRange}>
 										<option value="random">random</option>
 										<option value="random-low">random-low</option>
 										<option value="random-middle">random-middle</option>
