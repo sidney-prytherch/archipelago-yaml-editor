@@ -1,5 +1,17 @@
 * {
-    font-size: large
+    font-size: large;
+    /* border: 1px solid black; */
+}
+
+.dropdown {
+    flex-grow: 1;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+h4 {
+    text-align: center;
+    margin:8px;
 }
 
 .fa-carrot.rotated {

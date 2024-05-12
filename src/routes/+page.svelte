@@ -25,10 +25,41 @@
 	let gameOptions = ['Hollow Knight', 'Super Mario World', 'Super Mario 64', 'A Link to the Past'];
 	let ranges: OptionData[] = [
 		{ range: [32], weight: [50], hide: false },
-		{ range: [24,26], weight: [0], hide: false }
+		{ range: [24, 26], weight: [0], hide: false }
 	];
 	let rangesOptions: NumberRange = { min: 20, max: 40, default: 32 };
-	let stringList = ['Sword Upgrade', 'Shield Upgrade'];
+	let stringList = [
+		'item 1',
+		'item 2',
+		'item 3',
+		'item 4',
+		'sword 5',
+		'item 6',
+		'item 7',
+		'item 8',
+		'item 9',
+		'item 10',
+		'item 11',
+		'item 12',
+		'item 13',
+		'sword 14',
+		'item 15',
+		'item 16',
+		'item 17',
+		'item 18',
+		'item 19',
+		'item 20',
+		'item 21',
+		'sword 22',
+		'item 23',
+		'item 24',
+		'item 25',
+		'item 26',
+		'item 27',
+		'item 28',
+		'item 29',
+		'item 30'
+	];
 	// let requires = [
 	// 	{ name: 'plando', value: "items" },
 	// 	{ name: 'version', value: "0.4.6" }
@@ -73,14 +104,8 @@
 			bind:optionKeys={gameOptions}
 			optionName="game"
 		/>
-		<StringListComponent
-			bind:list={stringList}
-			optionName="start inventory"
-		/>
-		<WeightedListComponent
-			bind:weightedOptions={gameinputs}
-			optionName="game"
-		/>
+		<StringListComponent bind:list={stringList} optionName="start inventory" />
+		<WeightedListComponent bind:weightedOptions={gameinputs} optionName="game" />
 		<WeightedNumberListComponent
 			bind:weightedOptions={ranges}
 			optionName="range"
@@ -98,17 +123,6 @@
 		width: 100%;
 		max-width: 64rem;
 		margin: 0 auto;
-		box-sizing: border-box;
-	}
-
-	*:not(h1) {
-		/* border: solid 1px black; */
-		font-size: large;
-	}
-
-	input {
-		padding: 0;
-		border-radius: 4px;
 		box-sizing: border-box;
 	}
 </style>
