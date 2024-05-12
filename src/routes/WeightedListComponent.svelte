@@ -58,7 +58,7 @@
 	}
 </script>
 
-<div class:vertical={!expanded} class="horizontal container">
+<div class:vertical={!expanded} class="horizontal container yaml-option">
 	<button
 		title={expanded ? 'minimize options' : 'expand options'}
 		class="key"
@@ -74,10 +74,10 @@
 				{#each weightedOptions as option, optionIndex}
 					<tr class:borderless={!expanded} class:hidden={option.hide}>
 						<td>
-							<div class:container={!expanded} class:key={!expanded}>
+							<!-- <div class:container={!expanded} class:key={!expanded}> -->
+								<div class="container" class:key={!expanded}>
 								{#if optionKeys.length === 0}
 									<input
-										class:single-input={optionKeys.length == 0}
 										class:minimized-data={!expanded}
 										type="text"
 										placeholder="Enter option name"

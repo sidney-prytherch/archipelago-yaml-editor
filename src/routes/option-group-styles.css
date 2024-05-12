@@ -1,10 +1,14 @@
 * {
-    /* border: 1px solid #000; */
-    font-size: large
+    font-size: large;  
+    /* border: 1px solid #000 !important; */
 }
 
 .fa-carrot.rotated {
     transform: rotate(-45deg)
+}
+
+.yaml-option {
+    border-bottom: 1px solid gray;
 }
 
 .hidden {
@@ -16,9 +20,12 @@
     justify-content: center !important
 }
 
+textarea, input {
+    margin: 8px;
+}
+
 textarea {
     text-align: start !important;
-    margin-left: 23px;
     background-color: transparent;
     box-sizing: border-box
 }
@@ -30,7 +37,7 @@ textarea {
 }
 
 .slider {
-    width: 100%;
+    /* width: 100%; */
     flex-grow: 1;
     margin: 0
 }
@@ -48,11 +55,9 @@ textarea {
 }
 
 .minimized-data {
+    margin: 8px;
+    padding: 8px;
     text-align: start !important
-}
-
-.single-input {
-    padding-left: 14px
 }
 
 input[type=number] {
@@ -61,7 +66,7 @@ input[type=number] {
 }
 
 input, textarea {
-    padding: 10px;
+    padding: 8px;
     border-radius: 4px;
     box-sizing: border-box
 }
@@ -74,7 +79,8 @@ input[type=text], select {
 }
 
 input[type=text], textarea {
-    width: 100%
+    flex-grow: 1;
+    /* width: 100% */
 }
 
 input[type=text]:focus, textarea:focus {
@@ -100,30 +106,32 @@ tr:hover .secret {
 .vl {
     background-color: #f90;
     width: 3px;
-    margin: 0 8px 0 21px;
+    margin: 0 8px 0 25px;
+    border-radius: 2px;
     min-width: 3px
 }
 
 .key {
     justify-content: left;
-    align-items: center;
-    display: flex
+    align-items: start;
+    display: flex;
 }
 
 .create-row-button, .key, table {
-    padding: 8px
+    padding: 0
 }
 
 .create-row-button {
-    margin: 8px;
     border-radius: 5px;
     border-color: #1e90ff;
     color: #1e90ff
 }
 
 h3 {
+    white-space: nowrap;
     color: #000;
-    padding-left: 15px
+    margin: 8px;
+    padding: 8px;
 }
 
 button {
@@ -163,6 +171,7 @@ span {
     font-size: 30px !important;
     transform: rotate(-135deg);
     transition: transform .5s;
+    padding: 12px;
     color: #f90
 }
 

@@ -24,9 +24,8 @@ tr {
     border: none
 }
 
-table {
-    padding: 8px;
-    flex: 1
+td {
+    padding: 0;
 }
 
 td {

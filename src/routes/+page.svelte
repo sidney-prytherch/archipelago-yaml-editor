@@ -6,6 +6,7 @@
 	import '@fortawesome/fontawesome-free/css/all.min.css';
 	import WeightedListComponent from './WeightedListComponent.svelte';
 	import type { NumberRange, OptionData } from './types';
+	import StringListComponent from './StringListComponent.svelte';
 
 	//import { type Game, type Item, type ItemLink, type PlandoData, type PlandoItem, type Trigger } from './interfaces';
 
@@ -27,6 +28,7 @@
 		{ range: [24,26], weight: [0], hide: false }
 	];
 	let rangesOptions: NumberRange = { min: 20, max: 40, default: 32 };
+	let stringList = ['Sword Upgrade', 'Shield Upgrade'];
 	// let requires = [
 	// 	{ name: 'plando', value: "items" },
 	// 	{ name: 'version', value: "0.4.6" }
@@ -72,6 +74,10 @@
 			bind:optionKeys={gameOptions}
 			optionName="game"
 		/>
+		<StringListComponent
+			bind:list={stringList}
+			optionName="start inventory"
+		/>
 		<WeightedListComponent
 			bind:weightedOptions={gameinputs}
 			optionName="game"
@@ -102,9 +108,8 @@
 	}
 
 	input {
-		padding: 10px;
+		padding: 0;
 		border-radius: 4px;
 		box-sizing: border-box;
-		padding: 8px;
 	}
 </style>

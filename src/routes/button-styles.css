@@ -8,13 +8,13 @@
 }
 
 button {
+    text-align: top;
     cursor: pointer;
     border: none;
 }
 
 button > i {
     font-size: 25px !important;
-
 }
 
 .create-row-button {

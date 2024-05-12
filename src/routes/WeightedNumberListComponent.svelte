@@ -81,7 +81,7 @@
 	}
 </script>
 
-<div class:vertical={!expanded} class="horizontal container">
+<div class:vertical={!expanded} class="horizontal container yaml-option">
 	<button
 		title={expanded ? 'minimize options' : 'expand options'}
 		class="key"
