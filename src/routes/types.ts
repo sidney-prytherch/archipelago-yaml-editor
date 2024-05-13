@@ -11,4 +11,11 @@ interface OptionData {
     hide: boolean
 };
 
-export type {NumberRange, OptionData}
+interface RadioList {
+    [key: string]: string;
+}
+interface CheckboxList {
+    [key: string]: boolean;
+}
+
+export type {NumberRange, OptionData, RadioList, CheckboxList}

@@ -35,3 +35,11 @@ td {
 table, td {
     border-collapse: collapse
 }
+
+.no-wrap {
+    text-wrap: nowrap;
+}
+
+.invisible-scrollbar {
+    overflow-y: scroll;
+}

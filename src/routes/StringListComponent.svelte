@@ -2,15 +2,14 @@
 	import SearchableCheckboxListComponent from './SearchableCheckboxListComponent.svelte';
 
 	import '@fortawesome/fontawesome-free/css/all.min.css';
+	import type { CheckboxList } from './types';
 
-	interface checkboxList {
-		[key: string]: boolean;
-	}
+
 	let expanded = true;
 	export let list: string[] = [];
 	export let optionName = '';
-	let selectionList: checkboxList = list.reduce(arrayToObjectHelper, {});
-	function arrayToObjectHelper(object: checkboxList, current: string): checkboxList {
+	let selectionList: CheckboxList = list.reduce(arrayToObjectHelper, {});
+	function arrayToObjectHelper(object: CheckboxList, current: string): CheckboxList {
 		return { ...object, [current]: false };
 	}
 	$: selectedItemsList = list.filter((key) => selectionList[key]);

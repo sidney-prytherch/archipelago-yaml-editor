@@ -7,8 +7,7 @@
 	import WeightedListComponent from './WeightedListComponent.svelte';
 	import type { NumberRange, OptionData } from './types';
 	import StringListComponent from './StringListComponent.svelte';
-
-	//import { type Game, type Item, type ItemLink, type PlandoData, type PlandoItem, type Trigger } from './interfaces';
+	import SortComponent from './SortComponent.svelte';
 
 	let name: string;
 	let description: string;
@@ -45,7 +44,7 @@
 		'sword 14',
 		'item 15',
 		'item 16',
-		'item 17',
+		'thing that has an exceptionally long name just for the sake of testing',
 		'item 18',
 		'item 19',
 		'item 20',
@@ -60,6 +59,49 @@
 		'item 29',
 		'item 30'
 	];
+	let itemList = [
+		'item 1',
+		'item 2',
+		'item 3',
+		'item 4',
+		'sword 5',
+		'item 6',
+		'item 7',
+		'item 8',
+		'item 9',
+		'item 10',
+		'item 11',
+		'item 12',
+		'item 13',
+		'sword 14',
+		'item 15',
+		'item 16',
+		'thing that has an exceptionally long name just for the sake of testing',
+		'item 18',
+		'item 19',
+		'item 20',
+		'item 21',
+		'sword 22',
+		'item 23',
+		'item 24',
+		'item 25',
+		'item 26',
+		'item 27',
+		'item 28',
+		'item 29',
+		'item 30'
+	];
+	let radioListLabels = ['Anywhere', 'Local Items', 'Non-local Items'];
+	let checkboxListLabel = ['Start Hints'];
+	let locationList = [
+		'location 12',
+		'location 22',
+		'location 32',
+		'location 42',
+		'location 52'
+	];
+	let locationListLabels = ['Any-Item Locations', 'Priority Locations', 'Excluded Locations']
+	let locationHintListLabel = ['Location Start Hints']
 	// let requires = [
 	// 	{ name: 'plando', value: "items" },
 	// 	{ name: 'version', value: "0.4.6" }
@@ -111,6 +153,12 @@
 			optionName="range"
 			optionRange={rangesOptions}
 		/>
+		<SortComponent listItemsGroupName="Item" bind:list={itemList} optionName="Local Items, Non-local Items, Start-Hints"
+		radioListLabels={radioListLabels}
+		checkboxListLabel={checkboxListLabel}/>
+		<SortComponent listItemsGroupName="Location" bind:list={locationList} optionName="Priority Locations, Excluded Locations, Start Location-Hints"
+		radioListLabels={locationListLabels}
+		checkboxListLabel={locationHintListLabel}/>
 	</section>
 </main>
 
