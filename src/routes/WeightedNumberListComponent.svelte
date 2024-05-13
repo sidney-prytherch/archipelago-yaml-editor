@@ -153,7 +153,6 @@
 								<div class="key">
 									<select
 										bind:this={_refs[optionIndex]}
-										class:hidden={!expanded}
 										on:change={() => {
 											if (numberAliasNames.includes(_refs[optionIndex].value)) {
 												option.range = structuredClone(numberAliases[_refs[optionIndex].value]);
