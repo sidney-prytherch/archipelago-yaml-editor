@@ -10,6 +10,8 @@
 	export let weightedOptions: OptionData[] = [];
 	export let optionRange: NumberRange;
 	export let optionName = '';
+	export let numberAliases: { [key: string]: number[] } = {};
+	let numberAliasNames = Object.keys(numberAliases);
 	let pipStep = 0;
 	const rangeLength = optionRange.max - optionRange.min;
 	const pipStepRange = [Math.round(rangeLength / 10.0), Math.round(rangeLength / 2.0)];
@@ -113,7 +115,6 @@
 								>
 									{#if pipStep > 0}
 										<RangeSlider
-											id="PriceGradient"
 											float
 											min={optionRange.min}
 											max={optionRange.max}
@@ -123,10 +124,15 @@
 											pipstep={pipStep}
 											first="label"
 											last="label"
+											on:change={(_) => {
+												if (!isRange) {
+													_refs[optionIndex].value = '';
+													refs = refs;
+												}
+											}}
 										/>
 									{:else}
 										<RangeSlider
-											id="PriceGradient"
 											float
 											min={optionRange.min}
 											max={optionRange.max}
@@ -135,20 +141,36 @@
 											pips
 											all="label"
 											rest={false}
+											on:change={(_) => {
+												if (!isRange) {
+													_refs[optionIndex].value = '';
+													refs = refs;
+												}
+											}}
 										/>
 									{/if}
 								</button>
 								<div class="key">
 									<select
 										bind:this={_refs[optionIndex]}
-										class:hidden={!expanded && !isRange}
-										class:invisible={!isRange}
-										on:change={() => (refs = refs)}
+										class:hidden={!expanded}
+										on:change={() => {
+											if (numberAliasNames.includes(_refs[optionIndex].value)) {
+												option.range = structuredClone(numberAliases[_refs[optionIndex].value]);
+											}
+											refs = refs;
+										}}
 									>
-										<option value="random">random</option>
-										<option value="random-low">random-low</option>
-										<option value="random-middle">random-middle</option>
-										<option value="random-high">random-high</option>
+										{#if !isRange}
+											<option value=""></option>
+										{/if}
+										<option disabled={!isRange} value="random">random</option>
+										<option disabled={!isRange} value="random-low">random-low</option>
+										<option disabled={!isRange} value="random-middle">random-middle</option>
+										<option disabled={!isRange} value="random-high">random-high</option>
+										{#each numberAliasNames as alias}
+											<option value={alias}>{alias}</option>
+										{/each}
 									</select>
 								</div>
 							</div>

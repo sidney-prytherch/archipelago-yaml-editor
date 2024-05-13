@@ -27,6 +27,12 @@
 		{ range: [0, 50], weight: [50], hide: false }
 	];
 	let rangesOptions: NumberRange = { min: 0, max: 50, default: 32 };
+	let progressionRanges = [
+		{ range: [50], weight: [50], hide: false },
+		{ range: [1, 50], weight: [50], hide: false }
+	];
+	let progressionRangesOptions = { min: 0, max: 99, default: 50 };
+	let progressionAliases = {disabled: [0], normal: [50], extreme: [99]};
 	let stringList = [
 		'item 1',
 		'item 2',
@@ -152,6 +158,12 @@
 			bind:weightedOptions={ranges}
 			optionName="range"
 			optionRange={rangesOptions}
+		/>
+		<WeightedNumberListComponent
+			bind:weightedOptions={progressionRanges}
+			optionName="progression balancing"
+			optionRange={progressionRangesOptions}
+			numberAliases={progressionAliases}
 		/>
 		<SortComponent listItemsGroupName="Item" bind:list={itemList} optionName="Local Items, Non-local Items, Start-Hints"
 		radioListLabels={radioListLabels}
