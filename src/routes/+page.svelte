@@ -24,10 +24,10 @@
 	];
 	let gameOptions = ['Hollow Knight', 'Super Mario World', 'Super Mario 64', 'A Link to the Past'];
 	let ranges: OptionData[] = [
-		{ range: [32], weight: [50], hide: false },
-		{ range: [24, 26], weight: [0], hide: false }
+		{ range: [32], weight: [0], hide: false },
+		{ range: [0, 50], weight: [50], hide: false }
 	];
-	let rangesOptions: NumberRange = { min: 20, max: 40, default: 32 };
+	let rangesOptions: NumberRange = { min: 0, max: 50, default: 32 };
 	let stringList = [
 		'item 1',
 		'item 2',

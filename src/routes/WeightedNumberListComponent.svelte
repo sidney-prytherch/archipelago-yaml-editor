@@ -24,7 +24,10 @@
 			break;
 		}
 	}
-	
+
+	let _refs: HTMLSelectElement[] = [];
+	let refs: string[] = [];
+	$: refs = _refs.map((it) => (it == null ? '' : it.value));
 
 	function expandOrShorten() {
 		console.log(weightedOptions);
@@ -94,14 +97,23 @@
 		<div class:hidden={!expanded} class="vl" />
 		<div class="container" class:horizontal={expanded}>
 			<table class="value">
-				{#each weightedOptions as option}
-				{@const isRange = option.range ? option.range.length > 1 : false}
+				{#each weightedOptions as option, optionIndex}
+					{@const isRange = option.range ? option.range.length > 1 : false}
 					<tr class:borderless={!expanded} class:hidden={option.hide}>
 						<td>
 							<div class="container">
-								<div class="slider-div">
+								<button
+									class="slider-div"
+									class:slider-low={refs[optionIndex] === 'random-low'}
+									class:slider-middle={refs[optionIndex] === 'random-middle'}
+									class:slider-high={refs[optionIndex] === 'random-high'}
+									on:click={() => {
+										console.log(refs);
+									}}
+								>
 									{#if pipStep > 0}
 										<RangeSlider
+											id="PriceGradient"
 											float
 											min={optionRange.min}
 											max={optionRange.max}
@@ -114,6 +126,7 @@
 										/>
 									{:else}
 										<RangeSlider
+											id="PriceGradient"
 											float
 											min={optionRange.min}
 											max={optionRange.max}
@@ -124,9 +137,14 @@
 											rest={false}
 										/>
 									{/if}
-								</div>
+								</button>
 								<div class="key">
-									<select class:hidden={!expanded && !isRange} class:invisible={!isRange}>
+									<select
+										bind:this={_refs[optionIndex]}
+										class:hidden={!expanded && !isRange}
+										class:invisible={!isRange}
+										on:change={() => (refs = refs)}
+									>
 										<option value="random">random</option>
 										<option value="random-low">random-low</option>
 										<option value="random-middle">random-middle</option>
