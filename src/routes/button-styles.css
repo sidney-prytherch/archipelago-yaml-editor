@@ -1,35 +1,40 @@
-
 .round-button {
     margin: 0;
     padding: 0;
-    background: none;
-    color: dodgerblue;
+    background: 0 0;
+    color: #1e90ff;
     white-space: nowrap
+}
+
+.search-dropdown-button {
+    color: #1e90ff;
+    padding: 8px;
+    margin: 8px
 }
 
 button {
     text-align: top;
     cursor: pointer;
-    border: none;
+    border: none
 }
 
-button > i {
-    font-size: 25px !important;
+button>i {
+    font-size: 25px !important
 }
 
 .create-row-button {
     margin: 8px;
     border-radius: 5px;
-    border-color: dodgerblue;
-    color: dodgerblue;
+    border-color: #1e90ff;
+    color: #1e90ff;
     background-color: transparent;
-    padding: 8px;
+    padding: 8px
 }
 
 tr:hover .secret {
-    visibility: visible;
+    visibility: visible
 }
 
 .secret {
-    visibility: hidden;
+    visibility: hidden
 }

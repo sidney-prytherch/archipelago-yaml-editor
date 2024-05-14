@@ -5,9 +5,10 @@
 	import WeightedNumberListComponent from './WeightedNumberListComponent.svelte';
 	import '@fortawesome/fontawesome-free/css/all.min.css';
 	import WeightedListComponent from './WeightedListComponent.svelte';
-	import type { NumberRange, OptionData } from './types';
+	import type { NumberRange, OptionData, StringNumberMap } from './types';
 	import StringListComponent from './StringListComponent.svelte';
 	import SortComponent from './SortComponent.svelte';
+	import ListNumberMapComponent from './ListNumberMapComponent.svelte';
 
 	let name: string;
 	let description: string;
@@ -29,10 +30,10 @@
 	let rangesOptions: NumberRange = { min: 0, max: 50, default: 32 };
 	let progressionRanges = [
 		{ range: [50], weight: [50], hide: false },
-		{ range: [1, 50], weight: [50], hide: false }
+		{ range: [1, 50], weight: [0], hide: false }
 	];
 	let progressionRangesOptions = { min: 0, max: 99, default: 50 };
-	let progressionAliases = {disabled: [0], normal: [50], extreme: [99]};
+	let progressionAliases = { disabled: [0], normal: [50], extreme: [99] };
 	let stringList = [
 		'item 1',
 		'item 2',
@@ -97,17 +98,14 @@
 		'item 29',
 		'item 30'
 	];
+	let startInventory: StringNumberMap[] = [{ name: itemList[0], value: 1 }]; //itemList.map(it => { return {name: it, value: 0, hide: true}});
+
+	let plandoCharmCosts: StringNumberMap[] = []; //itemList.map(it => { return {name: it, value: 0, hide: true}});
 	let radioListLabels = ['Anywhere', 'Local Items', 'Non-local Items'];
 	let checkboxListLabel = ['Start Hints'];
-	let locationList = [
-		'location 12',
-		'location 22',
-		'location 32',
-		'location 42',
-		'location 52'
-	];
-	let locationListLabels = ['Any-Item Locations', 'Priority Locations', 'Excluded Locations']
-	let locationHintListLabel = ['Location Start Hints']
+	let locationList = ['location 12', 'location 22', 'location 32', 'location 42', 'location 52'];
+	let locationListLabels = ['Any-Item Locations', 'Priority Locations', 'Excluded Locations'];
+	let locationHintListLabel = ['Location Start Hints'];
 	// let requires = [
 	// 	{ name: 'plando', value: "items" },
 	// 	{ name: 'version', value: "0.4.6" }
@@ -152,12 +150,22 @@
 			bind:optionKeys={gameOptions}
 			optionName="game"
 		/>
-		<StringListComponent bind:list={stringList} optionName="start inventory" />
+		<StringListComponent bind:list={stringList} optionName="list select" />
 		<WeightedListComponent bind:weightedOptions={gameinputs} optionName="game" />
 		<WeightedNumberListComponent
 			bind:weightedOptions={ranges}
 			optionName="range"
 			optionRange={rangesOptions}
+		/>
+		<ListNumberMapComponent
+			bind:weightedOptions={startInventory}
+			optionName="start inventory"
+			optionKeys={itemList}
+		/>
+
+		<ListNumberMapComponent
+			bind:weightedOptions={plandoCharmCosts}
+			optionName="plando charm costs"
 		/>
 		<WeightedNumberListComponent
 			bind:weightedOptions={progressionRanges}
@@ -165,12 +173,20 @@
 			optionRange={progressionRangesOptions}
 			numberAliases={progressionAliases}
 		/>
-		<SortComponent listItemsGroupName="Item" bind:list={itemList} optionName="Local Items, Non-local Items, Start-Hints"
-		radioListLabels={radioListLabels}
-		checkboxListLabel={checkboxListLabel}/>
-		<SortComponent listItemsGroupName="Location" bind:list={locationList} optionName="Priority Locations, Excluded Locations, Start Location-Hints"
-		radioListLabels={locationListLabels}
-		checkboxListLabel={locationHintListLabel}/>
+		<SortComponent
+			listItemsGroupName="Item"
+			bind:list={itemList}
+			optionName="Local Items, Non-local Items, Start-Hints"
+			{radioListLabels}
+			{checkboxListLabel}
+		/>
+		<SortComponent
+			listItemsGroupName="Location"
+			bind:list={locationList}
+			optionName="Priority Locations, Excluded Locations, Start Location-Hints"
+			radioListLabels={locationListLabels}
+			checkboxListLabel={locationHintListLabel}
+		/>
 	</section>
 </main>
 
@@ -184,5 +200,6 @@
 		max-width: 64rem;
 		margin: 0 auto;
 		box-sizing: border-box;
+		margin-bottom: 60px;
 	}
 </style>

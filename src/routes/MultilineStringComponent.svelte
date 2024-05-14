@@ -1,11 +1,7 @@
 <script type="ts">
 	import '@fortawesome/fontawesome-free/css/all.min.css';
 
-
 	export let optionName = '';
-	/**
-	 * @type {string}
-	 */
 	export let optionValue = '';
 </script>
 
@@ -17,7 +13,6 @@
 
 <style>
 	@import './option-group-styles.css';
-
 
 	* {
 		/* border: solid 1px black; */

@@ -1,20 +1,20 @@
 <script lang="ts">
-    import type { OptionData } from './types';
+	import type { OptionData } from './types';
 	import '@fortawesome/fontawesome-free/css/all.min.css';
 	import WeightComponent from './WeightComponent.svelte';
 	import WeightedOptionButtonsComponent from './WeightedOptionButtonsComponent.svelte';
 	import { deselectOtherOptionsHelper, removeOptionHelper } from './optionButtons';
 
 	let expanded = true;
-	export let weightedOptions:OptionData[] = [];
+	export let weightedOptions: OptionData[] = [];
 	export let optionKeys: string[] = [];
-	export let optionName = "";
+	export let optionName = '';
 	let _refs: HTMLSelectElement[] = [];
 	let refs: string[] = [];
-	$: refs = _refs.map(it => it == null ? '' : it.value);
+	$: refs = _refs.map((it) => (it == null ? '' : it.value));
 
 	function expandOrShorten() {
-		console.log(weightedOptions)
+		console.log(weightedOptions);
 		if (expanded) {
 			let optionsList = Object.values(weightedOptions);
 			let optionsWithZeroWeight = optionsList.filter((option) => option.weight[0] == 0);
@@ -34,7 +34,7 @@
 		}
 	}
 
-	function getPercent(option:OptionData):number {
+	function getPercent(option: OptionData): number {
 		let percent =
 			Math.round(
 				(10000 * option.weight[0]) /
@@ -75,7 +75,7 @@
 					<tr class:borderless={!expanded} class:hidden={option.hide}>
 						<td>
 							<!-- <div class:container={!expanded} class:key={!expanded}> -->
-								<div class="container" class:key={!expanded}>
+							<div class="container" class:key={!expanded}>
 								{#if optionKeys.length === 0}
 									<input
 										class:minimized-data={!expanded}
@@ -84,38 +84,45 @@
 										bind:value={option.name}
 									/>
 								{:else}
-									<select 
-									class:minimized-data={!expanded}
-									bind:this={_refs[optionIndex]}
-									on:change={() => refs = refs}
-									bind:value={option.name}>
+									<select
+										class:minimized-data={!expanded}
+										bind:this={_refs[optionIndex]}
+										on:change={() => (refs = refs)}
+										bind:value={option.name}
+									>
 										{#each optionKeys as optionKey}
-											<option disabled={refs.includes(optionKey)} value={optionKey}>{optionKey}</option>
+											<option disabled={refs.includes(optionKey)} value={optionKey}
+												>{optionKey}</option
+											>
 										{/each}
 									</select>
 								{/if}
 							</div>
 						</td>
 						<td class:hidden={!expanded}>
-							<WeightComponent getPercent={getPercent} bind:option={option}/>
+							<WeightComponent {getPercent} bind:option />
 						</td>
 						<td class:hidden={!expanded}>
 							<div class="secret">
-								<WeightedOptionButtonsComponent {deselectOtherOptions} {removeOption} bind:option={option}/>
+								<WeightedOptionButtonsComponent {deselectOtherOptions} {removeOption} bind:option />
 							</div>
 						</td>
 					</tr>
 				{/each}
 			</table>
 			<div class:hidden={!expanded} class="container add-options-buttons">
-				<button class="create-row-button" disabled={optionKeys.length > 0 && refs.length === optionKeys.length} on:click={addOption}>Add Option</button>
+				<button
+					class="create-row-button"
+					disabled={optionKeys.length > 0 && refs.length === optionKeys.length}
+					on:click={addOption}>Add Option</button
+				>
 			</div>
 		</div>
 	</div>
 </div>
 
 <style>
-    @import './weighted-table-styles.css';
+	@import './weighted-table-styles.css';
 	@import './button-styles.css';
 	@import './option-group-styles.css';
 </style>

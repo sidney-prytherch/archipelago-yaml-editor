@@ -2,7 +2,6 @@
 	import '@fortawesome/fontawesome-free/css/all.min.css';
 	import type { CheckboxList, RadioList } from './types';
 
-
 	let searchValue = '';
 
 	export let listItemGroupName = '';

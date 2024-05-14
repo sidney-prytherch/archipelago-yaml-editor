@@ -11,6 +11,11 @@ interface OptionData {
     hide: boolean
 };
 
+interface StringNumberMap {
+    name?: string,
+    value: number
+};
+
 interface RadioList {
     [key: string]: string;
 }
@@ -18,4 +23,4 @@ interface CheckboxList {
     [key: string]: boolean;
 }
 
-export type {NumberRange, OptionData, RadioList, CheckboxList}
+export type { NumberRange, OptionData, RadioList, CheckboxList, StringNumberMap }

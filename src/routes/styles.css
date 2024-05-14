@@ -22,7 +22,9 @@ body {
 	background-image: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.75) 0, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, var(--color-bg-0) 0, var(--color-bg-1) 15%, var(--color-bg-2) 50%)
 }
 
-h1, h2, p {
+h1,
+h2,
+p {
 	font-weight: 400
 }
 
@@ -68,7 +70,8 @@ pre {
 	margin: 0 auto
 }
 
-button, input {
+button,
+input {
 	font-size: inherit;
 	font-family: inherit
 }
@@ -131,6 +134,9 @@ button:focus:not(:focus-visible) {
 	display: none
 }
 
-.slider-div .rangeSlider .rangeFloat, .slider-div .rangeSlider.hoverable .rangeFloat, .slider-div .rangeSlider:active .rangeFloat, .slider-div .rangeSlider:hover .rangeFloat {
+.slider-div .rangeSlider .rangeFloat,
+.slider-div .rangeSlider.hoverable .rangeFloat,
+.slider-div .rangeSlider:active .rangeFloat,
+.slider-div .rangeSlider:hover .rangeFloat {
 	background: var(--color1)
 }

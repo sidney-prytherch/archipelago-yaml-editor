@@ -1,23 +1,22 @@
 * {
-    font-size: large;
-    /* border: 1px solid black; */
+    font-size: large
 }
 
 .dropdown {
     flex-grow: 1;
     max-height: 400px;
-    overflow-y: auto;
+    overflow-y: auto
 }
 
 .short-scroll {
     flex-grow: 1;
     max-height: 200px;
-    overflow-y: auto;
+    overflow-y: auto
 }
 
 h4 {
     text-align: center;
-    margin:8px;
+    margin: 8px
 }
 
 .fa-carrot.rotated {
@@ -117,7 +116,7 @@ tr:hover .secret {
     visibility: visible
 }
 
-.secret, .invisible {
+.invisible, .secret {
     visibility: hidden
 }
 
@@ -135,11 +134,11 @@ tr:hover .secret {
 }
 
 .key {
-    align-items: center;
+    align-items: center
 }
 
 .option-group-key {
-    align-items: start;
+    align-items: start
 }
 
 .create-row-button, .key, .option-group-key, table {
@@ -199,7 +198,7 @@ span {
 }
 
 @media only screen and (max-width:600px) {
-    .slider, .invisible {
+    .invisible, .slider {
         display: none
     }
 

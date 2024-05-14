@@ -4,29 +4,29 @@
 	import SearchableMultiCheckboxComponent from './SearchableMultiCheckboxComponent.svelte';
 	import type { CheckboxList, RadioList } from './types';
 
-	
 	let expanded = true;
-	export let listItemsGroupName = "";
+	export let listItemsGroupName = '';
 	export let list: string[] = [];
 	export let optionName = '';
 	export let radioListLabels: string[] = [];
 	export let checkboxListLabel: string[] = [];
 
-
 	let radioGroupList: RadioList = list.reduce(arrayToRadioObjectHelper, {});
-	let checkboxList: CheckboxList[] = checkboxListLabel.map(_ => list.reduce(arrayToCheckboxObjectHelper, {}));
+	let checkboxList: CheckboxList[] = checkboxListLabel.map((_) =>
+		list.reduce(arrayToCheckboxObjectHelper, {})
+	);
 	function arrayToRadioObjectHelper(object: RadioList, current: string): RadioList {
 		return { ...object, [current]: radioListLabels[0] };
 	}
 	function arrayToCheckboxObjectHelper(object: CheckboxList, current: string): CheckboxList {
 		return { ...object, [current]: false };
 	}
-	$: radioButtonStringLists = radioListLabels.map(label => 
+	$: radioButtonStringLists = radioListLabels.map((label) =>
 		list.filter((key) => radioGroupList[key] === label)
-	)
-	$: checkboxButtonStringLists = checkboxList.map(checkboxGroup => 
+	);
+	$: checkboxButtonStringLists = checkboxList.map((checkboxGroup) =>
 		list.filter((key) => checkboxGroup[key])
-	)
+	);
 
 	// let radioGroupList: RadioList = list.reduce(arrayToRadioObjectHelper, {});
 	// let checkboxList: CheckboxList[] = checkboxListLabel.map(_ => list.reduce(arrayToCheckboxObjectHelper, {}));
@@ -36,10 +36,10 @@
 	// function arrayToCheckboxObjectHelper(object: CheckboxList, current: string): CheckboxList {
 	// 	return { ...object, [`${listItemsGroupName}${current}`]: false };
 	// }
-	// $: radioButtonStringLists = radioListLabels.map(label => 
+	// $: radioButtonStringLists = radioListLabels.map(label =>
 	// 	list.filter((key) => radioGroupList[`${listItemsGroupName}${key}`] === label)
 	// )
-	// $: checkboxButtonStringLists = checkboxList.map(checkboxGroup => 
+	// $: checkboxButtonStringLists = checkboxList.map(checkboxGroup =>
 	// 	list.filter((key) => checkboxGroup[`${listItemsGroupName}${key}`])
 	// )
 
@@ -84,25 +84,37 @@
 </div>
 {#each radioButtonStringLists as stringList, listIndex}
 	{#if listIndex > 0}
+		<div
+			class:hidden={expanded}
+			class:vertical={!expanded}
+			class="horizontal container yaml-option"
+		>
+			<CarrotButtonComponent
+				bind:expanded
+				optionName={radioListLabels[listIndex]}
+				{expandOrShorten}
+			/>
+			<p class="minimized-data dropdown">
+				{#each stringList as item}
+					<em>{item}</em>&nbsp&nbsp
+				{/each}
+			</p>
+		</div>
+	{/if}
+{/each}
+{#each checkboxButtonStringLists as stringList, listIndex}
 	<div class:hidden={expanded} class:vertical={!expanded} class="horizontal container yaml-option">
-		<CarrotButtonComponent bind:expanded optionName="{radioListLabels[listIndex]}" {expandOrShorten} />
+		<CarrotButtonComponent
+			bind:expanded
+			optionName={checkboxListLabel[listIndex]}
+			{expandOrShorten}
+		/>
 		<p class="minimized-data dropdown">
 			{#each stringList as item}
 				<em>{item}</em>&nbsp&nbsp
 			{/each}
 		</p>
 	</div>
-	{/if}
-{/each}
-{#each checkboxButtonStringLists as stringList, listIndex}
-<div class:hidden={expanded} class:vertical={!expanded} class="horizontal container yaml-option">
-	<CarrotButtonComponent bind:expanded optionName="{checkboxListLabel[listIndex]}" {expandOrShorten} />
-	<p class="minimized-data dropdown">
-		{#each stringList as item}
-			<em>{item}</em>&nbsp&nbsp
-		{/each}
-	</p>
-</div>
 {/each}
 
 <style>
@@ -113,13 +125,5 @@
 	input {
 		flex-grow: 0 !important;
 		text-align: start !important;
-	}
-
-	em {
-		border-bottom: 1px solid black;
-	}
-
-	p {
-		padding: 8px;
 	}
 </style>

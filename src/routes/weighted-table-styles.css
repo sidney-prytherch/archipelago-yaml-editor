@@ -4,7 +4,7 @@ table tr td:nth-child(1) {
 }
 
 td:nth-child(1) {
-    border-right: 1px gray dashed;
+    border-right: 1px dashed gray
 }
 
 table tr td:nth-child(2) {
@@ -16,30 +16,37 @@ table tr td:nth-child(3) {
 }
 
 tr {
-    border-bottom: 1px gray solid;
-    border-top: 1px gray solid;
+    border-bottom: 1px solid gray;
+    border-top: 1px solid gray
 }
 
-.borderless, .borderless > td {
+.borderless,
+.borderless>td {
     border: none
 }
 
 td {
     padding: 0;
-}
-
-td {
     text-align: center
 }
 
-table, td {
+table,
+td {
     border-collapse: collapse
 }
 
 .no-wrap {
-    text-wrap: nowrap;
+    text-wrap: nowrap
 }
 
 .invisible-scrollbar {
-    overflow-y: scroll;
+    overflow-y: scroll
+}
+
+em {
+    border-bottom: 1px solid #000
+}
+
+p {
+    padding: 8px
 }

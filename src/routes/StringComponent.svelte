@@ -8,7 +8,12 @@
 <div class="container yaml-option">
 	<i class="fa-solid fa-carrot"></i>
 	<h3>{optionName}</h3>
-	<input class="minimized-data" type="text" placeholder="Enter {optionName}" bind:value={optionValue} />
+	<input
+		class="minimized-data"
+		type="text"
+		placeholder="Enter {optionName}"
+		bind:value={optionValue}
+	/>
 </div>
 
 <style>
@@ -18,5 +23,4 @@
 		align-items: center;
 		padding: 0;
 	}
-	
 </style>

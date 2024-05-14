@@ -1,4 +1,4 @@
-import type { OptionData } from "./types";
+import type { OptionData, StringNumberMap } from "./types";
 
 function deselectOtherOptionsHelper(weightedOptions: OptionData[], selectedOption: OptionData) {
     console.log(selectedOption);
@@ -18,4 +18,10 @@ function removeOptionHelper(weightedOptions: OptionData[], option: OptionData) {
     weightedOptions.splice(optionIndex, 1);
 }
 
-export {deselectOtherOptionsHelper, removeOptionHelper};
+function removeStringNumberMapHelper(weightedOptions: StringNumberMap[], option: StringNumberMap) {
+    console.log(option);
+    let optionIndex = weightedOptions.indexOf(option);
+    weightedOptions.splice(optionIndex, 1);
+}
+
+export { deselectOtherOptionsHelper, removeOptionHelper, removeStringNumberMapHelper };

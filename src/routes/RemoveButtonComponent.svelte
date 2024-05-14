@@ -1,20 +1,12 @@
 <script lang="ts">
 	import '@fortawesome/fontawesome-free/css/all.min.css';
-	import type { OptionData } from './types';
+	import type { OptionData, StringNumberMap } from './types';
 
-	export let option: OptionData;
-	export let removeOption: (option: OptionData) => void;
-	export let deselectOtherOptions: (option: OptionData) => void;
+	export let option: StringNumberMap;
+	export let removeOption: (option: StringNumberMap) => void;
 </script>
 
 <div class="container">
-	<button
-		class="round-button"
-		title="Select this option and remove others"
-		on:click={() => deselectOtherOptions(option)}
-	>
-		<i class="fa-solid fa-wand-sparkles"></i>
-	</button>
 	<button
 		class="round-button"
 		title="Select this option and remove others"

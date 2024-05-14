@@ -4,7 +4,6 @@
 	import '@fortawesome/fontawesome-free/css/all.min.css';
 	import type { CheckboxList } from './types';
 
-
 	let expanded = true;
 	export let list: string[] = [];
 	export let optionName = '';
@@ -46,7 +45,7 @@
 		</div>
 	</div>
 	<p class:hidden={expanded} class="minimized-data dropdown">
-		{#each selectedItemsList as item} 
+		{#each selectedItemsList as item}
 			<em>{item}</em>&nbsp&nbsp
 		{/each}
 	</p>
@@ -65,5 +64,4 @@
 	em {
 		border-bottom: 1px solid black;
 	}
-
 </style>
