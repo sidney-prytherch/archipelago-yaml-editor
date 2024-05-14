@@ -102,9 +102,9 @@
 </div>
 
 <style>
-	@import './weighted-table-styles.css';
-	@import './button-styles.css';
-	@import './option-group-styles.css';
+	@import './styles/weighted-table-styles.css';
+	@import './styles/button-styles.css';
+	@import './styles/option-group-styles.css';
 
 	.hint {
 		position: sticky;

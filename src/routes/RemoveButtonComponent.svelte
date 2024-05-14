@@ -17,7 +17,7 @@
 </div>
 
 <style>
-	@import './button-styles.css';
+	@import './styles/button-styles.css';
 
 	*:not(h1) {
 		font-size: large;

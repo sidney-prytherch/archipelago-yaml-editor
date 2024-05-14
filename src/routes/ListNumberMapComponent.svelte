@@ -9,9 +9,6 @@
 	export let weightedOptions: StringNumberMap[] = [];
 	export let optionKeys: string[] = [];
 	export let optionName = '';
-	let _refs: HTMLSelectElement[] = [];
-	let refs: string[] = [];
-	$: refs = _refs.map((it) => (it == null ? '' : it.value));
 
 	function expandOrShorten() {
 		expanded = !expanded;
@@ -45,7 +42,6 @@
 				{#each weightedOptions as option}
 					<tr class:borderless={!expanded} class:hidden={!expanded}>
 						<td>
-							<!-- <div class:container={!expanded} class:key={!expanded}> -->
 							<div class="container" class:key={!expanded}>
 								{#if optionKeys.length === 0}
 									<input
@@ -61,15 +57,6 @@
 										)}
 										bind:value={option.name}
 									/>
-									<!-- <select 
-									class:minimized-data={!expanded}
-									bind:this={_refs[optionIndex]}
-									on:change={() => refs = refs}
-									bind:value={option.name}>
-										{#each optionKeys as optionKey}
-											<option disabled={refs.includes(optionKey)} value={optionKey}>{optionKey}</option>
-										{/each}
-									</select> -->
 								{/if}
 							</div>
 						</td>
@@ -87,7 +74,7 @@
 			<div class:hidden={!expanded} class="container add-options-buttons">
 				<button
 					class="create-row-button"
-					disabled={optionKeys.length > 0 && refs.length === optionKeys.length}
+					disabled={optionKeys.length > 0 && weightedOptions.length === optionKeys.length}
 					on:click={addOption}>Add Option</button
 				>
 			</div>
@@ -103,7 +90,7 @@
 </div>
 
 <style>
-	@import './weighted-table-styles.css';
-	@import './button-styles.css';
-	@import './option-group-styles.css';
+	@import './styles/weighted-table-styles.css';
+	@import './styles/button-styles.css';
+	@import './styles/option-group-styles.css';
 </style>

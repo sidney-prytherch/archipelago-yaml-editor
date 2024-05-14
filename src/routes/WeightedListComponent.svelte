@@ -4,14 +4,12 @@
 	import WeightComponent from './WeightComponent.svelte';
 	import WeightedOptionButtonsComponent from './WeightedOptionButtonsComponent.svelte';
 	import { deselectOtherOptionsHelper, removeOptionHelper } from './optionButtons';
+	import SearchableDropdownComponent from './SearchableDropdownComponent.svelte';
 
 	let expanded = true;
 	export let weightedOptions: OptionData[] = [];
 	export let optionKeys: string[] = [];
 	export let optionName = '';
-	let _refs: HTMLSelectElement[] = [];
-	let refs: string[] = [];
-	$: refs = _refs.map((it) => (it == null ? '' : it.value));
 
 	function expandOrShorten() {
 		console.log(weightedOptions);
@@ -84,18 +82,12 @@
 										bind:value={option.name}
 									/>
 								{:else}
-									<select
-										class:minimized-data={!expanded}
-										bind:this={_refs[optionIndex]}
-										on:change={() => (refs = refs)}
+									<SearchableDropdownComponent
+										list={optionKeys.filter(
+											(it) => !weightedOptions.some((map) => map.name === it)
+										)}
 										bind:value={option.name}
-									>
-										{#each optionKeys as optionKey}
-											<option disabled={refs.includes(optionKey)} value={optionKey}
-												>{optionKey}</option
-											>
-										{/each}
-									</select>
+									/>
 								{/if}
 							</div>
 						</td>
@@ -113,7 +105,7 @@
 			<div class:hidden={!expanded} class="container add-options-buttons">
 				<button
 					class="create-row-button"
-					disabled={optionKeys.length > 0 && refs.length === optionKeys.length}
+					disabled={optionKeys.length > 0 && weightedOptions.length === optionKeys.length}
 					on:click={addOption}>Add Option</button
 				>
 			</div>
@@ -122,7 +114,7 @@
 </div>
 
 <style>
-	@import './weighted-table-styles.css';
-	@import './button-styles.css';
-	@import './option-group-styles.css';
+	@import './styles/weighted-table-styles.css';
+	@import './styles/button-styles.css';
+	@import './styles/option-group-styles.css';
 </style>

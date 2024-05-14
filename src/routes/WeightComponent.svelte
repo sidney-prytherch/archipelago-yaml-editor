@@ -41,8 +41,8 @@
 </div>
 
 <style>
-	@import './button-styles.css';
-	@import './option-group-styles.css';
+	@import './styles/button-styles.css';
+	@import './styles/option-group-styles.css';
 
 	button,
 	input {

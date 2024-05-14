@@ -12,7 +12,7 @@
 </div>
 
 <style>
-	@import './option-group-styles.css';
+	@import './styles/option-group-styles.css';
 
 	* {
 		/* border: solid 1px black; */
