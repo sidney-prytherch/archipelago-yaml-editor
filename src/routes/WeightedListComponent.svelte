@@ -5,6 +5,7 @@
 	import WeightedOptionButtonsComponent from './WeightedOptionButtonsComponent.svelte';
 	import { deselectOtherOptionsHelper, removeOptionHelper } from './optionButtons';
 	import SearchableDropdownComponent from './SearchableDropdownComponent.svelte';
+	import CarrotButtonComponent from './CarrotButtonComponent.svelte';
 
 	let expanded = true;
 	export let weightedOptions: OptionData[] = [];
@@ -57,19 +58,12 @@
 </script>
 
 <div class:vertical={!expanded} class="horizontal container yaml-option">
-	<button
-		title={expanded ? 'minimize options' : 'expand options'}
-		class="option-group-key"
-		on:click={expandOrShorten}
-	>
-		<i class:rotated={expanded} class="fa-solid fa-carrot"></i>
-		<h3>{optionName}</h3>
-	</button>
+	<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} />
 	<div class="vertical container">
 		<div class:hidden={!expanded} class="vl" />
 		<div class="container" class:horizontal={expanded}>
 			<table class="value">
-				{#each weightedOptions as option, optionIndex}
+				{#each weightedOptions as option}
 					<tr class:borderless={!expanded} class:hidden={option.hide}>
 						<td>
 							<!-- <div class:container={!expanded} class:key={!expanded}> -->

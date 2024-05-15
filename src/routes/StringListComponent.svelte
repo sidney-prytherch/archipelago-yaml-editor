@@ -3,6 +3,7 @@
 
 	import '@fortawesome/fontawesome-free/css/all.min.css';
 	import type { CheckboxList } from './types';
+	import CarrotButtonComponent from './CarrotButtonComponent.svelte';
 
 	let expanded = true;
 	export let list: string[] = [];
@@ -20,14 +21,7 @@
 </script>
 
 <div class:vertical={!expanded} class="horizontal container yaml-option">
-	<button
-		title={expanded ? 'minimize options' : 'expand options'}
-		class="option-group-key"
-		on:click={expandOrShorten}
-	>
-		<i class:rotated={expanded} class="fa-solid fa-carrot"></i>
-		<h3>{optionName}</h3>
-	</button>
+	<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} />
 	<div class:hidden={!expanded} class="vertical container">
 		<div class:hidden={!expanded} class="vl" />
 		<div class="container">

@@ -5,6 +5,7 @@
 	import WeightComponent from './WeightComponent.svelte';
 	import WeightedOptionButtonsComponent from './WeightedOptionButtonsComponent.svelte';
 	import { deselectOtherOptionsHelper, removeOptionHelper } from './optionButtons';
+	import CarrotButtonComponent from './CarrotButtonComponent.svelte';
 
 	let expanded = true;
 	export let weightedOptions: OptionData[] = [];
@@ -87,14 +88,7 @@
 </script>
 
 <div class:vertical={!expanded} class="horizontal container yaml-option">
-	<button
-		title={expanded ? 'minimize options' : 'expand options'}
-		class="option-group-key"
-		on:click={expandOrShorten}
-	>
-		<i class:rotated={expanded} class="fa-solid fa-carrot"></i>
-		<h3>{optionName}</h3>
-	</button>
+	<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} />
 	<div class="container">
 		<div class:hidden={!expanded} class="vl" />
 		<div class="container" class:horizontal={expanded}>

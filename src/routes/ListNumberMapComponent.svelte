@@ -4,6 +4,7 @@
 	import { removeStringNumberMapHelper } from './optionButtons';
 	import RemoveButtonComponent from './RemoveButtonComponent.svelte';
 	import SearchableDropdownComponent from './SearchableDropdownComponent.svelte';
+	import CarrotButtonComponent from './CarrotButtonComponent.svelte';
 
 	let expanded = true;
 	export let weightedOptions: StringNumberMap[] = [];
@@ -27,14 +28,7 @@
 </script>
 
 <div class:vertical={!expanded} class="horizontal container yaml-option">
-	<button
-		title={expanded ? 'minimize options' : 'expand options'}
-		class="option-group-key"
-		on:click={expandOrShorten}
-	>
-		<i class:rotated={expanded} class="fa-solid fa-carrot"></i>
-		<h3>{optionName}</h3>
-	</button>
+	<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} />
 	<div class="vertical container" class:hidden={!expanded}>
 		<div class="vl" />
 		<div class="container" class:horizontal={expanded}>
