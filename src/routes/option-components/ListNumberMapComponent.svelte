@@ -1,10 +1,10 @@
 <script lang="ts">
-	import type { StringNumberMap } from './types';
+	import type { StringNumberMap } from '../types/types';
 	import '@fortawesome/fontawesome-free/css/all.min.css';
-	import { removeStringNumberMapHelper } from './optionButtons';
-	import RemoveButtonComponent from './RemoveButtonComponent.svelte';
-	import SearchableDropdownComponent from './SearchableDropdownComponent.svelte';
-	import CarrotButtonComponent from './CarrotButtonComponent.svelte';
+	import { removeStringNumberMapHelper } from '../types/optionButtons';
+	import RemoveButtonComponent from '../sub-components/RemoveButtonComponent.svelte';
+	import SearchableDropdownComponent from '../sub-components/SearchableDropdownComponent.svelte';
+	import CarrotButtonComponent from '../sub-components/CarrotButtonComponent.svelte';
 
 	let expanded = true;
 	export let weightedOptions: StringNumberMap[] = [];
@@ -84,7 +84,7 @@
 </div>
 
 <style>
-	@import './styles/weighted-table-styles.css';
-	@import './styles/button-styles.css';
-	@import './styles/option-group-styles.css';
+	@import '../styles/weighted-table-styles.css';
+	@import '../styles/button-styles.css';
+	@import '../styles/option-group-styles.css';
 </style>

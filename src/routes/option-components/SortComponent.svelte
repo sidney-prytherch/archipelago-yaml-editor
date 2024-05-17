@@ -1,8 +1,8 @@
 <script lang="ts">
-	import CarrotButtonComponent from './CarrotButtonComponent.svelte';
+	import CarrotButtonComponent from '../sub-components/CarrotButtonComponent.svelte';
 	import '@fortawesome/fontawesome-free/css/all.min.css';
-	import SearchableMultiCheckboxComponent from './SearchableMultiCheckboxComponent.svelte';
-	import type { StringBooleanMap, RadioList } from './types';
+	import SearchableMultiCheckboxComponent from '../sub-components/SearchableMultiCheckboxComponent.svelte';
+	import type { StringBooleanMap, RadioList } from '../types/types';
 
 	let expanded = true;
 	export let listItemsGroupName = '';
@@ -118,9 +118,9 @@
 {/each}
 
 <style>
-	@import './styles/weighted-table-styles.css';
-	@import './styles/button-styles.css';
-	@import './styles/option-group-styles.css';
+	@import '../styles/weighted-table-styles.css';
+	@import '../styles/button-styles.css';
+	@import '../styles/option-group-styles.css';
 
 	input {
 		flex-grow: 0 !important;

@@ -1,15 +1,15 @@
 <script lang="ts">
 	import './styles.css';
-	import StringComponent from './StringComponent.svelte';
-	import MultilineStringComponent from './MultilineStringComponent.svelte';
-	import WeightedNumberListComponent from './WeightedNumberListComponent.svelte';
+	import StringComponent from './option-components/StringComponent.svelte';
+	import MultilineStringComponent from './option-components/MultilineStringComponent.svelte';
+	import WeightedNumberListComponent from './option-components/WeightedNumberListComponent.svelte';
 	import '@fortawesome/fontawesome-free/css/all.min.css';
-	import WeightedListComponent from './WeightedListComponent.svelte';
-	import type { ItemPlando, NumberRange, OptionData, StringNumberMap } from './types';
-	import StringListComponent from './StringListComponent.svelte';
-	import SortComponent from './SortComponent.svelte';
-	import ListNumberMapComponent from './ListNumberMapComponent.svelte';
-	import PlandoItemsComponent from './PlandoItemsComponent.svelte';
+	import WeightedListComponent from './option-components/WeightedListComponent.svelte';
+	import type { ItemPlando, NumberRange, OptionData, StringNumberMap } from './types/types';
+	import StringListComponent from './option-components/StringListComponent.svelte';
+	import SortComponent from './option-components/SortComponent.svelte';
+	import ListNumberMapComponent from './option-components/ListNumberMapComponent.svelte';
+	import PlandoItemsComponent from './option-components/PlandoItemsComponent.svelte';
 
 	let name: string;
 	let description: string;

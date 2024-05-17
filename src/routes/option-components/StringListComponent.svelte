@@ -1,9 +1,9 @@
 <script lang="ts">
-	import SearchableCheckboxListComponent from './SearchableCheckboxListComponent.svelte';
+	import SearchableCheckboxListComponent from '../sub-components/SearchableCheckboxListComponent.svelte';
 
 	import '@fortawesome/fontawesome-free/css/all.min.css';
-	import type { StringBooleanMap } from './types';
-	import CarrotButtonComponent from './CarrotButtonComponent.svelte';
+	import type { StringBooleanMap } from '../types/types';
+	import CarrotButtonComponent from '../sub-components/CarrotButtonComponent.svelte';
 
 	let expanded = true;
 	export let list: string[] = [];
@@ -46,9 +46,9 @@
 </div>
 
 <style>
-	@import './styles/weighted-table-styles.css';
-	@import './styles/button-styles.css';
-	@import './styles/option-group-styles.css';
+	@import '../styles/weighted-table-styles.css';
+	@import '../styles/button-styles.css';
+	@import '../styles/option-group-styles.css';
 
 	input {
 		flex-grow: 0 !important;

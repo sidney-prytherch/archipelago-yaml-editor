@@ -1,11 +1,11 @@
 <script lang="ts">
 	import '@fortawesome/fontawesome-free/css/all.min.css';
-	import type { NumberRange, OptionData } from './types';
+	import type { NumberRange, OptionData } from '../types/types';
 	import RangeSlider from 'svelte-range-slider-pips';
-	import WeightComponent from './WeightComponent.svelte';
-	import WeightedOptionButtonsComponent from './WeightedOptionButtonsComponent.svelte';
-	import { deselectOtherOptionsHelper, removeOptionHelper } from './optionButtons';
-	import CarrotButtonComponent from './CarrotButtonComponent.svelte';
+	import WeightComponent from '../sub-components/WeightComponent.svelte';
+	import WeightedOptionButtonsComponent from '../sub-components/WeightedOptionButtonsComponent.svelte';
+	import { deselectOtherOptionsHelper, removeOptionHelper } from '../types/optionButtons';
+	import CarrotButtonComponent from '../sub-components/CarrotButtonComponent.svelte';
 
 	let expanded = true;
 	export let weightedOptions: OptionData[] = [];
@@ -186,7 +186,7 @@
 </div>
 
 <style>
-	@import './styles/weighted-table-styles.css';
-	@import './styles/button-styles.css';
-	@import './styles/option-group-styles.css';
+	@import '../styles/weighted-table-styles.css';
+	@import '../styles/button-styles.css';
+	@import '../styles/option-group-styles.css';
 </style>

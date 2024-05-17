@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '@fortawesome/fontawesome-free/css/all.min.css';
-	import type { ItemPlandoItemList } from './types';
+	import type { ItemPlandoItemList } from '../types/types';
 
 	let searchValue = '';
 
@@ -82,9 +82,9 @@
 </div>
 
 <style>
-	@import './styles/weighted-table-styles.css';
-	@import './styles/button-styles.css';
-	@import './styles/option-group-styles.css';
+	@import '../styles/weighted-table-styles.css';
+	@import '../styles/button-styles.css';
+	@import '../styles/option-group-styles.css';
 
 	.hint {
 		position: sticky;

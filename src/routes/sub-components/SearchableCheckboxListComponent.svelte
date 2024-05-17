@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '@fortawesome/fontawesome-free/css/all.min.css';
-	import type { StringBooleanMap } from './types';
+	import type { StringBooleanMap } from '../types/types';
 
 	let searchValue = '';
 	export let title = '';
@@ -56,9 +56,9 @@
 </div>
 
 <style>
-	@import './styles/weighted-table-styles.css';
-	@import './styles/button-styles.css';
-	@import './styles/option-group-styles.css';
+	@import '../styles/weighted-table-styles.css';
+	@import '../styles/button-styles.css';
+	@import '../styles/option-group-styles.css';
 
 	input {
 		flex-grow: 0 !important;

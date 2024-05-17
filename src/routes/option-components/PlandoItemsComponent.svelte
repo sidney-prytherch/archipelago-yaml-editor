@@ -1,11 +1,11 @@
 <script lang="ts">
 	import '@fortawesome/fontawesome-free/css/all.min.css';
-	import { removeItemPlandoGroupHelper } from './optionButtons';
-	import CarrotButtonComponent from './CarrotButtonComponent.svelte';
-	import type { ItemPlando, ItemPlandoItemGroup, StringBooleanMap } from './types';
-	import SearchableStringNumberMapComponent from './SearchableStringNumberMapComponent.svelte';
-	import { ItemPlandoCount, ItemPlandoForce, ItemPlandoWorld } from './enums';
-	import SearchableCheckboxListComponent from './SearchableCheckboxListComponent.svelte';
+	import { removeItemPlandoGroupHelper } from '../types/optionButtons';
+	import CarrotButtonComponent from '../sub-components/CarrotButtonComponent.svelte';
+	import type { ItemPlando, ItemPlandoItemGroup } from '../types/types';
+	import SearchableStringNumberMapComponent from '../sub-components/SearchableStringNumberMapComponent.svelte';
+	import { ItemPlandoCount, ItemPlandoForce, ItemPlandoWorld } from '../types/enums';
+	import SearchableCheckboxListComponent from '../sub-components/SearchableCheckboxListComponent.svelte';
 	import RangeSlider from 'svelte-range-slider-pips';
 
 	let expanded = true;
@@ -276,9 +276,9 @@
 </div>
 
 <style>
-	@import './styles/weighted-table-styles.css';
-	@import './styles/button-styles.css';
-	@import './styles/option-group-styles.css';
+	@import '../styles/weighted-table-styles.css';
+	@import '../styles/button-styles.css';
+	@import '../styles/option-group-styles.css';
 
 	button {
 		height: 100%;

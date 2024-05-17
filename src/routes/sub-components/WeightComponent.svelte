@@ -1,6 +1,6 @@
 <script lang="ts">
 	import RangeSlider from 'svelte-range-slider-pips';
-	import type { OptionData, NumberRange } from './types';
+	import type { OptionData, NumberRange } from '../types/types';
 
 	export let option: OptionData;
 	export let getPercent: (option: OptionData) => {};
@@ -41,8 +41,8 @@
 </div>
 
 <style>
-	@import './styles/button-styles.css';
-	@import './styles/option-group-styles.css';
+	@import '../styles/button-styles.css';
+	@import '../styles/option-group-styles.css';
 
 	button,
 	input {
