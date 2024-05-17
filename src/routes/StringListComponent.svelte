@@ -2,14 +2,14 @@
 	import SearchableCheckboxListComponent from './SearchableCheckboxListComponent.svelte';
 
 	import '@fortawesome/fontawesome-free/css/all.min.css';
-	import type { CheckboxList } from './types';
+	import type { StringBooleanMap } from './types';
 	import CarrotButtonComponent from './CarrotButtonComponent.svelte';
 
 	let expanded = true;
 	export let list: string[] = [];
 	export let optionName = '';
-	let selectionList: CheckboxList = list.reduce(arrayToObjectHelper, {});
-	function arrayToObjectHelper(object: CheckboxList, current: string): CheckboxList {
+	let selectionList: StringBooleanMap = list.reduce(arrayToObjectHelper, {});
+	function arrayToObjectHelper(object: StringBooleanMap, current: string): StringBooleanMap {
 		return { ...object, [current]: false };
 	}
 	$: selectedItemsList = list.filter((key) => selectionList[key]);

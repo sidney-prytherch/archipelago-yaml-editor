@@ -16,8 +16,8 @@
 		<i class="fa-solid fa-wand-sparkles"></i>
 	</button>
 	<button
-		class="round-button"
-		title="Select this option and remove others"
+		class="delete-button"
+		title="Remove option"
 		on:click={() => removeOption(option)}
 	>
 		<i class="fa-solid fa-xmark"></i>

@@ -5,10 +5,11 @@
 	import WeightedNumberListComponent from './WeightedNumberListComponent.svelte';
 	import '@fortawesome/fontawesome-free/css/all.min.css';
 	import WeightedListComponent from './WeightedListComponent.svelte';
-	import type { NumberRange, OptionData, StringNumberMap } from './types';
+	import type { ItemPlando, NumberRange, OptionData, StringNumberMap } from './types';
 	import StringListComponent from './StringListComponent.svelte';
 	import SortComponent from './SortComponent.svelte';
 	import ListNumberMapComponent from './ListNumberMapComponent.svelte';
+	import PlandoItemsComponent from './PlandoItemsComponent.svelte';
 
 	let name: string;
 	let description: string;
@@ -99,7 +100,7 @@
 		// 'item 30'
 	];
 	let startInventory: StringNumberMap[] = [{ name: itemList[0], value: 1 }]; //itemList.map(it => { return {name: it, value: 0, hide: true}});
-
+	let plandoItems: ItemPlando = []
 	let plandoCharmCosts: StringNumberMap[] = []; //itemList.map(it => { return {name: it, value: 0, hide: true}});
 	let radioListLabels = ['Anywhere', 'Local Items', 'Non-local Items'];
 	let checkboxListLabel = ['Start Hints'];
@@ -150,6 +151,7 @@
 			bind:optionKeys={gameOptions}
 			optionName="game"
 		/>
+		<PlandoItemsComponent itemNames={itemList} bind:itemPlando={plandoItems} locations={locationList} />
 		<StringListComponent bind:list={stringList} optionName="list select" />
 		<WeightedListComponent bind:weightedOptions={gameinputs} optionName="game" />
 		<WeightedNumberListComponent

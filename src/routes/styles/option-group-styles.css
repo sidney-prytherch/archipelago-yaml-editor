@@ -197,6 +197,11 @@ span {
     color: #f90
 }
 
+.end-aligned-items {
+    flex-grow: 1;
+    text-align: end;
+}
+
 @media only screen and (max-width:600px) {
     .invisible, .slider {
         display: none

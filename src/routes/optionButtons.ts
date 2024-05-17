@@ -1,7 +1,6 @@
-import type { OptionData, StringNumberMap } from "./types";
+import type { ItemPlando, ItemPlandoItemGroup, OptionData, StringNumberMap } from "./types";
 
 function deselectOtherOptionsHelper(weightedOptions: OptionData[], selectedOption: OptionData) {
-    console.log(selectedOption);
     let optionsList = Object.values(weightedOptions);
     for (let option of optionsList) {
         if (option === selectedOption) {
@@ -13,15 +12,18 @@ function deselectOtherOptionsHelper(weightedOptions: OptionData[], selectedOptio
 }
 
 function removeOptionHelper(weightedOptions: OptionData[], option: OptionData) {
-    console.log(option);
     let optionIndex = weightedOptions.indexOf(option);
     weightedOptions.splice(optionIndex, 1);
 }
 
 function removeStringNumberMapHelper(weightedOptions: StringNumberMap[], option: StringNumberMap) {
-    console.log(option);
     let optionIndex = weightedOptions.indexOf(option);
     weightedOptions.splice(optionIndex, 1);
 }
 
-export { deselectOtherOptionsHelper, removeOptionHelper, removeStringNumberMapHelper };
+function removeItemPlandoGroupHelper(itemPlando: ItemPlando, itemGroup: ItemPlandoItemGroup) {
+    let itemGroupIndex = itemPlando.indexOf(itemGroup);
+    itemPlando.splice(itemGroupIndex, 1);
+}
+
+export { deselectOtherOptionsHelper, removeOptionHelper, removeStringNumberMapHelper, removeItemPlandoGroupHelper };

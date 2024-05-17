@@ -1,11 +1,11 @@
 <script lang="ts">
 	import '@fortawesome/fontawesome-free/css/all.min.css';
-	import type { CheckboxList } from './types';
+	import type { StringBooleanMap } from './types';
 
 	let searchValue = '';
 	export let title = '';
 	export let list: string[] = [];
-	export let selectionList: CheckboxList;
+	export let selectionList: StringBooleanMap;
 
 	let filteredList: string[] = [];
 

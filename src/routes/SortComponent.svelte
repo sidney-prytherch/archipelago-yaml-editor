@@ -2,7 +2,7 @@
 	import CarrotButtonComponent from './CarrotButtonComponent.svelte';
 	import '@fortawesome/fontawesome-free/css/all.min.css';
 	import SearchableMultiCheckboxComponent from './SearchableMultiCheckboxComponent.svelte';
-	import type { CheckboxList, RadioList } from './types';
+	import type { StringBooleanMap, RadioList } from './types';
 
 	let expanded = true;
 	export let listItemsGroupName = '';
@@ -12,13 +12,13 @@
 	export let checkboxListLabel: string[] = [];
 
 	let radioGroupList: RadioList = list.reduce(arrayToRadioObjectHelper, {});
-	let checkboxList: CheckboxList[] = checkboxListLabel.map((_) =>
+	let checkboxList: StringBooleanMap[] = checkboxListLabel.map((_) =>
 		list.reduce(arrayToCheckboxObjectHelper, {})
 	);
 	function arrayToRadioObjectHelper(object: RadioList, current: string): RadioList {
 		return { ...object, [current]: radioListLabels[0] };
 	}
-	function arrayToCheckboxObjectHelper(object: CheckboxList, current: string): CheckboxList {
+	function arrayToCheckboxObjectHelper(object: StringBooleanMap, current: string): StringBooleanMap {
 		return { ...object, [current]: false };
 	}
 	$: radioButtonStringLists = radioListLabels.map((label) =>
@@ -33,7 +33,7 @@
 	// function arrayToRadioObjectHelper(object: RadioList, current: string): RadioList {
 	// 	return { ...object, [`${listItemsGroupName}${current}`]: radioListLabels[0] };
 	// }
-	// function arrayToCheckboxObjectHelper(object: CheckboxList, current: string): CheckboxList {
+	// function arrayToCheckboxObjectHelper(object: StringBooleanMap, current: string): StringBooleanMap {
 	// 	return { ...object, [`${listItemsGroupName}${current}`]: false };
 	// }
 	// $: radioButtonStringLists = radioListLabels.map(label =>

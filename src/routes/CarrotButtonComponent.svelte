@@ -13,10 +13,15 @@
 >
     <i class:rotated={expanded} class="fa-solid fa-carrot"></i>
     <h3>{optionName}</h3>
+	<div/>
 </button>
 
 <style>
 	@import './styles/weighted-table-styles.css';
 	@import './styles/button-styles.css';
 	@import './styles/option-group-styles.css';
+
+	div {
+		flex-grow: 1;
+	}
 </style>

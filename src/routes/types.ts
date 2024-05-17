@@ -1,3 +1,5 @@
+import type { ItemPlandoCount, ItemPlandoForce, ItemPlandoWorld } from "./enums";
+
 interface NumberRange {
     min: number,
     max: number,
@@ -19,8 +21,27 @@ interface StringNumberMap {
 interface RadioList {
     [key: string]: string;
 }
-interface CheckboxList {
+
+interface StringBooleanMap {
     [key: string]: boolean;
 }
 
-export type { NumberRange, OptionData, RadioList, CheckboxList, StringNumberMap }
+interface ItemPlandoItemGroup {
+    items: ItemPlandoItemList[],
+    locations: StringBooleanMap,
+    from_pool: boolean,
+    world: ItemPlandoWorld,
+    worldVals: {playerNames: string, playerNums: number},
+    force: ItemPlandoForce,
+    percentage: number[],
+    count: ItemPlandoCount,
+    countVals: {min: number, max: number, count: number},
+    expanded: boolean
+}
+
+type ItemPlandoItemList = {name: string, quantity: number, isAll: boolean};
+
+type ItemPlando = ItemPlandoItemGroup[];
+
+
+export type { NumberRange, OptionData, RadioList, StringBooleanMap, StringNumberMap, ItemPlandoItemGroup, ItemPlando, ItemPlandoItemList }

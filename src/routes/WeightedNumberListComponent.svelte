@@ -169,7 +169,6 @@
 							</div>
 						</td>
 						<td class:hidden={!expanded}><WeightComponent {getPercent} bind:option /></td>
-
 						<td class:hidden={!expanded}>
 							<div class="secret">
 								<WeightedOptionButtonsComponent {deselectOtherOptions} {removeOption} bind:option />
