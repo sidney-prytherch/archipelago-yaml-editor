@@ -83,7 +83,7 @@
 	<div class="vertical container">
 		<div class:hidden={!expanded} class="vl" />
 		<div class="container" class:horizontal={expanded}>
-			<table class="value" class:hidden={!expanded}>
+			<table class="value" class:hidden={!expanded && optionKeys.length > 0}>
 				{#each weightedOptions as option}
 					<tr class:borderless={!expanded} class:hidden={option.hide}>
 						<td>
@@ -128,7 +128,7 @@
 					</tr>
 				{/each}
 			</table>
-			<div class="container vertical key" class:hidden={expanded}>
+			<div class="container vertical key" class:hidden={expanded || optionKeys.length === 0}>
 				<div>
 					<DropdownComponent
 						list={optionKeys}
