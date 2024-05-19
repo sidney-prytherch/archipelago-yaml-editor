@@ -9,6 +9,7 @@ interface NumberRange {
 interface OptionData {
     name?: string,
     range?: number[],
+    selectedAlias? : string,
     weight: number[],
     hide: boolean
 };

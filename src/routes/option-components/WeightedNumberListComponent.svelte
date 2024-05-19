@@ -120,6 +120,7 @@
 											last="label"
 											on:change={(_) => {
 												if (!isRange) {
+													option.selectedAlias = '';
 													_refs[optionIndex].value = '';
 													refs = refs;
 												}
@@ -137,6 +138,7 @@
 											rest={false}
 											on:change={(_) => {
 												if (!isRange) {
+													option.selectedAlias = '';
 													_refs[optionIndex].value = '';
 													refs = refs;
 												}
@@ -147,6 +149,7 @@
 								<div class="key">
 									<select
 										bind:this={_refs[optionIndex]}
+										bind:value={option.selectedAlias}
 										on:change={() => {
 											if (numberAliasNames.includes(_refs[optionIndex].value)) {
 												option.range = structuredClone(numberAliases[_refs[optionIndex].value]);

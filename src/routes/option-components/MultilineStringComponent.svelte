@@ -8,7 +8,7 @@
 <div class="container option-group-key yaml-option">
 	<i class="fa-solid fa-carrot"></i>
 	<h3>{optionName}</h3>
-	<textarea rows="2" placeholder="Enter {optionName}" bind:value={optionValue} />
+	<textarea name={optionName} rows="2" placeholder="Enter {optionName}" bind:value={optionValue} />
 </div>
 
 <style>

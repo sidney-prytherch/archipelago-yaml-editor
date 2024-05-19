@@ -1,3 +1,15 @@
-// since there's no dynamic data here, we can prerender
-// it so that it gets served as a static asset in production
-export const prerender = true;
+import datapackag from './resources/datapackage.json';
+import yamlContent from './resources/alinktothepast.yaml';
+
+export const prerender = false;
+
+export function load() {
+
+    let yaml: { [key: string]: any } = yamlContent
+    let datapackage: { [key: string]: any } = datapackag;
+
+    return {
+        datapackage: datapackage,
+        yaml: yaml
+    };
+}

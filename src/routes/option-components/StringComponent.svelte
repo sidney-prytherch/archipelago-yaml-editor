@@ -9,9 +9,11 @@
 	<i class="fa-solid fa-carrot"></i>
 	<h3>{optionName}</h3>
 	<input
+	autocomplete="off"
 		class="minimized-data"
 		type="text"
 		placeholder="Enter {optionName}"
+		name={optionName}
 		bind:value={optionValue}
 	/>
 </div>

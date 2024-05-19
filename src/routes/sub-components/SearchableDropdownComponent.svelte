@@ -33,12 +33,11 @@
 		>{value.length > 0 ? value : 'Select a value...'}</button
 	>
 	<input
-		class="hidden"
+		class="hidden searchInput"
 		class:show={showDropdown && list.length > 0}
 		type="text"
 		placeholder="Search..."
 		autocomplete="off"
-		id="searchInput"
 		bind:value={searchValue}
 		on:input={handleInput}
 	/>
@@ -62,7 +61,7 @@
 	@import '../styles/button-styles.css';
 	@import '../styles/option-group-styles.css';
 
-	#searchInput {
+	.searchInput {
 		background-color: white;
 		position: sticky;
 		top: 0;

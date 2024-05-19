@@ -22,7 +22,6 @@
 		type="text"
 		placeholder="Search..."
 		autocomplete="off"
-		id="searchInput"
 		bind:value={searchValue}
 		on:input={handleInput}
 	/>

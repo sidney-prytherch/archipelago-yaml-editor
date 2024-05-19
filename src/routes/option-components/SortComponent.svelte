@@ -67,7 +67,7 @@
 				<p class:hidden={!expanded} class="short-scroll">
 					<b>{radioListLabels[listIndex]}: </b>
 					{#each stringList as item}
-						<em>{item}</em>&nbsp&nbsp
+					<em>{` ${item}`}</em>&nbsp&nbsp
 					{/each}
 				</p>
 			{/each}
@@ -75,7 +75,7 @@
 				<p class:hidden={!expanded} class="short-scroll">
 					<b>{checkboxListLabel[listIndex]}: </b>
 					{#each stringList as item}
-						<em>{item}</em>&nbsp&nbsp
+				<em>{` ${item}`}</em>&nbsp&nbsp
 					{/each}
 				</p>
 			{/each}
@@ -96,7 +96,7 @@
 			/>
 			<p class="minimized-data dropdown">
 				{#each stringList as item}
-					<em>{item}</em>&nbsp&nbsp
+					<em>{` ${item}`}</em>&nbsp&nbsp
 				{/each}
 			</p>
 		</div>
@@ -111,7 +111,7 @@
 		/>
 		<p class="minimized-data dropdown">
 			{#each stringList as item}
-				<em>{item}</em>&nbsp&nbsp
+				<em>{item}</em>
 			{/each}
 		</p>
 	</div>

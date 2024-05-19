@@ -40,7 +40,7 @@
 	</div>
 	<p class:hidden={expanded} class="minimized-data dropdown">
 		{#each selectedItemsList as item}
-			<em>{item}</em>&nbsp&nbsp
+			<em>{` ${item}`}</em>&nbsp&nbsp
 		{/each}
 	</p>
 </div>

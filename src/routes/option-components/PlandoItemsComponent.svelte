@@ -89,14 +89,14 @@
 								{#each itemPlandoItemGroup.items.filter((it) => it.isAll || it.quantity > 0) as item}
 									{@const display = item.isAll ? 'All' : item.quantity > 0 ? item.quantity : ''}
 									{#if item.name !== ''}
-										<em>{item.name}: {display}</em>&nbsp&nbsp
+										<em>{` ${item.name}`}: {display}</em>&nbsp&nbsp
 									{/if}
 								{/each}
 							</p>
 							<p class:hidden={!expanded} class="minimized-data dropdown semi-bordered">
 								<b>Locations: </b>
 								{#each Object.keys(itemPlandoItemGroup.locations).filter((location) => itemPlandoItemGroup.locations[location]) as location}
-									<em>{location}</em>&nbsp&nbsp
+									<em>{` ${location}`}</em>&nbsp&nbsp
 								{/each}
 							</p>
 						</div>
@@ -262,12 +262,12 @@
 				{#each itemPlandoItemGroup.items.filter((it) => it.isAll || it.quantity > 0) as item}
 					{@const display = item.isAll ? 'All' : item.quantity > 0 ? item.quantity : ''}
 					{#if item.name !== ''}
-						<em>{item.name}: {display}</em>&nbsp&nbsp
+						<em>{` ${item.name}`}: {display}</em>&nbsp&nbsp
 					{/if}
 				{/each}
 				<b>Locations:</b>
 				{#each Object.keys(itemPlandoItemGroup.locations).filter((location) => itemPlandoItemGroup.locations[location]) as location}
-					<em>{location}</em>&nbsp&nbsp
+					<em>{` ${location}`}</em>&nbsp&nbsp
 				{/each}
 				<br />
 					</li>

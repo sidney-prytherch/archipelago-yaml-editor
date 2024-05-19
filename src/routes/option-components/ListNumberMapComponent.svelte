@@ -77,7 +77,7 @@
 	<p class:hidden={expanded} class="minimized-data dropdown">
 		{#each weightedOptions as item}
 			{#if item.name !== ''}
-				<em>{item.name}: {item.value}</em>&nbsp&nbsp
+				<em>{` ${item.name}`}: {item.value}</em>&nbsp&nbsp
 			{/if}
 		{/each}
 	</p>

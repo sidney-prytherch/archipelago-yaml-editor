@@ -4,13 +4,13 @@
 
 .dropdown {
     flex-grow: 1;
-    max-height: 400px;
+    max-height: 600px;
     overflow-y: auto
 }
 
 .short-scroll {
     flex-grow: 1;
-    max-height: 200px;
+    max-height: 100px;
     overflow-y: auto
 }
 
