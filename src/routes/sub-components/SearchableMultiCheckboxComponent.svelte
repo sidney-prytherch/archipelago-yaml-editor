@@ -1,22 +1,27 @@
 <script lang="ts">
 	import '@fortawesome/fontawesome-free/css/all.min.css';
-	import type { StringBooleanMap, RadioList } from '../types/types';
+	import type { StringBooleanMap, RadioList, SortObject } from '../types/types';
 
 	let searchValue = '';
 
-	export let listItemGroupName = '';
-	export let radioGroup: RadioList;
+	export let listItemGroupName = ''; //location/item
+	export let list: SortObject[] = [];
 	export let radioListLabels: string[];
-	export let checkboxList: StringBooleanMap[];
-	export let checkboxListLabel: string[];
-	export let list: string[] = [];
+	export let checkboxListLabels: string[];
 
-	let filteredList: string[] = [];
+	// let filteredList: SortObject[] = [];
 
-	function handleInput() {
-		filteredList = list.filter((item) => item.toLowerCase().match(searchValue.toLowerCase()));
-		radioGroup = radioGroup;
-	}
+	$: filteredList = list.filter((item) => {
+		let rowMatchesFilter = item.name.toLowerCase().match(searchValue.toLowerCase())
+		list = list;
+		return rowMatchesFilter;
+	});
+
+	// function handleInput() {
+	// 	filteredList = list.filter((item) => item.name.toLowerCase().match(searchValue.toLowerCase()));
+	// 	list = list;
+	// 	filteredList = filteredList;
+	// }
 </script>
 
 <div class="horizontal container">
@@ -26,7 +31,6 @@
 		placeholder="Search..."
 		autocomplete="off"
 		bind:value={searchValue}
-		on:input={handleInput}
 	/>
 	<div class="dropdown">
 		<div class="container vertical hint">
@@ -35,33 +39,33 @@
 				{#each radioListLabels as radioLabel}
 					<span><em>{radioLabel.charAt(0).toUpperCase()}</em></span>
 				{/each}
-				{#each checkboxListLabel as checkboxLabel}
+				{#each checkboxListLabels as checkboxLabel}
 					<span><em>{checkboxLabel.charAt(0).toUpperCase()}</em></span>
 				{/each}
 			</div>
 		</div>
 		{#if filteredList.length > 0}
-			{#each filteredList as string}
+			{#each filteredList as sortObj}
 				<div class="container vertical">
-					<label for={string}>{string}</label>
+					<label for={sortObj.name}>{sortObj.name}</label>
 					<div class="no-wrap">
 						{#each radioListLabels as radioLabel}
 							<label>
 								<input
 									type="radio"
 									value={radioLabel}
-									name={`${string}${listItemGroupName}`}
-									bind:group={radioGroup[string]}
+									name={`${sortObj.name}${listItemGroupName}`}
+									bind:group={sortObj.radio}
 								/>
 							</label>
 						{/each}
-						{#each checkboxList as checkboxList, checkboxIndex}
+						{#each Object.keys(sortObj.checkbox) as checkboxName, checkboxIndex}
 							<label>
 								<input
 									type="checkbox"
-									name={`${string} ${checkboxListLabel[checkboxIndex]}`}
-									value={`${string} ${checkboxListLabel[checkboxIndex]}`}
-									bind:checked={checkboxList[string]}
+									name={`${sortObj.name} ${checkboxListLabels[checkboxIndex]}`}
+									value={`${sortObj.name} ${checkboxListLabels[checkboxIndex]}`}
+									bind:checked={sortObj.checkbox[checkboxName]}
 								/>
 							</label>
 						{/each}
@@ -69,32 +73,32 @@
 				</div>
 			{/each}
 		{:else}
-			{#each list as string}
-				<div class="container vertical">
-					<label for={string}>{string}</label>
-					<div class="no-wrap">
-						{#each radioListLabels as radioLabel}
-							<label>
-								<input
-									type="radio"
-									value={radioLabel}
-									name={`${string}${listItemGroupName}`}
-									bind:group={radioGroup[string]}
-								/>
-							</label>
-						{/each}
-						{#each checkboxList as checkboxList, checkboxIndex}
-							<label>
-								<input
-									type="checkbox"
-									name={`${string} ${checkboxListLabel[checkboxIndex]}`}
-									value={`${string} ${checkboxListLabel[checkboxIndex]}`}
-									bind:checked={checkboxList[string]}
-								/>
-							</label>
-						{/each}
-					</div>
-				</div>
+			{#each list as sortObj}
+            <div class="container vertical">
+                <label for={sortObj.name}>{sortObj.name}</label>
+                <div class="no-wrap">
+                    {#each radioListLabels as radioLabel}
+                        <label>
+                            <input
+                                type="radio"
+                                value={radioLabel}
+                                name={`${sortObj.name}${listItemGroupName}`}
+                                bind:group={sortObj.radio}
+                            />
+                        </label>
+                    {/each}
+					{#each Object.keys(sortObj.checkbox) as checkboxName, checkboxIndex}
+						<label>
+							<input
+								type="checkbox"
+								name={`${sortObj.name} ${checkboxListLabels[checkboxIndex]}`}
+								value={`${sortObj.name} ${checkboxListLabels[checkboxIndex]}`}
+								bind:checked={sortObj.checkbox[checkboxName]}
+							/>
+						</label>
+					{/each}
+                </div>
+            </div>
 			{/each}
 		{/if}
 	</div>

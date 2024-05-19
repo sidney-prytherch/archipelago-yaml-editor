@@ -6,16 +6,19 @@
 	import { deselectOtherOptionsHelper, removeOptionHelper } from '../types/optionButtons';
 	import SearchableDropdownComponent from '../sub-components/SearchableDropdownComponent.svelte';
 	import CarrotButtonComponent from '../sub-components/CarrotButtonComponent.svelte';
+	import DropdownComponent from '../sub-components/DropdownComponent.svelte';
 
 	let expanded = true;
 	export let weightedOptions: OptionData[] = [];
 	export let optionKeys: string[] = [];
 	export let optionName = '';
+	console.log(weightedOptions);
+	let searchable = optionKeys.length > 15;
+	let selectedOption: OptionData;
 
 	expandOrShorten();
 
 	function expandOrShorten() {
-		//console.log(weightedOptions);
 		if (expanded) {
 			let optionsList = Object.values(weightedOptions);
 			let optionsWithZeroWeight = optionsList.filter((option) => option.weight[0] == 0);
@@ -23,6 +26,7 @@
 				for (let option of optionsWithZeroWeight) {
 					option.hide = true;
 				}
+				selectedOption = optionsList.find((option) => option.weight[0] > 0) || {name: '', weight: [0], hide: true};
 				weightedOptions = weightedOptions;
 				expanded = !expanded;
 			}
@@ -45,7 +49,9 @@
 	}
 
 	function addOption() {
-		weightedOptions = [...weightedOptions, { name: '', weight: [50], hide: false }];
+		let newOption = { name: '', weight: [50], hide: false }
+		weightedOptions = [...weightedOptions, newOption];
+		return newOption;
 	}
 
 	function deselectOtherOptions(option: OptionData) {
@@ -57,6 +63,19 @@
 		removeOptionHelper(weightedOptions, option);
 		weightedOptions = weightedOptions;
 	}
+
+	function selectOption(optionName: string) {
+		let optionData = weightedOptions.find((option) => option.name === optionName);
+		if (!optionData) {
+			optionData = weightedOptions.find((option) => option.name == '');
+			if (!optionData) {
+				optionData = addOption();
+				console.log(optionData.name)
+			}
+			optionData.name = optionName;
+		}
+		deselectOtherOptions(optionData);
+	}
 </script>
 
 <div class:vertical={!expanded} class="horizontal container yaml-option">
@@ -64,7 +83,7 @@
 	<div class="vertical container">
 		<div class:hidden={!expanded} class="vl" />
 		<div class="container" class:horizontal={expanded}>
-			<table class="value">
+			<table class="value" class:hidden={!expanded}>
 				{#each weightedOptions as option}
 					<tr class:borderless={!expanded} class:hidden={option.hide}>
 						<td>
@@ -77,14 +96,24 @@
 										placeholder="Enter option name"
 										bind:value={option.name}
 									/>
+								{:else if searchable}
+									<div>
+										<SearchableDropdownComponent
+											list={optionKeys.filter(
+												(it) => !weightedOptions.some((map) => map.name === it)
+											)}
+											bind:value={option.name}
+											textAlignStart={!expanded}
+										/>
+									</div>
 								{:else}
-									<SearchableDropdownComponent
-										list={optionKeys.filter(
-											(it) => !weightedOptions.some((map) => map.name === it)
-										)}
-										bind:value={option.name}
-										textAlignStart={!expanded}
-									/>
+									<div class:hidden={!expanded}>
+										<DropdownComponent
+											list={optionKeys}
+											disabledList={optionKeys.filter((it) => weightedOptions.some((map) => map.name === it))}
+											bind:value={option.name}
+										/>
+									</div>
 								{/if}
 							</div>
 						</td>
@@ -99,6 +128,15 @@
 					</tr>
 				{/each}
 			</table>
+			<div class="container vertical key" class:hidden={expanded}>
+				<div>
+					<DropdownComponent
+						list={optionKeys}
+						value={selectedOption.name}
+						selectOption={selectOption}
+					/>
+				</div>
+			</div>
 			<div class:hidden={!expanded} class="container add-options-buttons">
 				<button
 					class="create-row-button"
@@ -114,4 +152,5 @@
 	@import '../styles/weighted-table-styles.css';
 	@import '../styles/button-styles.css';
 	@import '../styles/option-group-styles.css';
+
 </style>

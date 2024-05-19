@@ -1,5 +1,13 @@
 import type { ItemPlandoCount, ItemPlandoForce, ItemPlandoWorld } from "./enums";
 
+interface SortObject {
+    name: string,
+    radio: string, //selected value
+    checkbox: {
+        [key: string]: boolean
+    }
+}
+
 interface NumberRange {
     min: number,
     max: number,
@@ -45,4 +53,4 @@ type ItemPlandoItemList = {name: string, quantity: number, isAll: boolean};
 type ItemPlando = ItemPlandoItemGroup[];
 
 
-export type { NumberRange, OptionData, RadioList, StringBooleanMap, StringNumberMap, ItemPlandoItemGroup, ItemPlando, ItemPlandoItemList }
+export type { SortObject, NumberRange, OptionData, RadioList, StringBooleanMap, StringNumberMap, ItemPlandoItemGroup, ItemPlando, ItemPlandoItemList }

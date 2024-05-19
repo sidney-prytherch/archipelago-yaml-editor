@@ -1,9 +1,8 @@
 import type { ItemPlando, ItemPlandoItemGroup, OptionData, StringNumberMap } from "./types";
 
 function deselectOtherOptionsHelper(weightedOptions: OptionData[], selectedOption: OptionData) {
-    let optionsList = Object.values(weightedOptions);
-    for (let option of optionsList) {
-        if (option === selectedOption) {
+    for (let option of weightedOptions) {
+        if (option.name === selectedOption.name) {
             option.weight[0] = 50;
         } else {
             option.weight[0] = 0;

@@ -96,6 +96,11 @@ input[type=text], select {
     text-align: center
 }
 
+select {
+    margin: 8px;
+    padding: 8px
+}
+
 input[type=text], textarea {
     flex-grow: 1
 }

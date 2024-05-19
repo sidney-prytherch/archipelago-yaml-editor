@@ -1,12 +1,10 @@
 <script lang="ts">
 	import './styles.css';
-	import StringComponent from './option-components/StringComponent.svelte';
 	import MultilineStringComponent from './option-components/MultilineStringComponent.svelte';
 	import WeightedNumberListComponent from './option-components/WeightedNumberListComponent.svelte';
 	import '@fortawesome/fontawesome-free/css/all.min.css';
 	import WeightedListComponent from './option-components/WeightedListComponent.svelte';
-	import type { ItemPlando, NumberRange, OptionData, StringNumberMap } from './types/types';
-	import StringListComponent from './option-components/StringListComponent.svelte';
+	import type { ItemPlando, NumberRange, OptionData, SortObject, StringNumberMap } from './types/types';
 	import SortComponent from './option-components/SortComponent.svelte';
 	import ListNumberMapComponent from './option-components/ListNumberMapComponent.svelte';
 	import PlandoItemsComponent from './option-components/PlandoItemsComponent.svelte';
@@ -120,19 +118,47 @@
 	let plandoItems: ItemPlando = []
 	let startInventory: StringNumberMap[] = [];
 	let startInventoryFromPool: StringNumberMap[] = [];
-	let itemList: string[] = [];
 	let itemRadioListLabels = ['unspecified_items', 'local_items', 'non_local_items'];
 	let itemCheckboxListLabel = ['start_hints'];
+	let itemList: string[] = [];
 	let locationList: string[] = [];
+	let itemSortObject: SortObject[] = [];
+	let locationSortObject: SortObject[] = [];
 	let locationListLabels = ['unspecified_locations', 'priority_locations', 'excluded_locations'];
 	let locationHintListLabel = ['start_location_hints'];
+
+	// export let listItemsGroupName = ''; //location, item
+	// export let list: SortObject[] = [];
+	// export let optionName = '';
+	// export let radioListLabels: string[];
+	// export let checkboxListLabel: string[];
 
 	if (defaultGameName in datapackage.games) {
 		itemList = structuredClone(datapackage.games[defaultGameName].item_name_groups.Everything);
 		locationList = structuredClone(
 			datapackage.games[defaultGameName].location_name_groups.Everywhere
 		);
+		itemSortObject = itemList.map(itemName => {
+			return {
+				name: itemName,
+				radio: itemRadioListLabels[0],
+				checkbox: itemCheckboxListLabel.reduce((checkboxObj, checkboxLabel) => {
+					return {...checkboxObj, [checkboxLabel]: false }
+				}, {})
+			};
+		});
+		locationSortObject = locationList.map(locationName => {
+			return {
+				name: locationName,
+				radio: locationListLabels[0],
+				checkbox: locationHintListLabel.reduce((checkboxObj, checkboxLabel) => {
+					return {...checkboxObj, [checkboxLabel]: false }
+				}, {})
+			};
+		})
 	}
+
+
 </script>
 
 <svelte:head>
@@ -196,17 +222,17 @@
 					/>
 					<SortComponent
 						listItemsGroupName="Item"
-						list={itemList}
+						bind:list={itemSortObject}
 						optionName="local_items, non_local_items, start_hints"
 						radioListLabels={itemRadioListLabels}
-						checkboxListLabel={itemCheckboxListLabel}
+						checkboxListLabels={itemCheckboxListLabel}
 					/>
 					<SortComponent
 						listItemsGroupName="Location"
-						list={locationList}
+						bind:list={locationSortObject}
 						optionName="priority_locations, exclude_locations, start_location_hints"
 						radioListLabels={locationListLabels}
-						checkboxListLabel={locationHintListLabel}
+						checkboxListLabels={locationHintListLabel}
 					/>
 					<PlandoItemsComponent itemNames={itemList} bind:itemPlando={plandoItems} locations={locationList} />
 				</div>

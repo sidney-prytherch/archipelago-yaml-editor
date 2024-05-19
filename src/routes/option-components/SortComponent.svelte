@@ -1,48 +1,23 @@
 <script lang="ts">
 	import CarrotButtonComponent from '../sub-components/CarrotButtonComponent.svelte';
 	import '@fortawesome/fontawesome-free/css/all.min.css';
+	import type { SortObject } from '../types/types';
 	import SearchableMultiCheckboxComponent from '../sub-components/SearchableMultiCheckboxComponent.svelte';
-	import type { StringBooleanMap, RadioList } from '../types/types';
-	import exp from 'constants';
 
 	let expanded = true;
-	export let listItemsGroupName = '';
-	export let list: string[] = [];
+	export let listItemsGroupName = ''; //location, item
+	export let list: SortObject[] = [];
 	export let optionName = '';
-	export let radioListLabels: string[] = [];
-	export let checkboxListLabel: string[] = [];
+	export let radioListLabels: string[];
+	export let checkboxListLabels: string[];
 
-	let radioGroupList: RadioList = list.reduce(arrayToRadioObjectHelper, {});
-	let checkboxList: StringBooleanMap[] = checkboxListLabel.map((_) =>
-		list.reduce(arrayToCheckboxObjectHelper, {})
-	);
-	function arrayToRadioObjectHelper(object: RadioList, current: string): RadioList {
-		return { ...object, [current]: radioListLabels[0] };
-	}
-	function arrayToCheckboxObjectHelper(object: StringBooleanMap, current: string): StringBooleanMap {
-		return { ...object, [current]: false };
-	}
-	$: radioButtonStringLists = radioListLabels.map((label) =>
-		list.filter((key) => radioGroupList[key] === label)
-	);
-	$: checkboxButtonStringLists = checkboxList.map((checkboxGroup) =>
-		list.filter((key) => checkboxGroup[key])
-	);
+	$: radioListFilters = radioListLabels.map((radioLabel) => {
+		return list.filter((it) => it.radio == radioLabel).map((it) => it.name);
+	});
 
-	// let radioGroupList: RadioList = list.reduce(arrayToRadioObjectHelper, {});
-	// let checkboxList: CheckboxList[] = checkboxListLabel.map(_ => list.reduce(arrayToCheckboxObjectHelper, {}));
-	// function arrayToRadioObjectHelper(object: RadioList, current: string): RadioList {
-	// 	return { ...object, [`${listItemsGroupName}${current}`]: radioListLabels[0] };
-	// }
-	// function arrayToCheckboxObjectHelper(object: StringBooleanMap, current: string): StringBooleanMap {
-	// 	return { ...object, [`${listItemsGroupName}${current}`]: false };
-	// }
-	// $: radioButtonStringLists = radioListLabels.map(label =>
-	// 	list.filter((key) => radioGroupList[`${listItemsGroupName}${key}`] === label)
-	// )
-	// $: checkboxButtonStringLists = checkboxList.map(checkboxGroup =>
-	// 	list.filter((key) => checkboxGroup[`${listItemsGroupName}${key}`])
-	// )
+	$: checkboxListFilters = checkboxListLabels.map((checkboxLabel) => {
+		return list.filter((it) => it.checkbox[checkboxLabel]).map((it) => it.name);
+	});
 
 	expandOrShorten();
 
@@ -58,34 +33,32 @@
 		<div class="container">
 			<SearchableMultiCheckboxComponent
 				listItemGroupName={listItemsGroupName}
-				bind:radioGroup={radioGroupList}
-				bind:radioListLabels
-				bind:checkboxList
-				bind:checkboxListLabel
 				bind:list
+				bind:radioListLabels
+				bind:checkboxListLabels
 			/>
 		</div>
 		<div class="horizontal container">
-			{#each radioButtonStringLists as stringList, listIndex}
+			{#each radioListFilters as stringList, listIndex}
 				<p class:hidden={!expanded} class="short-scroll">
 					<b>{radioListLabels[listIndex]}: </b>
 					{#each stringList as item}
-					<em>{` ${item}`}</em>&nbsp&nbsp
+						<em>{` ${item}`}</em>&nbsp&nbsp
 					{/each}
 				</p>
 			{/each}
-			{#each checkboxButtonStringLists as stringList, listIndex}
+			{#each checkboxListFilters as stringList, listIndex}
 				<p class:hidden={!expanded} class="short-scroll">
-					<b>{checkboxListLabel[listIndex]}: </b>
+					<b>{checkboxListLabels[listIndex]}: </b>
 					{#each stringList as item}
-				<em>{` ${item}`}</em>&nbsp&nbsp
+						<em>{` ${item}`}</em>&nbsp&nbsp
 					{/each}
 				</p>
 			{/each}
 		</div>
 	</div>
 </div>
-{#each radioButtonStringLists as stringList, listIndex}
+{#each radioListFilters as stringList, listIndex}
 	{#if listIndex > 0}
 		<div
 			class:hidden={expanded}
@@ -105,11 +78,11 @@
 		</div>
 	{/if}
 {/each}
-{#each checkboxButtonStringLists as stringList, listIndex}
+{#each checkboxListFilters as stringList, listIndex}
 	<div class:hidden={expanded} class:vertical={!expanded} class="horizontal container yaml-option">
 		<CarrotButtonComponent
 			bind:expanded
-			optionName={checkboxListLabel[listIndex]}
+			optionName={checkboxListLabels[listIndex]}
 			{expandOrShorten}
 		/>
 		<p class="minimized-data dropdown">
