@@ -4,6 +4,7 @@
 	let searchValue = '';
 	export let list: string[] = [];
 	export let value = '';
+	export let textAlignStart = false;
 
 	let filteredList: string[] = [];
 	let showDropdown = false;
@@ -29,7 +30,7 @@
 </script>
 
 <div class="horizontal container">
-	<button class="search-dropdown-button" on:click={showMenu}
+	<button class="search-dropdown-button" class:text-align-start={textAlignStart} on:click={showMenu}
 		>{value.length > 0 ? value : 'Select a value...'}</button
 	>
 	<input
@@ -93,5 +94,9 @@
 	.show {
 		display: block !important;
 		visibility: visible !important;
+	}
+
+	.text-align-start {
+		text-align: start !important;
 	}
 </style>

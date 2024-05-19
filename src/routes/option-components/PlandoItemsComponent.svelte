@@ -14,6 +14,8 @@
 	export let locations: string[] = [];
 	const optionName = 'plando items';
 
+	expandOrShorten();
+	
 	function expandOrShorten() {
 		expanded = !expanded;
 	}

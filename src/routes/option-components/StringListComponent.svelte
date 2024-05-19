@@ -15,6 +15,7 @@
 	$: selectedItemsList = list.filter((key) => selectionList[key]);
 	$: unselectedItemsList = list.filter((key) => !selectionList[key]);
 
+	expandOrShorten();
 	function expandOrShorten() {
 		expanded = !expanded;
 	}

@@ -12,8 +12,10 @@
 	export let optionKeys: string[] = [];
 	export let optionName = '';
 
+	expandOrShorten();
+
 	function expandOrShorten() {
-		console.log(weightedOptions);
+		//console.log(weightedOptions);
 		if (expanded) {
 			let optionsList = Object.values(weightedOptions);
 			let optionsWithZeroWeight = optionsList.filter((option) => option.weight[0] == 0);
@@ -81,6 +83,7 @@
 											(it) => !weightedOptions.some((map) => map.name === it)
 										)}
 										bind:value={option.name}
+										textAlignStart={!expanded}
 									/>
 								{/if}
 							</div>

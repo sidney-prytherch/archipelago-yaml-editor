@@ -21,7 +21,7 @@
 		potentialPipStep < pipStepRange[1];
 		potentialPipStep++
 	) {
-		console.log(potentialPipStep);
+		// console.log(potentialPipStep);
 		if (rangeLength % potentialPipStep === 0) {
 			pipStep = potentialPipStep;
 			break;
@@ -31,9 +31,10 @@
 	let _refs: HTMLSelectElement[] = [];
 	let refs: string[] = [];
 	$: refs = _refs.map((it) => (it == null ? '' : it.value));
+	expandOrShorten();
 
 	function expandOrShorten() {
-		console.log(weightedOptions);
+		// console.log(weightedOptions);
 		if (expanded) {
 			let optionsList = Object.values(weightedOptions);
 			let optionsWithZeroWeight = optionsList.filter((option) => option.weight[0] == 0);
@@ -103,9 +104,6 @@
 									class:slider-low={refs[optionIndex] === 'random-low'}
 									class:slider-middle={refs[optionIndex] === 'random-middle'}
 									class:slider-high={refs[optionIndex] === 'random-high'}
-									on:click={() => {
-										console.log(refs);
-									}}
 								>
 									{#if pipStep > 0}
 										<RangeSlider

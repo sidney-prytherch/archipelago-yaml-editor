@@ -3,6 +3,7 @@
 	import '@fortawesome/fontawesome-free/css/all.min.css';
 	import SearchableMultiCheckboxComponent from '../sub-components/SearchableMultiCheckboxComponent.svelte';
 	import type { StringBooleanMap, RadioList } from '../types/types';
+	import exp from 'constants';
 
 	let expanded = true;
 	export let listItemsGroupName = '';
@@ -42,6 +43,8 @@
 	// $: checkboxButtonStringLists = checkboxList.map(checkboxGroup =>
 	// 	list.filter((key) => checkboxGroup[`${listItemsGroupName}${key}`])
 	// )
+
+	expandOrShorten();
 
 	function expandOrShorten() {
 		expanded = !expanded;

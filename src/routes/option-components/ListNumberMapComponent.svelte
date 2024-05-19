@@ -11,6 +11,8 @@
 	export let optionKeys: string[] = [];
 	export let optionName = '';
 
+	expandOrShorten();
+
 	function expandOrShorten() {
 		expanded = !expanded;
 	}

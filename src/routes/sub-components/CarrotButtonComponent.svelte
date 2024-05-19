@@ -3,10 +3,12 @@
 	export let optionName = '';
 	export let expanded = false;
 	export let expandOrShorten: () => void;
+	export let takeFullSpace = false;
 </script>
 
 
 <button
+	class:full-space={takeFullSpace}
     title={expanded ? 'minimize options' : 'expand options'}
     class="option-group-key"
     on:click={expandOrShorten}
@@ -20,7 +22,8 @@
 	@import '../styles/button-styles.css';
 	@import '../styles/option-group-styles.css';
 
-	div {
+	.full-space {
 		flex-grow: 1;
+		text-align: start;
 	}
 </style>

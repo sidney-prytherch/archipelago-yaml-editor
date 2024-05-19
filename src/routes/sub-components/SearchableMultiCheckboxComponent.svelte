@@ -33,10 +33,10 @@
 			<span><b>{listItemGroupName}</b></span>
 			<div class="no-wrap">
 				{#each radioListLabels as radioLabel}
-					<span><em>{radioLabel.charAt(0)}</em></span>
+					<span><em>{radioLabel.charAt(0).toUpperCase()}</em></span>
 				{/each}
 				{#each checkboxListLabel as checkboxLabel}
-					<span><em>{checkboxLabel.charAt(0)}</em></span>
+					<span><em>{checkboxLabel.charAt(0).toUpperCase()}</em></span>
 				{/each}
 			</div>
 		</div>
