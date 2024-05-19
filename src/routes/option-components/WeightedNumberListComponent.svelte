@@ -4,7 +4,7 @@
 	import RangeSlider from 'svelte-range-slider-pips';
 	import WeightComponent from '../sub-components/WeightComponent.svelte';
 	import WeightedOptionButtonsComponent from '../sub-components/WeightedOptionButtonsComponent.svelte';
-	import { deselectOtherNumberOptionsHelper, deselectOtherOptionsHelper, removeOptionHelper } from '../types/optionButtons';
+	import { deselectOtherNumberOptionsHelper, removeOptionHelper } from '../types/optionButtons';
 	import CarrotButtonComponent from '../sub-components/CarrotButtonComponent.svelte';
 
 	let expanded = true;
@@ -152,16 +152,19 @@
 											if (numberAliasNames.includes(_refs[optionIndex].value)) {
 												option.range = structuredClone(numberAliases[_refs[optionIndex].value]);
 											}
+											if (!isRange && ["random", "random-low", "random-middle", "random-high"].includes(_refs[optionIndex].value)) {
+												option.range = [optionRange.min, optionRange.max];
+											}
 											refs = refs;
 										}}
 									>
 										{#if !isRange}
 											<option value=""></option>
 										{/if}
-										<option disabled={!isRange} value="random">random</option>
-										<option disabled={!isRange} value="random-low">random-low</option>
-										<option disabled={!isRange} value="random-middle">random-middle</option>
-										<option disabled={!isRange} value="random-high">random-high</option>
+										<option value="random">random</option>
+										<option value="random-low">random-low</option>
+										<option value="random-middle">random-middle</option>
+										<option value="random-high">random-high</option>
 										{#each numberAliasNames as alias}
 											<option value={alias}>{alias}</option>
 										{/each}

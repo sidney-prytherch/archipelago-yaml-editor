@@ -24,7 +24,7 @@
 			min={weightDefault.min}
 			max={weightDefault.max}
 			pips
-			pipstep={10}
+			pipstep={5}
 			first="label"
 			last="label"
 			bind:values={option.weight}
