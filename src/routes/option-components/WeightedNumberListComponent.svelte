@@ -4,7 +4,7 @@
 	import RangeSlider from 'svelte-range-slider-pips';
 	import WeightComponent from '../sub-components/WeightComponent.svelte';
 	import WeightedOptionButtonsComponent from '../sub-components/WeightedOptionButtonsComponent.svelte';
-	import { deselectOtherOptionsHelper, removeOptionHelper } from '../types/optionButtons';
+	import { deselectOtherNumberOptionsHelper, deselectOtherOptionsHelper, removeOptionHelper } from '../types/optionButtons';
 	import CarrotButtonComponent from '../sub-components/CarrotButtonComponent.svelte';
 
 	let expanded = true;
@@ -78,7 +78,7 @@
 	}
 
 	function deselectOtherOptions(option: OptionData) {
-		deselectOtherOptionsHelper(weightedOptions, option);
+		deselectOtherNumberOptionsHelper(weightedOptions, option);
 		weightedOptions = weightedOptions;
 	}
 

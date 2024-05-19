@@ -10,6 +10,16 @@ function deselectOtherOptionsHelper(weightedOptions: OptionData[], selectedOptio
     }
 }
 
+function deselectOtherNumberOptionsHelper(weightedOptions: OptionData[], selectedOption: OptionData) {
+    for (let option of weightedOptions) {
+        if (option === selectedOption) {
+            option.weight[0] = 50;
+        } else {
+            option.weight[0] = 0;
+        }
+    }
+}
+
 function removeOptionHelper(weightedOptions: OptionData[], option: OptionData) {
     let optionIndex = weightedOptions.indexOf(option);
     weightedOptions.splice(optionIndex, 1);
@@ -25,4 +35,4 @@ function removeItemPlandoGroupHelper(itemPlando: ItemPlando, itemGroup: ItemPlan
     itemPlando.splice(itemGroupIndex, 1);
 }
 
-export { deselectOtherOptionsHelper, removeOptionHelper, removeStringNumberMapHelper, removeItemPlandoGroupHelper };
+export { deselectOtherOptionsHelper, deselectOtherNumberOptionsHelper, removeOptionHelper, removeStringNumberMapHelper, removeItemPlandoGroupHelper };
