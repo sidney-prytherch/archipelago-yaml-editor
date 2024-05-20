@@ -10,6 +10,7 @@
 	export let optionName = '';
 	export let radioListLabels: string[];
 	export let checkboxListLabels: string[];
+	export let optionHint = '';
 
 	$: radioListFilters = radioListLabels.map((radioLabel) => {
 		return list.filter((it) => it.radio == radioLabel).map((it) => it.name);
@@ -27,7 +28,8 @@
 </script>
 
 <div class:hidden={!expanded} class:vertical={!expanded} class="horizontal container yaml-option">
-	<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} />
+
+	<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} optionHint={optionHint} />
 	<div class:hidden={!expanded} class="vertical container">
 		<div class:hidden={!expanded} class="vl" />
 		<div class="container">

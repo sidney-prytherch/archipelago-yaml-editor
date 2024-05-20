@@ -12,7 +12,8 @@
 	export let weightedOptions: OptionData[] = [];
 	export let optionKeys: string[] = [];
 	export let optionName = '';
-	console.log(weightedOptions);
+	export let optionHint = '';
+	//console.log(weightedOptions);
 	let searchable = optionKeys.length > 15;
 	let selectedOption: OptionData;
 
@@ -70,7 +71,6 @@
 			optionData = weightedOptions.find((option) => option.name == '');
 			if (!optionData) {
 				optionData = addOption();
-				console.log(optionData.name)
 			}
 			optionData.name = optionName;
 		}
@@ -79,7 +79,7 @@
 </script>
 
 <div class:vertical={!expanded} class="horizontal container yaml-option">
-	<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} />
+	<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} optionHint={optionHint} />
 	<div class="vertical container">
 		<div class:hidden={!expanded} class="vl" />
 		<div class="container" class:horizontal={expanded}>
@@ -132,7 +132,7 @@
 				<div>
 					<DropdownComponent
 						list={optionKeys}
-						value={selectedOption.name}
+						value={selectedOption ? selectedOption.name : '?'}
 						selectOption={selectOption}
 					/>
 				</div>

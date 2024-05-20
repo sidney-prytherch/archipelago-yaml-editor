@@ -207,6 +207,25 @@ span {
     text-align: end;
 }
 
+.button-container {
+    justify-content: flex-start;
+    flex: 1 !important;
+}
+
+.option-hint {
+    margin: 0 8px;
+    max-height: 50px;
+    overflow-y: hidden;
+    white-space: pre-wrap;
+    color: lightslategray;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+}
+
+.option-hint:hover {
+    max-height: 999px;
+    transition: max-height 1s ease-in-out;
+}
+
 @media only screen and (max-width:600px) {
     .invisible, .slider {
         display: none

@@ -1,0 +1,325 @@
+﻿# Q. What is this file?
+# A. This file contains options which allow you to configure your multiworld experience while allowing
+#    others to play how they want as well.
+#
+# Q. How do I use it?
+# A. The options in this file are weighted. This means the higher number you assign to a value, the
+#    more chances you have for that option to be chosen. For example, an option like this:
+#
+#    map_shuffle:
+#      on: 5
+#      off: 15
+#
+#    Means you have 5 chances for map shuffle to occur, and 15 chances for map shuffle to be turned
+#    off.
+#
+# Q. I've never seen a file like this before. What characters am I allowed to use?
+# A. This is a .yaml file. You are allowed to use most characters.
+#    To test if your yaml is valid or not, you can use this website:
+#        http://www.yamllint.com/
+#    You can also verify that your Archipelago options are valid at this site:
+#        https://archipelago.gg/check
+
+# Your name in-game, limited to 16 characters.
+#     {player} will be replaced with the player's slot number.
+#     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
+#     {number} will be replaced with the counter value of the name.
+#     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
+name: Player{number}
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Default Kingdom Hearts Template
+
+game: Kingdom Hearts
+requires:
+  version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
+
+Kingdom Hearts:
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  progression_balancing:
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    sidneys_secret_notes-disabled: "equivalent to 0"
+    disabled: 0
+    sidneys_secret_notes-normal: "equivalent to 50"
+    normal: 50
+    sidneys_secret_notes-extreme: "equivalent to 99"
+    extreme: 0
+
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\nLocations: ensure everything can be reached and acquired.\nItems: ensure all logically relevant items can be acquired.\nMinimal: ensure what is needed to reach your goal can be acquired."
+  accessibility:
+    locations: 0
+    items: 50
+    minimal: 0
+
+  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
+  local_items:
+    []
+
+  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
+  non_local_items:
+    []
+
+  sidneys_secret_documentation-start_inventory: "Start with these items."
+  start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the !hint command."
+  start_hints:
+    []
+
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the !hint command"
+  start_location_hints:
+    []
+
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item"
+  exclude_locations:
+    []
+
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item"
+  priority_locations:
+    []
+
+  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
+  item_links:
+    []
+
+  sidneys_secret_documentation-goal: "Determines when victory is achieved in your playthrough.\n\nSephiroth: Defeat Sephiroth.\nUnknown: Defeat Unknown.\nPostcards: Turn in all 10 postcards in Traverse Town\nFinal Ansem: Enter End of the World and defeat Ansem as normal\nPuppies: Rescue and return all 99 puppies in Traverse Town."
+  goal:
+    sephiroth: 0
+    unknown: 0
+    postcards: 0
+    final_ansem: 50
+    puppies: 0
+
+  sidneys_secret_documentation-end_of_the_world_unlock: "Determines how End of the World is Unlocked"
+  end_of_the_world_unlock:
+    item: 0
+    reports: 50
+
+  sidneys_secret_documentation-final_rest_door: "Determines what conditions need to be met to manifest the door in Final Rest, allowing the player to challenge Ansem\n\nReports: A certain number of Ansem's Reports are required.  That number is defined in another setting.\nPuppies: Having all 99 puppies is required.\nPostcards: Turning in all 10 postcards is required.\nSuperbosses: Defeating Sephiroth, Unknown, Kurt Zisa, and Phantom are required."
+  final_rest_door:
+    reports: 50
+    puppies: 0
+    postcards: 0
+    superbosses: 0
+
+  sidneys_secret_documentation-required_reports_eotw: "If End of the World Unlock is set to \"Reports\", determines the number of Ansem's Reports required to open End of the World."
+  required_reports_eotw:
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 13
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-required_reports_door: "If Final Rest Door is set to \"Reports\", determines the number of Ansem's Reports required to manifest the door in Final Rest to challenge Ansem."
+  required_reports_door:
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 13
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-reports_in_pool: "Determines the number of Ansem's Reports in the item pool."
+  reports_in_pool:
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 13
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-super_bosses: "Toggle whether to include checks behind Super Bosses."
+  super_bosses:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-atlantica: "Toggle whether Atlantica locations/items should be included."
+  atlantica:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-hundred_acre_wood: "Toggle whether to include checks in the 100 Acre Wood"
+  hundred_acre_wood:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-cups: "Toggle whether to include checks behind completing Phil, Pegasus, Hercules, or Hades cups.  Please note that the items will still appear in the multiworld, as they are required to challenge Sephiroth."
+  cups:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-puppies: "Determines how dalmation puppies are shuffled into the pool.\nFull: All puppies are in one location\nTriplets: Puppies are found in triplets just as they are in the base game\nIndividual: One puppy can be found per location"
+  puppies:
+    full: 0
+    triplets: 50
+    individual: 0
+
+  sidneys_secret_documentation-exp_multiplier: "Determines the multiplier to apply to EXP gained"
+  exp_multiplier:
+    sidneys_secret_range_start: 4.0
+    sidneys_secret_range_end: 128
+    random: 0
+    random-low: 0
+    random-high: 0
+    sidneys_secret_notes-0.25x: "equivalent to 4.0"
+    0.25x: 0
+    sidneys_secret_notes-0.5x: "equivalent to 8.0"
+    0.5x: 0
+    sidneys_secret_notes-1x: "equivalent to 16"
+    1x: 50
+    sidneys_secret_notes-2x: "equivalent to 32"
+    2x: 0
+    sidneys_secret_notes-3x: "equivalent to 48"
+    3x: 0
+    sidneys_secret_notes-4x: "equivalent to 64"
+    4x: 0
+    sidneys_secret_notes-8x: "equivalent to 128"
+    8x: 0
+
+  sidneys_secret_documentation-randomize_keyblade_stats: "Determines whether Keyblade stats should be randomized"
+  randomize_keyblade_stats:
+    false: 0
+    true: 50
+
+  sidneys_secret_documentation-bad_starting_weapons: "Forces Kingdom Key, Dream Sword, Dream Shield, and Dream Staff to have bad stats"
+  bad_starting_weapons:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-keyblade_max_str: "Determines the maximum STR bonus a keyblade can have"
+  keyblade_max_str:
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 20
+    14: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-keyblade_min_str: "Determines the lowest STR bonus a keyblade can have"
+  keyblade_min_str:
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 20
+    3: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-keyblade_max_mp: "Determines the maximum MP bonus a keyblade can have"
+  keyblade_max_mp:
+    sidneys_secret_range_start: -2
+    sidneys_secret_range_end: 5
+    3: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-keyblade_min_mp: "Determines the minimum MP bonus a keyblade can have"
+  keyblade_min_mp:
+    sidneys_secret_range_start: -2
+    sidneys_secret_range_end: 5
+    -2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-level_checks: "Determines the maximum level for which checks can be obtained."
+  level_checks:
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 100
+    100: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-force_stats_on_levels: "If this value is less than the value for Level Checks, this determines the minimum level from which only stat ups are obtained at level up locations\nFor example, if you only want to find AP items from levels 1-50, set this value to 51."
+  force_stats_on_levels:
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 101
+    random: 0
+    random-low: 0
+    random-high: 0
+    sidneys_secret_notes-none: "equivalent to 101"
+    none: 0
+    sidneys_secret_notes-ap-checks-to-level-50: "equivalent to 51"
+    ap-checks-to-level-50: 0
+    sidneys_secret_notes-all: "equivalent to 1"
+    all: 50
+
+  sidneys_secret_documentation-strength_increase: "Number of Strength Increases to Add to the Level Up Rewards\n\nThe randomizer will add all stat up defined here into a pool and choose up to 100 to add to the multiworld.\nAccessory Slot Increases and Item Slot Increases are prioritized first, then the remaining items (up to 100 total) are chosen at random."
+  strength_increase:
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 100
+    24: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-defense_increase: "Number of Defense Increases to Add to the Level Up Rewards\n\nThe randomizer will add all stat up defined here into a pool and choose up to 100 to add to the multiworld.\nAccessory Slot Increases and Item Slot Increases are prioritized first, then the remaining items (up to 100 total) are chosen at random."
+  defense_increase:
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 100
+    24: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-hp_increase: "Number of HP Increases to Add to the Level Up Rewards\n\nThe randomizer will add all stat up defined here into a pool and choose up to 100 to add to the multiworld.\nAccessory Slot Increases and Item Slot Increases are prioritized first, then the remaining items (up to 100 total) are chosen at random."
+  hp_increase:
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 100
+    23: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-ap_increase: "Number of AP Increases to Add to the Level Up Rewards\n\nThe randomizer will add all stat up defined here into a pool and choose up to 100 to add to the multiworld.\nAccessory Slot Increases and Item Slot Increases are prioritized first, then the remaining items (up to 100 total) are chosen at random."
+  ap_increase:
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 100
+    18: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-mp_increase: "Number of MP Increases to Add to the Level Up Rewards\n\nThe randomizer will add all stat up defined here into a pool and choose up to 100 to add to the multiworld.\nAccessory Slot Increases and Item Slot Increases are prioritized first, then the remaining items (up to 100 total) are chosen at random."
+  mp_increase:
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 20
+    7: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-accessory_slot_increase: "Number of Accessory Slot Increases to Add to the Level Up Rewards\n\nThe randomizer will add all stat up defined here into a pool and choose up to 100 to add to the multiworld.\nAccessory Slot Increases and Item Slot Increases are prioritized first, then the remaining items (up to 100 total) are chosen at random."
+  accessory_slot_increase:
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 6
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-item_slot_increase: "Number of Item Slot Increases to Add to the Level Up Rewards\n\nThe randomizer will add all stat up defined here into a pool and choose up to 100 to add to the multiworld.\nAccessory Slot Increases and Item Slot Increases are prioritized first, then the remaining items (up to 100 total) are chosen at random."
+  item_slot_increase:
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 5
+    3: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-donald_death_link: "If Donald is KO'ed, so is Sora.  If Death Link is toggled on in your client, this will send a death to everyone."
+  donald_death_link:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-goofy_death_link: "If Goofy is KO'ed, so is Sora.  If Death Link is toggled on in your client, this will send a death to everyone."
+  goofy_death_link:
+    false: 50
+    true: 0

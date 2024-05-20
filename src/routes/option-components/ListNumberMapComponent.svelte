@@ -10,6 +10,7 @@
 	export let weightedOptions: StringNumberMap[] = [];
 	export let optionKeys: string[] = [];
 	export let optionName = '';
+	export let optionHint = '';
 
 	expandOrShorten();
 
@@ -30,7 +31,7 @@
 </script>
 
 <div class:vertical={!expanded} class="horizontal container yaml-option">
-	<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} />
+		<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} optionHint={optionHint} />
 	<div class="vertical container" class:hidden={!expanded}>
 		<div class="vl" />
 		<div class="container" class:horizontal={expanded}>

@@ -11,6 +11,7 @@
 	export let weightedOptions: OptionData[] = [];
 	export let optionRange: NumberRange;
 	export let optionName = '';
+	export let optionHint = '';
 	export let numberAliases: { [key: string]: number[] } = {};
 	let numberAliasNames = Object.keys(numberAliases);
 	let pipStep = 0;
@@ -89,7 +90,7 @@
 </script>
 
 <div class:vertical={!expanded} class="horizontal container yaml-option">
-	<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} />
+	<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} optionHint={optionHint} />
 	<div class="container">
 		<div class:hidden={!expanded} class="vl" />
 		<div class="container" class:horizontal={expanded}>
