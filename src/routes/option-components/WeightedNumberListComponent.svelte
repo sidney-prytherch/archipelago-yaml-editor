@@ -13,7 +13,8 @@
 	export let optionName = '';
 	export let optionHint = '';
 	export let numberAliases: { [key: string]: number[] } = {};
-	let numberAliasNames = Object.keys(numberAliases);
+	let personalNumberAliases = structuredClone(numberAliases)
+	let numberAliasNames = Object.keys(personalNumberAliases);
 	let pipStep = 0;
 	const rangeLength = optionRange.max - optionRange.min;
 	const pipStepRange = [Math.round(rangeLength / 10.0), Math.round(rangeLength / 2.0)];
@@ -151,7 +152,7 @@
 										bind:value={option.selectedAlias}
 										on:change={() => {
 											if (numberAliasNames.includes(_refs[optionIndex].value)) {
-												option.range = structuredClone(numberAliases[_refs[optionIndex].value]);
+												option.range = structuredClone(personalNumberAliases[_refs[optionIndex].value]);
 											}
 											if (!isRange && ["random", "random-low", "random-middle", "random-high"].includes(_refs[optionIndex].value)) {
 												option.range = [optionRange.min, optionRange.max];
