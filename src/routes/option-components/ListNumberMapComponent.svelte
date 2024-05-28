@@ -31,7 +31,7 @@
 </script>
 
 <div class:vertical={!expanded} class="horizontal container yaml-option">
-		<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} optionHint={optionHint} />
+	<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} {optionHint} />
 	<div class="vertical container" class:hidden={!expanded}>
 		<div class="vl" />
 		<div class="container" class:horizontal={expanded}>

@@ -89,7 +89,7 @@
 		/>
 		<p class="minimized-data dropdown">
 			{#each stringList as item}
-				<em>{item}</em>
+				<em>{` ${item}`}</em>&nbsp&nbsp
 			{/each}
 		</p>
 	</div>

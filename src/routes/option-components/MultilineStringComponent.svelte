@@ -1,26 +1,45 @@
 <script type="ts">
 	import '@fortawesome/fontawesome-free/css/all.min.css';
+	import CarrotButtonComponent from '../sub-components/CarrotButtonComponent.svelte';
 
 	export let optionName = '';
 	export let optionValue = '';
+	export let optionHint = '';
+	let expanded = false;
+	let lineCount = Math.max(Math.min(optionValue.split(/\r\n|\r|\n/).length, 20), 2);
+
+	function expandOrShorten() {
+		expanded = !expanded;
+	}
 </script>
 
-<div class="container option-group-key yaml-option">
-	<i class="fa-solid fa-carrot"></i>
-	<h3>{optionName}</h3>
-	<textarea name={optionName} rows="2" placeholder="Enter {optionName}" bind:value={optionValue} />
+<div class:vertical={!expanded} class="horizontal container yaml-option">
+	<CarrotButtonComponent
+		bind:expanded
+		{optionName}
+		expandOrShorten={optionHint === '' ? () => {} : expandOrShorten}
+		{optionHint}
+	/>
+	<div class="vertical container">
+		<div class="vl" class:hidden={!expanded} />
+		<div class="container">
+			<textarea
+				name={optionName}
+				rows={lineCount}
+				placeholder="Enter {optionName}"
+				bind:value={optionValue}
+			/>
+		</div>
+	</div>
 </div>
 
 <style>
+	@import '../styles/weighted-table-styles.css';
+	@import '../styles/button-styles.css';
 	@import '../styles/option-group-styles.css';
 
 	* {
 		/* border: solid 1px black; */
 		font-size: large;
-	}
-
-	div {
-		align-items: center;
-		padding: 8px;
 	}
 </style>

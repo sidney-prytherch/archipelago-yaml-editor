@@ -118,8 +118,8 @@
 									<select
 									bind:value={itemPlandoItemGroup.world}
 									>
-										<option value={ItemPlandoWorld.Local}>true (local)</option>
-										<option value={ItemPlandoWorld.NonLocal}>false (non-local)</option>
+										<option value={ItemPlandoWorld.Local}>false (local)</option>
+										<option value={ItemPlandoWorld.NonLocal}>true (non-local)</option>
 										<option value={ItemPlandoWorld.AnyWorld}>null (any worlds)</option>
 										<option value={ItemPlandoWorld.PlayerNames}>comma-separated list of names</option>
 										<option value={ItemPlandoWorld.PlayerNum}>player number</option>

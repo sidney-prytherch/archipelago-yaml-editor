@@ -12,10 +12,10 @@ async function getYamls(params:Record<string, () => Promise<unknown>>) {
 
         // params[modulePath]().then((thing: any) => {
         yamls[gameName] = yamlData.default
-        console.log(yamlData.default.game)
+        // console.log(yamlData.default.game)
         // });
     }
-    console.log("done!")
+    // console.log("done!")
     return yamls
 }
 

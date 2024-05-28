@@ -15,14 +15,20 @@
 	import ListNumberMapComponent from './option-components/ListNumberMapComponent.svelte';
 	import PlandoItemsComponent from './option-components/PlandoItemsComponent.svelte';
 	import CarrotButtonComponent from './sub-components/CarrotButtonComponent.svelte';
+	import { downloadYaml } from './yamlFunctions';
+	import jsYaml from 'js-yaml'
+
 
 	export let data;
+
+	const defaultOptionName = 'A Link to the Past'
+
 	let yamls = data.yamls;
 	let datapackage = data.datapackage;
 	let defaultOptions;
 
 	let playerOptions: { [key: string]: any } = {
-		namey: [
+		name: [
 			{
 				name: 'Player{number}',
 				weight: [50],
@@ -112,12 +118,12 @@
 					}
 
 
-					console.log("key", key)
-					console.log("yaml", yaml)
-					console.log("aliases", aliases)
-					console.log("defaultOption", defaultOption)
-					console.log("aliases[defaultOption]", aliases[defaultOption])
-					console.log("defaultValueAsNumber", defaultValueAsNumber)
+					// console.log("key", key)
+					// console.log("yaml", yaml)
+					// console.log("aliases", aliases)
+					// console.log("defaultOption", defaultOption)
+					// console.log("aliases[defaultOption]", aliases[defaultOption])
+					// console.log("defaultValueAsNumber", defaultValueAsNumber)
 
 					defaultValueAsNumber = isNaN(defaultValueAsNumber)
 						? aliases[defaultOption][0]
@@ -131,7 +137,7 @@
 					};
 					yaml[key].sidneys_super_secret_rangesOptions = rangesOptions;
 					yaml[key].sidneys_super_secret_aliases = aliases;
-				} else if (entries.length > 0) {
+				} else if (entries.length > 0 && entries.every(it => it[1] === 0 || it[1] === 50)) {
 					let keys = entries.map((it) => it[0]);
 					let selectedOptions = entries
 						.filter((it) => it[1] !== 0)
@@ -157,14 +163,14 @@
 						'start_location_hints'
 					].includes(key)
 				) {
-					//console.log(key);
+					yaml[key].sidneys_secret_yaml_string = jsYaml.dump(yaml[key]).trim()
 				}
 			}
 		});
 
 		yaml.plandoItems = [];
-		yaml.startInventory = [];
-		yaml.startInventoryFromPool = [];
+		// yaml.startInventory = [];
+		// yaml.startInventoryFromPool = [];
 		yaml.itemList = [];
 		yaml.locationList = [];
 		yaml.itemSortObject = [];
@@ -232,20 +238,20 @@
 	// export let checkboxListLabel: string[];
 
 	if (!!defaultOptions) {
-		startInventoryHint = defaultOptions['sidneys_secret_documentation-start_inventory'];
+		startInventoryHint = defaultOptions[defaultOptionName]['sidneys_secret_documentation-start_inventory'];
 		startInventoryFromPoolHint =
-			defaultOptions['sidneys_secret_documentation-start_inventory_from_pool'];
-		localItemsHint = `Local Items: ${defaultOptions['sidneys_secret_documentation-local_items']}`;
-		nonLocalItemsHint = `Non-local Items: ${defaultOptions['sidneys_secret_documentation-non_local_items']}`;
+			defaultOptions[defaultOptionName]['sidneys_secret_documentation-start_inventory_from_pool'];
+		localItemsHint = `Local Items: ${defaultOptions[defaultOptionName]['sidneys_secret_documentation-local_items']}`;
+		nonLocalItemsHint = `Non-local Items: ${defaultOptions[defaultOptionName]['sidneys_secret_documentation-non_local_items']}`;
 		startHintHint =
-			`Start Hints: ${defaultOptions['sidneys_secret_documentation-start_hints']}`.replace(
+			`Start Hints: ${defaultOptions[defaultOptionName]['sidneys_secret_documentation-start_hints']}`.replace(
 				"item's locations prefilled into",
 				"items' locations prefilled in"
 			);
-		priorityLocationsHint = `Priority Locations: ${defaultOptions['sidneys_secret_documentation-priority_locations']}`;
-		excludedLocationsHint = `Excluded Locations: ${defaultOptions['sidneys_secret_documentation-excluded_locations']}`;
+		priorityLocationsHint = `Priority Locations: ${defaultOptions[defaultOptionName]['sidneys_secret_documentation-priority_locations']}`;
+		excludedLocationsHint = `Excluded Locations: ${defaultOptions[defaultOptionName]['sidneys_secret_documentation-excluded_locations']}`;
 		startLocationHintHint =
-			`Start Location Hints: ${defaultOptions['sidneys_secret_documentation-start_location_hints']}`.replace(
+			`Start Location Hints: ${defaultOptions[defaultOptionName]['sidneys_secret_documentation-start_location_hints']}`.replace(
 				'items prefilled into',
 				'item prefilled in'
 			);
@@ -257,6 +263,7 @@
 {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.\n\
 {number} will be replaced with the counter value of the name.\n\
 {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.";
+
 </script>
 
 <svelte:head>
@@ -269,7 +276,7 @@
 		<h1>Amazing YAML editor</h1>
 		<!-- {@debug playerOptions} -->
 		<WeightedListComponent
-			bind:weightedOptions={playerOptions.namey}
+			bind:weightedOptions={playerOptions.name}
 			optionName="name"
 			optionHint={nameHint}
 		/>
@@ -325,6 +332,13 @@
 											optionName={key}
 											{optionHint}
 										/>
+									{:else if 'sidneys_secret_yaml_string' in yamlSettings[key]}
+										<!-- {@debug playerOptions} -->
+										<MultilineStringComponent
+											bind:optionValue={playerOptions[gameName][key].sidneys_secret_yaml_string}
+											optionName={key}
+											{optionHint}
+										/>
 									{/if}
 								{/if}
 							{/each}
@@ -370,6 +384,7 @@
 				</div>
 			{/if}
 		{/each}
+		<button on:click={() => downloadYaml(playerOptions)}>DOWNLOAD YAML</button>
 	</section>
 </main>
 
