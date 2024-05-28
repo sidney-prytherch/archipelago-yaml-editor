@@ -169,8 +169,8 @@
 		});
 
 		yaml.plandoItems = [];
-		// yaml.startInventory = [];
-		// yaml.startInventoryFromPool = [];
+		yaml.startInventory = [];
+		yaml.startInventoryFromPool = [];
 		yaml.itemList = [];
 		yaml.locationList = [];
 		yaml.itemSortObject = [];

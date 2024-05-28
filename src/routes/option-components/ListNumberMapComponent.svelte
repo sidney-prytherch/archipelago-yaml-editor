@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { StringNumberMap } from '../types/types';
+	import type { AnyObject, StringNumberMap } from '../types/types';
 	import '@fortawesome/fontawesome-free/css/all.min.css';
 	import { removeStringNumberMapHelper } from '../types/optionButtons';
 	import RemoveButtonComponent from '../sub-components/RemoveButtonComponent.svelte';

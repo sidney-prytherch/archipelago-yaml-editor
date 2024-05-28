@@ -8,6 +8,10 @@ interface SortObject {
     }
 }
 
+interface AnyObject {
+    [key: string]: any
+}
+
 interface NumberRange {
     min: number,
     max: number,
@@ -53,4 +57,4 @@ type ItemPlandoItemList = {name: string, quantity: number, isAll: boolean};
 type ItemPlando = ItemPlandoItemGroup[];
 
 
-export type { SortObject, NumberRange, OptionData, RadioList, StringBooleanMap, StringNumberMap, ItemPlandoItemGroup, ItemPlando, ItemPlandoItemList }
+export type { SortObject, NumberRange, OptionData, RadioList, StringBooleanMap, StringNumberMap, ItemPlandoItemGroup, ItemPlando, ItemPlandoItemList, AnyObject }

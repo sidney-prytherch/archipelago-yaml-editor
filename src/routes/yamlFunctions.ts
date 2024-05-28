@@ -1,14 +1,10 @@
 import jsYaml from 'js-yaml'
 import { ItemPlandoWorld } from './types/enums';
+import type { AnyObject } from './types/types';
 
-interface thing {
-    [key: string]: any
-}
-
-export function downloadYaml(playerOptions: thing) {
-    // console.log(playerOptions)
+export function downloadYaml(playerOptions: AnyObject) {
     const yamlData = jsYaml.dump(playerOptions);
-    let formattedData: thing = {
+    let formattedData: AnyObject = {
         name: getNameObject(playerOptions),
         description: playerOptions.description,
         game: getGameObject(playerOptions),
@@ -17,11 +13,10 @@ export function downloadYaml(playerOptions: thing) {
         formattedData[game] = getFormattedGameOptions(playerOptions[game]);
     }
     console.log(jsYaml.dump(formattedData))
-    // console.log(jsYaml.dump(yamlData))
 }
 
-function getFormattedGameOptions(gameOptions: thing) {
-    let formattedGameOptions: thing = {};
+function getFormattedGameOptions(gameOptions: AnyObject) {
+    let formattedGameOptions: AnyObject = {};
     processItemSortObject(formattedGameOptions, gameOptions.itemSortObject)
     processLocationSortObject(formattedGameOptions, gameOptions.locationSortObject)
     for (let [optionName, optionSettings] of Object.entries(gameOptions)) {
@@ -30,7 +25,7 @@ function getFormattedGameOptions(gameOptions: thing) {
         }
         if (typeof optionSettings === "object") {
             if ("sidneys_secret_range_start" in optionSettings) {
-                let formattedRangeObj: thing = {}
+                let formattedRangeObj: AnyObject = {}
                 let min = optionSettings.sidneys_secret_range_start
                 let max = optionSettings.sidneys_secret_range_end
                 for (let rangeObj of optionSettings.sidneys_super_secret_ranges) {
@@ -55,7 +50,7 @@ function getFormattedGameOptions(gameOptions: thing) {
                 // console.log(optionName, formattedRangeObj)
                 formattedGameOptions[optionName] = formattedRangeObj;
             } else if ("sidneys_super_secret_options" in optionSettings) {
-                let formattedSelectOptions: thing | string = {}
+                let formattedSelectOptions: AnyObject | string = {}
                 if (optionSettings.sidneys_super_secret_selected_options &&
                     optionSettings.sidneys_super_secret_selected_options.length > 0) {
                     if (optionSettings.sidneys_super_secret_selected_options.length === 1) {
@@ -90,13 +85,15 @@ function getFormattedGameOptions(gameOptions: thing) {
         }
     }
     formattedGameOptions.plando_items = processItemPlando(gameOptions.plandoItems)
+    console.log("start")
     formattedGameOptions.start_inventory = processStartInventory(gameOptions.startInventory)
-    formattedGameOptions.start_inventory_from_pool = processItemPlando(gameOptions.startInventoryFromPool)
+    console.log("end")
+    formattedGameOptions.start_inventory_from_pool = processStartInventory(gameOptions.startInventoryFromPool)
     return formattedGameOptions;
 }
 
-function processStartInventory(startInventory: thing[]) {
-    let formattedStartInventory:thing = {}
+function processStartInventory(startInventory: AnyObject[]) {
+    let formattedStartInventory:AnyObject = {}
     for (let item of startInventory) {
         if (item.value && typeof item.value === "number" && item.value > 0) {
             formattedStartInventory[item.name] = item.value
@@ -105,12 +102,12 @@ function processStartInventory(startInventory: thing[]) {
     return formattedStartInventory;
 }
 
-function processItemPlando(itemPlando: thing[]) {
+function processItemPlando(itemPlando: AnyObject[]) {
     let formattedItemPlando = []
 
     for (let itemPlandoData of itemPlando) {
-        let plandoGroup: thing = {};
-        let plandoGroupItems: thing = {};
+        let plandoGroup: AnyObject = {};
+        let plandoGroupItems: AnyObject = {};
         for (let item of itemPlandoData.items) {
             if (item.isAll) {
                 plandoGroupItems[item.name] = "true";
@@ -162,14 +159,14 @@ function processItemPlando(itemPlando: thing[]) {
     return formattedItemPlando;
 }
 
-function getNameObject(playerOptions: thing) {
+function getNameObject(playerOptions: AnyObject) {
     if (playerOptions.name.length === 1) {
         return playerOptions.name[0].name;
     } else if (playerOptions.name.length === 0) {
         console.warn("No name given")
         return "player{Number}";
     } else {
-        let nameObj: thing = {}
+        let nameObj: AnyObject = {}
         for (let weightedNameObj of playerOptions.name) {
             nameObj[weightedNameObj.name as string] = weightedNameObj.weight[0]
         }
@@ -177,14 +174,14 @@ function getNameObject(playerOptions: thing) {
     }
 }
 
-function getGameObject(playerOptions: thing) {
+function getGameObject(playerOptions: AnyObject) {
     if (playerOptions.game.length === 1) {
         return playerOptions.game[0].name;
     } else if (playerOptions.game.length === 0) {
         console.warn("No game selected");
         return ""; //error
     } else {
-        let gameObj: thing = {}
+        let gameObj: AnyObject = {}
         for (let weightedGameObj of playerOptions.game) {
             gameObj[weightedGameObj.name as string] = weightedGameObj.weight[0]
         }
@@ -192,7 +189,7 @@ function getGameObject(playerOptions: thing) {
     }
 }
 
-function processItemSortObject(formattedData: thing, itemDataList: thing[]) {
+function processItemSortObject(formattedData: AnyObject, itemDataList: AnyObject[]) {
     let startHints = [];
     let localItems = [];
     let nonLocalItems = [];
@@ -211,7 +208,7 @@ function processItemSortObject(formattedData: thing, itemDataList: thing[]) {
     formattedData.start_hints = startHints;
 }
 
-function processLocationSortObject(formattedData: thing, locationDataList: thing[]) {
+function processLocationSortObject(formattedData: AnyObject, locationDataList: AnyObject[]) {
     let startLocationHints = [];
     let priorityLocations = [];
     let excludedLocations = [];

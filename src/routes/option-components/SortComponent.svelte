@@ -100,6 +100,10 @@
 	@import '../styles/button-styles.css';
 	@import '../styles/option-group-styles.css';
 
+	* {
+		border: 3px solid green !important;
+	}
+
 	input {
 		flex-grow: 0 !important;
 		text-align: start !important;
