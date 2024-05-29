@@ -27,7 +27,11 @@
 				for (let option of optionsWithZeroWeight) {
 					option.hide = true;
 				}
-				selectedOption = optionsList.find((option) => option.weight[0] > 0) || {name: '', weight: [0], hide: true};
+				selectedOption = optionsList.find((option) => option.weight[0] > 0) || {
+					name: '',
+					weight: [0],
+					hide: true
+				};
 				weightedOptions = weightedOptions;
 				expanded = !expanded;
 			}
@@ -50,7 +54,7 @@
 	}
 
 	function addOption() {
-		let newOption = { name: '', weight: [50], hide: false }
+		let newOption = { name: '', weight: [50], hide: false };
 		weightedOptions = [...weightedOptions, newOption];
 		return newOption;
 	}
@@ -79,61 +83,69 @@
 </script>
 
 <div class:vertical={!expanded} class="horizontal container yaml-option">
-	<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} optionHint={optionHint} />
+	<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} {optionHint} />
 	<div class="vertical container">
-		<div class:hidden={!expanded} class="vl" />
-		<div class="container" class:horizontal={expanded}>
-			<table class="value" class:hidden={!expanded && optionKeys.length > 0}>
-				{#each weightedOptions as option}
-					<tr class:borderless={!expanded} class:hidden={option.hide}>
-						<td>
-							<!-- <div class:container={!expanded} class:key={!expanded}> -->
-							<div class="container" class:key={!expanded}>
-								{#if optionKeys.length === 0}
-									<input
-										class:minimized-data={!expanded}
-										type="text"
-										placeholder="Enter option name"
-										bind:value={option.name}
+		<!-- <div class:hidden={!expanded} class="vl" /> -->
+		<div class="container flexgrow" class:horizontal={expanded}>
+			<div class:yaml-option-subsection={expanded} class="container flexgrow">
+				<table class="value" class:hidden={!expanded && optionKeys.length > 0}>
+					{#each weightedOptions as option}
+						<tr class:borderless={!expanded} class:hidden={option.hide}>
+							<td>
+								<!-- <div class:container={!expanded} class:key={!expanded}> -->
+								<div class="container" class:key={!expanded}>
+									{#if optionKeys.length === 0}
+										<input
+											class:minimized-data={!expanded}
+											type="text"
+											placeholder="Enter option name"
+											bind:value={option.name}
+										/>
+									{:else if searchable}
+										<div>
+											<SearchableDropdownComponent
+												list={optionKeys.filter(
+													(it) => !weightedOptions.some((map) => map.name === it)
+												)}
+												bind:value={option.name}
+												textAlignStart={!expanded}
+											/>
+										</div>
+									{:else}
+										<div class:hidden={!expanded}>
+											<DropdownComponent
+												list={optionKeys}
+												disabledList={optionKeys.filter((it) =>
+													weightedOptions.some((map) => map.name === it)
+												)}
+												bind:value={option.name}
+											/>
+										</div>
+									{/if}
+								</div>
+							</td>
+							<td class:hidden={!expanded}>
+								<WeightComponent {getPercent} bind:option />
+							</td>
+							<td class:hidden={!expanded}>
+								<div class="secret">
+									<WeightedOptionButtonsComponent
+										{deselectOtherOptions}
+										{removeOption}
+										bind:option
 									/>
-								{:else if searchable}
-									<div>
-										<SearchableDropdownComponent
-											list={optionKeys.filter(
-												(it) => !weightedOptions.some((map) => map.name === it)
-											)}
-											bind:value={option.name}
-											textAlignStart={!expanded}
-										/>
-									</div>
-								{:else}
-									<div class:hidden={!expanded}>
-										<DropdownComponent
-											list={optionKeys}
-											disabledList={optionKeys.filter((it) => weightedOptions.some((map) => map.name === it))}
-											bind:value={option.name}
-										/>
-									</div>
-								{/if}
-							</div>
-						</td>
-						<td class:hidden={!expanded}>
-							<WeightComponent {getPercent} bind:option />
-						</td>
-						<td class:hidden={!expanded}>
-							<div class="secret">
-								<WeightedOptionButtonsComponent {deselectOtherOptions} {removeOption} bind:option />
-							</div>
-						</td>
-					</tr>
-				{/each}
-			</table>
+								</div>
+							</td>
+						</tr>
+					{/each}
+				</table>
+			</div>
 			<div class="container vertical key" class:hidden={expanded || optionKeys.length === 0}>
 				<div>
 					<DropdownComponent
 						list={optionKeys}
 						value={selectedOption ? selectedOption.name : '?'}
-						selectOption={selectOption}
+						{selectOption}
 					/>
 				</div>
 			</div>
@@ -152,5 +164,4 @@
 	@import '../styles/weighted-table-styles.css';
 	@import '../styles/button-styles.css';
 	@import '../styles/option-group-styles.css';
-
 </style>

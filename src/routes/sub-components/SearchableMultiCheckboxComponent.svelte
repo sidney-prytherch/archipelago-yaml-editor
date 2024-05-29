@@ -24,7 +24,7 @@
 	// }
 </script>
 
-<div class="horizontal container">
+<div class="horizontal container right-border">
 	<h4>{listItemGroupName}s</h4>
 	<input
 		type="text"
@@ -46,7 +46,7 @@
 		</div>
 		{#if filteredList.length > 0}
 			{#each filteredList as sortObj}
-				<div class="container vertical">
+				<div class="container vertical bordered">
 					<label for={sortObj.name}>{sortObj.name}</label>
 					<div class="no-wrap">
 						{#each radioListLabels as radioLabel}
@@ -109,11 +109,6 @@
 	@import '../styles/button-styles.css';
 	@import '../styles/option-group-styles.css';
 
-	.hint {
-		position: sticky;
-		top: 0;
-		background-color: lightblue;
-	}
 
 	b {
 		font-size: larger;
@@ -133,14 +128,17 @@
 		text-align: start !important;
 	}
 
-	.container {
-		border-right: 1px black solid;
+	.right-border {
+		/* border-right: 1px black solid; */
+		min-width: 400px;
+	}
+
+	.bordered {
 		border-top: 1px black solid;
 	}
 
 	.dropdown {
 		border-top: 1px black solid;
-		border-bottom: 1px black solid;
 		overflow-x: hidden;
 		overflow-y: scroll;
 	}

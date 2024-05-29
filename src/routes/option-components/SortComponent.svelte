@@ -28,11 +28,10 @@
 </script>
 
 <div class:hidden={!expanded} class:vertical={!expanded} class="horizontal container yaml-option">
-
 	<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} optionHint={optionHint} />
-	<div class:hidden={!expanded} class="vertical container">
-		<div class:hidden={!expanded} class="vl" />
-		<div class="container">
+	<div class:hidden={!expanded} class:yaml-option-subsection={expanded} class="vertical container">
+		<!-- <div class:hidden={!expanded} class="vl" /> -->
+		<div class="container flexgrow partial-border">
 			<SearchableMultiCheckboxComponent
 				listItemGroupName={listItemsGroupName}
 				bind:list
@@ -40,7 +39,7 @@
 				bind:checkboxListLabels
 			/>
 		</div>
-		<div class="horizontal container">
+		<div class="horizontal container flexgrow">
 			{#each radioListFilters as stringList, listIndex}
 				<p class:hidden={!expanded} class="short-scroll">
 					<b>{radioListLabels[listIndex]}: </b>
@@ -100,8 +99,9 @@
 	@import '../styles/button-styles.css';
 	@import '../styles/option-group-styles.css';
 
-	* {
-		border: 3px solid green !important;
+
+	.partial-border {
+		border: 1px black solid;
 	}
 
 	input {

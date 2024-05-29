@@ -16,12 +16,11 @@
 	import PlandoItemsComponent from './option-components/PlandoItemsComponent.svelte';
 	import CarrotButtonComponent from './sub-components/CarrotButtonComponent.svelte';
 	import { downloadYaml } from './yamlFunctions';
-	import jsYaml from 'js-yaml'
-
+	import jsYaml from 'js-yaml';
 
 	export let data;
 
-	const defaultOptionName = 'A Link to the Past'
+	const defaultOptionName = 'A Link to the Past';
 
 	let yamls = data.yamls;
 	let datapackage = data.datapackage;
@@ -74,7 +73,9 @@
 				let entries = Object.entries(yaml[key]);
 				if ('sidneys_secret_range_start' in yaml[key]) {
 					// yaml[defaultGameName].ranges = { range: [32], weight: [0], hide: false }
-					let defaultOption = entries.filter((it) => it[1] === 50 && it[0].indexOf("sidneys_secret") !== 0 )[0][0];
+					let defaultOption = entries.filter(
+						(it) => it[1] === 50 && it[0].indexOf('sidneys_secret') !== 0
+					)[0][0];
 					let defaultValueAsNumber = parseInt(defaultOption);
 
 					// determine value aliases
@@ -96,7 +97,7 @@
 							let selected: OptionData = {
 								range: selectedOption,
 								weight: [rangeOptions[1] as number],
-								hide: false
+								hide: rangeOptions[1] === 50 ? false : true
 							};
 							if (isNaN(selectedOption[0])) {
 								if (selectedRange === 'random') {
@@ -117,7 +118,6 @@
 						}
 					}
 
-
 					// console.log("key", key)
 					// console.log("yaml", yaml)
 					// console.log("aliases", aliases)
@@ -137,7 +137,7 @@
 					};
 					yaml[key].sidneys_super_secret_rangesOptions = rangesOptions;
 					yaml[key].sidneys_super_secret_aliases = aliases;
-				} else if (entries.length > 0 && entries.every(it => it[1] === 0 || it[1] === 50)) {
+				} else if (entries.length > 0 && entries.every((it) => it[1] === 0 || it[1] === 50)) {
 					let keys = entries.map((it) => it[0]);
 					let selectedOptions = entries
 						.filter((it) => it[1] !== 0)
@@ -145,7 +145,7 @@
 							return {
 								name: it[0],
 								weight: [it[1]],
-								hide: false
+								hide: it[1] === 50 ? false : true
 							};
 						});
 
@@ -163,7 +163,7 @@
 						'start_location_hints'
 					].includes(key)
 				) {
-					yaml[key].sidneys_secret_yaml_string = jsYaml.dump(yaml[key]).trim()
+					yaml[key].sidneys_secret_yaml_string = jsYaml.dump(yaml[key]).trim();
 				}
 			}
 		});
@@ -223,12 +223,12 @@
 	let nonLocalItemsHint = '';
 	let startHintHint = '';
 	let priorityLocationsHint = '';
-	let excludedLocationsHint = '';
+	let excludeLocationsHint = '';
 	let startLocationHintHint = '';
 
 	let itemRadioListLabels = ['unspecified_items', 'local_items', 'non_local_items'];
 	let itemCheckboxListLabel = ['start_hints'];
-	let locationListLabels = ['unspecified_locations', 'priority_locations', 'excluded_locations'];
+	let locationListLabels = ['unspecified_locations', 'priority_locations', 'exclude_locations'];
 	let locationHintListLabel = ['start_location_hints'];
 
 	// export let listItemsGroupName = ''; //location, item
@@ -238,7 +238,9 @@
 	// export let checkboxListLabel: string[];
 
 	if (!!defaultOptions) {
-		startInventoryHint = defaultOptions[defaultOptionName]['sidneys_secret_documentation-start_inventory'];
+		console.log(defaultOptions)
+		startInventoryHint =
+			defaultOptions[defaultOptionName]['sidneys_secret_documentation-start_inventory'];
 		startInventoryFromPoolHint =
 			defaultOptions[defaultOptionName]['sidneys_secret_documentation-start_inventory_from_pool'];
 		localItemsHint = `Local Items: ${defaultOptions[defaultOptionName]['sidneys_secret_documentation-local_items']}`;
@@ -249,7 +251,7 @@
 				"items' locations prefilled in"
 			);
 		priorityLocationsHint = `Priority Locations: ${defaultOptions[defaultOptionName]['sidneys_secret_documentation-priority_locations']}`;
-		excludedLocationsHint = `Excluded Locations: ${defaultOptions[defaultOptionName]['sidneys_secret_documentation-excluded_locations']}`;
+		excludeLocationsHint = `Exclude Locations: ${defaultOptions[defaultOptionName]['sidneys_secret_documentation-exclude_locations']}`;
 		startLocationHintHint =
 			`Start Location Hints: ${defaultOptions[defaultOptionName]['sidneys_secret_documentation-start_location_hints']}`.replace(
 				'items prefilled into',
@@ -263,7 +265,6 @@
 {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.\n\
 {number} will be replaced with the counter value of the name.\n\
 {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.";
-
 </script>
 
 <svelte:head>
@@ -275,23 +276,29 @@
 	<section>
 		<h1>Amazing YAML editor</h1>
 		<!-- {@debug playerOptions} -->
-		<WeightedListComponent
-			bind:weightedOptions={playerOptions.name}
-			optionName="name"
-			optionHint={nameHint}
-		/>
+		<div class="yaml-option">
+			<WeightedListComponent
+				bind:weightedOptions={playerOptions.name}
+				optionName="name"
+				optionHint={nameHint}
+			/>
+		</div>
+		<div class="yaml-option">
+			<!-- {@debug playerOptions} -->
+			<MultilineStringComponent
+				bind:optionValue={playerOptions.description}
+				optionName="description"
+			/>
+		</div>
 		<!-- {@debug playerOptions} -->
-		<MultilineStringComponent
-			bind:optionValue={playerOptions.description}
-			optionName="description"
-		/>
 		<!-- {@debug playerOptions} -->
-		<!-- {@debug playerOptions} -->
-		<WeightedListComponent
-			bind:weightedOptions={playerOptions.game}
-			bind:optionKeys={gameOptions}
-			optionName="game"
-		/>
+		<div class="yaml-option">
+			<WeightedListComponent
+				bind:weightedOptions={playerOptions.game}
+				bind:optionKeys={gameOptions}
+				optionName="game"
+			/>
+		</div>
 		<!-- {@debug playerOptions} -->
 		{#each playerOptions.game as gameSelections}
 			{@const gameName = gameSelections.name}
@@ -306,11 +313,9 @@
 						expandOrShorten={() => {
 							playerOptions[gameName].expanded = !yamlSettings.expanded;
 						}}
-						takeFullSpace={true}
 					/>
-					<div class="vertical container" class:hidden={!yamlSettings.expanded}>
-						<div class="vl" />
-						<div class="container" class:horizontal={yamlSettings.expanded}>
+					<div class="container" class:hidden={!yamlSettings.expanded}>
+						<div class="container flexgrow" class:horizontal={yamlSettings.expanded}>
 							{#each Object.keys(yamlSettings || {}) as key}
 								{@const optionHint = yamlSettings[`sidneys_secret_documentation-${key}`] || ''}
 								{#if typeof yamlSettings[key] === 'object'}
@@ -370,7 +375,7 @@
 								checkboxListLabels={locationHintListLabel}
 								optionHint={[
 									priorityLocationsHint,
-									excludedLocationsHint,
+									excludeLocationsHint,
 									startLocationHintHint
 								].join('\n')}
 							/>
@@ -404,4 +409,18 @@
 		box-sizing: border-box;
 		margin-bottom: 60px;
 	}
+
+	.yaml-option {
+		background-color: #d0eaff;
+		border-radius: 10px;
+		border: 5px solid #99c2ff;
+		padding: 8px;
+		width: 100%;
+	}
+
+	/* .vl {
+		width: 0;
+		padding: 0;
+		margin: 0;
+	} */
 </style>

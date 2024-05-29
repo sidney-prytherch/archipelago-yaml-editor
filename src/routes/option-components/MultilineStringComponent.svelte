@@ -20,16 +20,16 @@
 		expandOrShorten={optionHint === '' ? () => {} : expandOrShorten}
 		{optionHint}
 	/>
-	<div class="vertical container">
-		<div class="vl" class:hidden={!expanded} />
-		<div class="container">
+	<div class="vertical container flexgrow" class:yaml-option-subsection={expanded}>
+		<!-- <div class="vl" class:hidden={!expanded} /> -->
+		<!-- <div class="container flexgrow"> -->
 			<textarea
 				name={optionName}
 				rows={lineCount}
 				placeholder="Enter {optionName}"
 				bind:value={optionValue}
 			/>
-		</div>
+		<!-- </div> -->
 	</div>
 </div>
 

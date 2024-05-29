@@ -11,7 +11,7 @@
 	import jsYaml from 'js-yaml';
 
 	let weightedOptionsAsYaml = '';
-	let expanded = true;
+	let expanded = false;
 	export let weightedOptions: OptionData[] = [];
 	export let optionRange: NumberRange;
 	export let optionName = '';
@@ -37,7 +37,7 @@
 	let _refs: HTMLSelectElement[] = [];
 	let refs: string[] = [];
 	$: refs = _refs.map((it) => (it == null ? '' : it.value));
-	expandOrShorten();
+	// expandOrShorten();
 	let yamlEditVisible = false;
 
 	function showYamlEdit() {
@@ -78,14 +78,14 @@
 	function addRangeOption() {
 		weightedOptions = [
 			...weightedOptions,
-			{ range: [optionRange.min, optionRange.max], weight: [50], hide: false }
+			{ range: [optionRange.min, optionRange.max], weight: [50], hide: true }
 		];
 	}
 
 	function addNumberOption() {
 		weightedOptions = [
 			...weightedOptions,
-			{ range: [optionRange.default || optionRange.min], weight: [50], hide: false }
+			{ range: [optionRange.default || optionRange.min], weight: [50], hide: true }
 		];
 	}
 
@@ -99,27 +99,28 @@
 		weightedOptions = weightedOptions;
 	}
 
-	function mergeOutput(objectToMerge: OptionData[], deletePrevious: boolean, replacePreviousKeys: boolean) {
+	function mergeOutput(
+		objectToMerge: OptionData[],
+		deletePrevious: boolean,
+		replacePreviousKeys: boolean
+	) {
 		// console.log(objectToMerge)
 		if (deletePrevious) {
 			weightedOptions = [];
 		}
 		for (let newWeightedOption of Object.values(objectToMerge)) {
-			let newWeightedOptionRange = (newWeightedOption.range || []).sort()
+			let newWeightedOptionRange = (newWeightedOption.range || []).sort();
 			let foundDuplicate = false;
 			for (let weightedOption of weightedOptions) {
-				let weightedOptionRange = (weightedOption.range || []).sort()
-				if (weightedOptionRange.length === newWeightedOptionRange.length &&
-					(
-						(weightedOptionRange.length === 1 && 
-							weightedOptionRange[0] === newWeightedOptionRange[0]
-						) ||
-						(weightedOptionRange.length === 2 && 
-						weightedOptionRange[0] === newWeightedOptionRange[0] && 
-						weightedOptionRange[1] === newWeightedOptionRange[1] && 
-						weightedOption.selectedAlias === newWeightedOption.selectedAlias
-						)
-					)
+				let weightedOptionRange = (weightedOption.range || []).sort();
+				if (
+					weightedOptionRange.length === newWeightedOptionRange.length &&
+					((weightedOptionRange.length === 1 &&
+						weightedOptionRange[0] === newWeightedOptionRange[0]) ||
+						(weightedOptionRange.length === 2 &&
+							weightedOptionRange[0] === newWeightedOptionRange[0] &&
+							weightedOptionRange[1] === newWeightedOptionRange[1] &&
+							weightedOption.selectedAlias === newWeightedOption.selectedAlias))
 				) {
 					foundDuplicate = true;
 					if (replacePreviousKeys) {
@@ -141,11 +142,10 @@
 	} {
 		if (!yaml) {
 			return {
-			results: [],
-			warnings: [],
-			errors: []
-
-			}
+				results: [],
+				warnings: [],
+				errors: []
+			};
 		}
 		let formattedRangeObj: AnyObject = jsYaml.load(yaml) as AnyObject;
 		// console.log(formattedRangeObj);
@@ -187,7 +187,9 @@
 				}
 				weightedObject.weight = [Math.max(0, Math.min(50, weight))];
 			} else {
-				errors.push(`can't interpret yaml - attempting to interpret key '${rangeObjKey}' with weight of '${weight}' for option '${optionName}'`);
+				errors.push(
+					`can't interpret yaml - attempting to interpret key '${rangeObjKey}' with weight of '${weight}' for option '${optionName}'`
+				);
 			}
 
 			if (rangeObjKey in numberAliases) {
@@ -357,108 +359,116 @@
 
 <div class:vertical={!expanded} class="horizontal container yaml-option">
 	<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} {optionHint} />
-	<div class="container">
-		<div class:hidden={!expanded} class="vl" />
-		<div class="container" class:horizontal={expanded}>
-			<table class="value">
-				{#each weightedOptions as option, optionIndex}
-					{@const isRange = option.range ? option.range.length > 1 : false}
-					<tr class:borderless={!expanded} class:hidden={option.hide}>
-						<td>
-							<div class="container">
-								<button
-									class="slider-div"
-									class:slider-low={refs[optionIndex] === 'random-low'}
-									class:slider-middle={refs[optionIndex] === 'random-middle'}
-									class:slider-high={refs[optionIndex] === 'random-high'}
-								>
-									{#if pipStep > 0}
-										<RangeSlider
-											float
-											min={optionRange.min}
-											max={optionRange.max}
-											range={isRange}
-											bind:values={option.range}
-											pips
-											pipstep={pipStep}
-											first="label"
-											last="label"
-											on:change={(_) => {
-												if (!isRange) {
-													option.selectedAlias = '';
-													_refs[optionIndex].value = '';
-													refs = refs;
-												}
-											}}
-										/>
-									{:else}
-										<RangeSlider
-											float
-											min={optionRange.min}
-											max={optionRange.max}
-											range={isRange}
-											bind:values={option.range}
-											pips
-											all="label"
-											rest={false}
-											on:change={(_) => {
-												if (!isRange) {
-													option.selectedAlias = '';
-													_refs[optionIndex].value = '';
-													refs = refs;
-												}
-											}}
-										/>
-									{/if}
-								</button>
-								<div class="key">
-									<select
-										bind:this={_refs[optionIndex]}
-										bind:value={option.selectedAlias}
-										on:change={() => {
-											if (numberAliasNames.includes(_refs[optionIndex].value)) {
-												option.range = structuredClone(
-													personalNumberAliases[_refs[optionIndex].value]
-												);
-											}
-											if (
-												!isRange &&
-												['random', 'random-low', 'random-middle', 'random-high'].includes(
-													_refs[optionIndex].value
-												)
-											) {
-												option.range = [optionRange.min, optionRange.max];
-											}
-											refs = refs;
-										}}
+	<div class="container flexgrow vertical">
+		<!-- <div class:hidden={!expanded} class="vl" /> -->
+		<div class="container flexgrow" class:horizontal={expanded}>
+			<div class:yaml-option-subsection={expanded} class="container flexgrow">
+				<table>
+					{#each weightedOptions as option, optionIndex}
+						{@const isRange = option.range ? option.range.length > 1 : false}
+						<tr class:borderless={!expanded} class:hidden={option.hide}>
+							<td>
+								<div class="container">
+									<button
+										class="slider-div"
+										class:slider-low={refs[optionIndex] === 'random-low'}
+										class:slider-middle={refs[optionIndex] === 'random-middle'}
+										class:slider-high={refs[optionIndex] === 'random-high'}
 									>
-										{#if !isRange}
-											<option value=""></option>
+										{#if pipStep > 0}
+											<RangeSlider
+												float
+												min={optionRange.min}
+												max={optionRange.max}
+												range={isRange}
+												bind:values={option.range}
+												pips
+												pipstep={pipStep}
+												first="label"
+												last="label"
+												on:change={(_) => {
+													if (!isRange) {
+														option.selectedAlias = '';
+														_refs[optionIndex].value = '';
+														refs = refs;
+													}
+												}}
+											/>
+										{:else}
+											<RangeSlider
+												float
+												min={optionRange.min}
+												max={optionRange.max}
+												range={isRange}
+												bind:values={option.range}
+												pips
+												all="label"
+												rest={false}
+												on:change={(_) => {
+													if (!isRange) {
+														option.selectedAlias = '';
+														_refs[optionIndex].value = '';
+														refs = refs;
+													}
+												}}
+											/>
 										{/if}
-										<option value="random">random</option>
-										<option value="random-low">random-low</option>
-										<option value="random-middle">random-middle</option>
-										<option value="random-high">random-high</option>
-										{#each numberAliasNames as alias}
-											<option value={alias}>{alias}</option>
-										{/each}
-									</select>
+									</button>
+									<div class="key">
+										<select
+											bind:this={_refs[optionIndex]}
+											bind:value={option.selectedAlias}
+											on:change={() => {
+												if (numberAliasNames.includes(_refs[optionIndex].value)) {
+													option.range = structuredClone(
+														personalNumberAliases[_refs[optionIndex].value]
+													);
+												}
+												if (
+													!isRange &&
+													['random', 'random-low', 'random-middle', 'random-high'].includes(
+														_refs[optionIndex].value
+													)
+												) {
+													option.range = [optionRange.min, optionRange.max];
+												}
+												refs = refs;
+											}}
+										>
+											{#if !isRange}
+												<option value=""></option>
+											{/if}
+											<option value="random">random</option>
+											<option value="random-low">random-low</option>
+											<option value="random-middle">random-middle</option>
+											<option value="random-high">random-high</option>
+											{#each numberAliasNames as alias}
+												<option value={alias}>{alias}</option>
+											{/each}
+										</select>
+									</div>
 								</div>
-							</div>
-						</td>
-						<td class:hidden={!expanded}><WeightComponent {getPercent} bind:option /></td>
-						<td class:hidden={!expanded}>
-							<div class="secret">
-								<WeightedOptionButtonsComponent {deselectOtherOptions} {removeOption} bind:option />
-							</div>
-						</td>
-					</tr>
-				{/each}
-			</table>
+							</td>
+							<td class:hidden={!expanded}><WeightComponent {getPercent} bind:option /></td>
+							<td class:hidden={!expanded}>
+								<div class="secret">
+									<WeightedOptionButtonsComponent
+										{deselectOtherOptions}
+										{removeOption}
+										bind:option
+									/>
+								</div>
+							</td>
+						</tr>
+					{/each}
+				</table>
+			</div>
 			<div class:hidden={!expanded} class="container add-options-buttons">
 				<button class="create-row-button" on:click={addNumberOption}>Add Number Option</button>
 				<button class="create-row-button" on:click={addRangeOption}>Add Range Option</button>
-				<button class="create-row-button" on:click={showYamlEdit}>{!yamlEditVisible ? 'Show Yaml Editor' : 'Hide Yaml Editor'}</button>
+				<button class="create-row-button" on:click={showYamlEdit}
+					>{!yamlEditVisible ? 'Show Yaml Editor' : 'Hide Yaml Editor'}</button
+				>
 			</div>
 			<div class:hidden={!yamlEditVisible || !expanded}>
 				<YamlEditComponent

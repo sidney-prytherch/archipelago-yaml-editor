@@ -32,10 +32,11 @@
 
 <div class:vertical={!expanded} class="horizontal container yaml-option">
 	<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} {optionHint} />
-	<div class="vertical container" class:hidden={!expanded}>
-		<div class="vl" />
-		<div class="container" class:horizontal={expanded}>
-			<table class="value">
+	<div class="vertical flexgrow container" class:hidden={!expanded}>
+		<!-- <div class="vl" /> -->
+		<div class="container flexgrow" class:horizontal={expanded}>
+			<div class:yaml-option-subsection={expanded && weightedOptions.length > 0} class="container flexgrow">
+			<table>
 				{#each weightedOptions as option}
 					<tr class:borderless={!expanded} class:hidden={!expanded}>
 						<td>
@@ -58,7 +59,7 @@
 							</div>
 						</td>
 						<td class:hidden={!expanded}>
-							<input type="number" disabled={!option.name} bind:value={option.value} />
+							<input type="number" disabled={!option.name} min=0 bind:value={option.value} />
 						</td>
 						<td class:hidden={!expanded}>
 							<div class="secret">
@@ -68,6 +69,7 @@
 					</tr>
 				{/each}
 			</table>
+		</div>
 			<div class:hidden={!expanded} class="container add-options-buttons">
 				<button
 					class="create-row-button"

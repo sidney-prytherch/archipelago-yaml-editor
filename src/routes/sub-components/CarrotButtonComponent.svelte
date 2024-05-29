@@ -4,14 +4,12 @@
 	export let optionHint = '';
 	export let expanded = false;
 	export let expandOrShorten: () => void;
-	export let takeFullSpace = false;
 </script>
 
 <div class="container vertical button-container">
 	<button
-		class:full-space={takeFullSpace}
 		title={expanded ? 'minimize options' : 'expand options'}
-		class="option-group-key"
+		class="container"
 		on:click={expandOrShorten}
 	>
 		<i class:rotated={expanded} class="fa-solid fa-carrot"></i>
@@ -25,12 +23,17 @@
 	@import '../styles/button-styles.css';
 	@import '../styles/option-group-styles.css';
 
-	/* * {
-		border: 1px red solid !important;
-	} */
-
-	.full-space {
-		flex-grow: 1;
-		text-align: start;
+	.container {
+		align-items: flex-start;
 	}
+
+	i {
+		display: inline-block;
+
+	}
+
+	h3 {
+		display: inline-block;
+	}
+
 </style>

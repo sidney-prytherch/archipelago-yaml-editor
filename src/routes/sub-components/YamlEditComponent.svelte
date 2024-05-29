@@ -54,7 +54,7 @@
 
 <div class="container horizontal">
 	<button
-		class="borderless create-row-button"
+		class="create-row-button"
 		title="Fill yaml input with current settings"
 		on:click={loadYamlFromSettingsToInput}
 	>
@@ -62,57 +62,60 @@
 		Fill yaml input with current settings
 		<i class="fa-solid fa-arrow-down"></i>
 	</button>
-	<div class="container">
-		<div class="horizontal container yaml-area">
-			<h3>Yaml Input</h3>
-			<textarea
-				name={`${optionName}-yaml-input`}
-				rows={defaultLength}
-				placeholder="Enter yaml for {optionName}"
-				bind:value={input}
-			/>
-		</div>
-		<button class="round-button" title="Interpret Yaml" on:click={update}>
-			<i class="fa-solid fa-arrow-right"></i>
-		</button>
+	<div class="container horizontal colored-section">
+		<div class="container">
+			<div class="horizontal container yaml-area">
+				<h3>Yaml Input</h3>
+				<textarea
+					name={`${optionName}-yaml-input`}
+					rows={defaultLength}
+					placeholder="Enter yaml for {optionName}"
+					bind:value={input}
+				/>
+			</div>
+			<button class="round-button" title="Interpret Yaml" on:click={update}>
+				<i class="fa-solid fa-arrow-right"></i>
+			</button>
 
-		<div class="horizontal container yaml-area">
-			<h3>Interpreted yaml from Input</h3>
-			<textarea
-				disabled
-				name={`${optionName}-yaml-interpreted`}
-				rows={defaultLength}
-				bind:value={results}
-				placeholder={currentOptions}
-			/>
+			<div class="horizontal container yaml-area">
+				<h3>Interpreted yaml from Input</h3>
+				<textarea
+					disabled
+					name={`${optionName}-yaml-interpreted`}
+					rows={defaultLength}
+					bind:value={results}
+					placeholder={currentOptions}
+				/>
+			</div>
 		</div>
-	</div>
-	<div class="container horizontal short-scroll">
-		{#each errors as error}
-			<p class="error">{error}</p>
-		{/each}
-		{#each warnings as warning}
-			<p class="warning">{warning}</p>
-		{/each}
-	</div>
-	<div class="container add-options-buttons">
-		<button
-			class="create-row-button"
-			on:click={() => mergeOutput(resultObject, true, true)}
-			disabled={resultObject.length === 0}>Delete above options and replace with input yaml</button
-		>
-		<button
-			class="create-row-button"
-			on:click={() => mergeOutput(resultObject, false, true)}
-			disabled={resultObject.length === 0}
-			>Add input yaml to above options (override duplicates with input yaml)</button
-		>
-		<button
-			class="create-row-button"
-			on:click={() => mergeOutput(resultObject, false, false)}
-			disabled={resultObject.length === 0}
-			>Add input yaml to above options (ignore duplicates from input yaml)</button
-		>
+		<div class="container horizontal short-scroll">
+			{#each errors as error}
+				<p class="error">{error}</p>
+			{/each}
+			{#each warnings as warning}
+				<p class="warning">{warning}</p>
+			{/each}
+		</div>
+		<div class="container add-options-buttons">
+			<button
+				class="create-row-button"
+				on:click={() => mergeOutput(resultObject, true, true)}
+				disabled={resultObject.length === 0}
+				>Delete above options and replace with input yaml</button
+			>
+			<button
+				class="create-row-button"
+				on:click={() => mergeOutput(resultObject, false, true)}
+				disabled={resultObject.length === 0}
+				>Add input yaml to above options (override duplicates with input yaml)</button
+			>
+			<button
+				class="create-row-button"
+				on:click={() => mergeOutput(resultObject, false, false)}
+				disabled={resultObject.length === 0}
+				>Add input yaml to above options (ignore duplicates from input yaml)</button
+			>
+		</div>
 	</div>
 </div>
 
@@ -124,10 +127,6 @@
 	/* * {
 		border: blue 3px solid;
 	} */
-
-	.borderless {
-		border: none;
-	}
 
 	.warning {
 		background-color: rgba(255, 221, 0, 0.3);
@@ -141,13 +140,25 @@
 		margin: 4px;
 	}
 
+	.create-row-button {
+		flex-shrink: 1;
+	}
+
 	textarea {
 		resize: vertical;
+	}
+
+	textarea::placeholder {
+		color: rgb(179, 179, 179);
 	}
 
 	.short-scroll {
 		max-height: 300px;
 		overflow-y: auto;
+	}
+
+	button {
+		flex-grow: 0 !important;
 	}
 
 	.yaml-area {
@@ -157,11 +168,15 @@
 	h3 {
 		text-align: center;
 		margin: 0;
-		padding: 0;
+		padding: 8px !important;
 	}
 
-	.round-button {
-		align-self: center;
-		flex-grow: 0;
+	.colored-section {
+		border-radius: 10px;
+		width: inherit !important;
+		/* border: 5px solid #ffdb99;
+		background-color: #fffacd; */
+		border: 5px solid #b3e6a3;
+		background-color: #e6f5d0;
 	}
 </style>

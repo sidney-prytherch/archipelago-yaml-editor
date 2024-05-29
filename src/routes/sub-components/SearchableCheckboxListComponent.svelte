@@ -16,7 +16,7 @@
 	}
 </script>
 
-<div class="horizontal container">
+<div class="horizontal flexgrow container">
 	<h4>{title}</h4>
 	<input
 		type="text"
@@ -65,12 +65,10 @@
 	}
 
 	.container {
-		border-right: 1px black solid;
-		border-top: 1px black solid;
+		border: 1px black solid;
 	}
 
 	.dropdown {
 		border-top: 1px black solid;
-		border-bottom: 1px black solid;
 	}
 </style>

@@ -1,5 +1,5 @@
 * {
-    font-size: large
+    font-size: medium
 }
 
 .dropdown {
@@ -14,6 +14,11 @@
     overflow-y: auto
 }
 
+
+.flexgrow {
+    flex-grow: 1;
+}
+
 h4 {
     text-align: center;
     margin: 8px
@@ -21,11 +26,6 @@ h4 {
 
 .fa-carrot.rotated {
     transform: rotate(-45deg)
-}
-
-.yaml-option {
-    border-bottom: 1px solid gray;
-    padding: 4px 0
 }
 
 .hidden {
@@ -44,9 +44,10 @@ textarea {
 }
 
 .container {
-    width: 100%;
     display: flex;
-    justify-content: space-around
+    justify-content: space-around;
+    align-items: stretch;
+    margin: 2px 0;
 }
 
 .slider {
@@ -58,12 +59,26 @@ textarea {
     align-items: center
 }
 
+.yaml-option {
+    border-radius: 10px;
+    border: 5px solid #99e099;
+    background-color: #d0f0d0;
+    padding: 8px;
+    justify-content: flex-start;
+}
+
 .horizontal {
     flex-direction: column
 }
 
 .vertical {
-    flex-direction: row
+    flex-direction: row;
+}
+
+.button-container {
+    flex-grow: 0;
+    flex-shrink: 1;
+    justify-content: flex-start;
 }
 
 .minimized-data {
@@ -89,6 +104,10 @@ input, textarea {
     box-sizing: border-box
 }
 
+textarea {
+    resize: vertical;
+}
+
 input[type=text], select {
     border: none;
     outline: 0;
@@ -110,7 +129,7 @@ input[type=text]:focus, textarea:focus {
 }
 
 :not(h1) {
-    font-size: large
+    font-size: medium
 }
 
 .outer {
@@ -126,7 +145,7 @@ tr:hover .secret {
 }
 
 .vl {
-    background-color: #f90;
+    background-color: #FFA500;
     width: 3px;
     margin: 0 8px 0 27px;
     border-radius: 2px;
@@ -152,13 +171,16 @@ tr:hover .secret {
 
 .create-row-button {
     border-radius: 5px;
-    border-color: #1e90ff;
-    color: #1e90ff
+    border: 3px solid #99c2ff;
+    color: #003366;
+    /* background-color: #d0eaff; */
 }
+
+
 
 h3 {
     white-space: nowrap;
-    color: #000
+    /* color: #000 */
 }
 
 button {
@@ -199,17 +221,12 @@ span {
     transform: rotate(-135deg);
     transition: transform .5s;
     padding: 14px;
-    color: #f90
+    color: #FFA500
 }
 
 .end-aligned-items {
     flex-grow: 1;
     text-align: end;
-}
-
-.button-container {
-    justify-content: flex-start;
-    flex: 1 !important;
 }
 
 .option-hint {

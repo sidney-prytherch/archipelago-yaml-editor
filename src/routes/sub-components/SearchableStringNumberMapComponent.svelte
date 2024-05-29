@@ -5,17 +5,19 @@
 	let searchValue = '';
 
 	export let listItemGroupName = '';
-    export let itemPlandoItems: ItemPlandoItemList[] = [];
+	export let itemPlandoItems: ItemPlandoItemList[] = [];
 
 	let filteredList: ItemPlandoItemList[] = [];
 
 	function handleInput() {
-		filteredList = itemPlandoItems.filter((item) => item.name.toLowerCase().match(searchValue.toLowerCase()));
+		filteredList = itemPlandoItems.filter((item) =>
+			item.name.toLowerCase().match(searchValue.toLowerCase())
+		);
 		itemPlandoItems = itemPlandoItems; //needed?
 	}
 </script>
 
-<div class="horizontal container">
+<div class="horizontal flexgrow container">
 	<h4>{listItemGroupName}s</h4>
 	<input
 		type="text"
@@ -28,54 +30,54 @@
 		<div class="container vertical hint">
 			<span><b>{listItemGroupName}</b></span>
 			<div class="no-wrap">
-                <span><em>Amount</em></span>
-                <span><em>All</em></span>
+				<span><em>Amount</em></span>
+				<span><em>All</em></span>
 			</div>
 		</div>
 		{#if filteredList.length > 0}
 			{#each filteredList as itemGroup}
-				<div class="container vertical">
+				<div class="container vertical border-top">
 					<label for={`${itemGroup.name} count`}>{itemGroup.name}</label>
 					<div class="no-wrap">
-                        <input
-                            class:invisible={itemGroup.isAll}
-                            type="number"
-                            name={`${itemGroup.name} count`}
-                            bind:value={itemGroup.quantity}
-                        />
-                        <label>
-                            <input
-                                type="checkbox"
-                                name={`Every ${itemGroup.name}`}
-                                value={`Every ${itemGroup.name}`}
-                                bind:checked={itemGroup.isAll}
-                            />
-                        </label>
+						<input
+							class:invisible={itemGroup.isAll}
+							type="number"
+							name={`${itemGroup.name} count`}
+							bind:value={itemGroup.quantity}
+						/>
+						<label>
+							<input
+								type="checkbox"
+								name={`Every ${itemGroup.name}`}
+								value={`Every ${itemGroup.name}`}
+								bind:checked={itemGroup.isAll}
+							/>
+						</label>
 					</div>
 				</div>
 			{/each}
 		{:else}
-        {#each itemPlandoItems as itemGroup}
-        <div class="container vertical">
-            <label for={`${itemGroup.name} count`}>{itemGroup.name}</label>
-            <div class="no-wrap">
-                <input
-                    class:invisible={itemGroup.isAll}
-                    type="number"
-                    name={`${itemGroup.name} count`}
-                    bind:value={itemGroup.quantity}
-                />
-                <label>
-                    <input
-                        type="checkbox"
-                        name={`Every ${itemGroup.name}`}
-                        value={`Every ${itemGroup.name}`}
-                        bind:checked={itemGroup.isAll}
-                    />
-                </label>
-            </div>
-        </div>
-    {/each}
+			{#each itemPlandoItems as itemGroup}
+				<div class="container vertical border-top">
+					<label for={`${itemGroup.name} count`}>{itemGroup.name}</label>
+					<div class="no-wrap">
+						<input
+							class:invisible={itemGroup.isAll}
+							type="number"
+							name={`${itemGroup.name} count`}
+							bind:value={itemGroup.quantity}
+						/>
+						<label>
+							<input
+								type="checkbox"
+								name={`Every ${itemGroup.name}`}
+								value={`Every ${itemGroup.name}`}
+								bind:checked={itemGroup.isAll}
+							/>
+						</label>
+					</div>
+				</div>
+			{/each}
 		{/if}
 	</div>
 </div>
@@ -84,12 +86,6 @@
 	@import '../styles/weighted-table-styles.css';
 	@import '../styles/button-styles.css';
 	@import '../styles/option-group-styles.css';
-
-	.hint {
-		position: sticky;
-		top: 0;
-		background-color: lightblue;
-	}
 
 	b {
 		font-size: larger;
@@ -109,12 +105,11 @@
 		text-align: start !important;
 	}
 
-    input[type="number"] {
-        max-width: 80px !important;
-    }
+	input[type='number'] {
+		max-width: 80px !important;
+	}
 
-	.container {
-		border-right: 1px black solid;
+	.border-top, .horizontal {
 		border-top: 1px black solid;
 	}
 
@@ -127,5 +122,9 @@
 
 	.no-wrap span {
 		margin: 9px;
+	}
+
+	.flexgrow {
+		border-left: 1px black solid;
 	}
 </style>
