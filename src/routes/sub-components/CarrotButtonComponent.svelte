@@ -25,9 +25,9 @@
 	@import '../styles/button-styles.css';
 	@import '../styles/option-group-styles.css';
 
-	* {
+	/* * {
 		border: 1px red solid !important;
-	}
+	} */
 
 	.full-space {
 		flex-grow: 1;

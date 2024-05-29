@@ -1,4 +1,6 @@
 <script lang="ts">
+	import YamlEditComponent from '../sub-components/YamlEditComponent.svelte';
+
 	import '@fortawesome/fontawesome-free/css/all.min.css';
 	import type { AnyObject, NumberRange, OptionData } from '../types/types';
 	import RangeSlider from 'svelte-range-slider-pips';
@@ -7,8 +9,8 @@
 	import { deselectOtherNumberOptionsHelper, removeOptionHelper } from '../types/optionButtons';
 	import CarrotButtonComponent from '../sub-components/CarrotButtonComponent.svelte';
 	import jsYaml from 'js-yaml';
-	import { error } from 'console';
 
+	let weightedOptionsAsYaml = '';
 	let expanded = true;
 	export let weightedOptions: OptionData[] = [];
 	export let optionRange: NumberRange;
@@ -36,6 +38,12 @@
 	let refs: string[] = [];
 	$: refs = _refs.map((it) => (it == null ? '' : it.value));
 	expandOrShorten();
+	let yamlEditVisible = false;
+
+	function showYamlEdit() {
+		weightedOptionsAsYaml = toYaml(null);
+		yamlEditVisible = !yamlEditVisible;
+	}
 
 	function expandOrShorten() {
 		// console.log(weightedOptions);
@@ -56,12 +64,6 @@
 			weightedOptions = weightedOptions;
 			expanded = !expanded;
 		}
-		console.log("------------")
-		console.log('weightedOptions', weightedOptions);
-		console.log('optionRange', optionRange);
-		console.log('numberAliases', numberAliases);
-		console.log("following should match...", toYaml());
-		console.log("moment of truth!", fromYaml(toYaml()));
 	}
 
 	function getPercent(option: OptionData): number {
@@ -97,13 +99,66 @@
 		weightedOptions = weightedOptions;
 	}
 
-	function fromYaml(yaml: string) {
-		let formattedRangeObj: AnyObject = jsYaml.load(yaml) as AnyObject;
-		console.log(formattedRangeObj);
+	function mergeOutput(objectToMerge: OptionData[], deletePrevious: boolean, replacePreviousKeys: boolean) {
+		// console.log(objectToMerge)
+		if (deletePrevious) {
+			weightedOptions = [];
+		}
+		for (let newWeightedOption of Object.values(objectToMerge)) {
+			let newWeightedOptionRange = (newWeightedOption.range || []).sort()
+			let foundDuplicate = false;
+			for (let weightedOption of weightedOptions) {
+				let weightedOptionRange = (weightedOption.range || []).sort()
+				if (weightedOptionRange.length === newWeightedOptionRange.length &&
+					(
+						(weightedOptionRange.length === 1 && 
+							weightedOptionRange[0] === newWeightedOptionRange[0]
+						) ||
+						(weightedOptionRange.length === 2 && 
+						weightedOptionRange[0] === newWeightedOptionRange[0] && 
+						weightedOptionRange[1] === newWeightedOptionRange[1] && 
+						weightedOption.selectedAlias === newWeightedOption.selectedAlias
+						)
+					)
+				) {
+					foundDuplicate = true;
+					if (replacePreviousKeys) {
+						weightedOption.weight = newWeightedOption.weight;
+					}
+				}
+			}
+			if (!foundDuplicate) {
+				weightedOptions.push(structuredClone(newWeightedOption));
+			}
+		}
+		weightedOptions = weightedOptions;
+	}
 
-		let errors = [];
-		let allowCopy = true;
-		let rangeObjects = [];
+	function fromYaml(yaml: string | undefined | null): {
+		results: OptionData[];
+		errors: string[];
+		warnings: string[];
+	} {
+		if (!yaml) {
+			return {
+			results: [],
+			warnings: [],
+			errors: []
+
+			}
+		}
+		let formattedRangeObj: AnyObject = jsYaml.load(yaml) as AnyObject;
+		// console.log(formattedRangeObj);
+
+		let warnings: string[] = [];
+		let errors: string[] = [];
+		let rangeObjects: OptionData[] = [];
+
+		let returnObj = {
+			results: rangeObjects,
+			warnings: warnings,
+			errors: errors
+		};
 
 		for (let rangeObjKey of Object.keys(formattedRangeObj)) {
 			let weightedObject: OptionData = {
@@ -115,14 +170,24 @@
 
 			rangeObjects.push(weightedObject);
 
-			let weightString = formattedRangeObj[rangeObjKey];
-			if (typeof weightString === 'string') {
-				let weightNum = Number.parseInt(weightString);
-				if (isNaN(weightNum)) {
-					errors.push(`Could not interpret weight ${weightString} for key ${rangeObjKey}. Will assign weight of 0 to ${rangeObjKey}`);
-					weightNum = 0;
+			let weight = formattedRangeObj[rangeObjKey];
+			let weightNum: number | undefined;
+			if (typeof weight === 'string') {
+				weightNum = Number.parseInt(weight);
+			}
+			if (typeof weight === 'number') {
+				weightNum = weight;
+			}
+			if (typeof weightNum === 'number') {
+				if (isNaN(weight)) {
+					warnings.push(
+						`Could not interpret weight ${weight} for key ${rangeObjKey}. Will assign weight of 0 to ${rangeObjKey}`
+					);
+					weight = 0;
 				}
-				weightedObject.weight = [Math.max(0, Math.min(50, weightNum))]; // could be [NaN]
+				weightedObject.weight = [Math.max(0, Math.min(50, weight))];
+			} else {
+				errors.push(`something went weird with weight of ${rangeObjKey}: ${weight}`);
 			}
 
 			if (rangeObjKey in numberAliases) {
@@ -133,7 +198,7 @@
 
 			let keyAsNumber = Number.parseInt(rangeObjKey);
 			if (keyAsNumber >= optionRange.min && keyAsNumber <= optionRange.max) {
-				weightedObject.range = [keyAsNumber]
+				weightedObject.range = [keyAsNumber];
 				continue;
 			}
 
@@ -170,45 +235,46 @@
 				rangeMax = optionRange.max;
 				weightedObject.selectedAlias = 'random-low';
 			} else if (rangeObjKey.startsWith('random-range-middle-') && stringParts.length === 5) {
-				rangeMin = Number.parseInt(stringParts[3]) || rangeMin;
-				rangeMax = Number.parseInt(stringParts[4]) || rangeMax;
+				rangeMin = Number.parseInt(stringParts[3]) ?? rangeMin;
+				rangeMax = Number.parseInt(stringParts[4]) ?? rangeMax;
 				weightedObject.selectedAlias = 'random-middle';
 			} else if (rangeObjKey.startsWith('random-range-low-')) {
-				rangeMin = Number.parseInt(stringParts[3]) || rangeMin;
-				rangeMax = Number.parseInt(stringParts[4]) || rangeMax;
+				rangeMin = Number.parseInt(stringParts[3]) ?? rangeMin;
+				rangeMax = Number.parseInt(stringParts[4]) ?? rangeMax;
 				weightedObject.selectedAlias = 'random-low';
 			} else if (rangeObjKey.startsWith('random-range-high-')) {
-				rangeMin = Number.parseInt(stringParts[3]) || rangeMin;
-				rangeMax = Number.parseInt(stringParts[4]) || rangeMax;
+				rangeMin = Number.parseInt(stringParts[3]) ?? rangeMin;
+				rangeMax = Number.parseInt(stringParts[4]) ?? rangeMax;
 				weightedObject.selectedAlias = 'random-high';
 			} else if (rangeObjKey.startsWith('random-range-')) {
-				rangeMin = Number.parseInt(stringParts[2]) || rangeMin;
-				rangeMax = Number.parseInt(stringParts[3]) || rangeMax;
+				rangeMin = Number.parseInt(stringParts[2]) ?? rangeMin;
+				rangeMax = Number.parseInt(stringParts[3]) ?? rangeMax;
 				weightedObject.selectedAlias = 'random';
 			} else {
 				errors.push(`couldn't understand key ${rangeObjKey} for ${optionName}`);
 			}
 
-			if ((!rangeMin && rangeMin !== 0) || (!rangeMax && rangeMax !== 0)) {
-				errors.push(`could not interpret ${rangeObjKey} for ${optionName}. Is the key formatted incorrectly?`)
-				allowCopy = false;
+			if (typeof rangeMin === 'undefined' || typeof rangeMax === 'undefined') {
+				errors.push(
+					`could not interpret ${rangeObjKey} for ${optionName}. Is the key formatted incorrectly?`
+				);
 			} else {
-
 				if (rangeMin < optionRange.min || rangeMax > optionRange.max) {
-					errors.push(`range ${rangeMin}-${rangeMax} of "${rangeObjKey}" is out of range of [${optionRange.min}, ${optionRange.max}]. Range will be altered from these values.`)
+					warnings.push(
+						`range ${rangeMin}-${rangeMax} of "${rangeObjKey}" is out of range of [${optionRange.min}, ${optionRange.max}]. Range will be altered from these values.`
+					);
 				}
 
-				weightedObject.range=[Math.max(optionRange.min, rangeMin), Math.min(optionRange.max, rangeMax)]
-
-			} 
+				weightedObject.range = [
+					Math.max(optionRange.min, rangeMin),
+					Math.min(optionRange.max, rangeMax)
+				];
+			}
 		}
 		for (let errorString of errors) {
 			console.error(errorString);
 		}
-		if (allowCopy) {
-			return rangeObjects
-		}
-		return null;
+		return returnObj;
 	}
 
 	function logErrorifError(errorIfTrue: boolean, warningIfTrue: boolean, existingKey: string) {
@@ -225,11 +291,14 @@
 		}
 	}
 
-	function toYaml() {
+	function toYaml(objectToInterpretAsYaml: AnyObject | null) {
+		if (!objectToInterpretAsYaml) {
+			objectToInterpretAsYaml = weightedOptions;
+		}
 		let formattedRangeObj: AnyObject = {};
 		let min = optionRange.min;
 		let max = optionRange.max;
-		for (let rangeObj of weightedOptions) {
+		for (let rangeObj of objectToInterpretAsYaml as OptionData[]) {
 			if (rangeObj.range) {
 				if (rangeObj.range.length === 2) {
 					if (!rangeObj.selectedAlias) {
@@ -270,7 +339,7 @@
 					formattedRangeObj[rangeObj.selectedAlias] = rangeObj.weight[0];
 				} else {
 					let key = String(rangeObj.range[0]);
-					console.log(`is ${key}, so it's a number`, rangeObj);
+					// console.log(`is ${key}, so it's a number`, rangeObj);
 					logErrorifError(
 						!!formattedRangeObj[key],
 						formattedRangeObj[key] === rangeObj.weight[0],
@@ -388,6 +457,17 @@
 			<div class:hidden={!expanded} class="container add-options-buttons">
 				<button class="create-row-button" on:click={addNumberOption}>Add Number Option</button>
 				<button class="create-row-button" on:click={addRangeOption}>Add Range Option</button>
+				<button class="create-row-button" on:click={showYamlEdit}>Edit as Yaml</button>
+			</div>
+			<div class:hidden={!yamlEditVisible || !expanded}>
+				<YamlEditComponent
+					{fromYaml}
+					{toYaml}
+					{optionName}
+					hideYamlEdit={showYamlEdit}
+					{mergeOutput}
+					bind:currentOptions={weightedOptionsAsYaml}
+				/>
 			</div>
 		</div>
 	</div>
