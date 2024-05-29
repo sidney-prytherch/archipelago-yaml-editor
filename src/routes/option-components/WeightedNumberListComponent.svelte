@@ -181,13 +181,13 @@
 			if (typeof weightNum === 'number') {
 				if (isNaN(weight)) {
 					warnings.push(
-						`Could not interpret weight ${weight} for key ${rangeObjKey}. Will assign weight of 0 to ${rangeObjKey}`
+						`Could not interpret weight '${weight}' for key '${rangeObjKey}'. Will assign weight of 0 to '${rangeObjKey}'`
 					);
 					weight = 0;
 				}
 				weightedObject.weight = [Math.max(0, Math.min(50, weight))];
 			} else {
-				errors.push(`something went weird with weight of ${rangeObjKey}: ${weight}`);
+				errors.push(`can't interpret yaml - attempting to interpret key '${rangeObjKey}' with weight of '${weight}' for option '${optionName}'`);
 			}
 
 			if (rangeObjKey in numberAliases) {
@@ -250,18 +250,19 @@
 				rangeMin = Number.parseInt(stringParts[2]) ?? rangeMin;
 				rangeMax = Number.parseInt(stringParts[3]) ?? rangeMax;
 				weightedObject.selectedAlias = 'random';
-			} else {
-				errors.push(`couldn't understand key ${rangeObjKey} for ${optionName}`);
 			}
+			//  else {
+			// 	errors.push(`couldn't understand key '${rangeObjKey}' for '${optionName}'`);
+			// }
 
 			if (typeof rangeMin === 'undefined' || typeof rangeMax === 'undefined') {
 				errors.push(
-					`could not interpret ${rangeObjKey} for ${optionName}. Is the key formatted incorrectly?`
+					`couldn't understand the key '${rangeObjKey}' for options '${optionName}'. Is the key formatted incorrectly?`
 				);
 			} else {
 				if (rangeMin < optionRange.min || rangeMax > optionRange.max) {
 					warnings.push(
-						`range ${rangeMin}-${rangeMax} of "${rangeObjKey}" is out of range of [${optionRange.min}, ${optionRange.max}]. Range will be altered from these values.`
+						`range ${rangeMin}-${rangeMax} of '${rangeObjKey}' is out of range of [${optionRange.min}, ${optionRange.max}]. Range will be altered from these values.`
 					);
 				}
 
@@ -457,14 +458,13 @@
 			<div class:hidden={!expanded} class="container add-options-buttons">
 				<button class="create-row-button" on:click={addNumberOption}>Add Number Option</button>
 				<button class="create-row-button" on:click={addRangeOption}>Add Range Option</button>
-				<button class="create-row-button" on:click={showYamlEdit}>Edit as Yaml</button>
+				<button class="create-row-button" on:click={showYamlEdit}>{!yamlEditVisible ? 'Show Yaml Editor' : 'Hide Yaml Editor'}</button>
 			</div>
 			<div class:hidden={!yamlEditVisible || !expanded}>
 				<YamlEditComponent
 					{fromYaml}
 					{toYaml}
 					{optionName}
-					hideYamlEdit={showYamlEdit}
 					{mergeOutput}
 					bind:currentOptions={weightedOptionsAsYaml}
 				/>

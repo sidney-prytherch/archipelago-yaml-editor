@@ -3,7 +3,7 @@
     padding: 0;
     background: 0 0;
     color: #1e90ff;
-    white-space: nowrap
+    white-space: nowrap;
 }
 
 .delete-button {
@@ -33,10 +33,10 @@ button>i {
 .create-row-button {
     margin: 8px;
     border-radius: 5px;
-    border-color: #1e90ff;
     color: #1e90ff;
     background-color: transparent;
-    padding: 8px
+    padding: 8px !important;
+    border: 1px solid #1e90ff;
 }
 
 tr:hover .secret {
