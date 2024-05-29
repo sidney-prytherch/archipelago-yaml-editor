@@ -416,6 +416,7 @@
 		border: 5px solid #99c2ff;
 		padding: 8px;
 		width: 100%;
+		margin: 8px;
 	}
 
 	/* .vl {

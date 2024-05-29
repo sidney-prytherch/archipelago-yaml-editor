@@ -6,10 +6,11 @@
 	export let expandOrShorten: () => void;
 </script>
 
-<div class="container vertical button-container">
+<div class="container vertical button-container top-align">
 	<button
 		title={expanded ? 'minimize options' : 'expand options'}
-		class="container"
+		class="container center"
+
 		on:click={expandOrShorten}
 	>
 		<i class:rotated={expanded} class="fa-solid fa-carrot"></i>
@@ -23,7 +24,11 @@
 	@import '../styles/button-styles.css';
 	@import '../styles/option-group-styles.css';
 
-	.container {
+	.center {
+		align-items: center;
+	}
+
+	.top-align {
 		align-items: flex-start;
 	}
 
