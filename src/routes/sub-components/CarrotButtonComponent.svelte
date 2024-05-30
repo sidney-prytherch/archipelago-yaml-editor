@@ -10,7 +10,6 @@
 	<button
 		title={expanded ? 'minimize options' : 'expand options'}
 		class="container center"
-
 		on:click={expandOrShorten}
 	>
 		<i class:rotated={expanded} class="fa-solid fa-carrot"></i>

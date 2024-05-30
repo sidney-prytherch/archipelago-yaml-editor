@@ -62,7 +62,7 @@
 		Fill yaml input with current settings
 		<i class="fa-solid fa-arrow-down"></i>
 	</button>
-	<div class="container horizontal colored-section">
+	<div class="container horizontal yaml-option-subsection">
 		<div class="container">
 			<div class="horizontal container yaml-area">
 				<h3>Yaml Input</h3>
@@ -169,14 +169,5 @@
 		text-align: center;
 		margin: 0;
 		padding: 8px !important;
-	}
-
-	.colored-section {
-		border-radius: 10px;
-		width: inherit !important;
-		/* border: 5px solid #ffdb99;
-		background-color: #fffacd; */
-		border: 5px solid #b3e6a3;
-		background-color: #e6f5d0;
 	}
 </style>

@@ -13,6 +13,8 @@
 	export let optionKeys: string[] = [];
 	export let optionName = '';
 	export let optionHint = '';
+	export let level = 2;
+	let colorClass = level === 2 ? "yaml-option" : ""
 	//console.log(weightedOptions);
 	let searchable = optionKeys.length > 15;
 	let selectedOption: OptionData;
@@ -82,12 +84,12 @@
 	}
 </script>
 
-<div class:vertical={!expanded} class="horizontal container yaml-option">
+<div class:vertical={!expanded} class="horizontal container flex-start" class:yaml-option={level === 2}>
 	<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} {optionHint} />
 	<div class="vertical container">
 		<!-- <div class:hidden={!expanded} class="vl" /> -->
 		<div class="container flexgrow" class:horizontal={expanded}>
-			<div class:yaml-option-subsection={expanded} class="container flexgrow">
+			<div class:yaml-option-subsection={expanded && level === 2} class:yaml-option={expanded && level === 1} class="container flexgrow">
 				<table class="value" class:hidden={!expanded && optionKeys.length > 0}>
 					{#each weightedOptions as option}
 						<tr class:borderless={!expanded} class:hidden={option.hide}>
@@ -164,4 +166,7 @@
 	@import '../styles/weighted-table-styles.css';
 	@import '../styles/button-styles.css';
 	@import '../styles/option-group-styles.css';
+
+
+
 </style>

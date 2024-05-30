@@ -281,6 +281,7 @@
 				bind:weightedOptions={playerOptions.name}
 				optionName="name"
 				optionHint={nameHint}
+				level={1}
 			/>
 		</div>
 		<div class="yaml-option">
@@ -288,6 +289,7 @@
 			<MultilineStringComponent
 				bind:optionValue={playerOptions.description}
 				optionName="description"
+				level={1}
 			/>
 		</div>
 		<!-- {@debug playerOptions} -->
@@ -297,6 +299,7 @@
 				bind:weightedOptions={playerOptions.game}
 				bind:optionKeys={gameOptions}
 				optionName="game"
+				level={1}
 			/>
 		</div>
 		<!-- {@debug playerOptions} -->

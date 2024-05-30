@@ -5,6 +5,7 @@
 	export let optionName = '';
 	export let optionValue = '';
 	export let optionHint = '';
+	export let level = 2;
 	let expanded = false;
 	let lineCount = Math.max(Math.min(optionValue.split(/\r\n|\r|\n/).length, 20), 2);
 
@@ -13,7 +14,7 @@
 	}
 </script>
 
-<div class:vertical={!expanded} class="horizontal container yaml-option">
+<div class:vertical={!expanded} class="horizontal container flex-start" class:yaml-option={level === 2}>
 	<CarrotButtonComponent
 		bind:expanded
 		{optionName}
