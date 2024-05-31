@@ -1,6 +1,6 @@
-* {
+/* * {
     font-size: medium
-}
+} */
 
 .dropdown {
     flex-grow: 1;
@@ -47,7 +47,7 @@ textarea {
     display: flex;
     justify-content: space-around;
     align-items: stretch;
-    margin: 2px 0;
+    /* margin: 2px 0; */
 }
 
 .slider {
@@ -57,14 +57,6 @@ textarea {
 
 .center-aligned {
     align-items: center
-}
-
-.yaml-option {
-    border-radius: 10px;
-    border: 5px solid #99e099;
-    background-color: #d0f0d0;
-    padding: 8px;
-    justify-content: flex-start;
 }
 
 .horizontal {
@@ -165,18 +157,106 @@ tr:hover .secret {
     align-items: start
 }
 
-.create-row-button, .key, .option-group-key, table {
+.key, .option-group-key, table {
     padding: 0
 }
 
-.create-row-button {
+.create-row-button,
+.create-row-button-level-zero,
+.create-row-button-level-one,
+.create-row-button-level-two,
+.create-row-button-level-three,
+.create-row-button-level-four {
+    margin: 8px;
     border-radius: 5px;
-    border: 3px solid #99c2ff;
-    color: #003366;
+    color: #1e90ff;
+    padding: 8px;
+    border: 3px solid #1e90ff;
+    font-weight: bold;
+}
+
+.create-row-button {
+    border-color: #8753ff;
+    background-color: #d3cdff;
+    color: #d3cdff;
     /* background-color: #d0eaff; */
 }
 
+.create-row-button-level-zero {
+    background-color: #d3cdff;
+    border-color: #8753ff;
+    color: #8753ff;
+    /* background-color: #d0eaff; */
+}
 
+.create-row-button-level-one {
+    background-color: #8753ff;
+    border-color: #d3cdff;
+    color: #d3cdff;
+    /* background-color: #d0eaff; */
+}
+
+.create-row-button-level-two {
+    background-color: #5398ff;
+    border-color: #d0eaff;
+    color: #d0eaff;
+    /* background-color: #d0eaff; */
+}
+
+.create-row-button-level-three {
+    background-color: #5dc85d;
+    border-color:  #d0f0d0;
+    color: #d0f0d0;
+    /* background-color: #d0eaff; */
+}
+
+.create-row-button-level-four {
+    border-color:  #e6f5d0;
+    background-color: #d9e10c;
+    color: #e6f5d0;
+    /* background-color: #d0eaff; */
+}
+
+.yaml-option,
+.yaml-option-level-one,
+.yaml-option-level-two,
+.yaml-option-level-three,
+.yaml-option-level-four
+{
+    margin-bottom: 5px;
+    border-radius: 10px;
+    border: 4px solid black;
+    padding: 8px;
+    justify-content: flex-start;
+}
+
+.yaml-option-level-one {
+    background-color: #d3cdff;
+    border-color: #8753ff;
+}
+
+.yaml-option-level-two {
+    border-color: #5398ff;
+    background-color: #d0eaff;
+}
+
+.yaml-option-level-three
+{
+    border-color: #5dc85d;
+    background-color: #d0f0d0;
+}
+
+.yaml-option-level-four {
+    border-color: #d9e10c;
+    background-color: #e6f5d0;
+}
+
+/* .yaml-option-subsection {
+    border-radius: 10px;
+    border: 4px solid #d9e10c;
+    background-color: #e6f5d0;
+    padding: 8px;
+} */
 
 h3 {
     white-space: nowrap;
@@ -231,16 +311,27 @@ span {
 
 .option-hint {
     margin: 0 8px;
-    max-height: 50px;
-    overflow-y: hidden;
     white-space: pre-wrap;
     color: lightslategray;
-    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
 }
 
-.option-hint:hover {
+.option-hint > span {
+    display: block;
+    background: linear-gradient(to bottom, lightslategray 50%, transparent);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    overflow-y: hidden;
+    max-height: 50px;
+}
+
+.option-hint > span:hover {
     max-height: 999px;
     transition: max-height 1s ease-in-out;
+    background: lightslategray;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 
 @media only screen and (max-width:600px) {

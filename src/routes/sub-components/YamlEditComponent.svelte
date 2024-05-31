@@ -52,9 +52,9 @@
 	}
 </script>
 
-<div class="container horizontal">
+<div class="container horizontal yaml-option-level-three">
 	<button
-		class="create-row-button"
+		class="create-row-button-level-three"
 		title="Fill yaml input with current settings"
 		on:click={loadYamlFromSettingsToInput}
 	>
@@ -62,7 +62,7 @@
 		Fill yaml input with current settings
 		<i class="fa-solid fa-arrow-down"></i>
 	</button>
-	<div class="container horizontal yaml-option-subsection">
+	<div class="container horizontal">
 		<div class="container">
 			<div class="horizontal container yaml-area">
 				<h3>Yaml Input</h3>
@@ -98,19 +98,19 @@
 		</div>
 		<div class="container add-options-buttons">
 			<button
-				class="create-row-button"
+				class="create-row-button-level-three"
 				on:click={() => mergeOutput(resultObject, true, true)}
 				disabled={resultObject.length === 0}
 				>Delete above options and replace with input yaml</button
 			>
 			<button
-				class="create-row-button"
+				class="create-row-button-level-three"
 				on:click={() => mergeOutput(resultObject, false, true)}
 				disabled={resultObject.length === 0}
 				>Add input yaml to above options (override duplicates with input yaml)</button
 			>
 			<button
-				class="create-row-button"
+				class="create-row-button-level-three"
 				on:click={() => mergeOutput(resultObject, false, false)}
 				disabled={resultObject.length === 0}
 				>Add input yaml to above options (ignore duplicates from input yaml)</button
@@ -140,7 +140,7 @@
 		margin: 4px;
 	}
 
-	.create-row-button {
+	.create-row-button-three {
 		flex-shrink: 1;
 	}
 

@@ -15,7 +15,7 @@
 		<i class:rotated={expanded} class="fa-solid fa-carrot"></i>
 		<h3>{optionName}</h3>
 	</button>
-	<p class="option-hint" class:hidden={!expanded}>{optionHint}</p>
+	<p class="option-hint" class:hidden={!expanded}><span>{optionHint}</span></p>
 </div>
 
 <style>

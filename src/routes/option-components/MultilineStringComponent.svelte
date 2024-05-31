@@ -14,14 +14,14 @@
 	}
 </script>
 
-<div class:vertical={!expanded} class="horizontal container flex-start" class:yaml-option={level === 2}>
+<div class:vertical={!expanded} class="horizontal container flex-start" class:yaml-option-level-two={level === 2}>
 	<CarrotButtonComponent
 		bind:expanded
 		{optionName}
 		expandOrShorten={optionHint === '' ? () => {} : expandOrShorten}
 		{optionHint}
 	/>
-	<div class="vertical container flexgrow" class:yaml-option-subsection={expanded}>
+	<div class="vertical container flexgrow" class:yaml-option-level-three={expanded}>
 		<!-- <div class="vl" class:hidden={!expanded} /> -->
 		<!-- <div class="container flexgrow"> -->
 			<textarea

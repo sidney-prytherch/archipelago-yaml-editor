@@ -5,7 +5,7 @@
 	export let optionValue = '';
 </script>
 
-<div class="container yaml-option">
+<div class="container yaml-option-level-two">
 	<i class="fa-solid fa-carrot"></i>
 	<h3>{optionName}</h3>
 	<input

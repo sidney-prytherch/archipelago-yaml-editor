@@ -27,9 +27,9 @@
 	}
 </script>
 
-<div class:hidden={!expanded} class:vertical={!expanded} class="horizontal container yaml-option">
+<div class:hidden={!expanded} class:vertical={!expanded} class="horizontal container yaml-option-level-two">
 	<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} optionHint={optionHint} />
-	<div class:hidden={!expanded} class:yaml-option-subsection={expanded} class="vertical container">
+	<div class:hidden={!expanded} class:yaml-option-level-three={expanded} class="vertical container">
 		<!-- <div class:hidden={!expanded} class="vl" /> -->
 		<div class="container flexgrow partial-border">
 			<SearchableMultiCheckboxComponent
@@ -64,7 +64,7 @@
 		<div
 			class:hidden={expanded}
 			class:vertical={!expanded}
-			class="horizontal container yaml-option"
+			class="horizontal container yaml-option-level-two"
 		>
 			<CarrotButtonComponent
 				bind:expanded
@@ -80,7 +80,7 @@
 	{/if}
 {/each}
 {#each checkboxListFilters as stringList, listIndex}
-	<div class:hidden={expanded} class:vertical={!expanded} class="horizontal container yaml-option">
+	<div class:hidden={expanded} class:vertical={!expanded} class="horizontal container yaml-option-level-two">
 		<CarrotButtonComponent
 			bind:expanded
 			optionName={checkboxListLabels[listIndex]}

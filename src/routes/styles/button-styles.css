@@ -30,15 +30,6 @@ button>i {
     font-size: 25px !important
 }
 
-.create-row-button {
-    margin: 8px;
-    border-radius: 5px;
-    color: #1e90ff;
-    background-color: transparent;
-    padding: 8px !important;
-    border: 1px solid #1e90ff;
-}
-
 tr:hover .secret {
     visibility: visible
 }

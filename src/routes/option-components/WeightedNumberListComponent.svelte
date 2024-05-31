@@ -78,14 +78,14 @@
 	function addRangeOption() {
 		weightedOptions = [
 			...weightedOptions,
-			{ range: [optionRange.min, optionRange.max], weight: [50], hide: true }
+			{ range: [optionRange.min, optionRange.max], weight: [50], hide: !expanded }
 		];
 	}
 
 	function addNumberOption() {
 		weightedOptions = [
 			...weightedOptions,
-			{ range: [optionRange.default || optionRange.min], weight: [50], hide: true }
+			{ range: [optionRange.default || optionRange.min], weight: [50], hide: !expanded }
 		];
 	}
 
@@ -184,6 +184,8 @@
 						`Could not interpret weight '${weight}' for key '${rangeObjKey}'. Will assign weight of 0 to '${rangeObjKey}'`
 					);
 					weight = 0;
+				} else if (weight < 0 || weight > 50) {
+					warnings.push(`input weight of '${rangeObjKey}' (${weight}) was out of range of [0, 50]. Will Assume closest weight in range`)
 				}
 				weightedObject.weight = [Math.max(0, Math.min(50, weight))];
 			} else {
@@ -357,12 +359,12 @@
 	}
 </script>
 
-<div class:vertical={!expanded} class="horizontal container yaml-option">
+<div class:vertical={!expanded} class="horizontal container yaml-option-level-two">
 	<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} {optionHint} />
 	<div class="container flexgrow vertical">
 		<!-- <div class:hidden={!expanded} class="vl" /> -->
 		<div class="container flexgrow" class:horizontal={expanded}>
-			<div class:yaml-option-subsection={expanded} class="container flexgrow">
+			<div class:yaml-option-level-three={expanded} class="container flexgrow">
 				<table>
 					{#each weightedOptions as option, optionIndex}
 						{@const isRange = option.range ? option.range.length > 1 : false}
@@ -464,9 +466,9 @@
 				</table>
 			</div>
 			<div class:hidden={!expanded} class="container add-options-buttons">
-				<button class="create-row-button" on:click={addNumberOption}>Add Number Option</button>
-				<button class="create-row-button" on:click={addRangeOption}>Add Range Option</button>
-				<button class="create-row-button" on:click={showYamlEdit}
+				<button class="create-row-button-level-two" on:click={addNumberOption}>Add Number Option</button>
+				<button class="create-row-button-level-two" on:click={addRangeOption}>Add Range Option</button>
+				<button class="create-row-button-level-two" on:click={showYamlEdit}
 					>{!yamlEditVisible ? 'Show Yaml Editor' : 'Hide Yaml Editor'}</button
 				>
 			</div>

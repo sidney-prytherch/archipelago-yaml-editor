@@ -276,7 +276,7 @@
 	<section>
 		<h1>Amazing YAML editor</h1>
 		<!-- {@debug playerOptions} -->
-		<div class="yaml-option">
+		<div class="yaml-option-level-one">
 			<WeightedListComponent
 				bind:weightedOptions={playerOptions.name}
 				optionName="name"
@@ -284,7 +284,7 @@
 				level={1}
 			/>
 		</div>
-		<div class="yaml-option">
+		<div class="yaml-option-level-one">
 			<!-- {@debug playerOptions} -->
 			<MultilineStringComponent
 				bind:optionValue={playerOptions.description}
@@ -294,7 +294,7 @@
 		</div>
 		<!-- {@debug playerOptions} -->
 		<!-- {@debug playerOptions} -->
-		<div class="yaml-option">
+		<div class="yaml-option-level-one">
 			<WeightedListComponent
 				bind:weightedOptions={playerOptions.game}
 				bind:optionKeys={gameOptions}
@@ -309,7 +309,7 @@
 			<!-- {@debug gameSelections} -->
 			<!-- {@debug playerOptions} -->
 			{#if !!gameName && !!yamlSettings}
-				<div class:vertical={!yamlSettings.expanded} class="horizontal container yaml-option">
+				<div class:vertical={!yamlSettings.expanded} class="horizontal container yaml-option-level-one">
 					<CarrotButtonComponent
 						bind:expanded={playerOptions[gameName].expanded}
 						optionName={gameName}
@@ -392,7 +392,9 @@
 				</div>
 			{/if}
 		{/each}
-		<button on:click={() => downloadYaml(playerOptions)}>DOWNLOAD YAML</button>
+		<div class="container">
+			<button class="create-row-button-level-zero" on:click={() => downloadYaml(playerOptions)}>Download Yaml</button>
+		</div>
 	</section>
 </main>
 
@@ -413,14 +415,13 @@
 		margin-bottom: 60px;
 	}
 
-	.yaml-option {
+	/* .yaml-option-level-one {
 		background-color: #d0eaff;
+		border: 4px solid #5398ff;
 		border-radius: 10px;
-		border: 5px solid #99c2ff;
 		padding: 8px;
 		width: 100%;
-		margin: 8px;
-	}
+	} */
 
 	/* .vl {
 		width: 0;

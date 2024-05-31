@@ -48,14 +48,14 @@
 	}
 </script>
 
-<div class:vertical={!expanded} class="horizontal container yaml-option">
+<div class:vertical={!expanded} class="horizontal container yaml-option-level-two">
 	<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} />
 	<div class="vertical container" class:hidden={!expanded}>
 		<!-- <div class="vl" /> -->
 		<div class="container flexgrow" class:horizontal={expanded}>
 			{#each itemPlando as itemPlandoItemGroup, itemPlandoIndex}
 				{@const itemPlandoNum = itemPlandoIndex + 1}
-				<div class="container horizontal yaml-option-subsection">
+				<div class="container horizontal yaml-option-level-three">
 					<div class="vertical container">
 						<CarrotButtonComponent
 							bind:expanded={itemPlandoItemGroup.expanded}
@@ -219,7 +219,7 @@
 				</div>
 			{/each}
 			<div class:hidden={!expanded} class="container add-options-buttons">
-				<button class="create-row-button" on:click={addItemGroup}>Add Item Group</button>
+				<button class="create-row-button-level-two" on:click={addItemGroup}>Add Item Group</button>
 			</div>
 		</div>
 	</div>
@@ -281,10 +281,6 @@
 	@import '../styles/weighted-table-styles.css';
 	@import '../styles/button-styles.css';
 	@import '../styles/option-group-styles.css';
-
-	button {
-		height: 100%;
-	}
 
 	td {
 		padding: 8px;

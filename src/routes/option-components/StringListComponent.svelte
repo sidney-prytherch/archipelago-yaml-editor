@@ -21,7 +21,7 @@
 	}
 </script>
 
-<div class:vertical={!expanded} class="horizontal container yaml-option">
+<div class:vertical={!expanded} class="horizontal container yaml-option-level-two">
 	<CarrotButtonComponent bind:expanded {optionName} {expandOrShorten} />
 	<div class:hidden={!expanded} class="vertical container">
 		<div class:hidden={!expanded} class="vl" />
