@@ -49,13 +49,10 @@ body {
 }
 
 .left-div, .right-div {
-	background: url(/src/images/background-repeat2.png);
-    background-repeat: round;
-    border: 72px solid blue;
+	background: url(/src/images/background-repeat2.png) round;
+    border: 72px solid transparent;
     padding: 0;
-    border-image-source: url(/src/images/background-repeat.png);
-    border-image-repeat: round;
-    border-image-slice: 72;
+	border-image: url(/src/images/background-repeat.png) round 72;
 }
 
 h1,
@@ -178,12 +175,8 @@ button:focus:not(:focus-visible) {
 }
 
 main {
-    width: 100%;
-	background: url(/src/images/background-grass.png);
-    background-repeat: round;
+	background: url(/src/images/background-grass.png) round;
     border: 72px solid transparent;
     padding: 15px;
-    border-image-source: url(/src/images/testborder.png);
-    border-image-repeat: round;
-    border-image-slice: 72;
+    border-image: url(/src/images/testborder.png) round 72;
 }
