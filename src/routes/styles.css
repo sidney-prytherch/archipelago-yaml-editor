@@ -45,7 +45,6 @@ body {
 
 .container-of-all > div {
 	flex-grow: 1;
-
 }
 
 .left-div, .right-div {

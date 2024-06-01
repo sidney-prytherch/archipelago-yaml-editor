@@ -414,10 +414,11 @@
 		padding: 1rem;
 		width: 100%;
 		height: 100vh;
-		max-width: 64rem;
+		max-width: 76rem;
 		margin: 0 auto;
 		box-sizing: border-box;
 		overflow: auto;
+		overflow-y: scroll;
 		scrollbar-color: #2a5730 #489848;
 		scrollbar-width: thin;
 	}
