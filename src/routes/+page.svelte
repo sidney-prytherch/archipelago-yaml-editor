@@ -238,7 +238,7 @@
 	// export let checkboxListLabel: string[];
 
 	if (!!defaultOptions) {
-		console.log(defaultOptions)
+		console.log(defaultOptions);
 		startInventoryHint =
 			defaultOptions[defaultOptionName]['sidneys_secret_documentation-start_inventory'];
 		startInventoryFromPoolHint =
@@ -274,7 +274,7 @@
 
 <main>
 	<section>
-		<h1>Amazing YAML editor</h1>
+		<h1>Archipelago YAML Editor</h1>
 		<!-- {@debug playerOptions} -->
 		<div class="yaml-option-level-one">
 			<WeightedListComponent
@@ -309,7 +309,10 @@
 			<!-- {@debug gameSelections} -->
 			<!-- {@debug playerOptions} -->
 			{#if !!gameName && !!yamlSettings}
-				<div class:vertical={!yamlSettings.expanded} class="horizontal container yaml-option-level-one">
+				<div
+					class:vertical={!yamlSettings.expanded}
+					class="horizontal container yaml-option-level-one"
+				>
 					<CarrotButtonComponent
 						bind:expanded={playerOptions[gameName].expanded}
 						optionName={gameName}
@@ -393,7 +396,9 @@
 			{/if}
 		{/each}
 		<div class="container">
-			<button class="create-row-button-level-zero" on:click={() => downloadYaml(playerOptions)}>Download Yaml</button>
+			<button class="create-row-button-level-zero" on:click={() => downloadYaml(playerOptions)}
+				>Download Yaml</button
+			>
 		</div>
 	</section>
 </main>
@@ -404,15 +409,17 @@
 	@import './styles/option-group-styles.css';
 
 	main {
-		flex: 5;
 		display: flex;
 		flex-direction: column;
 		padding: 1rem;
 		width: 100%;
+		height: 100vh;
 		max-width: 64rem;
 		margin: 0 auto;
 		box-sizing: border-box;
-		margin-bottom: 60px;
+		overflow: auto;
+		scrollbar-color: #2a5730 #489848;
+		scrollbar-width: thin;
 	}
 
 	/* .yaml-option-level-one {

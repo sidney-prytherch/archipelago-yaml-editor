@@ -120,7 +120,7 @@ input[type=text]:focus, textarea:focus {
     background-color: #ffffffaa
 }
 
-:not(h1) {
+:not(h1, h2, h3, h4, h5, h6) {
     font-size: medium
 }
 

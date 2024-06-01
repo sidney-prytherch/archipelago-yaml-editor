@@ -211,18 +211,18 @@ function processItemSortObject(formattedData: AnyObject, itemDataList: AnyObject
 function processLocationSortObject(formattedData: AnyObject, locationDataList: AnyObject[]) {
     let startLocationHints = [];
     let priorityLocations = [];
-    let excludedLocations = [];
+    let excludeLocations = [];
     for (let locationData of locationDataList) {
         if (locationData.checkbox.start_location_hints) {
             startLocationHints.push(locationData.name)
         }
         if (locationData.radio === "priority_locations") {
             priorityLocations.push(locationData.name)
-        } else if (locationData.radio === "excluded_locations") {
-            excludedLocations.push(locationData.name)
+        } else if (locationData.radio === "exclude_locations") {
+            excludeLocations.push(locationData.name)
         }
     }
     formattedData.priority_locations = priorityLocations;
-    formattedData.excluded_locations = excludedLocations;
+    formattedData.exclude_locations = excludeLocations;
     formattedData.start_location_hints = startLocationHints;
 }
