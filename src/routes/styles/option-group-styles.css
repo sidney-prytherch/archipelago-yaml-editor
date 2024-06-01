@@ -183,7 +183,7 @@ tr:hover .secret {
 }
 
 .create-row-button-level-zero {
-    background-color: #d3cdff;
+    background-color: #0000004D;
     border-color: #8753ff;
     color: #8753ff;
     /* background-color: #d0eaff; */
@@ -231,24 +231,24 @@ tr:hover .secret {
 }
 
 .yaml-option-level-one {
-    background-color: #d3cdff;
-    border-color: #8753ff;
+    background-color: #0000004D;
+    border-color: #00000000;
 }
 
 .yaml-option-level-two {
-    border-color: #5398ff;
-    background-color: #d0eaff;
+    border-color: #00000000;
+    background-color: #0000004D;
 }
 
 .yaml-option-level-three
 {
-    border-color: #5dc85d;
-    background-color: #d0f0d0;
+    border-color: #00000000;
+    background-color: #0000004D;
 }
 
 .yaml-option-level-four {
-    border-color: #d9e10c;
-    background-color: #e6f5d0;
+    border-color: #00000000;
+    background-color: #0000004D;
 }
 
 /* .yaml-option-subsection {
