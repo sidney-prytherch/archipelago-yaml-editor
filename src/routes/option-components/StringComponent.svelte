@@ -6,7 +6,7 @@
 </script>
 
 <div class="container yaml-option-level-two">
-	<i class="fa-solid fa-carrot"></i>
+	<i class="fa-solid triforce-icon"></i>
 	<h3>{optionName}</h3>
 	<input
 	autocomplete="off"

@@ -24,10 +24,6 @@ h4 {
     margin: 8px
 }
 
-.fa-carrot.rotated {
-    transform: rotate(-45deg)
-}
-
 .hidden {
     display: none !important;
     visibility: hidden !important
@@ -240,8 +236,7 @@ tr:hover .secret {
 .yaml-option-level-one,
 .yaml-option-level-two,
 .yaml-option-level-three,
-.yaml-option-level-four
-{
+.yaml-option-level-four {
     margin-bottom: 5px;
     border-radius: 10px;
     border: 4px solid #00000000;
@@ -316,13 +311,24 @@ span {
     min-width: 60px
 }
 
-.fa-carrot {
+.triforce-icon {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    background-image: url('../../images/triforce.svg');
+    background-repeat: no-repeat;
+    background-size: 30px;
     font-size: 30px !important;
-    transform: rotate(-135deg);
+    transform: rotate(90deg);
+    transform-origin: center;
     transition: transform .5s;
-    padding: 14px;
-    color: var(--color-highlight)
+    margin: 8px;
 }
+
+.triforce-icon.rotated {
+    transform: rotate(180deg)
+}
+
 
 .end-aligned-items {
     flex-grow: 1;
@@ -334,7 +340,7 @@ span {
     white-space: pre-wrap;
 }
 
-.option-hint > span {
+.option-hint>span {
     display: block;
     background: linear-gradient(to bottom, var(--color-theme-3) 50%, transparent);
     color: transparent;
@@ -344,7 +350,7 @@ span {
     max-height: 50px;
 }
 
-.option-hint > span:hover {
+.option-hint>span:hover {
     max-height: 999px;
     transition: max-height 1s ease-in-out;
     background: var(--color-theme-3);

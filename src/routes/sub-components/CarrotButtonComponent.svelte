@@ -12,7 +12,7 @@
 		class="container center"
 		on:click={expandOrShorten}
 	>
-		<i class:rotated={expanded} class="fa-solid fa-carrot"></i>
+		<i class:rotated={expanded} class="triforce-icon"></i>
 		<h3>{optionName}</h3>
 	</button>
 	<p class="option-hint" class:hidden={!expanded}><span>{optionHint}</span></p>
@@ -33,7 +33,7 @@
 
 	i {
 		display: inline-block;
-
+		color: blue;
 	}
 
 	h3 {

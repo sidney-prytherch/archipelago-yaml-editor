@@ -7,7 +7,7 @@
 	--color-theme-1: #489848;
 	--color-theme-2: #2a5730;
 	--color-theme-3: #afe8b7;
-	--color-highlight: #ffa500;
+	--color-highlight: #999900;
 	--color-delete: #ff1e1e;
 	--color-text: rgba(0, 0, 0, 0.7);
 	--column-width: 42rem;
@@ -143,7 +143,7 @@ button:focus:not(:focus-visible) {
 
 .slider-div {
 	--color1: var(--color-highlight);
-	--color2: rgb(219, 197, 167)
+	--color2: #bbb68f;
 }
 
 .slider-div .rangeSlider .rangeBar {
