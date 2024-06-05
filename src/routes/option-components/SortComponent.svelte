@@ -101,7 +101,7 @@
 
 
 	.partial-border {
-		border: 1px black solid;
+		border: 1px var(--color-theme-3) solid;
 	}
 
 	input {

@@ -63,7 +63,7 @@
 	@import '../styles/option-group-styles.css';
 
 	.searchInput {
-		background-color: white;
+		background-color: var(--color-theme-2);
 		position: sticky;
 		top: 0;
 		flex-grow: 1;

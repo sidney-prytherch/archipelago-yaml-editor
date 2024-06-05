@@ -83,9 +83,9 @@
 </div>
 
 <style>
+	@import '../styles/option-group-styles.css';
 	@import '../styles/weighted-table-styles.css';
 	@import '../styles/button-styles.css';
-	@import '../styles/option-group-styles.css';
 
 	b {
 		font-size: larger;
@@ -110,12 +110,12 @@
 	}
 
 	.border-top, .horizontal {
-		border-top: 1px black solid;
+		border-top: 1px var(--color-theme-3) solid;
 	}
 
 	.dropdown {
-		border-top: 1px black solid;
-		border-bottom: 1px black solid;
+		border-top: 1px var(--color-theme-3) solid;
+		border-bottom: 1px var(--color-theme-3) solid;
 		overflow-x: hidden;
 		overflow-y: scroll;
 	}
@@ -125,6 +125,6 @@
 	}
 
 	.flexgrow {
-		border-left: 1px black solid;
+		border-left: 1px var(--color-theme-3) solid;
 	}
 </style>

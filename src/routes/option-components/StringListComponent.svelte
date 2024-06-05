@@ -57,6 +57,6 @@
 	}
 
 	em {
-		border-bottom: 1px solid black;
+		border-bottom: 1px solid var(--color-theme-3);
 	}
 </style>

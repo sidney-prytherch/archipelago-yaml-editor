@@ -300,13 +300,17 @@
 	}
 
 	input[type="text"] {
-		border: 1px solid #ccc !important;
-		background-color: white;
+		background-color: var(--color-theme-2);
     	min-width: 60px;
 	}
 
 	input[type="text"]:focus {
-		background-color: white !important;
+		background-color: var(--color-theme-1);
+		border: 1px solid var(--color-theme-3);;
+	}
+
+	input[type="text"]:focus {
+		background-color: var(--color-theme-2);
 	}
 
 	.short-num {

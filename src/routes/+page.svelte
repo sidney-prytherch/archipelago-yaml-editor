@@ -419,21 +419,8 @@
 		box-sizing: border-box;
 		overflow: auto;
 		overflow-y: scroll;
-		scrollbar-color: #2a5730 #489848;
+		scrollbar-color: var(--color-theme-2) var(--color-theme-1);
 		scrollbar-width: thin;
 	}
 
-	/* .yaml-option-level-one {
-		background-color: #d0eaff;
-		border: 4px solid #5398ff;
-		border-radius: 10px;
-		padding: 8px;
-		width: 100%;
-	} */
-
-	/* .vl {
-		width: 0;
-		padding: 0;
-		margin: 0;
-	} */
 </style>

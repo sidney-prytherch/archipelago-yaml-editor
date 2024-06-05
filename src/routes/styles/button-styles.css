@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     background: 0 0;
-    color: #1e90ff;
     white-space: nowrap;
 }
 
@@ -10,12 +9,19 @@
     margin: 0;
     padding: 0;
     background: 0 0;
-    color: #ff1e1e;
-    white-space: nowrap
+    white-space: nowrap;
+    color: var(--color-delete)
+}
+
+.fa-xmark {
+    color: var(--color-delete);
+}
+
+.fa-wand-sparkles {
+    color: var(--color-highlight);
 }
 
 .search-dropdown-button {
-    color: #1e90ff;
     padding: 8px;
     margin: 8px
 }
