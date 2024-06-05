@@ -56,5 +56,7 @@ type ItemPlandoItemList = {name: string, quantity: number, isAll: boolean};
 
 type ItemPlando = ItemPlandoItemGroup[];
 
+type YamlWeightObject = {errors: string[], warnings: string[], weight: number | null};
 
-export type { SortObject, NumberRange, OptionData, RadioList, StringBooleanMap, StringNumberMap, ItemPlandoItemGroup, ItemPlando, ItemPlandoItemList, AnyObject }
+
+export type { YamlWeightObject, SortObject, NumberRange, OptionData, RadioList, StringBooleanMap, StringNumberMap, ItemPlandoItemGroup, ItemPlando, ItemPlandoItemList, AnyObject }

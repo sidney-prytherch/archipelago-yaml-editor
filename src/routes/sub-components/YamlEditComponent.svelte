@@ -1,13 +1,16 @@
 <script lang="ts">
 	import '@fortawesome/fontawesome-free/css/all.min.css';
 	import type { AnyObject, OptionData } from '../types/types';
+	import type { WeightedNumberListYamlFunctions } from '../ComponentYamlFunctions/WeightedNumberListYamlFunctions';
+	import type { WeightedStringListYamlFunctions } from '../ComponentYamlFunctions/WeightedStringListYamlFunctions';
 
 	export let optionName = '';
 	export let currentOptions;
-	export let fromYaml: (
-		yamlString: string | undefined | null
-	) => { results: OptionData[]; errors: string[]; warnings: string[] } | null;
-	export let toYaml: (settings: AnyObject | null) => string;
+	// export let fromYaml: (
+	// 	yamlString: string | undefined | null
+	// ) => { results: OptionData[]; errors: string[]; warnings: string[] } | null;
+	// export let toYaml: (settings: AnyObject | null) => string;
+	export let yamlFunctions: WeightedNumberListYamlFunctions | WeightedStringListYamlFunctions
 	export let mergeOutput: (
 		objectToMerge: OptionData[],
 		deletePrevious: boolean,
@@ -22,7 +25,8 @@
 	$: defaultLength = Math.max(5, Math.min(20, currentOptions.split('\n').length));
 
 	function loadYamlFromSettingsToInput() {
-		input = toYaml(null);
+		input = yamlFunctions.toYaml(null);
+		console.log(yamlFunctions);
 		update();
 	}
 
@@ -37,7 +41,7 @@
 			.replace(/\s*:/gm, ':')
 			.replace(`${optionName}: \n`, '');
 		if (!!input) {
-			interpretedYaml = fromYaml(input);
+			interpretedYaml = yamlFunctions.fromYaml(input);
 		}
 		if (!interpretedYaml) {
 			results = '';
@@ -47,7 +51,7 @@
 			errors = interpretedYaml.errors;
 			warnings = interpretedYaml.warnings;
 			resultObject = interpretedYaml.results;
-			results = toYaml(interpretedYaml.results);
+			results = yamlFunctions.toYaml(interpretedYaml.results);
 		}
 	}
 </script>

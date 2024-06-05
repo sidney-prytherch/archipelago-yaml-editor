@@ -7,6 +7,8 @@
 	import SearchableDropdownComponent from '../sub-components/SearchableDropdownComponent.svelte';
 	import CarrotButtonComponent from '../sub-components/CarrotButtonComponent.svelte';
 	import DropdownComponent from '../sub-components/DropdownComponent.svelte';
+	import YamlEditComponent from '../sub-components/YamlEditComponent.svelte';
+	import { WeightedStringListYamlFunctions } from '../ComponentYamlFunctions/WeightedStringListYamlFunctions';
 
 	let expanded = true;
 	export let weightedOptions: OptionData[] = [];
@@ -17,6 +19,21 @@
 	//console.log(weightedOptions);
 	let searchable = optionKeys.length > 15;
 	let selectedOption: OptionData;
+
+	let yamlEditVisible = false;
+	let weightedOptionsAsYaml = '';
+
+	const yamlFunctions = new WeightedStringListYamlFunctions(
+		optionKeys,
+		optionName,
+		optionKeys.length === 0,
+		weightedOptions
+	);
+
+	function showYamlEdit() {
+		weightedOptionsAsYaml = yamlFunctions.toYaml(null);
+		yamlEditVisible = !yamlEditVisible;
+	}
 
 	expandOrShorten();
 
@@ -80,6 +97,33 @@
 			optionData.name = optionName;
 		}
 		deselectOtherOptions(optionData);
+	}
+
+	function mergeOutput(
+		objectToMerge: OptionData[],
+		deletePrevious: boolean,
+		replacePreviousKeys: boolean
+	) {
+		if (deletePrevious) {
+			weightedOptions.length = 0;
+		}
+		for (let newWeightedOption of Object.values(objectToMerge)) {
+			if (newWeightedOption.name !== '') {
+				let foundDuplicate = false;
+				for (let weightedOption of weightedOptions) {
+					if (weightedOption.name === newWeightedOption.name) {
+						foundDuplicate = true;
+						if (replacePreviousKeys) {
+							weightedOption.weight = newWeightedOption.weight;
+						}
+					}
+				}
+				if (!foundDuplicate) {
+					weightedOptions.push(structuredClone(newWeightedOption));
+				}
+			}
+		}
+		weightedOptions = weightedOptions;
 	}
 </script>
 
@@ -165,6 +209,17 @@
 					disabled={optionKeys.length > 0 && weightedOptions.length === optionKeys.length}
 					on:click={addOption}>Add Option</button
 				>
+				<button class="create-row-button-level-two" on:click={showYamlEdit}
+					>{!yamlEditVisible ? 'Show Yaml Editor' : 'Hide Yaml Editor'}</button
+				>
+			</div>
+			<div class:hidden={!yamlEditVisible || !expanded}>
+				<YamlEditComponent
+					{yamlFunctions}
+					{optionName}
+					{mergeOutput}
+					bind:currentOptions={weightedOptionsAsYaml}
+				/>
 			</div>
 		</div>
 	</div>
