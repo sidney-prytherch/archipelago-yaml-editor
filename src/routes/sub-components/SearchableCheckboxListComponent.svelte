@@ -19,6 +19,7 @@
 <div class="horizontal flexgrow container">
 	<h4>{title}</h4>
 	<input
+		class="searchInput"
 		type="text"
 		placeholder="Search..."
 		autocomplete="off"

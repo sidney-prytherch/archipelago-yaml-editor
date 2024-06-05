@@ -64,3 +64,7 @@ em {
 p {
     padding: 8px
 }
+
+.searchInput {
+    background-color: var(--color-theme-2) !important;
+}

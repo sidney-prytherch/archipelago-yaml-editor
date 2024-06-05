@@ -20,6 +20,7 @@
 <div class="horizontal flexgrow container">
 	<h4>{listItemGroupName}s</h4>
 	<input
+		class="searchInput"
 		type="text"
 		placeholder="Search..."
 		autocomplete="off"
