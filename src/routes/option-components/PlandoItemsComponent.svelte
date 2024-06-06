@@ -12,6 +12,8 @@
 	export let itemPlando: ItemPlando = [];
 	export let itemNames: string[] = [];
 	export let locations: string[] = [];
+	locations.unshift("early_locations")
+	locations.unshift("non_early_locations")
 	const optionName = 'plando items';
 
 	expandOrShorten();

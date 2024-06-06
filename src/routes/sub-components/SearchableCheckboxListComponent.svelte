@@ -66,10 +66,10 @@
 	}
 
 	.container {
-		border: 1px black solid;
+		border: 1px var(--color-theme-3) solid;
 	}
 
 	.dropdown {
-		border-top: 1px black solid;
+		border-top: 1px var(--color-theme-3) solid;
 	}
 </style>
