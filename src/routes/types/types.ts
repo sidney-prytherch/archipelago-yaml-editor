@@ -21,7 +21,7 @@ interface NumberRange {
 interface OptionData {
     name?: string,
     range?: number[],
-    selectedAlias? : string,
+    selectedAlias?: string,
     weight: number[],
     hide: boolean
 };
@@ -44,19 +44,29 @@ interface ItemPlandoItemGroup {
     locations: StringBooleanMap,
     from_pool: boolean,
     world: ItemPlandoWorld,
-    worldVals: {playerNames: string, playerNums: number},
+    worldVals: { playerNames: string, playerNums: number },
     force: ItemPlandoForce,
     percentage: number[],
     count: ItemPlandoCount,
-    countVals: {min: number, max: number, count: number},
+    countVals: { min: number, max: number, count: number },
     expanded: boolean
 }
 
-type ItemPlandoItemList = {name: string, quantity: number, isAll: boolean};
+interface ItemLink {
+    itemLinkName: string,
+    items: SortObject[],
+    replacementItem: string | null,
+    linkReplacement: boolean,
+    expanded: boolean
+}
+
+type ItemLinks = ItemLink[];
+
+type ItemPlandoItemList = { name: string, quantity: number, isAll: boolean };
 
 type ItemPlando = ItemPlandoItemGroup[];
 
-type YamlWeightObject = {errors: string[], warnings: string[], weight: number | null};
+type YamlWeightObject = { errors: string[], warnings: string[], weight: number | null };
 
 
-export type { YamlWeightObject, SortObject, NumberRange, OptionData, RadioList, StringBooleanMap, StringNumberMap, ItemPlandoItemGroup, ItemPlando, ItemPlandoItemList, AnyObject }
+export type { YamlWeightObject, SortObject, NumberRange, OptionData, RadioList, StringBooleanMap, StringNumberMap, ItemPlandoItemGroup, ItemPlando, ItemPlandoItemList, AnyObject, ItemLink, ItemLinks }

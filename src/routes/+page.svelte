@@ -17,6 +17,7 @@
 	import CarrotButtonComponent from './sub-components/CarrotButtonComponent.svelte';
 	import { downloadYaml } from './yamlFunctions';
 	import jsYaml from 'js-yaml';
+	import ItemLinksComponent from './option-components/ItemLinksComponent.svelte';
 
 	export let data;
 
@@ -160,7 +161,8 @@
 						'start_hints',
 						'priority_locations',
 						'exclude_locations',
-						'start_location_hints'
+						'start_location_hints',
+						'item_links'
 					].includes(key)
 				) {
 					yaml[key].sidneys_secret_yaml_string = jsYaml.dump(yaml[key]).trim();
@@ -168,6 +170,7 @@
 			}
 		});
 
+		yaml.itemLinks = [];
 		yaml.plandoItems = [];
 		yaml.startInventory = [];
 		yaml.startInventoryFromPool = [];
@@ -353,6 +356,10 @@
 									{/if}
 								{/if}
 							{/each}
+							<ItemLinksComponent
+								bind:itemLinks={playerOptions[gameName].itemLinks}
+								itemNames={yamlSettings.itemList}
+							/>
 							<ListNumberMapComponent
 								bind:weightedOptions={playerOptions[gameName].startInventory}
 								optionName="start_inventory"

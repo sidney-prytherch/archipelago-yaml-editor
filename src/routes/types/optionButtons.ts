@@ -1,4 +1,4 @@
-import type { ItemPlando, ItemPlandoItemGroup, OptionData, StringNumberMap } from "./types";
+import type { ItemLink, ItemLinks, ItemPlando, ItemPlandoItemGroup, OptionData, StringNumberMap } from "./types";
 
 function deselectOtherOptionsHelper(weightedOptions: OptionData[], selectedOption: OptionData) {
     for (let option of weightedOptions) {
@@ -35,4 +35,9 @@ function removeItemPlandoGroupHelper(itemPlando: ItemPlando, itemGroup: ItemPlan
     itemPlando.splice(itemGroupIndex, 1);
 }
 
-export { deselectOtherOptionsHelper, deselectOtherNumberOptionsHelper, removeOptionHelper, removeStringNumberMapHelper, removeItemPlandoGroupHelper };
+function removeItemLinksGroupHelper(itemLinks: ItemLinks, itemLink: ItemLink) {
+    let itemLinksGroupIndex = itemLinks.indexOf(itemLink);
+    itemLinks.splice(itemLinksGroupIndex, 1);
+}
+
+export { deselectOtherOptionsHelper, deselectOtherNumberOptionsHelper, removeOptionHelper, removeStringNumberMapHelper, removeItemPlandoGroupHelper, removeItemLinksGroupHelper };
