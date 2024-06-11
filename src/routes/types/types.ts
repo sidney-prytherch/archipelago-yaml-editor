@@ -56,7 +56,7 @@ interface ItemLink {
     itemLinkName: string,
     items: SortObject[],
     replacementItem: string | null,
-    linkReplacement: boolean,
+    linkReplacement: string,
     expanded: boolean
 }
 

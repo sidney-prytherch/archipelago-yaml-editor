@@ -3,7 +3,7 @@
 
 	let searchValue = '';
 	export let list: string[] = [];
-	export let value = '';
+	export let value: string | null = '';
 	export let textAlignStart = false;
 
 	let filteredList: string[] = [];
@@ -31,7 +31,7 @@
 
 <div class="horizontal container">
 	<button class="search-dropdown-button" class:text-align-start={textAlignStart} on:click={showMenu}
-		>{value.length > 0 ? value : 'Select a value...'}</button
+		>{value !== null && value.length > 0 ? value : 'Select a value...'}</button
 	>
 	<input
 		class="hidden searchInput"

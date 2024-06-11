@@ -73,6 +73,7 @@
 					<div class:hidden={!itemLinkGroup.expanded}>
 						<ItemLinkGroupComponent
 							bind:itemLinkGroup={itemLinkGroup}
+							itemList={itemNames}
 						/>
 					</div>
 				</div>
