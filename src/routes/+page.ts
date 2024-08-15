@@ -1,6 +1,8 @@
 import datapackag from './resources/datapackage.json';
 
-export const prerender = false;
+// export const prerender = false;
+
+export const prerender = true
 
 async function getYamls(params:Record<string, () => Promise<unknown>>) {
     let yamls: { [key: string]: any } = {};
