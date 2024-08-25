@@ -1,0 +1,184 @@
+﻿# Q. What is this file?
+# A. This file contains options which allow you to configure your multiworld experience while allowing
+#    others to play how they want as well.
+#
+# Q. How do I use it?
+# A. The options in this file are weighted. This means the higher number you assign to a value, the
+#    more chances you have for that option to be chosen. For example, an option like this:
+#
+#    map_shuffle:
+#      on: 5
+#      off: 15
+#
+#    Means you have 5 chances for map shuffle to occur, and 15 chances for map shuffle to be turned
+#    off.
+#
+# Q. I've never seen a file like this before. What characters am I allowed to use?
+# A. This is a .yaml file. You are allowed to use most characters.
+#    To test if your yaml is valid or not, you can use this website:
+#        http://www.yamllint.com/
+#    You can also verify that your Archipelago options are valid at this site:
+#        https://archipelago.gg/check
+
+# Your name in-game, limited to 16 characters.
+#     {player} will be replaced with the player's slot number.
+#     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
+#     {number} will be replaced with the counter value of the name.
+#     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
+name: Player{number}
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Default The Messenger Template
+
+game: The Messenger
+requires:
+  version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
+
+The Messenger:
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  progression_balancing:
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    sidneys_secret_notes-disabled: "equivalent to 0"
+    disabled: 0
+    sidneys_secret_notes-normal: "equivalent to 50"
+    normal: 50
+    sidneys_secret_notes-extreme: "equivalent to 99"
+    extreme: 0
+
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\nLocations: ensure everything can be reached and acquired.\nItems: ensure all logically relevant items can be acquired.\nMinimal: ensure what is needed to reach your goal can be acquired."
+  accessibility:
+    locations: 50
+    items: 0
+    minimal: 0
+
+  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
+  local_items:
+    []
+
+  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
+  non_local_items:
+    []
+
+  sidneys_secret_documentation-start_inventory: "Start with these items and don't place them in the world.\nThe game decides what the replacement items will be."
+  start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the !hint command."
+  start_hints:
+    []
+
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the !hint command"
+  start_location_hints:
+    []
+
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item"
+  exclude_locations:
+    []
+
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item"
+  priority_locations:
+    []
+
+  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
+  item_links:
+    []
+
+  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
+  death_link:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-logic_level: "The level of logic to use when determining what locations in your world are accessible.\n\nNormal: Can require damage boosts, but otherwise approachable for someone who has beaten the game.\nHard: Expects more knowledge and tighter execution. Has leashing, normal clips and much tighter d-boosting in logic."
+  logic_level:
+    normal: 50
+    hard: 0
+
+  sidneys_secret_documentation-shuffle_shards: "Whether mega shards should be item locations."
+  shuffle_shards:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-limited_movement: "Removes either rope dart or wingsuit from the itempool. Forces logic to at least hard and accessibility to minimal."
+  limited_movement:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-early_meditation: "Guarantees meditation will be found early"
+  early_meditation:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-available_portals: "Number of portals that are available from the start. Autumn Hills, Howling Grotto, and Glacial Peak are always available. If portal outputs are not randomized, Searing Crags will also be available."
+  available_portals:
+    sidneys_secret_range_start: 3
+    sidneys_secret_range_end: 6
+    6: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-shuffle_portals: "Whether the portals lead to random places.\nEntering a portal from its vanilla area will always lead to HQ, and will unlock it if relevant.\nSupports plando.\n\nNone: Portals will take you where they're supposed to.\nShops: Portals can lead to any area except Music Box and Elemental Skylands, with each portal output guaranteed to not overlap with another portal's. Will only put you at a portal or a shop.\nCheckpoints: Like Shops except checkpoints without shops are also valid drop points.\nAnywhere: Like Checkpoints except it's possible for multiple portals to output to the same map."
+  shuffle_portals:
+    none: 50
+    shops: 0
+    checkpoints: 0
+    anywhere: 0
+
+  sidneys_secret_documentation-goal: "Requirement to finish the game. To win with the power seal hunt goal, you must enter the Music Box through the shop chest."
+  goal:
+    open_music_box: 50
+    power_seal_hunt: 0
+
+  sidneys_secret_documentation-music_box: "Whether the music box gauntlet needs to be done."
+  music_box:
+    false: 0
+    true: 50
+
+  sidneys_secret_documentation-notes_needed: "How many notes are needed to access the Music Box."
+  notes_needed:
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 6
+    6: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-total_seals: "Number of power seals that exist in the item pool when power seal hunt is the goal."
+  total_seals:
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 85
+    45: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-percent_seals_required: "Percentage of total seals required to open the shop chest."
+  percent_seals_required:
+    sidneys_secret_range_start: 10
+    sidneys_secret_range_end: 100
+    100: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-traps: "Whether traps should be included in the itempool."
+  traps:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-shop_price: "Percentage modifier for shuffled item prices in shops"
+  shop_price:
+    sidneys_secret_range_start: 25
+    sidneys_secret_range_end: 400
+    100: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-shop_price_plan: "Plan specific prices on shop slots. Supports weighting"
+  shop_price_plan:
+    {}

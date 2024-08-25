@@ -1,0 +1,157 @@
+﻿# Q. What is this file?
+# A. This file contains options which allow you to configure your multiworld experience while allowing
+#    others to play how they want as well.
+#
+# Q. How do I use it?
+# A. The options in this file are weighted. This means the higher number you assign to a value, the
+#    more chances you have for that option to be chosen. For example, an option like this:
+#
+#    map_shuffle:
+#      on: 5
+#      off: 15
+#
+#    Means you have 5 chances for map shuffle to occur, and 15 chances for map shuffle to be turned
+#    off.
+#
+# Q. I've never seen a file like this before. What characters am I allowed to use?
+# A. This is a .yaml file. You are allowed to use most characters.
+#    To test if your yaml is valid or not, you can use this website:
+#        http://www.yamllint.com/
+#    You can also verify that your Archipelago options are valid at this site:
+#        https://archipelago.gg/check
+
+# Your name in-game, limited to 16 characters.
+#     {player} will be replaced with the player's slot number.
+#     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
+#     {number} will be replaced with the counter value of the name.
+#     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
+name: Player{number}
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Default Undertale Template
+
+game: Undertale
+requires:
+  version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
+
+Undertale:
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  progression_balancing:
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    sidneys_secret_notes-disabled: "equivalent to 0"
+    disabled: 0
+    sidneys_secret_notes-normal: "equivalent to 50"
+    normal: 50
+    sidneys_secret_notes-extreme: "equivalent to 99"
+    extreme: 0
+
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\nLocations: ensure everything can be reached and acquired.\nItems: ensure all logically relevant items can be acquired.\nMinimal: ensure what is needed to reach your goal can be acquired."
+  accessibility:
+    locations: 0
+    items: 50
+    minimal: 0
+
+  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
+  local_items:
+    []
+
+  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
+  non_local_items:
+    []
+
+  sidneys_secret_documentation-start_inventory: "Start with these items."
+  start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the !hint command."
+  start_hints:
+    []
+
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the !hint command"
+  start_location_hints:
+    []
+
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item"
+  exclude_locations:
+    []
+
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item"
+  priority_locations:
+    []
+
+  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
+  item_links:
+    []
+
+  sidneys_secret_documentation-route_required: "Main route of the game required to win."
+  route_required:
+    neutral: 50
+    pacifist: 0
+    genocide: 0
+    all_routes: 0
+
+  sidneys_secret_documentation-starting_area: "Which area to start with access to."
+  starting_area:
+    ruins: 50
+    snowdin: 0
+    waterfall: 0
+    hotland: 0
+    core: 0
+
+  sidneys_secret_documentation-key_hunt: "Adds Key Pieces to the item pool, you need all of them to enter the last corridor."
+  key_hunt:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-key_pieces: "How many Key Pieces are added to the pool, only matters with Key Piece Hunt enabled."
+  key_pieces:
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 10
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-rando_love: "Adds LOVE to the pool. Only matters if your goal includes Genocide route"
+  rando_love:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-rando_stats: "Makes each stat increase from LV a separate item. Only matters if your goal includes Genocide route\nWarning: This tends to spam chat with sending out checks."
+  rando_stats:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-temy_include: "Adds Temmy Armor to the item pool."
+  temy_include:
+    false: 0
+    true: 50
+
+  sidneys_secret_documentation-no_equips: "Removes all equippable items."
+  no_equips:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-only_flakes: "Replaces all non-required items, except equipment, with Temmie Flakes."
+  only_flakes:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-prog_armor: "Makes the armor progressive."
+  prog_armor:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-prog_weapons: "Makes the weapons progressive."
+  prog_weapons:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-rando_item_button: "Turns the ITEM button in battle into an item you have to receive."
+  rando_item_button:
+    false: 50
+    true: 0

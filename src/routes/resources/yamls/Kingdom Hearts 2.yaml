@@ -1,0 +1,372 @@
+﻿# Q. What is this file?
+# A. This file contains options which allow you to configure your multiworld experience while allowing
+#    others to play how they want as well.
+#
+# Q. How do I use it?
+# A. The options in this file are weighted. This means the higher number you assign to a value, the
+#    more chances you have for that option to be chosen. For example, an option like this:
+#
+#    map_shuffle:
+#      on: 5
+#      off: 15
+#
+#    Means you have 5 chances for map shuffle to occur, and 15 chances for map shuffle to be turned
+#    off.
+#
+# Q. I've never seen a file like this before. What characters am I allowed to use?
+# A. This is a .yaml file. You are allowed to use most characters.
+#    To test if your yaml is valid or not, you can use this website:
+#        http://www.yamllint.com/
+#    You can also verify that your Archipelago options are valid at this site:
+#        https://archipelago.gg/check
+
+# Your name in-game, limited to 16 characters.
+#     {player} will be replaced with the player's slot number.
+#     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
+#     {number} will be replaced with the counter value of the name.
+#     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
+name: Player{number}
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Default Kingdom Hearts 2 Template
+
+game: Kingdom Hearts 2
+requires:
+  version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
+
+Kingdom Hearts 2:
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  progression_balancing:
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    sidneys_secret_notes-disabled: "equivalent to 0"
+    disabled: 0
+    sidneys_secret_notes-normal: "equivalent to 50"
+    normal: 50
+    sidneys_secret_notes-extreme: "equivalent to 99"
+    extreme: 0
+
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\nLocations: ensure everything can be reached and acquired.\nItems: ensure all logically relevant items can be acquired.\nMinimal: ensure what is needed to reach your goal can be acquired."
+  accessibility:
+    locations: 0
+    items: 50
+    minimal: 0
+
+  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
+  local_items:
+    []
+
+  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
+  non_local_items:
+    []
+
+  sidneys_secret_documentation-start_inventory: "Start with these items and don't place them in the world.\nThe game decides what the replacement items will be."
+  start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the !hint command."
+  start_hints:
+    []
+
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the !hint command"
+  start_location_hints:
+    []
+
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item"
+  exclude_locations:
+    []
+
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item"
+  priority_locations:
+    []
+
+  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
+  item_links:
+    []
+
+  sidneys_secret_documentation-LevelDepth: "Determines How many locations you want on levels\n\nLevel 50: 23 checks spread through 50 levels.\nLevel 99: 23 checks spread through 99 levels.\n\nLevel 50 sanity: 49 checks spread through 50 levels.\nLevel 99 sanity: 98 checks spread through 99 levels.\n\nLevel 1: no checks on levels(checks are replaced with stats)"
+  LevelDepth:
+    level_50: 50
+    level_99: 0
+    level_50_sanity: 0
+    level_99_sanity: 0
+    level_1: 0
+
+  sidneys_secret_documentation-Sora_Level_EXP: "Sora Level Exp Multiplier"
+  Sora_Level_EXP:
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 10
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-Valor_Form_EXP: "Valor Form Exp Multiplier"
+  Valor_Form_EXP:
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 10
+    3: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-Wisdom_Form_EXP: "Wisdom Form Exp Multiplier"
+  Wisdom_Form_EXP:
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 10
+    3: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-Limit_Form_EXP: "Limit Form Exp Multiplier"
+  Limit_Form_EXP:
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 10
+    3: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-Master_Form_EXP: "Master Form Exp Multiplier"
+  Master_Form_EXP:
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 10
+    3: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-Final_Form_EXP: "Final Form Exp Multiplier"
+  Final_Form_EXP:
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 10
+    3: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-Summon_EXP: "Summon Exp Multiplier"
+  Summon_EXP:
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 10
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-Schmovement: "Level of Progressive Movement Abilities You Start With"
+  Schmovement:
+    level_0: 0
+    level_1: 50
+    level_2: 0
+    level_3: 0
+    level_4: 0
+
+  sidneys_secret_documentation-RandomGrowth: "Amount of Random Progressive Movement Abilities You Start With"
+  RandomGrowth:
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 20
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-AntiForm: "Add Anti Form to the pool"
+  AntiForm:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-Promise_Charm: "Add Promise Charm to the pool"
+  Promise_Charm:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-Goal: "Win Condition\nThree Proofs: Find the 3 Proofs to unlock the final door.\n\nLucky Emblem Hunt: Find required amount of Lucky Emblems.\n\nHitlist (Bounty Hunt): Find required amount of Bounties.\n\nLucky Emblem and Hitlist: Find the required amount of Lucky Emblems and Bounties."
+  Goal:
+    three_proofs: 0
+    lucky_emblem_hunt: 50
+    hitlist: 0
+    hitlist_and_lucky_emblem: 0
+
+  sidneys_secret_documentation-FinalXemnas: "Kill Final Xemnas to Beat the Game.\n\nThis is in addition to your Goal.\n\nI.E. get three proofs+kill final Xemnas"
+  FinalXemnas:
+    false: 0
+    true: 50
+
+  sidneys_secret_documentation-LuckyEmblemsAmount: "Number of Lucky Emblems that are in the pool.\n\nIf Goal is not Lucky Emblem Hunt or Lucky Emblem and Hitlist this does nothing."
+  LuckyEmblemsAmount:
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 60
+    40: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-LuckyEmblemsRequired: "Number of Lucky Emblems to collect to Win/Unlock Final Xemnas' Door.\n\nIf Goal is not Lucky Emblem Hunt or Lucky Emblem and Hitlist this does nothing."
+  LuckyEmblemsRequired:
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 60
+    35: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-BountyAmount: "Number of Bounties that are in the pool.\n\nIf Goal is not Hitlist or Lucky Emblem and Hitlist this does nothing."
+  BountyAmount:
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 26
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-BountyRequired: "Number of Bounties to collect to Win/Unlock Final Xemnas Door.\n\nIf Goal is not Hitlist or Lucky Emblem and Hitlist this does nothing."
+  BountyRequired:
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 26
+    7: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-BountyStartingHintToggle: "Start with Bounties Hinted"
+  BountyStartingHintToggle:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-Keyblade_Minimum: "Minimum Stats for Keyblades"
+  Keyblade_Minimum:
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 20
+    3: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-Keyblade_Maximum: "Maximum Stats for Keyblades"
+  Keyblade_Maximum:
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 20
+    7: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-WeaponSlotStartHint: "Start with Weapon Slots' Hinted"
+  WeaponSlotStartHint:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-FightLogic: "The level of logic to use when determining what fights in each KH2 world are beatable.\n\nEasy: For Players not very comfortable doing things without a lot of tools.\n\nNormal: For Players somewhat comfortable doing fights with some of the tools.\n\nHard: For Players comfortable doing fights with almost no tools."
+  FightLogic:
+    easy: 0
+    normal: 50
+    hard: 0
+
+  sidneys_secret_documentation-FinalFormLogic: "Determines forcing final form logic\n\nNo Light and Darkness: Light and Darkness is not in logic.\nLight And Darkness: Final Forcing with light and darkness is in logic.\nJust a Form: All that requires final forcing is another form."
+  FinalFormLogic:
+    no_light_and_darkness: 0
+    light_and_darkness: 50
+    just_a_form: 0
+
+  sidneys_secret_documentation-AutoFormLogic: "Have Auto Forms levels in logic."
+  AutoFormLogic:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-DonaldGoofyStatsanity: "Toggles if on Donald and Goofy's Get Bonus locations can be any item"
+  DonaldGoofyStatsanity:
+    false: 0
+    true: 50
+
+  sidneys_secret_documentation-FillerItemsLocal: "Make all dynamic filler classified items local. Recommended when playing with games with fewer locations than kh2"
+  FillerItemsLocal:
+    false: 0
+    true: 50
+
+  sidneys_secret_documentation-Visitlocking: "Determines the level of visit locking\n\nNo Visit Locking: Start with all 25 visit locking items.\n\n\nSecond Visit Locking: Start with 13 visit locking items for every first visit.\n\n\nFirst and Second Visit Locking: One item for First Visit Two For Second Visit"
+  Visitlocking:
+    no_visit_locking: 0
+    second_visit_locking: 0
+    first_and_second_visit_locking: 50
+
+  sidneys_secret_documentation-RandomVisitLockingItem: "Start with random amount of visit locking items."
+  RandomVisitLockingItem:
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 25
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-SuperBosses: "Terra Sephiroth and Data Fights Toggle."
+  SuperBosses:
+    false: 0
+    true: 50
+
+  sidneys_secret_documentation-Cups: "Olympus Cups Toggles\n No Cups: All Cups are placed into Excluded Locations.\n Cups: Hades Paradox Cup is placed into Excluded Locations\n Cups and Hades Paradox: Has Every Cup On."
+  Cups:
+    no_cups: 50
+    cups: 0
+    cups_and_hades_paradox: 0
+
+  sidneys_secret_documentation-SummonLevelLocationToggle: "Toggle Summon levels to have locations."
+  SummonLevelLocationToggle:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-AtlanticaToggle: "Atlantica Toggle"
+  AtlanticaToggle:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-CorSkipToggle: "Toggle for Cor skip.\n\nTools depend on which difficulty was chosen on Fight Difficulty.\n\nToggle does not negate fight logic but is an alternative.\n\nFull Cor Skip is also affected by this Toggle."
+  CorSkipToggle:
+    false: 50
+    true: 0
+
+  sidneys_secret_documentation-CustomItemPoolQuantity: "Add more of an item into the itempool. Note: You cannot take out items from the pool."
+  CustomItemPoolQuantity:
+    Aerial Dodge: 4
+    Anti Form: 1
+    Battlefields of War: 2
+    Beast's Claw: 2
+    Blizzard Element: 3
+    Bone Fist: 2
+    Chicken Little: 1
+    Cure Element: 3
+    Disney Castle Key: 2
+    Dodge Roll: 4
+    Final Form: 1
+    Fire Element: 3
+    Genie: 1
+    Glide: 4
+    High Jump: 4
+    Ice Cream: 3
+    Identity Disk: 2
+    Limit Form: 1
+    Magnet Element: 3
+    Master Form: 1
+    Membership Card: 2
+    Namine Sketches: 1
+    Peter Pan: 1
+    Promise Charm: 1
+    Proof of Connection: 1
+    Proof of Nonexistence: 1
+    Proof of Peace: 1
+    Proud Fang: 2
+    Quick Run: 4
+    Reflect Element: 3
+    Scimitar: 2
+    Skill and Crossbones: 2
+    Stitch: 1
+    Sword of the Ancestor: 2
+    Thunder Element: 3
+    Torn Page: 5
+    Valor Form: 1
+    Way to the Dawn: 2
+    Wisdom Form: 1
