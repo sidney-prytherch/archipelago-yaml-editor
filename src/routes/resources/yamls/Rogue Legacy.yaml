@@ -32,11 +32,13 @@ description: Default Rogue Legacy Template
 
 game: Rogue Legacy
 requires:
-  version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
 
 Rogue Legacy:
-  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  # Game Options
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -49,43 +51,11 @@ Rogue Legacy:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\nLocations: ensure everything can be reached and acquired.\nItems: ensure all logically relevant items can be acquired.\nMinimal: ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
     locations: 0
     items: 50
     minimal: 0
-
-  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
-  local_items:
-    []
-
-  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
-  non_local_items:
-    []
-
-  sidneys_secret_documentation-start_inventory: "Start with these items."
-  start_inventory:
-    {}
-
-  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the !hint command."
-  start_hints:
-    []
-
-  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the !hint command"
-  start_location_hints:
-    []
-
-  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item"
-  exclude_locations:
-    []
-
-  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item"
-  priority_locations:
-    []
-
-  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
-  item_links:
-    []
 
   sidneys_secret_documentation-starting_gender: "Determines the gender of your initial 'Sir Lee' character."
   starting_gender:
@@ -106,7 +76,7 @@ Rogue Legacy:
 
   sidneys_secret_documentation-available_classes: "List of classes that will be in the item pool to find. The upgraded form of the class will be added with it.\nThe upgraded form of your starting class will be available regardless."
   available_classes:
-    ['Traitor', 'Mage', 'Shinobi', 'Dragon', 'Barbarian', 'Knight', 'Lich', 'Knave', 'Spellthief', 'Miner']
+    ['Mage', 'Barbarian', 'Knave', 'Dragon', 'Knight', 'Lich', 'Traitor', 'Spellthief', 'Miner', 'Shinobi']
 
   sidneys_secret_documentation-new_game_plus: "Puts the castle in new game plus mode which vastly increases enemy level, but increases gold gain by 50%. Not\nrecommended for those inexperienced to Rogue Legacy!"
   new_game_plus:
@@ -116,6 +86,7 @@ Rogue Legacy:
 
   sidneys_secret_documentation-fairy_chests_per_zone: "Determines the number of Fairy Chests in a given zone that contain items. After these have been checked, only stat\nbonuses can be found in Fairy Chests."
   fairy_chests_per_zone:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 15
     1: 50
@@ -125,6 +96,7 @@ Rogue Legacy:
 
   sidneys_secret_documentation-chests_per_zone: "Determines the number of Non-Fairy Chests in a given zone that contain items. After these have been checked, only\ngold or stat bonuses can be found in Chests."
   chests_per_zone:
+    #
     sidneys_secret_range_start: 20
     sidneys_secret_range_end: 50
     20: 50
@@ -134,13 +106,13 @@ Rogue Legacy:
 
   sidneys_secret_documentation-universal_fairy_chests: "Determines if fairy chests should be combined into one pool instead of per zone, similar to Risk of Rain 2."
   universal_fairy_chests:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-universal_chests: "Determines if non-fairy chests should be combined into one pool instead of per zone, similar to Risk of Rain 2."
   universal_chests:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-vendors: "Determines where to place the Blacksmith and Enchantress unlocks in logic (or start with them unlocked)."
   vendors:
@@ -158,6 +130,7 @@ Rogue Legacy:
 
   sidneys_secret_documentation-architect_fee: "Determines how large of a percentage the architect takes from the player when utilizing his services. 100 means he\ntakes all your gold. 0 means his services are free."
   architect_fee:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     40: 50
@@ -167,18 +140,18 @@ Rogue Legacy:
 
   sidneys_secret_documentation-disable_charon: "Prevents Charon from taking your money when you re-enter the castle. Also removes Haggling from the Item Pool."
   disable_charon:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-require_purchasing: "Determines where you will be required to purchase equipment and runes from the Blacksmith and Enchantress before\nequipping them. If you disable require purchasing, Manor Renovations are scaled to take this into account."
   require_purchasing:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-progressive_blueprints: "Instead of shuffling blueprints randomly into the pool, blueprint unlocks are progressively unlocked. You would get\nSquire first, then Knight, etc., until finally Dark."
   progressive_blueprints:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-gold_gain_multiplier: "Adjusts the multiplier for gaining gold from all sources."
   gold_gain_multiplier:
@@ -190,6 +163,7 @@ Rogue Legacy:
 
   sidneys_secret_documentation-number_of_children: "Determines the number of offspring you can choose from on the lineage screen after a death."
   number_of_children:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 5
     3: 50
@@ -199,8 +173,8 @@ Rogue Legacy:
 
   sidneys_secret_documentation-free_diary_on_generation: "Allows the player to get a free diary check every time they regenerate the castle in the starting room."
   free_diary_on_generation:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-khidr: "Determines if Neo Khidr replaces Khidr in their boss room."
   khidr:
@@ -224,6 +198,7 @@ Rogue Legacy:
 
   sidneys_secret_documentation-health_pool: "Determines the number of Health Ups in the item pool."
   health_pool:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 15
     15: 50
@@ -233,6 +208,7 @@ Rogue Legacy:
 
   sidneys_secret_documentation-mana_pool: "Determines the number of Mana Ups in the item pool."
   mana_pool:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 15
     15: 50
@@ -242,6 +218,7 @@ Rogue Legacy:
 
   sidneys_secret_documentation-attack_pool: "Determines the number of Attack Ups in the item pool."
   attack_pool:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 15
     15: 50
@@ -251,6 +228,7 @@ Rogue Legacy:
 
   sidneys_secret_documentation-magic_damage_pool: "Determines the number of Magic Damage Ups in the item pool."
   magic_damage_pool:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 15
     15: 50
@@ -260,6 +238,7 @@ Rogue Legacy:
 
   sidneys_secret_documentation-armor_pool: "Determines the number of Armor Ups in the item pool."
   armor_pool:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 10
     10: 50
@@ -269,6 +248,7 @@ Rogue Legacy:
 
   sidneys_secret_documentation-equip_pool: "Determines the number of Equip Ups in the item pool."
   equip_pool:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 10
     10: 50
@@ -278,6 +258,7 @@ Rogue Legacy:
 
   sidneys_secret_documentation-crit_chance_pool: "Determines the number of Crit Chance Ups in the item pool."
   crit_chance_pool:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 5
     5: 50
@@ -287,6 +268,7 @@ Rogue Legacy:
 
   sidneys_secret_documentation-crit_damage_pool: "Determines the number of Crit Damage Ups in the item pool."
   crit_damage_pool:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 5
     5: 50
@@ -296,8 +278,8 @@ Rogue Legacy:
 
   sidneys_secret_documentation-allow_default_names: "Determines if the default names defined in the vanilla game are allowed to be used. Warning: Your world will not\ngenerate if the number of Additional Names defined is less than the Number of Children value."
   allow_default_names:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-additional_lady_names: "Set of additional names your potential offspring can have. If Allow Default Names is disabled, this is the only list\nof names your children can have. The first value will also be your initial character's name depending on Starting\nGender."
   additional_lady_names:
@@ -309,5 +291,38 @@ Rogue Legacy:
 
   sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
   death_link:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
+
+  # Item & Location Options
+  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
+  local_items:
+    []
+
+  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
+  non_local_items:
+    []
+
+  sidneys_secret_documentation-start_inventory: "Start with these items."
+  start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
+  start_hints:
+    []
+
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the ``!hint`` command."
+  start_location_hints:
+    []
+
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item."
+  exclude_locations:
+    []
+
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item."
+  priority_locations:
+    []
+
+  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
+  item_links:
+    []

@@ -32,11 +32,13 @@ description: Default A Short Hike Template
 
 game: A Short Hike
 requires:
-  version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
 
 A Short Hike:
-  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  # Game Options
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -49,48 +51,13 @@ A Short Hike:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\nLocations: ensure everything can be reached and acquired.\nItems: ensure all logically relevant items can be acquired.\nMinimal: ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
     locations: 0
     items: 50
     minimal: 0
 
-  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
-  local_items:
-    []
-
-  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
-  non_local_items:
-    []
-
-  sidneys_secret_documentation-start_inventory: "Start with these items."
-  start_inventory:
-    {}
-
-  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the !hint command."
-  start_hints:
-    []
-
-  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the !hint command"
-  start_location_hints:
-    []
-
-  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item"
-  exclude_locations:
-    []
-
-  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item"
-  priority_locations:
-    []
-
-  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
-  item_links:
-    []
-
-  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\nThe game decides what the replacement items will be."
-  start_inventory_from_pool:
-    {}
-
+  # General Options
   sidneys_secret_documentation-goal: "Choose the end goal.\nNap: Complete the climb to the top of Hawk Peak and take a nap\nPhoto: Get your picture taken at the top of Hawk Peak\nRaces: Complete all three races with Avery\nHelp Everyone: Travel around Hawk Peak and help every character with their troubles\nFishmonger: Catch one of every fish from around Hawk Peak"
   goal:
     nap: 0
@@ -98,53 +65,6 @@ A Short Hike:
     races: 0
     help_everyone: 50
     fishmonger: 0
-
-  sidneys_secret_documentation-coins_in_shops: "When enabled, the randomizer can place coins into locations that are purchased, such as shops."
-  coins_in_shops:
-    false: 50
-    true: 0
-
-  sidneys_secret_documentation-golden_feathers: "Number of Golden Feathers in the item pool.\n(Note that for the Photo and Help Everyone goals, a minimum of 12 Golden Feathers is enforced)"
-  golden_feathers:
-    sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 20
-    20: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  sidneys_secret_documentation-silver_feathers: "Number of Silver Feathers in the item pool."
-  silver_feathers:
-    sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 20
-    2: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  sidneys_secret_documentation-buckets: "Number of Buckets in the item pool."
-  buckets:
-    sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 2
-    2: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  sidneys_secret_documentation-golden_feather_progression: "Determines which locations are considered in logic based on the required amount of golden feathers to reach them.\nEasy: Locations will be considered inaccessible until the player has enough golden feathers to easily reach them. A minimum of 10 golden feathers is recommended for this setting.\nNormal: Locations will be considered inaccessible until the player has the minimum possible number of golden feathers to reach them. A minimum of 7 golden feathers is recommended for this setting.\nHard: Removes the requirement of golden feathers for progression entirely and glitches may need to be used to progress"
-  golden_feather_progression:
-    easy: 0
-    normal: 50
-    hard: 0
-
-  sidneys_secret_documentation-cost_multiplier: "The percentage that all item shop costs will be of the vanilla values."
-  cost_multiplier:
-    sidneys_secret_range_start: 25
-    sidneys_secret_range_end: 200
-    100: 50
-    random: 0
-    random-low: 0
-    random-high: 0
 
   sidneys_secret_documentation-filler_coin_amount: "The number of coins that will be in each filler coin item."
   filler_coin_amount:
@@ -158,3 +78,139 @@ A Short Hike:
     32_coins: 0
     33_coins: 0
     50_coins: 0
+
+  sidneys_secret_documentation-random_walkie_talkie: "When enabled, the Walkie Talkie item will be placed into the item pool. Otherwise, it will be placed in its vanilla location.\nThis item usually allows the player to locate Avery around the map or restart a race."
+  random_walkie_talkie:
+    'false': 0
+    'true': 50
+
+  # Logic Options
+  sidneys_secret_documentation-golden_feather_progression: "Determines which locations are considered in logic based on the required amount of golden feathers to reach them.\nEasy: Locations will be considered inaccessible until the player has enough golden feathers to easily reach them. A minimum of 10 golden feathers is recommended for this setting.\nNormal: Locations will be considered inaccessible until the player has the minimum possible number of golden feathers to reach them. A minimum of 7 golden feathers is recommended for this setting.\nHard: Removes the requirement of golden feathers for progression entirely and glitches may need to be used to progress"
+  golden_feather_progression:
+    easy: 0
+    normal: 50
+    hard: 0
+
+  sidneys_secret_documentation-easier_races: "When enabled, the Running Shoes will be added as a logical requirement for beating any of the races."
+  easier_races:
+    'false': 50
+    'true': 0
+
+  # Item Pool Options
+  sidneys_secret_documentation-golden_feathers: "Number of Golden Feathers in the item pool.\n(Note that for the Photo and Help Everyone goals, a minimum of 12 Golden Feathers is enforced)"
+  golden_feathers:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 20
+    20: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-silver_feathers: "Number of Silver Feathers in the item pool."
+  silver_feathers:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 20
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-buckets: "Number of Buckets in the item pool."
+  buckets:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 2
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-sticks: "Number of Sticks in the item pool."
+  sticks:
+    #
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 8
+    8: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-toy_shovels: "Number of Toy Shovels in the item pool."
+  toy_shovels:
+    #
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 5
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  # Shop Options
+  sidneys_secret_documentation-coins_in_shops: "When enabled, the randomizer can place coins into locations that are purchased, such as shops."
+  coins_in_shops:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-cost_multiplier: "The percentage that all item shop costs will be of the vanilla values."
+  cost_multiplier:
+    #
+    sidneys_secret_range_start: 25
+    sidneys_secret_range_end: 200
+    100: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-shop_check_logic: "Determines which items will be added as logical requirements to making certain purchases in shops."
+  shop_check_logic:
+    nothing: 0
+    fishing_rod: 50
+    shovel: 0
+    fishing_rod_and_shovel: 0
+    golden_fishing_rod: 0
+    golden_fishing_rod_and_shovel: 0
+
+  sidneys_secret_documentation-min_shop_check_logic: "Determines the minimum cost of a shop item that will have the shop check logic applied to it.\nIf the cost of a shop item is less than this value, no items will be required to access it.\nThis is based on the vanilla prices of the shop item. The set cost multiplier will not affect this value."
+  min_shop_check_logic:
+    40_coins: 0
+    100_coins: 50
+    400_coins: 0
+
+  # Item & Location Options
+  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
+  local_items:
+    []
+
+  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
+  non_local_items:
+    []
+
+  sidneys_secret_documentation-start_inventory: "Start with these items."
+  start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
+  start_hints:
+    []
+
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the ``!hint`` command."
+  start_location_hints:
+    []
+
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item."
+  exclude_locations:
+    []
+
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item."
+  priority_locations:
+    []
+
+  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
+  item_links:
+    []
+
+  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\n\nThe game decides what the replacement items will be."
+  start_inventory_from_pool:
+    {}

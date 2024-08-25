@@ -32,11 +32,13 @@ description: Default Risk of Rain 2 Template
 
 game: Risk of Rain 2
 requires:
-  version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
 
 Risk of Rain 2:
-  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  # Game Options
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -49,43 +51,11 @@ Risk of Rain 2:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\nLocations: ensure everything can be reached and acquired.\nItems: ensure all logically relevant items can be acquired.\nMinimal: ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
     locations: 0
     items: 50
     minimal: 0
-
-  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
-  local_items:
-    []
-
-  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
-  non_local_items:
-    []
-
-  sidneys_secret_documentation-start_inventory: "Start with these items."
-  start_inventory:
-    {}
-
-  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the !hint command."
-  start_hints:
-    []
-
-  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the !hint command"
-  start_location_hints:
-    []
-
-  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item"
-  exclude_locations:
-    []
-
-  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item"
-  priority_locations:
-    []
-
-  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
-  item_links:
-    []
 
   sidneys_secret_documentation-goal: "Classic Mode: Every Item pickup increases fills a progress bar which gives location checks.\n\nExplore Mode: Each environment will have location checks within each environment.\nenvironments will be locked in the item pool until received."
   goal:
@@ -99,62 +69,9 @@ Risk of Rain 2:
     voidling: 0
     limbo: 0
 
-  sidneys_secret_documentation-total_locations: "Classic Mode: Number of location checks which are added to the Risk of Rain playthrough."
-  total_locations:
-    sidneys_secret_range_start: 40
-    sidneys_secret_range_end: 250
-    40: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  sidneys_secret_documentation-chests_per_stage: "Explore Mode: The number of chest locations per environment."
-  chests_per_stage:
-    sidneys_secret_range_start: 2
-    sidneys_secret_range_end: 20
-    10: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  sidneys_secret_documentation-shrines_per_stage: "Explore Mode: The number of shrine locations per environment."
-  shrines_per_stage:
-    sidneys_secret_range_start: 2
-    sidneys_secret_range_end: 20
-    5: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  sidneys_secret_documentation-scavengers_per_stage: "Explore Mode: The number of scavenger locations per environment."
-  scavengers_per_stage:
-    sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 1
-    0: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  sidneys_secret_documentation-scanner_per_stage: "Explore Mode: The number of scanners locations per environment."
-  scanner_per_stage:
-    sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 1
-    1: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  sidneys_secret_documentation-altars_per_stage: "Explore Mode: The number of altars locations per environment."
-  altars_per_stage:
-    sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 2
-    1: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
   sidneys_secret_documentation-total_revivals: "Total Percentage of `Dio's Best Friend` item put in the item pool."
   total_revivals:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 10
     4: 50
@@ -164,36 +81,27 @@ Risk of Rain 2:
 
   sidneys_secret_documentation-start_with_revive: "Start the game with a `Dio's Best Friend` item."
   start_with_revive:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-final_stage_death: "The following will count as a win if set to \"true\", and victory is set to \"any\":\nDying in Commencement.\nDying in The Planetarium.\nObliterating yourself\nIf not use the following to tell if final stage death will count:\nVictory: mithrix - only dying in Commencement will count.\nVictory: voidling - only dying in The Planetarium will count.\nVictory: limbo - Obliterating yourself will count."
   final_stage_death:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-dlc_sotv: "Enable if you are using SOTV DLC.\n Affects environment availability for Explore Mode.\n Adds Void Items into the item pool"
   dlc_sotv:
-    false: 50
-    true: 0
-
-  sidneys_secret_documentation-require_stages: "Add Stage items to the pool to block access to the next set of environments."
-  require_stages:
-    false: 0
-    true: 50
-
-  sidneys_secret_documentation-progressive_stages: "This will convert Stage items to be a progressive item. For example instead of \"Stage 2\" it would be\n \"Progressive Stage\""
-  progressive_stages:
-    false: 0
-    true: 50
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
   death_link:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-item_pickup_step: "Number of items to pick up before an AP Check is completed.\nSetting to 1 means every other pickup.\nSetting to 2 means every third pickup. So on..."
   item_pickup_step:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 5
     1: 50
@@ -203,6 +111,7 @@ Risk of Rain 2:
 
   sidneys_secret_documentation-shrine_use_step: "Explore Mode:\nNumber of shrines to use up before an AP Check is completed.\nSetting to 1 means every other pickup.\nSetting to 2 means every third pickup. So on..."
   shrine_use_step:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 3
     0: 50
@@ -212,15 +121,88 @@ Risk of Rain 2:
 
   sidneys_secret_documentation-enable_trap: "Allows Trap items in the item pool."
   enable_trap:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-enable_lunar: "Allows Lunar items in the item pool."
   enable_lunar:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
-  sidneys_secret_documentation-item_weights: "Set item_pool_presets to true if you want to use one of these presets.\nPreset choices for determining the weights of the item pool.\n- New is a test for a potential adjustment to the default weights.\n- Uncommon puts a large number of uncommon items in the pool.\n- Legendary puts a large number of legendary items in the pool.\n- Chaos generates the pool completely at random with rarer items having a slight cap to prevent this option being\ntoo easy.\n- No Scraps removes all scrap items from the item pool.\n- Even generates the item pool with every item having an even weight.\n- Scraps Only will be only scrap items in the item pool.\n- Lunartic makes everything a lunar item.\n- Void makes everything a void item."
+  # Explore Mode Options
+  sidneys_secret_documentation-chests_per_stage: "Explore Mode: The number of chest locations per environment."
+  chests_per_stage:
+    #
+    sidneys_secret_range_start: 2
+    sidneys_secret_range_end: 20
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-shrines_per_stage: "Explore Mode: The number of shrine locations per environment."
+  shrines_per_stage:
+    #
+    sidneys_secret_range_start: 2
+    sidneys_secret_range_end: 20
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-scavengers_per_stage: "Explore Mode: The number of scavenger locations per environment."
+  scavengers_per_stage:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 1
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-scanner_per_stage: "Explore Mode: The number of scanners locations per environment."
+  scanner_per_stage:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 1
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-altars_per_stage: "Explore Mode: The number of altars locations per environment."
+  altars_per_stage:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 2
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-require_stages: "Add Stage items to the pool to block access to the next set of environments."
+  require_stages:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-progressive_stages: "This will convert Stage items to be a progressive item. For example instead of \"Stage 2\" it would be\n \"Progressive Stage\""
+  progressive_stages:
+    'false': 0
+    'true': 50
+
+  # Classic Mode Options
+  sidneys_secret_documentation-total_locations: "Classic Mode: Number of location checks which are added to the Risk of Rain playthrough."
+  total_locations:
+    #
+    sidneys_secret_range_start: 40
+    sidneys_secret_range_end: 250
+    40: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  # Weighted Choices
+  sidneys_secret_documentation-item_weights: "Set Use Item Weight Presets to yes if you want to use one of these presets.\nPreset choices for determining the weights of the item pool.\n- New is a test for a potential adjustment to the default weights.\n- Uncommon puts a large number of uncommon items in the pool.\n- Legendary puts a large number of legendary items in the pool.\n- Chaos generates the pool completely at random with rarer items having a slight cap to prevent this option being\ntoo easy.\n- No Scraps removes all scrap items from the item pool.\n- Even generates the item pool with every item having an even weight.\n- Scraps Only will be only scrap items in the item pool.\n- Lunartic makes everything a lunar item.\n- Void makes everything a void item."
   item_weights:
     default: 50
     new: 0
@@ -235,38 +217,12 @@ Risk of Rain 2:
 
   sidneys_secret_documentation-item_pool_presets: "Will use the item weight presets when set to true, otherwise will use the custom set item pool weights."
   item_pool_presets:
-    false: 50
-    true: 0
-
-  sidneys_secret_documentation-green_scrap: "Weight of Green Scraps in the item pool.\n\n(Ignored unless Item Weight Presets is 'No')"
-  green_scrap:
-    sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 100
-    16: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  sidneys_secret_documentation-red_scrap: "Weight of Red Scraps in the item pool.\n\n(Ignored unless Item Weight Presets is 'No')"
-  red_scrap:
-    sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 100
-    4: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  sidneys_secret_documentation-yellow_scrap: "Weight of yellow scraps in the item pool.\n\n(Ignored unless Item Weight Presets is 'No')"
-  yellow_scrap:
-    sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 100
-    1: 50
-    random: 0
-    random-low: 0
-    random-high: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-white_scrap: "Weight of white scraps in the item pool.\n\n(Ignored unless Item Weight Presets is 'No')"
   white_scrap:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     32: 50
@@ -274,8 +230,39 @@ Risk of Rain 2:
     random-low: 0
     random-high: 0
 
+  sidneys_secret_documentation-green_scrap: "Weight of Green Scraps in the item pool.\n\n(Ignored unless Item Weight Presets is 'No')"
+  green_scrap:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 100
+    16: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-yellow_scrap: "Weight of yellow scraps in the item pool.\n\n(Ignored unless Item Weight Presets is 'No')"
+  yellow_scrap:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 100
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-red_scrap: "Weight of Red Scraps in the item pool.\n\n(Ignored unless Item Weight Presets is 'No')"
+  red_scrap:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 100
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
   sidneys_secret_documentation-common_item: "Weight of common items in the item pool.\n\n(Ignored unless Item Weight Presets is 'No')"
   common_item:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     64: 50
@@ -285,6 +272,7 @@ Risk of Rain 2:
 
   sidneys_secret_documentation-uncommon_item: "Weight of uncommon items in the item pool.\n\n(Ignored unless Item Weight Presets is 'No')"
   uncommon_item:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     32: 50
@@ -294,6 +282,7 @@ Risk of Rain 2:
 
   sidneys_secret_documentation-legendary_item: "Weight of legendary items in the item pool.\n\n(Ignored unless Item Weight Presets is 'No')"
   legendary_item:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     8: 50
@@ -303,6 +292,7 @@ Risk of Rain 2:
 
   sidneys_secret_documentation-boss_item: "Weight of boss items in the item pool.\n\n(Ignored unless Item Weight Presets is 'No')"
   boss_item:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     4: 50
@@ -312,6 +302,7 @@ Risk of Rain 2:
 
   sidneys_secret_documentation-lunar_item: "Weight of lunar items in the item pool.\n\n(Ignored unless Item Weight Presets is 'No')"
   lunar_item:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     16: 50
@@ -321,6 +312,7 @@ Risk of Rain 2:
 
   sidneys_secret_documentation-void_item: "Weight of void items in the item pool.\n\n(Ignored unless Item Weight Presets is 'No')\n\n(Ignored if Enable DLC - SOTV is 'No')"
   void_item:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     16: 50
@@ -330,6 +322,7 @@ Risk of Rain 2:
 
   sidneys_secret_documentation-equipment: "Weight of equipment items in the item pool.\n\n (Ignored unless Item Weight Presets is 'No')"
   equipment:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     32: 50
@@ -339,6 +332,7 @@ Risk of Rain 2:
 
   sidneys_secret_documentation-money: "Weight of money items in the item pool.\n\n(Ignored unless Item Weight Presets is 'No')"
   money:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     64: 50
@@ -348,6 +342,7 @@ Risk of Rain 2:
 
   sidneys_secret_documentation-lunar_coin: "Weight of lunar coin items in the item pool.\n\n(Ignored unless Item Weight Presets is 'No')"
   lunar_coin:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     20: 50
@@ -357,6 +352,7 @@ Risk of Rain 2:
 
   sidneys_secret_documentation-experience: "Weight of 1000 exp items in the item pool.\n\n(Ignored unless Item Weight Presets is 'No')"
   experience:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     40: 50
@@ -366,6 +362,7 @@ Risk of Rain 2:
 
   sidneys_secret_documentation-mountain_trap: "Weight of mountain trap items in the item pool.\n\n(Ignored unless Item Weight Presets is 'No')"
   mountain_trap:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     5: 50
@@ -375,6 +372,7 @@ Risk of Rain 2:
 
   sidneys_secret_documentation-time_warp_trap: "Weight of time warp trap items in the item pool.\n\n(Ignored unless Item Weight Presets is 'No')"
   time_warp_trap:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     20: 50
@@ -384,6 +382,7 @@ Risk of Rain 2:
 
   sidneys_secret_documentation-combat_trap: "Weight of combat trap items in the item pool.\n\n(Ignored unless Item Weight Presets is 'No')"
   combat_trap:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     20: 50
@@ -393,9 +392,43 @@ Risk of Rain 2:
 
   sidneys_secret_documentation-teleport_trap: "Weight of teleport trap items in the item pool.\n\n(Ignored unless Item Weight Presets is 'No')"
   teleport_trap:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     20: 50
     random: 0
     random-low: 0
     random-high: 0
+
+  # Item & Location Options
+  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
+  local_items:
+    []
+
+  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
+  non_local_items:
+    []
+
+  sidneys_secret_documentation-start_inventory: "Start with these items."
+  start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
+  start_hints:
+    []
+
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the ``!hint`` command."
+  start_location_hints:
+    []
+
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item."
+  exclude_locations:
+    []
+
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item."
+  priority_locations:
+    []
+
+  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
+  item_links:
+    []

@@ -32,11 +32,13 @@ description: Default Adventure Template
 
 game: Adventure
 requires:
-  version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
 
 Adventure:
-  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  # Game Options
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -49,53 +51,21 @@ Adventure:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\nLocations: ensure everything can be reached and acquired.\nItems: ensure all logically relevant items can be acquired.\nMinimal: ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
     locations: 0
     items: 50
     minimal: 0
 
-  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
-  local_items:
-    []
-
-  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
-  non_local_items:
-    []
-
-  sidneys_secret_documentation-start_inventory: "Start with these items."
-  start_inventory:
-    {}
-
-  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the !hint command."
-  start_hints:
-    []
-
-  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the !hint command"
-  start_location_hints:
-    []
-
-  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item"
-  exclude_locations:
-    []
-
-  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item"
-  priority_locations:
-    []
-
-  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
-  item_links:
-    []
-
   sidneys_secret_documentation-dragon_slay_check: "If true, slaying each dragon for the first time is a check"
   dragon_slay_check:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
   death_link:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-bat_logic: "How the bat is considered for logic\n\nWith cannot_break, the bat cannot pick up an item that starts out-of-logic until the player touches it\nWith can_break, the bat is free to pick up any items, even if they are out-of-logic\nWith use_logic, the bat can pick up anything just like can_break, and locations are no longer considered to require\n  the magnet or bridge to collect, since the bat can retrieve these.\nA future option may allow the bat itself to be placed as an item.\n\nSupported values: cannot_break, can_break, use_logic\nDefault value: can_break"
   bat_logic:
@@ -105,6 +75,7 @@ Adventure:
 
   sidneys_secret_documentation-freeincarnate_max: "How many maximum freeincarnate items to allow\n\nWhen done generating items, any remaining item slots will be filled\nwith freeincarnates, up to this maximum amount.  Any remaining item\nslots after that will be 'nothing' items placed locally, so in multigame\nmultiworlds, keeping this value high will allow more items from other games\ninto Adventure."
   freeincarnate_max:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 17
     17: 50
@@ -121,11 +92,12 @@ Adventure:
 
   sidneys_secret_documentation-connector_multi_slot: "If true, the client and lua connector will add lowest 8 bits of the player slot\nto the port number used to connect to each other, to simplify connecting multiple local\nclients to local EmuHawk instances.\nSet in the yaml, since the connector has to read this out of the rom file before connecting."
   connector_multi_slot:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-yorgle_speed: "Sets Yorgle's initial speed.  Yorgle has a speed of 2 in the original game\nDefault value: 2"
   yorgle_speed:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 9
     2: 50
@@ -135,6 +107,7 @@ Adventure:
 
   sidneys_secret_documentation-yorgle_min_speed: "Sets Yorgle's speed when all speed reducers are found.  Yorgle has a speed of 2 in the original game\nDefault value: 2"
   yorgle_min_speed:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 9
     1: 50
@@ -144,6 +117,7 @@ Adventure:
 
   sidneys_secret_documentation-grundle_speed: "Sets Grundle's initial speed.  Grundle has a speed of 2 in the original game\nDefault value: 2"
   grundle_speed:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 9
     2: 50
@@ -153,6 +127,7 @@ Adventure:
 
   sidneys_secret_documentation-grundle_min_speed: "Sets Grundle's speed when all speed reducers are found.  Grundle has a speed of 2 in the original game\nDefault value: 2"
   grundle_min_speed:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 9
     1: 50
@@ -162,6 +137,7 @@ Adventure:
 
   sidneys_secret_documentation-rhindle_speed: "Sets Rhindle's initial speed.  Rhindle has a speed of 3 in the original game\nDefault value: 3"
   rhindle_speed:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 9
     3: 50
@@ -171,6 +147,7 @@ Adventure:
 
   sidneys_secret_documentation-rhindle_min_speed: "Sets Rhindle's speed when all speed reducers are found.  Rhindle has a speed of 3 in the original game\nDefault value: 2"
   rhindle_min_speed:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 9
     2: 50
@@ -195,3 +172,36 @@ Adventure:
     yellow: 50
     black: 0
     white: 0
+
+  # Item & Location Options
+  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
+  local_items:
+    []
+
+  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
+  non_local_items:
+    []
+
+  sidneys_secret_documentation-start_inventory: "Start with these items."
+  start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
+  start_hints:
+    []
+
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the ``!hint`` command."
+  start_location_hints:
+    []
+
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item."
+  exclude_locations:
+    []
+
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item."
+  priority_locations:
+    []
+
+  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
+  item_links:
+    []

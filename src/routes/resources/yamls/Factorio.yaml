@@ -32,11 +32,13 @@ description: Default Factorio Template
 
 game: Factorio
 requires:
-  version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
 
 Factorio:
-  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  # Game Options
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -49,43 +51,11 @@ Factorio:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\nLocations: ensure everything can be reached and acquired.\nItems: ensure all logically relevant items can be acquired.\nMinimal: ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
     locations: 0
     items: 50
     minimal: 0
-
-  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
-  local_items:
-    []
-
-  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
-  non_local_items:
-    []
-
-  sidneys_secret_documentation-start_inventory: "Start with these items."
-  start_inventory:
-    {}
-
-  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the !hint command."
-  start_hints:
-    []
-
-  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the !hint command"
-  start_location_hints:
-    []
-
-  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item"
-  exclude_locations:
-    []
-
-  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item"
-  priority_locations:
-    []
-
-  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
-  item_links:
-    []
 
   sidneys_secret_documentation-max_science_pack: "Maximum level of science pack required to complete the game.\nThis also affects the relative cost of silo and satellite recipes if they are randomized.\nThat is the only thing in which the Utility Science Pack and Space Science Pack settings differ."
   max_science_pack:
@@ -119,6 +89,7 @@ Factorio:
 
   sidneys_secret_documentation-min_tech_cost: "The cheapest a Technology can be in Science Packs."
   min_tech_cost:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 10000
     5: 50
@@ -128,6 +99,7 @@ Factorio:
 
   sidneys_secret_documentation-max_tech_cost: "The most expensive a Technology can be in Science Packs."
   max_tech_cost:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 10000
     500: 50
@@ -144,6 +116,7 @@ Factorio:
 
   sidneys_secret_documentation-tech_cost_mix: "Percent chance that a preceding Science Pack is also required.\nChance is rolled per preceding pack."
   tech_cost_mix:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     70: 50
@@ -153,8 +126,8 @@ Factorio:
 
   sidneys_secret_documentation-ramping_tech_costs: "Forces the amount of Science Packs required to ramp up with the highest involved Pack. Average is preserved.\nFor example:\noff: Automation (red)/Logistics (green) sciences can range from 1 to 1000 Science Packs,\non: Automation (red) ranges to ~500 packs and Logistics (green) from ~500 to 1000 Science Packs"
   ramping_tech_costs:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-silo: "Ingredients to craft rocket silo or auto-place if set to spawn."
   silo:
@@ -212,6 +185,7 @@ Factorio:
 
   sidneys_secret_documentation-recipe_ingredients_offset: "When randomizing ingredients, remove or add this many \"slots\" of items.\nFor example, at -1 a randomized Automation Science Pack will only require 1 ingredient, instead of 2."
   recipe_ingredients_offset:
+    #
     sidneys_secret_range_start: -1
     sidneys_secret_range_end: 5
     0: 50
@@ -221,8 +195,8 @@ Factorio:
 
   sidneys_secret_documentation-imported_blueprints: "Allow or Disallow Blueprints from outside the current savegame."
   imported_blueprints:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-world_gen: "World Generation settings. Overview of options at https://wiki.factorio.com/Map_generator,\nwith in-depth documentation at https://lua-api.factorio.com/latest/Concepts.html#MapGenSettings"
   world_gen:
@@ -296,12 +270,13 @@ Factorio:
 
   sidneys_secret_documentation-progressive: "Merges together Technologies like \"automation-1\" to \"automation-3\" into 3 copies of \"Progressive Automation\",\nwhich awards them in order."
   progressive:
-    off: 0
+    'off': 0
     grouped_random: 0
-    on: 50
+    'on': 50
 
   sidneys_secret_documentation-teleport_traps: "Trap items that when received trigger a random teleport."
   teleport_traps:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 25
     0: 50
@@ -311,6 +286,7 @@ Factorio:
 
   sidneys_secret_documentation-grenade_traps: "Trap items that when received trigger a grenade explosion on each player."
   grenade_traps:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 25
     0: 50
@@ -320,6 +296,7 @@ Factorio:
 
   sidneys_secret_documentation-cluster_grenade_traps: "Trap items that when received trigger a cluster grenade explosion on each player."
   cluster_grenade_traps:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 25
     0: 50
@@ -329,6 +306,7 @@ Factorio:
 
   sidneys_secret_documentation-artillery_traps: "Trap items that when received trigger an artillery shell on each player."
   artillery_traps:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 25
     0: 50
@@ -338,6 +316,7 @@ Factorio:
 
   sidneys_secret_documentation-atomic_rocket_traps: "Trap items that when received trigger an atomic rocket explosion on each player.\nWarning: there is no warning. The launch is instantaneous."
   atomic_rocket_traps:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 25
     0: 50
@@ -347,6 +326,7 @@ Factorio:
 
   sidneys_secret_documentation-attack_traps: "Trap items that when received trigger an attack on your base."
   attack_traps:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 25
     0: 50
@@ -356,6 +336,7 @@ Factorio:
 
   sidneys_secret_documentation-evolution_traps: "Trap items that when received increase the enemy evolution."
   evolution_traps:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 10
     0: 50
@@ -365,6 +346,7 @@ Factorio:
 
   sidneys_secret_documentation-evolution_trap_increase: "How much an Evolution Trap increases the enemy evolution.\nIncreases scale down proportionally to the session's current evolution factor\n(40 increase at 0.50 will add 0.20... 40 increase at 0.75 will add 0.10...)"
   evolution_trap_increase:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 100
     10: 50
@@ -374,14 +356,47 @@ Factorio:
 
   sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
   death_link:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-energy_link: "Allow sending energy to other worlds. 25% of the energy is lost in the transfer."
   energy_link:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
-  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\nThe game decides what the replacement items will be."
+  # Item & Location Options
+  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
+  local_items:
+    []
+
+  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
+  non_local_items:
+    []
+
+  sidneys_secret_documentation-start_inventory: "Start with these items."
+  start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
+  start_hints:
+    []
+
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the ``!hint`` command."
+  start_location_hints:
+    []
+
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item."
+  exclude_locations:
+    []
+
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item."
+  priority_locations:
+    []
+
+  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
+  item_links:
+    []
+
+  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\n\nThe game decides what the replacement items will be."
   start_inventory_from_pool:
     {}

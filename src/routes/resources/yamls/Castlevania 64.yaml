@@ -32,11 +32,13 @@ description: Default Castlevania 64 Template
 
 game: Castlevania 64
 requires:
-  version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
 
 Castlevania 64:
-  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  # Game Options
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -49,55 +51,23 @@ Castlevania 64:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\nLocations: ensure everything can be reached and acquired.\nItems: ensure all logically relevant items can be acquired.\nMinimal: ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
     locations: 0
     items: 50
     minimal: 0
 
-  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
-  local_items:
-    []
-
-  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
-  non_local_items:
-    []
-
-  sidneys_secret_documentation-start_inventory: "Start with these items."
-  start_inventory:
-    {}
-
-  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the !hint command."
-  start_hints:
-    []
-
-  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the !hint command"
-  start_location_hints:
-    []
-
-  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item"
-  exclude_locations:
-    []
-
-  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item"
-  priority_locations:
-    []
-
-  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
-  item_links:
-    []
-
-  sidneys_secret_documentation-character_stages: "Whether to include Reinhardt-only stages, Carrie-only stages, or both with or without branching paths at the end\nof Villa and Castle Center."
+  sidneys_secret_documentation-character_stages: "Whether to include Reinhardt-only stages, Carrie-only stages, or both with or without branching paths at the end of Villa and Castle Center."
   character_stages:
     both: 50
     branchless_both: 0
     reinhardt_only: 0
     carrie_only: 0
 
-  sidneys_secret_documentation-stage_shuffle: "Shuffles which stages appear in which stage slots. Villa and Castle Center will never appear in any character\nstage slots if Character Stages is set to Both; they can only be somewhere on the main path.\nCastle Keep will always be at the end of the line."
+  sidneys_secret_documentation-stage_shuffle: "Shuffles which stages appear in which stage slots.\nVilla and Castle Center will never appear in any character stage slots if Character Stages is set to Both; they can only be somewhere on the main path.\nCastle Keep will always be at the end of the line."
   stage_shuffle:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-starting_stage: "Which stage to start at if Stage Shuffle is turned on."
   starting_stage:
@@ -115,7 +85,7 @@ Castlevania 64:
     clock_tower: 0
     random: 50
 
-  sidneys_secret_documentation-warp_order: "Arranges the warps in the warp menu in whichever stage order chosen,\nthereby changing the order they are unlocked in."
+  sidneys_secret_documentation-warp_order: "Arranges the warps in the warp menu in whichever stage order chosen, thereby changing the order they are unlocked in."
   warp_order:
     seed_stage_order: 50
     vanilla_stage_order: 0
@@ -123,23 +93,19 @@ Castlevania 64:
 
   sidneys_secret_documentation-sub_weapon_shuffle: "Shuffles all sub-weapons in the game within each other in their own pool or in the main item pool."
   sub_weapon_shuffle:
-    off: 50
+    'off': 50
     own_pool: 0
     anywhere: 0
 
   sidneys_secret_documentation-spare_keys: "Puts an additional copy of every non-Special key item in the pool for every key item that there is.\nChance gives each key item a 50% chance of having a duplicate instead of guaranteeing one for all of them."
   spare_keys:
-    off: 50
-    on: 0
+    'off': 50
+    'on': 0
     chance: 0
-
-  sidneys_secret_documentation-hard_item_pool: "Replaces some items in the item pool with less valuable ones, to make the item pool sort of resemble Hard Mode\nin the PAL version."
-  hard_item_pool:
-    false: 50
-    true: 0
 
   sidneys_secret_documentation-special1s_per_warp: "Sets how many Special1 jewels are needed per warp menu option unlock.\nThis will decrease until the number x 7 is less than or equal to the Total Specail1s if it isn't already."
   special1s_per_warp:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 10
     1: 50
@@ -149,6 +115,7 @@ Castlevania 64:
 
   sidneys_secret_documentation-total_special1s: "Sets how many Speical1 jewels are in the pool in total."
   total_special1s:
+    #
     sidneys_secret_range_start: 7
     sidneys_secret_range_end: 70
     7: 50
@@ -165,6 +132,7 @@ Castlevania 64:
 
   sidneys_secret_documentation-percent_special2s_required: "Percentage of Special2s required to enter Dracula's chamber when Dracula's Condition is Special2s."
   percent_special2s_required:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 100
     80: 50
@@ -174,6 +142,7 @@ Castlevania 64:
 
   sidneys_secret_documentation-total_special2s: "How many Speical2 jewels are in the pool in total when Dracula's Condition is Special2s."
   total_special2s:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 70
     25: 50
@@ -183,50 +152,58 @@ Castlevania 64:
 
   sidneys_secret_documentation-bosses_required: "How many bosses need to be defeated to enter Dracula's chamber when Dracula's Condition is set to Bosses.\nThis will automatically adjust if there are fewer available bosses than the chosen number."
   bosses_required:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 16
-    14: 50
+    12: 50
     random: 0
     random-low: 0
     random-high: 0
 
   sidneys_secret_documentation-carrie_logic: "Adds the 2 checks inside Underground Waterway's crawlspace to the pool.\nIf you (and everyone else if racing the same seed) are planning to only ever play Reinhardt, don't enable this.\nCan be combined with Hard Logic to include Carrie-only tricks."
   carrie_logic:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
-  sidneys_secret_documentation-hard_logic: "Properly considers sequence break tricks in logic (i.e. maze skip). Can be combined with Carrie Logic to include\nCarrie-only tricks.\nSee the Game Page for a full list of tricks and glitches that may be logically required."
+  sidneys_secret_documentation-hard_logic: "Properly considers sequence break tricks in logic (i.e. maze skip). Can be combined with Carrie Logic to include Carrie-only tricks.\nSee the Game Page for a full list of tricks and glitches that may be logically required."
   hard_logic:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
-  sidneys_secret_documentation-multi_hit_breakables: "Adds the items that drop from the objects that break in three hits to the pool. There are 18 of these throughout\nthe game, adding up to 79 or 80 checks (depending on sub-weapons\nbeing shuffled anywhere or not) in total with all stages.\nThe game will be modified to\nremember exactly which of their items you've picked up instead of simply whether they were broken or not."
+  sidneys_secret_documentation-multi_hit_breakables: "Adds the items that drop from the objects that break in three hits to the pool.\nThere are 18 of these throughout the game, adding up to 79 or 80 checks (depending on sub-weapons being shuffled anywhere or not) in total with all stages.\nThe game will be modified to remember exactly which of their items you've picked up instead of simply whether they were broken or not."
   multi_hit_breakables:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
-  sidneys_secret_documentation-empty_breakables: "Adds 9 check locations in the form of breakables that normally have nothing (all empty Forest coffins, etc.)\nand some additional Red Jewels and/or moneybags into the item pool to compensate."
+  sidneys_secret_documentation-empty_breakables: "Adds 9 check locations in the form of breakables that normally have nothing (all empty Forest coffins, etc.) and some additional Red Jewels and/or moneybags into the item pool to compensate."
   empty_breakables:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-lizard_locker_items: "Adds the 6 items inside Castle Center 2F's Lizard-man generators to the pool.\nPicking up all of these can be a very tedious luck-based process, so they are off by default."
   lizard_locker_items:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
-  sidneys_secret_documentation-shopsanity: "Adds 7 one-time purchases from Renon's shop into the location pool. After buying an item from a slot, it will\nrevert to whatever it is in the vanilla game."
+  sidneys_secret_documentation-shopsanity: "Adds 7 one-time purchases from Renon's shop into the location pool.\nAfter buying an item from a slot, it will revert to whatever it is in the vanilla game."
   shopsanity:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
-  sidneys_secret_documentation-shop_prices: "Randomizes the amount of gold each item costs in Renon's shop.\nUse the below options to control how much or little an item can cost."
+  # gameplay tweaks
+  sidneys_secret_documentation-hard_item_pool: "Replaces some items in the item pool with less valuable ones, to make the item pool sort of resemble Hard Mode in the PAL version."
+  hard_item_pool:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-shop_prices: "Randomizes the amount of gold each item costs in Renon's shop.\nUse the Minimum and Maximum Gold Price options to control how much or how little an item can cost."
   shop_prices:
     vanilla: 50
     randomized: 0
 
   sidneys_secret_documentation-minimum_gold_price: "The lowest amount of gold an item can cost in Renon's shop, divided by 100."
   minimum_gold_price:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 50
     2: 50
@@ -236,6 +213,7 @@ Castlevania 64:
 
   sidneys_secret_documentation-maximum_gold_price: "The highest amount of gold an item can cost in Renon's shop, divided by 100."
   maximum_gold_price:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 50
     30: 50
@@ -243,7 +221,7 @@ Castlevania 64:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-post_behemoth_boss: "Sets which boss is fought in the vampire triplets' room in Castle Center by which characters after defeating\nBehemoth."
+  sidneys_secret_documentation-post_behemoth_boss: "Sets which boss is fought in the vampire triplets' room in Castle Center by which characters after defeating Behemoth."
   post_behemoth_boss:
     vanilla: 50
     inverted: 0
@@ -277,18 +255,18 @@ Castlevania 64:
 
   sidneys_secret_documentation-increase_item_limit: "Increases the holding limit of usable items from 10 to 99 of each item."
   increase_item_limit:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-nerf_healing_items: "Decreases the amount of health healed by Roast Chickens to 25%, Roast Beefs to 50%, and Healing Kits to 80%."
   nerf_healing_items:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-loading_zone_heals: "Whether end-of-level loading zones restore health and cure status aliments or not.\nRecommended off for those looking for more of a survival horror experience!"
   loading_zone_heals:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-invisible_items: "Sets which items are visible in their locations and which are invisible until picked up.\n'Chance' gives each item a 50/50 chance of being visible or invisible."
   invisible_items:
@@ -299,16 +277,17 @@ Castlevania 64:
 
   sidneys_secret_documentation-drop_previous_sub_weapon: "When receiving a sub-weapon, the one you had before will drop behind you, so it can be taken back if desired."
   drop_previous_sub_weapon:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
-  sidneys_secret_documentation-permanent_powerups: "Replaces PowerUps with PermaUps, which upgrade your B weapon level permanently and will stay even after\ndying and/or continuing.\nTo compensate, only two will be in the pool overall, and they will not drop from any enemy or projectile."
+  sidneys_secret_documentation-permanent_powerups: "Replaces PowerUps with PermaUps, which upgrade your B weapon level permanently and will stay even after dying and/or continuing.\nTo compensate, only two will be in the pool overall, and they will not drop from any enemy or projectile."
   permanent_powerups:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
-  sidneys_secret_documentation-ice_trap_percentage: "Replaces a percentage of junk items with Ice Traps.\nThese will be visibly disguised as other items, and receiving one will freeze you\nas if you were hit by Camilla's ice cloud attack."
+  sidneys_secret_documentation-ice_trap_percentage: "Replaces a percentage of junk items with Ice Traps.\nThese will be visibly disguised as other items, and receiving one will freeze you as if you were hit by Camilla's ice cloud attack."
   ice_trap_percentage:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     0: 50
@@ -322,42 +301,94 @@ Castlevania 64:
     junk_only: 0
     anything: 0
 
-  sidneys_secret_documentation-disable_time_restrictions: "Disables the restriction on every event and door that requires the current time\nto be within a specific range, so they can be triggered at any time.\nThis includes all sun/moon doors and, in the Villa, the meeting with Rosa and the fountain pillar.\nThe Villa coffin is not affected by this."
+  sidneys_secret_documentation-disable_time_restrictions: "Disables the restriction on every event and door that requires the current time to be within a specific range, so they can be triggered at any time.\nThis includes all sun/moon doors and, in the Villa, the meeting with Rosa and the fountain pillar.\nThe Villa coffin is not affected by this."
   disable_time_restrictions:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
-  sidneys_secret_documentation-skip_gondolas: "Makes jumping on and activating a gondola in Tunnel instantly teleport you\nto the other station, thereby skipping the entire three-minute ride.\nThe item normally at the gondola transfer point is moved to instead be\nnear the red gondola at its station."
+  sidneys_secret_documentation-skip_gondolas: "Makes jumping on and activating a gondola in Tunnel instantly teleport you to the other station, thereby skipping the entire three-minute ride.\nThe item normally at the gondola transfer point is moved to instead be near the red gondola at its station."
   skip_gondolas:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
-  sidneys_secret_documentation-skip_waterway_blocks: "Opens the door to the third switch in Underground Waterway from the start so that the jumping across floating\nbrick platforms won't have to be done. Shopping at the Contract on the other side of them may still be logically\nrequired if Shopsanity is on."
+  sidneys_secret_documentation-skip_waterway_blocks: "Opens the door to the third switch in Underground Waterway from the start so that the jumping across floating brick platforms won't have to be done.\nShopping at the Contract on the other side of them may still be logically required if Shopsanity is on."
   skip_waterway_blocks:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
-  sidneys_secret_documentation-countdown: "Displays, near the HUD clock and below the health bar, the number of unobtained progression-marked items\nor the total check locations remaining in the stage you are currently in."
+  sidneys_secret_documentation-countdown: "Displays, near the HUD clock and below the health bar, the number of unobtained progression-marked items or the total check locations remaining in the stage you are currently in."
   countdown:
     none: 50
     majors: 0
     all_locations: 0
 
-  sidneys_secret_documentation-big_toss: "Makes every non-immobilizing damage source launch you as if you got hit by Behemoth's charge.\nPress A while tossed to cancel the launch momentum and avoid being thrown off ledges.\nHold Z to have all incoming damage be treated as it normally would.\nAny tricks that might be possible with it are NOT considered in logic by any options."
+  sidneys_secret_documentation-big_toss: "Makes every non-immobilizing damage source launch you as if you got hit by Behemoth's charge.\nPress A while tossed to cancel the launch momentum and avoid being thrown off ledges.\nHold Z to have all incoming damage be treated as it normally would.\nAny tricks that might be possible with it are not in logic."
   big_toss:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
-  sidneys_secret_documentation-panther_dash: "Hold C-right at any time to sprint way faster. Any tricks that might be\npossible with it are NOT considered in logic by any options and any boss\nfights with boss health meters, if started, are expected to be finished\nbefore leaving their arenas if Dracula's Condition is bosses. Jumpless will\nprevent jumping while moving at the increased speed to ensure logic cannot be broken with it."
+  sidneys_secret_documentation-panther_dash: "Hold C-right at any time to sprint way faster.\nAny tricks that are possible with it are not in logic and any boss fights with boss health meters, if started, are expected to be finished before leaving their arenas if Dracula's Condition is bosses.\nJumpless will prevent jumping while moving at the increased speed to make logic harder to break with it."
   panther_dash:
-    off: 50
-    on: 0
+    'off': 50
+    'on': 0
     jumpless: 0
 
   sidneys_secret_documentation-increase_shimmy_speed: "Increases the speed at which characters shimmy left and right while hanging on ledges."
   increase_shimmy_speed:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-fall_guard: "Removes fall damage from landing too hard. Note that falling for too long will still result in instant death."
+  fall_guard:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too.\nExplosive: Makes received DeathLinks kill you via the Magical Nitro explosion instead of the normal death animation."
+  death_link:
+    'off': 50
+    'on': 0
+    explosive: 0
+
+  # cosmetics
+  sidneys_secret_documentation-window_color_r: "The red value for the background color of the text windows during gameplay."
+  window_color_r:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 15
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-window_color_g: "The green value for the background color of the text windows during gameplay."
+  window_color_g:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 15
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-window_color_b: "The blue value for the background color of the text windows during gameplay."
+  window_color_b:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 15
+    15: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-window_color_a: "The alpha value for the background color of the text windows during gameplay."
+  window_color_a:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 15
+    8: 50
+    random: 0
+    random-low: 0
+    random-high: 0
 
   sidneys_secret_documentation-background_music: "Randomizes or disables the music heard throughout the game.\nRandomized music is split into two pools: songs that loop and songs that don't.\nThe \"lead-in\" versions of some songs will be paired accordingly."
   background_music:
@@ -370,58 +401,44 @@ Castlevania 64:
     normal: 50
     randomized: 0
 
-  sidneys_secret_documentation-fall_guard: "Removes fall damage from landing too hard. Note that falling for too long will still result in instant death."
-  fall_guard:
-    false: 50
-    true: 0
-
   sidneys_secret_documentation-cinematic_experience: "Enables an unused film reel effect on every cutscene in the game. Purely cosmetic."
   cinematic_experience:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
-  sidneys_secret_documentation-window_color_r: "The red value for the background color of the text windows during gameplay."
-  window_color_r:
-    sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 15
-    1: 50
-    random: 0
-    random-low: 0
-    random-high: 0
+  # Item & Location Options
+  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
+  local_items:
+    []
 
-  sidneys_secret_documentation-window_color_g: "The green value for the background color of the text windows during gameplay."
-  window_color_g:
-    sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 15
-    5: 50
-    random: 0
-    random-low: 0
-    random-high: 0
+  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
+  non_local_items:
+    []
 
-  sidneys_secret_documentation-window_color_b: "The blue value for the background color of the text windows during gameplay."
-  window_color_b:
-    sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 15
-    15: 50
-    random: 0
-    random-low: 0
-    random-high: 0
+  sidneys_secret_documentation-start_inventory: "Start with these items."
+  start_inventory:
+    {}
 
-  sidneys_secret_documentation-window_color_a: "The alpha value for the background color of the text windows during gameplay."
-  window_color_a:
-    sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 15
-    8: 50
-    random: 0
-    random-low: 0
-    random-high: 0
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
+  start_hints:
+    []
 
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too.\nExplosive: Makes received DeathLinks kill you via the Magical Nitro explosion\ninstead of the normal death animation."
-  death_link:
-    off: 50
-    on: 0
-    explosive: 0
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the ``!hint`` command."
+  start_location_hints:
+    []
 
-  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\nThe game decides what the replacement items will be."
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item."
+  exclude_locations:
+    []
+
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item."
+  priority_locations:
+    []
+
+  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
+  item_links:
+    []
+
+  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\n\nThe game decides what the replacement items will be."
   start_inventory_from_pool:
     {}

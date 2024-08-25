@@ -32,11 +32,13 @@ description: Default Sudoku Template
 
 game: Sudoku
 requires:
-  version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
 
 Sudoku:
-  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  # Game Options
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -49,12 +51,13 @@ Sudoku:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\nLocations: ensure everything can be reached and acquired.\nItems: ensure all logically relevant items can be acquired.\nMinimal: ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
     locations: 0
     items: 50
     minimal: 0
 
+  # Item & Location Options
   sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
   local_items:
     []
@@ -67,19 +70,19 @@ Sudoku:
   start_inventory:
     {}
 
-  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the !hint command."
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
   start_hints:
     []
 
-  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the !hint command"
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the ``!hint`` command."
   start_location_hints:
     []
 
-  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item"
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item."
   exclude_locations:
     []
 
-  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item"
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item."
   priority_locations:
     []
 

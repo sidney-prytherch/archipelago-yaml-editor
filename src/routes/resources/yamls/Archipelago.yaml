@@ -28,13 +28,13 @@
 name: Player{number}
 
 # Used to describe your yaml. Useful if you have multiple files.
-description: Default DLCQuest Template
+description: Default Archipelago Template
 
-game: DLCQuest
+game: Archipelago
 requires:
   version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
 
-DLCQuest:
+Archipelago:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
@@ -56,63 +56,6 @@ DLCQuest:
     locations: 0
     items: 50
     minimal: 0
-
-  sidneys_secret_documentation-double_jump_glitch: "Whether to include the double jump glitches in logic. Separated between the simple ones and the very difficult ones"
-  double_jump_glitch:
-    none: 50
-    simple: 0
-    all: 0
-
-  sidneys_secret_documentation-coinsanity: "Whether collecting coins are checks\nIf none, you will collect your own coins"
-  coinsanity:
-    none: 50
-    coin: 0
-
-  sidneys_secret_documentation-coinbundlequantity: "This is the amount of coins in a coin bundle\nYou need to collect that number of coins to get a location check, and when receiving coin items, you will get bundles of this size\nIt is highly recommended to not set this value below 10, as it generates a very large number of boring locations and items.\nIn the worst case, it is 1500+ checks for a single coin"
-  coinbundlequantity:
-    #
-    sidneys_secret_range_start: 1
-    sidneys_secret_range_end: 100
-    random: 0
-    random-low: 0
-    random-high: 0
-    sidneys_secret_notes-low: "equivalent to 5"
-    low: 0
-    sidneys_secret_notes-normal: "equivalent to 20"
-    normal: 50
-    sidneys_secret_notes-high: "equivalent to 50"
-    high: 0
-
-  sidneys_secret_documentation-permanent_coins: "If purchasing a pack decreases your current coins amounts."
-  permanent_coins:
-    'false': 50
-    'true': 0
-
-  sidneys_secret_documentation-time_is_money: "Whether the Time is Money pack is considered required to complete the grindstone.\nIf optional, you may be expected to grind 10 000 times by hand"
-  time_is_money:
-    required: 50
-    optional: 0
-
-  sidneys_secret_documentation-ending_choice: "Which ending is considered completion for the DLC Quest campaign, either any ending or the true ending"
-  ending_choice:
-    any: 0
-    'true': 50
-
-  sidneys_secret_documentation-campaign: "Which campaign you want to play"
-  campaign:
-    basic: 50
-    live_freemium_or_die: 0
-    both: 0
-
-  sidneys_secret_documentation-item_shuffle: "Should Inventory Items be separate from their DLCs and shuffled in the item pool"
-  item_shuffle:
-    disabled: 50
-    shuffled: 0
-
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
-  death_link:
-    'false': 50
-    'true': 0
 
   # Item & Location Options
   sidneys_secret_documentation-local_items: "Forces these items to be in their native world."

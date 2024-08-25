@@ -32,11 +32,13 @@ description: Default Final Fantasy Mystic Quest Template
 
 game: Final Fantasy Mystic Quest
 requires:
-  version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
 
 Final Fantasy Mystic Quest:
-  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  # Game Options
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -49,43 +51,11 @@ Final Fantasy Mystic Quest:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\nLocations: ensure everything can be reached and acquired.\nItems: ensure all logically relevant items can be acquired.\nMinimal: ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
     locations: 0
     items: 50
     minimal: 0
-
-  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
-  local_items:
-    []
-
-  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
-  non_local_items:
-    []
-
-  sidneys_secret_documentation-start_inventory: "Start with these items."
-  start_inventory:
-    {}
-
-  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the !hint command."
-  start_hints:
-    []
-
-  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the !hint command"
-  start_location_hints:
-    []
-
-  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item"
-  exclude_locations:
-    []
-
-  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item"
-  priority_locations:
-    []
-
-  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
-  item_links:
-    []
 
   sidneys_secret_documentation-logic: "Placement logic sets the rules that will be applied when placing items. Friendly: Required Items to clear a\ndungeon will never be placed in that dungeon to avoid the need to revisit it. Also, the Magic Mirror and the Mask\nwill always be available before Ice Pyramid and Volcano, respectively. Note: If Dungeons are shuffled, Friendly\nlogic will only ensure the availability of the Mirror and the Mask. Standard: Items are randomly placed and logic\nmerely verifies that they're all accessible. As for Region access, only the Coins are considered. Expert: Same as\nStandard, but Items Placement logic also includes other routes than Coins: the Crests Teleporters, the\nFireburg-Aquaria Lava bridge and the Sealed Temple Exit trick."
   logic:
@@ -124,8 +94,8 @@ Final Fantasy Mystic Quest:
 
   sidneys_secret_documentation-progressive_gear: "Pieces of gear are always acquired from weakest to strongest in a set."
   progressive_gear:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-leveling_curve: "Adjust the level gain rate."
   leveling_curve:
@@ -149,6 +119,7 @@ Final Fantasy Mystic Quest:
 
   sidneys_secret_documentation-available_companions: "Select randomly which companions will join your party. Unavailable companions can still be reached to get their items and complete their quests if needed.\nNote: If a Starting Companion is selected, it will always be available, regardless of this setting."
   available_companions:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 4
     4: 50
@@ -164,8 +135,8 @@ Final Fantasy Mystic Quest:
 
   sidneys_secret_documentation-kaelis_mom_fight_minotaur: "Transfer Kaeli's requirements (Tree Wither, Elixir) and the two items she's giving to her mom.\nKaeli will be available to join the party right away without the Tree Wither."
   kaelis_mom_fight_minotaur:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-companion_leveling_type: "Set how companions gain levels.\nQuests: Complete each companion's individual quest for them to promote to their second version.\nQuests Extended: Each companion has four exclusive quests, leveling each time a quest is completed.\nSave the Crystals (All): Each time a Crystal is saved, all companions gain levels.\nSave the Crystals (Individual): Each companion will level to their second version when a specific Crystal is saved.\nBenjamin Level: Companions' level tracks Benjamin's."
   companion_leveling_type:
@@ -256,13 +227,13 @@ Final Fantasy Mystic Quest:
 
   sidneys_secret_documentation-shuffle_res_weak_types: "Resistance and Weakness types are shuffled for all enemies."
   shuffle_res_weak_types:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-shuffle_enemies_position: "Instead of their original position in a given map, enemies are randomly placed."
   shuffle_enemies_position:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-progressive_formations: "Enemies' formations are selected by regions, with the weakest formations always selected in Foresta and the\nstrongest in Windia. Disabled: Standard formations are used. Regions Strict: Formations will come exclusively\nfrom the current region, whatever the map is. Regions Keep Type: Formations will keep the original formation type\nand match with the nearest power level."
   progressive_formations:
@@ -278,13 +249,13 @@ Final Fantasy Mystic Quest:
 
   sidneys_secret_documentation-doom_castle_shortcut: "Create a shortcut granting access from the start to Doom Castle at Focus Tower's entrance.\nAlso modify the Desert floor, so it can be navigated without the Mega Grenades and the Dragon Claw."
   doom_castle_shortcut:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-tweak_frustrating_dungeons: "Make some small changes to a few of the most annoying dungeons. Ice Pyramid: Add 3 shortcuts on the 1st floor.\nGiant Tree: Add shortcuts on the 1st and 4th floors and curtail mushrooms population.\nPazuzu's Tower: Staircases are devoid of enemies (regardless of Enemies Density settings)."
   tweak_frustrating_dungeons:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-map_shuffle: "None: No shuffle. Overworld: Only shuffle the Overworld locations. Dungeons: Only shuffle the dungeons' floors\namongst themselves. Temples and Towns aren't included. Overworld And Dungeons: Shuffle the Overworld and dungeons\nat the same time. Everything: Shuffle the Overworld, dungeons, temples and towns all amongst each others.\nWhen dungeons are shuffled, defeating Pazuzu won't teleport you to the 7th floor, you have to get there normally to\nsave the Crystal and get Pazuzu's Chest."
   map_shuffle:
@@ -296,13 +267,13 @@ Final Fantasy Mystic Quest:
 
   sidneys_secret_documentation-crest_shuffle: "Shuffle the Crest tiles amongst themselves."
   crest_shuffle:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-shuffle_battlefield_rewards: "Shuffle the type of reward (Item, XP, GP) given by battlefields and color code them by reward type.\nBlue: Give an item. Grey: Give XP. Green: Give GP."
   shuffle_battlefield_rewards:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-map_shuffle_seed: "If this is a number, it will be used as a set seed number for Map, Crest, Battlefield Reward, and Companion shuffles.\nIf this is \"random\" the seed will be chosen randomly. If it is any other text, it will be used as a seed group name.\nAll players using the same seed group name will get the same shuffle results, as long as their Map Shuffle,\nCrest Shuffle, Shuffle Battlefield Rewards, Companion Shuffle, and Kaeli's Mom settings are the same."
   map_shuffle_seed:
@@ -317,3 +288,36 @@ Final Fantasy Mystic Quest:
     one: 0
     random_one_through_five: 0
     random_one_through_ten: 0
+
+  # Item & Location Options
+  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
+  local_items:
+    []
+
+  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
+  non_local_items:
+    []
+
+  sidneys_secret_documentation-start_inventory: "Start with these items."
+  start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
+  start_hints:
+    []
+
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the ``!hint`` command."
+  start_location_hints:
+    []
+
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item."
+  exclude_locations:
+    []
+
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item."
+  priority_locations:
+    []
+
+  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
+  item_links:
+    []

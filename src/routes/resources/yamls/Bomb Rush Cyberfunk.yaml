@@ -28,13 +28,13 @@
 name: Player{number}
 
 # Used to describe your yaml. Useful if you have multiple files.
-description: Default DLCQuest Template
+description: Default Bomb Rush Cyberfunk Template
 
-game: DLCQuest
+game: Bomb Rush Cyberfunk
 requires:
   version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
 
-DLCQuest:
+Bomb Rush Cyberfunk:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
@@ -57,59 +57,86 @@ DLCQuest:
     items: 50
     minimal: 0
 
-  sidneys_secret_documentation-double_jump_glitch: "Whether to include the double jump glitches in logic. Separated between the simple ones and the very difficult ones"
-  double_jump_glitch:
-    none: 50
-    simple: 0
-    all: 0
+  sidneys_secret_documentation-logic: "Choose the logic used by the randomizer."
+  logic:
+    glitchless: 50
+    glitched: 0
 
-  sidneys_secret_documentation-coinsanity: "Whether collecting coins are checks\nIf none, you will collect your own coins"
-  coinsanity:
-    none: 50
-    coin: 0
+  sidneys_secret_documentation-skip_intro: "Skips escaping the police station.\n\nGraffiti spots tagged during the intro will not unlock items."
+  skip_intro:
+    'false': 0
+    'true': 50
 
-  sidneys_secret_documentation-coinbundlequantity: "This is the amount of coins in a coin bundle\nYou need to collect that number of coins to get a location check, and when receiving coin items, you will get bundles of this size\nIt is highly recommended to not set this value below 10, as it generates a very large number of boring locations and items.\nIn the worst case, it is 1500+ checks for a single coin"
-  coinbundlequantity:
-    #
-    sidneys_secret_range_start: 1
-    sidneys_secret_range_end: 100
-    random: 0
-    random-low: 0
-    random-high: 0
-    sidneys_secret_notes-low: "equivalent to 5"
-    low: 0
-    sidneys_secret_notes-normal: "equivalent to 20"
-    normal: 50
-    sidneys_secret_notes-high: "equivalent to 50"
-    high: 0
-
-  sidneys_secret_documentation-permanent_coins: "If purchasing a pack decreases your current coins amounts."
-  permanent_coins:
+  sidneys_secret_documentation-skip_dreams: "Skips the dream sequences at the end of each chapter.\n\nThis can be changed later in the options menu inside the Archipelago phone app."
+  skip_dreams:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-time_is_money: "Whether the Time is Money pack is considered required to complete the grindstone.\nIf optional, you may be expected to grind 10 000 times by hand"
-  time_is_money:
-    required: 50
-    optional: 0
+  sidneys_secret_documentation-skip_statue_hands: "Skips spraying the lion statue hands after the dream in Chapter 5."
+  skip_statue_hands:
+    'false': 50
+    'true': 0
 
-  sidneys_secret_documentation-ending_choice: "Which ending is considered completion for the DLC Quest campaign, either any ending or the true ending"
-  ending_choice:
-    any: 0
-    'true': 50
+  sidneys_secret_documentation-total_rep: "Change the total amount of REP in your world.\n\nAt least 960 REP is needed to finish the game.\n\nWill be rounded to the nearest number divisible by 8."
+  total_rep:
+    #
+    sidneys_secret_range_start: 1000
+    sidneys_secret_range_end: 2000
+    1400: 50
+    random: 0
+    random-low: 0
+    random-high: 0
 
-  sidneys_secret_documentation-campaign: "Which campaign you want to play"
-  campaign:
-    basic: 50
-    live_freemium_or_die: 0
-    both: 0
+  sidneys_secret_documentation-extra_rep_required: "Changes the final boss to require 1000 REP instead of 960 REP to start."
+  extra_rep_required:
+    'false': 50
+    'true': 0
 
-  sidneys_secret_documentation-item_shuffle: "Should Inventory Items be separate from their DLCs and shuffled in the item pool"
-  item_shuffle:
-    disabled: 50
-    shuffled: 0
+  sidneys_secret_documentation-starting_movestyle: "Choose which movestyle to start with."
+  starting_movestyle:
+    skateboard: 50
+    inline_skates: 0
+    bmx: 0
 
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
+  sidneys_secret_documentation-limited_graffiti: "Each graffiti design can only be used a limited number of times before being removed from your inventory.\n\nIn some cases, such as completing a dream, using graffiti to defeat enemies, or spraying over your own graffiti, uses will not be counted.\n\nIf enabled, doing graffiti is disabled during crew battles, to prevent softlocking."
+  limited_graffiti:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-small_graffiti_uses: "Choose if small graffiti should be separate, meaning that you will need to switch characters every time you run out, or combined, meaning that unlocking new characters will add 5 uses that any character can use.\n\nHas no effect if Limited Graffiti is disabled."
+  small_graffiti_uses:
+    separate: 50
+    combined: 0
+
+  sidneys_secret_documentation-skip_polo_photos: "Skip taking pictures of Polo for items."
+  skip_polo_photos:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-dont_save_photos: "Photos taken with the Camera app will not be saved.\n\nThis can be changed later in the options menu inside the Archipelago phone app."
+  dont_save_photos:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-score_difficulty: "Alters the score required to win score challenges and crew battles.\n\nThis can be changed later in the options menu inside the Archipelago phone app."
+  score_difficulty:
+    normal: 50
+    medium: 0
+    hard: 0
+    very_hard: 0
+    extreme: 0
+
+  sidneys_secret_documentation-damage_multiplier: "Multiplies all damage received.\n\nAt 3x, most damage will OHKO the player, including falling into pits.\nAt 6x, all damage will OHKO the player.\n\nThis can be changed later in the options menu inside the Archipelago phone app."
+  damage_multiplier:
+    #
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 6
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-death_link: "When you die, everyone dies. The reverse is also true.\n\nThis can be changed later in the options menu inside the Archipelago phone app."
   death_link:
     'false': 50
     'true': 0
