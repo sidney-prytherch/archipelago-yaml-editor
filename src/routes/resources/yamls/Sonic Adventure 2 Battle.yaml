@@ -32,11 +32,13 @@ description: Default Sonic Adventure 2 Battle Template
 
 game: Sonic Adventure 2 Battle
 requires:
-  version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
 
 Sonic Adventure 2 Battle:
-  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  # Game Options
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -49,45 +51,24 @@ Sonic Adventure 2 Battle:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\nLocations: ensure everything can be reached and acquired.\nItems: ensure all logically relevant items can be acquired.\nMinimal: ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
     locations: 0
     items: 50
     minimal: 0
 
-  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
-  local_items:
-    []
+  sidneys_secret_documentation-ring_link: "Whether your in-level ring gain/loss is linked to other players"
+  ring_link:
+    'false': 50
+    'true': 0
 
-  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
-  non_local_items:
-    []
+  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
+  death_link:
+    'false': 50
+    'true': 0
 
-  sidneys_secret_documentation-start_inventory: "Start with these items."
-  start_inventory:
-    {}
-
-  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the !hint command."
-  start_hints:
-    []
-
-  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the !hint command"
-  start_location_hints:
-    []
-
-  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item"
-  exclude_locations:
-    []
-
-  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item"
-  priority_locations:
-    []
-
-  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
-  item_links:
-    []
-
-  sidneys_secret_documentation-goal: "Determines the goal of the seed\nBiolizard: Finish Cannon's Core and defeat the Biolizard and Finalhazard\nChaos Emerald Hunt: Find the Seven Chaos Emeralds and reach Green Hill Zone\nFinalhazard Chaos Emerald Hunt: Find the Seven Chaos Emeralds and reach Green Hill Zone, then defeat Finalhazard\nGrand Prix: Win every race in Kart Race Mode (all standard levels are disabled)\nBoss Rush: Beat all of the bosses in the Boss Rush, ending with Finalhazard\nCannon's Core Boss Rush: Beat Cannon's Core, then beat all of the bosses in the Boss Rush, ending with Finalhazard\nBoss Rush Chaos Emerald Hunt: Find the Seven Chaos Emeralds, then beat all of the bosses in the Boss Rush, ending with Finalhazard\nChaos Chao: Raise a Chaos Chao to win"
+  # General Options
+  sidneys_secret_documentation-goal: "Determines the goal of the seed\n\nBiolizard: Finish Cannon's Core and defeat the Biolizard and Finalhazard\n\nChaos Emerald Hunt: Find the Seven Chaos Emeralds and reach Green Hill Zone\n\nFinalhazard Chaos Emerald Hunt: Find the Seven Chaos Emeralds and reach Green Hill Zone, then defeat Finalhazard\n\nGrand Prix: Win every race in Kart Race Mode (all standard levels are disabled)\n\nBoss Rush: Beat all of the bosses in the Boss Rush, ending with Finalhazard\n\nCannon's Core Boss Rush: Beat Cannon's Core, then beat all of the bosses in the Boss Rush, ending with Finalhazard\n\nBoss Rush Chaos Emerald Hunt: Find the Seven Chaos Emeralds, then beat all of the bosses in the Boss Rush, ending with Finalhazard\n\nChaos Chao: Raise a Chaos Chao to win"
   goal:
     biolizard: 50
     chaos_emerald_hunt: 0
@@ -98,52 +79,14 @@ Sonic Adventure 2 Battle:
     boss_rush_chaos_emerald_hunt: 0
     chaos_chao: 0
 
-  sidneys_secret_documentation-mission_shuffle: "Determines whether missions order will be shuffled per level"
-  mission_shuffle:
-    false: 50
-    true: 0
-
-  sidneys_secret_documentation-boss_rush_shuffle: "Determines how bosses in Boss Rush Mode are shuffled\nVanilla: Bosses appear in the Vanilla ordering\nShuffled: The same bosses appear, but in a random order\nChaos: Each boss is randomly chosen separately (one will always be King Boom Boo)\nSingularity: One boss is chosen and placed in every slot (one will always be replaced with King Boom Boo)"
+  sidneys_secret_documentation-boss_rush_shuffle: "Determines how bosses in Boss Rush Mode are shuffled\n\nVanilla: Bosses appear in the Vanilla ordering\n\nShuffled: The same bosses appear, but in a random order\n\nChaos: Each boss is randomly chosen separately (one will always be King Boom Boo)\n\nSingularity: One boss is chosen and placed in every slot (one will always be replaced with King Boom Boo)"
   boss_rush_shuffle:
     vanilla: 50
     shuffled: 0
     chaos: 0
     singularity: 0
 
-  sidneys_secret_documentation-keysanity: "Determines whether picking up Chao Keys grants checks\n(86 Locations)"
-  keysanity:
-    false: 50
-    true: 0
-
-  sidneys_secret_documentation-whistlesanity: "Determines whether whistling at various spots grants checks\nNone: No Whistle Spots grant checks\nPipes: Whistling at Pipes grants checks (97 Locations)\nHidden: Whistling at Hidden Whistle Spots grants checks (32 Locations)\nBoth: Whistling at both Pipes and Hidden Whistle Spots grants checks (129 Locations)"
-  whistlesanity:
-    none: 50
-    pipes: 0
-    hidden: 0
-    both: 0
-
-  sidneys_secret_documentation-beetlesanity: "Determines whether destroying Gold Beetles grants checks\n(27 Locations)"
-  beetlesanity:
-    false: 50
-    true: 0
-
-  sidneys_secret_documentation-omosanity: "Determines whether activating Omochao grants checks\n(192 Locations)"
-  omosanity:
-    false: 50
-    true: 0
-
-  sidneys_secret_documentation-animalsanity: "Determines whether unique counts of animals grant checks.\nALL animals must be collected in a single run of a mission to get all checks.\n(421 Locations)"
-  animalsanity:
-    false: 50
-    true: 0
-
-  sidneys_secret_documentation-kart_race_checks: "Determines whether Kart Race Mode grants checks\nNone: No Kart Races grant checks\nMini: Each Kart Race difficulty must be beaten only once\nFull: Every Character must separately beat each Kart Race difficulty"
-  kart_race_checks:
-    none: 50
-    mini: 0
-    full: 0
-
-  sidneys_secret_documentation-logic_difficulty: "What set of Upgrade Requirement logic to use\nStandard: The logic assumes the \"intended\" usage of Upgrades to progress through levels\nHard: Some simple skips or sequence breaks may be required"
+  sidneys_secret_documentation-logic_difficulty: "What set of Upgrade Requirement logic to use\n\nStandard: The logic assumes the \"intended\" usage of Upgrades to progress through levels\n\nHard: Some simple skips or sequence breaks may be required"
   logic_difficulty:
     standard: 50
     hard: 0
@@ -156,13 +99,36 @@ Sonic Adventure 2 Battle:
     b: 0
     a: 0
 
-  sidneys_secret_documentation-required_cannons_core_missions: "Determines how many Cannon's Core missions must be completed (for Biolizard or Cannon's Core goals)\nFirst: Only the first mission must be completed\nAll Active: All active Cannon's Core missions must be completed"
+  sidneys_secret_documentation-max_emblem_cap: "Determines the maximum number of emblems that can be in the item pool.\n\nIf fewer available locations exist in the pool than this number, the number of available locations will be used instead.\n\nGate and Cannon's Core costs will be calculated based off of that number."
+  max_emblem_cap:
+    #
+    sidneys_secret_range_start: 50
+    sidneys_secret_range_end: 1000
+    180: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-ring_loss: "How taking damage is handled\n\nClassic: You lose all of your rings when hit\n\nModern: You lose 20 rings when hit\n\nOHKO: You die immediately when hit (NOTE: Some Hard Logic tricks may require damage boosts!)"
+  ring_loss:
+    classic: 50
+    modern: 0
+    ohko: 0
+
+  # Stages
+  sidneys_secret_documentation-mission_shuffle: "Determines whether missions order will be shuffled per level"
+  mission_shuffle:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-required_cannons_core_missions: "Determines how many Cannon's Core missions must be completed (for Biolizard or Cannon's Core goals)\n\nFirst: Only the first mission must be completed\n\nAll Active: All active Cannon's Core missions must be completed"
   required_cannons_core_missions:
     first: 50
     all_active: 0
 
   sidneys_secret_documentation-emblem_percentage_for_cannons_core: "Allows logic to gate the final mission behind a number of Emblems"
   emblem_percentage_for_cannons_core:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 75
     50: 50
@@ -172,6 +138,7 @@ Sonic Adventure 2 Battle:
 
   sidneys_secret_documentation-number_of_level_gates: "The number emblem-locked gates which lock sets of levels"
   number_of_level_gates:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 5
     3: 50
@@ -179,7 +146,7 @@ Sonic Adventure 2 Battle:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-level_gate_distribution: "Determines how levels are distributed between level gate regions\nEarly: Earlier regions will have more levels than later regions\nEven: Levels will be evenly distributed between all regions\nLate: Later regions will have more levels than earlier regions"
+  sidneys_secret_documentation-level_gate_distribution: "Determines how levels are distributed between level gate regions\n\nEarly: Earlier regions will have more levels than later regions\n\nEven: Levels will be evenly distributed between all regions\n\nLate: Later regions will have more levels than earlier regions"
   level_gate_distribution:
     early: 0
     even: 50
@@ -191,16 +158,68 @@ Sonic Adventure 2 Battle:
     medium: 0
     high: 50
 
-  sidneys_secret_documentation-max_emblem_cap: "Determines the maximum number of emblems that can be in the item pool.\nIf fewer available locations exist in the pool than this number, the number of available locations will be used instead.\nGate and Cannon's Core costs will be calculated based off of that number."
-  max_emblem_cap:
-    sidneys_secret_range_start: 50
-    sidneys_secret_range_end: 1000
-    180: 50
+  # Sanity Options
+  sidneys_secret_documentation-keysanity: "Determines whether picking up Chao Keys grants checks\n(86 Locations)"
+  keysanity:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-whistlesanity: "Determines whether whistling at various spots grants checks\n\nNone: No Whistle Spots grant checks\n\nPipes: Whistling at Pipes grants checks (97 Locations)\n\nHidden: Whistling at Hidden Whistle Spots grants checks (32 Locations)\n\nBoth: Whistling at both Pipes and Hidden Whistle Spots grants checks (129 Locations)"
+  whistlesanity:
+    none: 50
+    pipes: 0
+    hidden: 0
+    both: 0
+
+  sidneys_secret_documentation-beetlesanity: "Determines whether destroying Gold Beetles grants checks\n(27 Locations)"
+  beetlesanity:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-omosanity: "Determines whether activating Omochao grants checks\n(192 Locations)"
+  omosanity:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-animalsanity: "Determines whether unique counts of animals grant checks.\n(421 Locations)\n\nALL animals must be collected in a single run of a mission to get all checks."
+  animalsanity:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-kart_race_checks: "Determines whether Kart Race Mode grants checks\n\nNone: No Kart Races grant checks\n\nMini: Each Kart Race difficulty must be beaten only once\n\nFull: Every Character must separately beat each Kart Race difficulty"
+  kart_race_checks:
+    none: 50
+    mini: 0
+    full: 0
+
+  # Chao
+  sidneys_secret_documentation-black_market_slots: "Determines how many multiworld items are available to purchase from the Black Market"
+  black_market_slots:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 64
+    0: 50
     random: 0
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-chao_race_difficulty: "Determines the number of Chao Race difficulty levels included. Easier difficulty settings means fewer Chao Race checks\nNone: No Chao Races have checks\nBeginner: Beginner Races\nIntermediate: Beginner, Challenge, Hero, and Dark Races\nExpert: Beginner, Challenge, Hero, Dark and Jewel Races"
+  sidneys_secret_documentation-black_market_unlock_costs: "Determines how many Chao Coins are required to unlock sets of Black Market items"
+  black_market_unlock_costs:
+    low: 0
+    medium: 50
+    high: 0
+
+  sidneys_secret_documentation-black_market_price_multiplier: "Determines how many rings the Black Market items cost\n\nThe base ring costs of items in the Black Market range from 50-100, and are then multiplied by this value"
+  black_market_price_multiplier:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 40
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-chao_race_difficulty: "Determines the number of Chao Race difficulty levels included. Easier difficulty settings means fewer Chao Race checks\n\nNone: No Chao Races have checks\n\nBeginner: Beginner Races\n\nIntermediate: Beginner, Challenge, Hero, and Dark Races\n\nExpert: Beginner, Challenge, Hero, Dark and Jewel Races"
   chao_race_difficulty:
     none: 50
     beginner: 0
@@ -215,13 +234,19 @@ Sonic Adventure 2 Battle:
     expert: 0
     super: 0
 
-  sidneys_secret_documentation-chao_stadium_checks: "Determines which Chao Stadium activities grant checks\nAll: Each individual race and karate fight grants a check\nPrize: Only the races which grant Chao Toys grant checks (final race of each Beginner and Jewel cup, 4th, 8th, and\n    12th Challenge Races, 2nd and 4th Hero and Dark Races, final fight of each Karate difficulty)"
+  sidneys_secret_documentation-chao_stadium_checks: "Determines which Chao Stadium activities grant checks\n\nAll: Each individual race and karate fight grants a check\n\nPrize: Only the races which grant Chao Toys grant checks (final race of each Beginner and Jewel cup, 4th, 8th, and 12th Challenge Races, 2nd and 4th Hero and Dark Races, final fight of each Karate difficulty)"
   chao_stadium_checks:
     all: 50
     prize: 0
 
+  sidneys_secret_documentation-chao_animal_parts: "Determines whether giving Chao various animal parts grants checks\n(73 Locations)"
+  chao_animal_parts:
+    'false': 50
+    'true': 0
+
   sidneys_secret_documentation-chao_stats: "Determines the highest level in each Chao Stat that grants checks\n(Swim, Fly, Run, Power)"
   chao_stats:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     0: 50
@@ -229,8 +254,9 @@ Sonic Adventure 2 Battle:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-chao_stats_frequency: "Determines how many levels in each Chao Stat grant checks (up to the maximum set in the `chao_stats` option)\n`1` means every level is included, `2` means every other level is included, `3` means every third, and so on"
+  sidneys_secret_documentation-chao_stats_frequency: "Determines how many levels in each Chao Stat grant checks (up to the maximum set in the `chao_stats` option)\n\n`1` means every level is included, `2` means every other level is included, `3` means every third, and so on"
   chao_stats_frequency:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 20
     5: 50
@@ -240,61 +266,34 @@ Sonic Adventure 2 Battle:
 
   sidneys_secret_documentation-chao_stats_stamina: "Determines whether Stamina is included in the `chao_stats` option"
   chao_stats_stamina:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-chao_stats_hidden: "Determines whether the hidden stats (Luck and Intelligence) are included in the `chao_stats` option"
   chao_stats_hidden:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
-  sidneys_secret_documentation-chao_animal_parts: "Determines whether giving Chao various animal parts grants checks\n(73 Locations)"
-  chao_animal_parts:
-    false: 50
-    true: 0
-
-  sidneys_secret_documentation-chao_kindergarten: "Determines whether learning the lessons from the Kindergarten Classroom grants checks\n(WARNING: VERY SLOW)\nNone: No Kindergarten classes have checks\nBasics: One class from each category (Drawing, Dance, Song, and Instrument) is a check (4 Locations)\nFull: Every class is a check (23 Locations)"
+  sidneys_secret_documentation-chao_kindergarten: "Determines whether learning the lessons from the Kindergarten Classroom grants checks\n(WARNING: VERY SLOW)\n\nNone: No Kindergarten classes have checks\n\nBasics: One class from each category (Drawing, Dance, Song, and Instrument) is a check (4 Locations)\n\nFull: Every class is a check (23 Locations)"
   chao_kindergarten:
     none: 50
     basics: 0
     full: 0
 
-  sidneys_secret_documentation-black_market_slots: "Determines how many multiworld items are available to purchase from the Black Market"
-  black_market_slots:
-    sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 64
-    0: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  sidneys_secret_documentation-black_market_unlock_costs: "Determines how many Chao Coins are required to unlock sets of Black Market items"
-  black_market_unlock_costs:
-    low: 0
-    medium: 50
-    high: 0
-
-  sidneys_secret_documentation-black_market_price_multiplier: "Determines how many rings the Black Market items cost\nThe base ring costs of items in the Black Market range from 50-100,\nand are then multiplied by this value"
-  black_market_price_multiplier:
-    sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 40
-    1: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
   sidneys_secret_documentation-shuffle_starting_chao_eggs: "Determines whether the starting Chao eggs in the gardens are random"
   shuffle_starting_chao_eggs:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-chao_entrance_randomization: "Determines whether entrances in Chao World are randomized"
   chao_entrance_randomization:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
+  # Junk and Traps
   sidneys_secret_documentation-junk_fill_percentage: "Replace a percentage of non-required emblems in the item pool with random junk items"
   junk_fill_percentage:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     50: 50
@@ -304,6 +303,7 @@ Sonic Adventure 2 Battle:
 
   sidneys_secret_documentation-trap_fill_percentage: "Replace a percentage of junk items in the item pool with random traps"
   trap_fill_percentage:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     0: 50
@@ -394,20 +394,176 @@ Sonic Adventure 2 Battle:
     medium: 50
     hard: 0
 
-  sidneys_secret_documentation-sadx_music: "Whether the randomizer will include Sonic Adventure DX Music in the music pool\nSA2B: Only SA2B music will be played\nSADX: Only SADX music will be played\nBoth: Both SA2B and SADX music will be played\nNOTE: This option requires the player to own a PC copy of SADX and to follow the addition steps in the setup guide."
+  # Speed Missions
+  sidneys_secret_documentation-speed_mission_count: "The number of active missions to include for Sonic and Shadow stages"
+  speed_mission_count:
+    #
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 5
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-speed_mission_2: "Determines if the Sonic and Shadow 100 rings missions should be included"
+  speed_mission_2:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-speed_mission_3: "Determines if the Sonic and Shadow lost chao missions should be included"
+  speed_mission_3:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-speed_mission_4: "Determines if the Sonic and Shadow time trial missions should be included"
+  speed_mission_4:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-speed_mission_5: "Determines if the Sonic and Shadow hard missions should be included"
+  speed_mission_5:
+    'false': 0
+    'true': 50
+
+  # Mech Missions
+  sidneys_secret_documentation-mech_mission_count: "The number of active missions to include for Tails and Eggman stages"
+  mech_mission_count:
+    #
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 5
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-mech_mission_2: "Determines if the Tails and Eggman 100 rings missions should be included"
+  mech_mission_2:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-mech_mission_3: "Determines if the Tails and Eggman lost chao missions should be included"
+  mech_mission_3:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-mech_mission_4: "Determines if the Tails and Eggman time trial missions should be included"
+  mech_mission_4:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-mech_mission_5: "Determines if the Tails and Eggman hard missions should be included"
+  mech_mission_5:
+    'false': 0
+    'true': 50
+
+  # Hunt Missions
+  sidneys_secret_documentation-hunt_mission_count: "The number of active missions to include for Knuckles and Rouge stages"
+  hunt_mission_count:
+    #
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 5
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-hunt_mission_2: "Determines if the Knuckles and Rouge 100 rings missions should be included"
+  hunt_mission_2:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-hunt_mission_3: "Determines if the Knuckles and Rouge lost chao missions should be included"
+  hunt_mission_3:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-hunt_mission_4: "Determines if the Knuckles and Rouge time trial missions should be included"
+  hunt_mission_4:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-hunt_mission_5: "Determines if the Knuckles and Rouge hard missions should be included"
+  hunt_mission_5:
+    'false': 0
+    'true': 50
+
+  # Kart Missions
+  sidneys_secret_documentation-kart_mission_count: "The number of active missions to include for Route 101 and 280"
+  kart_mission_count:
+    #
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 5
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-kart_mission_2: "Determines if the Route 101 and 280 100 rings missions should be included"
+  kart_mission_2:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-kart_mission_3: "Determines if the Route 101 and 280 avoid cars missions should be included"
+  kart_mission_3:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-kart_mission_4: "Determines if the Route 101 and 280 avoid walls missions should be included"
+  kart_mission_4:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-kart_mission_5: "Determines if the Route 101 and 280 hard missions should be included"
+  kart_mission_5:
+    'false': 0
+    'true': 50
+
+  # Cannon's Core Missions
+  sidneys_secret_documentation-cannons_core_mission_count: "The number of active missions to include for Cannon's Core"
+  cannons_core_mission_count:
+    #
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 5
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-cannons_core_mission_2: "Determines if the Cannon's Core 100 rings mission should be included"
+  cannons_core_mission_2:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-cannons_core_mission_3: "Determines if the Cannon's Core lost chao mission should be included"
+  cannons_core_mission_3:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-cannons_core_mission_4: "Determines if the Cannon's Core time trial mission should be included"
+  cannons_core_mission_4:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-cannons_core_mission_5: "Determines if the Cannon's Core hard mission should be included"
+  cannons_core_mission_5:
+    'false': 0
+    'true': 50
+
+  # Aesthetics
+  sidneys_secret_documentation-sadx_music: "Whether the randomizer will include Sonic Adventure DX Music in the music pool\n\nSA2B: Only SA2B music will be played\n\nSADX: Only SADX music will be played\n\nBoth: Both SA2B and SADX music will be played\n\nNOTE: This option requires the player to own a PC copy of SADX and to follow the addition steps in the setup guide."
   sadx_music:
     sa2b: 50
     sadx: 0
     both: 0
 
-  sidneys_secret_documentation-music_shuffle: "What type of Music Shuffle is used\nNone: No music is shuffled.\nLevels: Level music is shuffled.\nFull: Level, Menu, and Additional music is shuffled.\nSingularity: Level, Menu, and Additional music is all replaced with a single random song."
+  sidneys_secret_documentation-music_shuffle: "What type of Music Shuffle is used\n\nNone: No music is shuffled.\n\nLevels: Level music is shuffled.\n\nFull: Level, Menu, and Additional music is shuffled.\n\nSingularity: Level, Menu, and Additional music is all replaced with a single random song."
   music_shuffle:
     none: 50
     levels: 0
     full: 0
     singularity: 0
 
-  sidneys_secret_documentation-voice_shuffle: "What type of Voice Shuffle is used\nNone: No voices are shuffled.\nShuffled: Voices are shuffled.\nRude: Voices are shuffled, but some are replaced with rude words.\nChao: All voices are replaced with chao sounds.\nSingularity: All voices are replaced with a single random voice."
+  sidneys_secret_documentation-voice_shuffle: "What type of Voice Shuffle is used\n\nNone: No voices are shuffled.\n\nShuffled: Voices are shuffled.\n\nRude: Voices are shuffled, but some are replaced with rude words.\n\nChao: All voices are replaced with chao sounds.\n\nSingularity: All voices are replaced with a single random voice."
   voice_shuffle:
     none: 50
     shuffled: 0
@@ -429,163 +585,35 @@ Sonic Adventure 2 Battle:
     knuckles: 0
     sonic: 0
 
-  sidneys_secret_documentation-ring_loss: "How taking damage is handled\nClassic: You lose all of your rings when hit\nModern: You lose 20 rings when hit\nOHKO: You die immediately when hit (NOTE: Some Hard Logic tricks may require damage boosts!)"
-  ring_loss:
-    classic: 50
-    modern: 0
-    ohko: 0
+  # Item & Location Options
+  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
+  local_items:
+    []
 
-  sidneys_secret_documentation-speed_mission_count: "The number of active missions to include for Sonic and Shadow stages"
-  speed_mission_count:
-    sidneys_secret_range_start: 1
-    sidneys_secret_range_end: 5
-    2: 50
-    random: 0
-    random-low: 0
-    random-high: 0
+  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
+  non_local_items:
+    []
 
-  sidneys_secret_documentation-speed_mission_2: "Determines if the Sonic and Shadow 100 rings missions should be included"
-  speed_mission_2:
-    false: 0
-    true: 50
+  sidneys_secret_documentation-start_inventory: "Start with these items."
+  start_inventory:
+    {}
 
-  sidneys_secret_documentation-speed_mission_3: "Determines if the Sonic and Shadow lost chao missions should be included"
-  speed_mission_3:
-    false: 0
-    true: 50
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
+  start_hints:
+    []
 
-  sidneys_secret_documentation-speed_mission_4: "Determines if the Sonic and Shadow time trial missions should be included"
-  speed_mission_4:
-    false: 0
-    true: 50
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the ``!hint`` command."
+  start_location_hints:
+    []
 
-  sidneys_secret_documentation-speed_mission_5: "Determines if the Sonic and Shadow hard missions should be included"
-  speed_mission_5:
-    false: 0
-    true: 50
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item."
+  exclude_locations:
+    []
 
-  sidneys_secret_documentation-mech_mission_count: "The number of active missions to include for Tails and Eggman stages"
-  mech_mission_count:
-    sidneys_secret_range_start: 1
-    sidneys_secret_range_end: 5
-    2: 50
-    random: 0
-    random-low: 0
-    random-high: 0
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item."
+  priority_locations:
+    []
 
-  sidneys_secret_documentation-mech_mission_2: "Determines if the Tails and Eggman 100 rings missions should be included"
-  mech_mission_2:
-    false: 0
-    true: 50
-
-  sidneys_secret_documentation-mech_mission_3: "Determines if the Tails and Eggman lost chao missions should be included"
-  mech_mission_3:
-    false: 0
-    true: 50
-
-  sidneys_secret_documentation-mech_mission_4: "Determines if the Tails and Eggman time trial missions should be included"
-  mech_mission_4:
-    false: 0
-    true: 50
-
-  sidneys_secret_documentation-mech_mission_5: "Determines if the Tails and Eggman hard missions should be included"
-  mech_mission_5:
-    false: 0
-    true: 50
-
-  sidneys_secret_documentation-hunt_mission_count: "The number of active missions to include for Knuckles and Rouge stages"
-  hunt_mission_count:
-    sidneys_secret_range_start: 1
-    sidneys_secret_range_end: 5
-    2: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  sidneys_secret_documentation-hunt_mission_2: "Determines if the Knuckles and Rouge 100 rings missions should be included"
-  hunt_mission_2:
-    false: 0
-    true: 50
-
-  sidneys_secret_documentation-hunt_mission_3: "Determines if the Knuckles and Rouge lost chao missions should be included"
-  hunt_mission_3:
-    false: 0
-    true: 50
-
-  sidneys_secret_documentation-hunt_mission_4: "Determines if the Knuckles and Rouge time trial missions should be included"
-  hunt_mission_4:
-    false: 0
-    true: 50
-
-  sidneys_secret_documentation-hunt_mission_5: "Determines if the Knuckles and Rouge hard missions should be included"
-  hunt_mission_5:
-    false: 0
-    true: 50
-
-  sidneys_secret_documentation-kart_mission_count: "The number of active missions to include for Route 101 and 280"
-  kart_mission_count:
-    sidneys_secret_range_start: 1
-    sidneys_secret_range_end: 5
-    2: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  sidneys_secret_documentation-kart_mission_2: "Determines if the Route 101 and 280 100 rings missions should be included"
-  kart_mission_2:
-    false: 0
-    true: 50
-
-  sidneys_secret_documentation-kart_mission_3: "Determines if the Route 101 and 280 avoid cars missions should be included"
-  kart_mission_3:
-    false: 0
-    true: 50
-
-  sidneys_secret_documentation-kart_mission_4: "Determines if the Route 101 and 280 avoid walls missions should be included"
-  kart_mission_4:
-    false: 0
-    true: 50
-
-  sidneys_secret_documentation-kart_mission_5: "Determines if the Route 101 and 280 hard missions should be included"
-  kart_mission_5:
-    false: 0
-    true: 50
-
-  sidneys_secret_documentation-cannons_core_mission_count: "The number of active missions to include for Cannon's Core"
-  cannons_core_mission_count:
-    sidneys_secret_range_start: 1
-    sidneys_secret_range_end: 5
-    2: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  sidneys_secret_documentation-cannons_core_mission_2: "Determines if the Cannon's Core 100 rings mission should be included"
-  cannons_core_mission_2:
-    false: 0
-    true: 50
-
-  sidneys_secret_documentation-cannons_core_mission_3: "Determines if the Cannon's Core lost chao mission should be included"
-  cannons_core_mission_3:
-    false: 0
-    true: 50
-
-  sidneys_secret_documentation-cannons_core_mission_4: "Determines if the Cannon's Core time trial mission should be included"
-  cannons_core_mission_4:
-    false: 0
-    true: 50
-
-  sidneys_secret_documentation-cannons_core_mission_5: "Determines if the Cannon's Core hard mission should be included"
-  cannons_core_mission_5:
-    false: 0
-    true: 50
-
-  sidneys_secret_documentation-ring_link: "Whether your in-level ring gain/loss is linked to other players"
-  ring_link:
-    false: 50
-    true: 0
-
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
-  death_link:
-    false: 50
-    true: 0
+  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
+  item_links:
+    []

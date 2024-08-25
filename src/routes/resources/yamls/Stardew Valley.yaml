@@ -32,61 +32,10 @@ description: Default Stardew Valley Template
 
 game: Stardew Valley
 requires:
-  version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
 
 Stardew Valley:
-  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\nA lower setting means more getting stuck. A higher setting means less getting stuck."
-  progression_balancing:
-    sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 99
-    random: 0
-    random-low: 0
-    random-high: 0
-    sidneys_secret_notes-disabled: "equivalent to 0"
-    disabled: 0
-    sidneys_secret_notes-normal: "equivalent to 50"
-    normal: 50
-    sidneys_secret_notes-extreme: "equivalent to 99"
-    extreme: 0
-
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\nLocations: ensure everything can be reached and acquired.\nItems: ensure all logically relevant items can be acquired.\nMinimal: ensure what is needed to reach your goal can be acquired."
-  accessibility:
-    locations: 0
-    items: 50
-    minimal: 0
-
-  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
-  local_items:
-    []
-
-  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
-  non_local_items:
-    []
-
-  sidneys_secret_documentation-start_inventory: "Start with these items."
-  start_inventory:
-    {}
-
-  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the !hint command."
-  start_hints:
-    []
-
-  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the !hint command"
-  start_location_hints:
-    []
-
-  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item"
-  exclude_locations:
-    []
-
-  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item"
-  priority_locations:
-    []
-
-  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
-  item_links:
-    []
-
+  # General
   sidneys_secret_documentation-goal: "Goal for this playthrough\nCommunity Center: Complete the Community Center\nGrandpa's Evaluation: 4 lit candles in Grandpa's evaluation\nBottom of the Mines: Reach level 120 in the mines\nCryptic Note: Complete the quest \"Cryptic Note\" (Skull Cavern Floor 100)\nMaster Angler: Catch every fish. Adapts to Fishsanity\nComplete Collection: Complete the museum collection\nFull House: Get married and have 2 children\nGreatest Walnut Hunter: Find 130 Golden Walnuts\nProtector of the Valley: Complete the monster slayer goals. Adapts to Monstersanity\nFull Shipment: Ship every item. Adapts to Shipsanity\nGourmet Chef: Cook every recipe. Adapts to Cooksanity\nCraft Master: Craft every item\nLegend: Earn 10 000 000g\nMystery of the Stardrops: Find every stardrop\nAllsanity: Complete every check in your slot\nPerfection: Attain Perfection"
   goal:
     community_center: 50
@@ -117,46 +66,6 @@ Stardew Valley:
     beach: 0
     random: 50
 
-  sidneys_secret_documentation-starting_money: "Amount of gold when arriving at the farm.\nSet to -1 or unlimited for infinite money"
-  starting_money:
-    sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 50000
-    random: 0
-    random-low: 0
-    random-high: 0
-    sidneys_secret_notes-unlimited: "equivalent to -1"
-    unlimited: 0
-    sidneys_secret_notes-vanilla: "equivalent to 500"
-    vanilla: 0
-    sidneys_secret_notes-extra: "equivalent to 2000"
-    extra: 0
-    sidneys_secret_notes-rich: "equivalent to 5000"
-    rich: 50
-    sidneys_secret_notes-very rich: "equivalent to 20000"
-    very rich: 0
-    sidneys_secret_notes-filthy rich: "equivalent to 50000"
-    filthy rich: 0
-
-  sidneys_secret_documentation-profit_margin: "Multiplier over all gold earned in-game by the player."
-  profit_margin:
-    sidneys_secret_range_start: 25
-    sidneys_secret_range_end: 400
-    random: 0
-    random-low: 0
-    random-high: 0
-    sidneys_secret_notes-quarter: "equivalent to 25"
-    quarter: 0
-    sidneys_secret_notes-half: "equivalent to 50"
-    half: 0
-    sidneys_secret_notes-normal: "equivalent to 100"
-    normal: 50
-    sidneys_secret_notes-double: "equivalent to 200"
-    double: 0
-    sidneys_secret_notes-triple: "equivalent to 300"
-    triple: 0
-    sidneys_secret_notes-quadruple: "equivalent to 400"
-    quadruple: 0
-
   sidneys_secret_documentation-bundle_randomization: "What items are needed for the community center bundles?\nVanilla: Standard bundles from the vanilla game\nThematic: Every bundle will require random items compatible with their original theme\nRemixed: Picks bundles at random from thematic, vanilla remixed and new custom ones\nShuffled: Every bundle will require random items and follow no particular structure"
   bundle_randomization:
     vanilla: 0
@@ -182,6 +91,12 @@ Stardew Valley:
     buildings: 0
     chaos: 0
 
+  sidneys_secret_documentation-exclude_ginger_island: "Exclude Ginger Island?\nThis option will forcefully exclude everything related to Ginger Island from the slot.\nIf you pick a goal that requires Ginger Island, you cannot exclude it and it will get included anyway"
+  exclude_ginger_island:
+    'false': 50
+    'true': 0
+
+  # Major Unlocks
   sidneys_secret_documentation-season_randomization: "Should seasons be randomized?\nDisabled: Start in Spring with all seasons unlocked.\nRandomized: Start in a random season and the other 3 must be unlocked randomly.\nRandomized Not Winter: Same as randomized, but the start season is guaranteed not to be winter.\nProgressive: Start in Spring and unlock the seasons in their original order."
   season_randomization:
     disabled: 0
@@ -223,17 +138,18 @@ Stardew Valley:
     progressive_cheap: 50
     progressive_very_cheap: 0
 
-  sidneys_secret_documentation-festival_locations: "Shuffle Festival Activities?\nDisabled: You do not need to attend festivals\nEasy: Every festival has checks, but they are easy and usually only require attendance\nHard: Festivals have more checks, and many require performing well, not just attending"
-  festival_locations:
-    disabled: 0
-    easy: 50
-    hard: 0
-
   sidneys_secret_documentation-elevator_progression: "Shuffle the elevator?\nVanilla: Reaching a mineshaft floor unlocks the elevator for it\nProgressive: You will randomly find Progressive Mine Elevators to go deeper.\nProgressive from previous floor: Same as progressive, but you cannot use the elevator to check elevator locations.\n You must reach elevator floors on your own."
   elevator_progression:
     vanilla: 0
     progressive: 0
     progressive_from_previous_floor: 50
+
+  # Extra Shuffling
+  sidneys_secret_documentation-festival_locations: "Shuffle Festival Activities?\nDisabled: You do not need to attend festivals\nEasy: Every festival has checks, but they are easy and usually only require attendance\nHard: Festivals have more checks, and many require performing well, not just attending"
+  festival_locations:
+    disabled: 0
+    easy: 50
+    hard: 0
 
   sidneys_secret_documentation-arcade_machine_locations: "Shuffle the arcade machines?\nDisabled: The arcade machines are not included.\nVictories: Each Arcade Machine will contain one check on victory\nVictories Easy: Same as Victories, but both games are made considerably easier.\nFull Shuffling: The arcade machines will contain multiple checks each, and different buffs that make the game\n easier are in the item pool. Junimo Kart has one check at the end of each level.\n Journey of the Prairie King has one check after each boss, plus one check for each vendor equipment."
   arcade_machine_locations:
@@ -250,6 +166,7 @@ Stardew Valley:
 
   sidneys_secret_documentation-quest_locations: "Include location checks for quests\nNone: No quests are checks\nStory: Only story quests are checks\nNumber: Story quests and help wanted quests are checks up to the specified amount. Multiple of 7 recommended\nOut of every 7 help wanted quests, 4 will be item deliveries, and then 1 of each for: Fishing, Gathering and Slaying Monsters.\nExtra Help wanted quests might be added if current settings don't have enough locations"
   quest_locations:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 56
     random: 0
@@ -314,6 +231,7 @@ Stardew Valley:
 
   sidneys_secret_documentation-chefsanity: "Locations for learning cooking recipes?\nVanilla: All cooking recipes are learned normally\nQueen of Sauce: Every Queen of sauce episode is a check, all queen of sauce recipes are items\nPurchases: Every purchasable recipe is a check\nFriendship: Recipes obtained from friendship are checks\nSkills: Recipes obtained from skills are checks\nAll: Learning every cooking recipe is a check"
   chefsanity:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 15
     random: 0
@@ -349,6 +267,7 @@ Stardew Valley:
 
   sidneys_secret_documentation-friendsanity_heart_size: "If using friendsanity, how many hearts are received per heart item, and how many hearts must be earned to send a check\nA higher value will lead to fewer heart items in the item pool, reducing bloat"
   friendsanity_heart_size:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 8
     4: 50
@@ -356,63 +275,57 @@ Stardew Valley:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-movement_buff_number: "Number of movement speed buffs to the player that exist as items in the pool.\nEach movement speed buff is a +25% multiplier that stacks additively"
-  movement_buff_number:
+  # Multipliers and Buffs
+  sidneys_secret_documentation-quick_start: "Do you want the quick start package? You will get a few items to help early game automation,\nso you can use the multiple day sleep at its maximum."
+  quick_start:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-starting_money: "Amount of gold when arriving at the farm.\nSet to -1 or unlimited for infinite money"
+  starting_money:
+    #
     sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 12
-    4: 50
+    sidneys_secret_range_end: 50000
     random: 0
     random-low: 0
     random-high: 0
+    sidneys_secret_notes-unlimited: "equivalent to -1"
+    unlimited: 0
+    sidneys_secret_notes-vanilla: "equivalent to 500"
+    vanilla: 0
+    sidneys_secret_notes-extra: "equivalent to 2000"
+    extra: 0
+    sidneys_secret_notes-rich: "equivalent to 5000"
+    rich: 50
+    sidneys_secret_notes-very rich: "equivalent to 20000"
+    very rich: 0
+    sidneys_secret_notes-filthy rich: "equivalent to 50000"
+    filthy rich: 0
 
-  sidneys_secret_documentation-luck_buff_number: "Number of luck buffs to the player that exist as items in the pool.\nEach luck buff is a bonus to daily luck of 0.025"
-  luck_buff_number:
-    sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 12
-    4: 50
+  sidneys_secret_documentation-profit_margin: "Multiplier over all gold earned in-game by the player."
+  profit_margin:
+    #
+    sidneys_secret_range_start: 25
+    sidneys_secret_range_end: 400
     random: 0
     random-low: 0
     random-high: 0
-
-  sidneys_secret_documentation-exclude_ginger_island: "Exclude Ginger Island?\nThis option will forcefully exclude everything related to Ginger Island from the slot.\nIf you pick a goal that requires Ginger Island, you cannot exclude it and it will get included anyway"
-  exclude_ginger_island:
-    false: 50
-    true: 0
-
-  sidneys_secret_documentation-trap_items: "When rolling filler items, including resource packs, the game can also roll trap items.\nTrap items are negative items that cause problems or annoyances for the player\nThis setting is for choosing if traps will be in the item pool, and if so, how punishing they will be."
-  trap_items:
-    no_traps: 0
-    easy: 0
-    medium: 50
-    hard: 0
-    hell: 0
-    nightmare: 0
-
-  sidneys_secret_documentation-multiple_day_sleep_enabled: "Enable the ability to sleep automatically for multiple days straight?"
-  multiple_day_sleep_enabled:
-    false: 0
-    true: 50
-
-  sidneys_secret_documentation-multiple_day_sleep_cost: "How much gold it will cost to use MultiSleep. You will have to pay that amount for each day skipped."
-  multiple_day_sleep_cost:
-    sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 200
-    random: 0
-    random-low: 0
-    random-high: 0
-    sidneys_secret_notes-free: "equivalent to 0"
-    free: 50
-    sidneys_secret_notes-cheap: "equivalent to 10"
-    cheap: 0
-    sidneys_secret_notes-medium: "equivalent to 25"
-    medium: 0
-    sidneys_secret_notes-expensive: "equivalent to 50"
-    expensive: 0
-    sidneys_secret_notes-very expensive: "equivalent to 100"
-    very expensive: 0
+    sidneys_secret_notes-quarter: "equivalent to 25"
+    quarter: 0
+    sidneys_secret_notes-half: "equivalent to 50"
+    half: 0
+    sidneys_secret_notes-normal: "equivalent to 100"
+    normal: 50
+    sidneys_secret_notes-double: "equivalent to 200"
+    double: 0
+    sidneys_secret_notes-triple: "equivalent to 300"
+    triple: 0
+    sidneys_secret_notes-quadruple: "equivalent to 400"
+    quadruple: 0
 
   sidneys_secret_documentation-experience_multiplier: "How fast you want to earn skill experience.\nA lower setting mean less experience.\nA higher setting means more experience."
   experience_multiplier:
+    #
     sidneys_secret_range_start: 25
     sidneys_secret_range_end: 800
     random: 0
@@ -431,6 +344,7 @@ Stardew Valley:
 
   sidneys_secret_documentation-friendship_multiplier: "How fast you want to earn friendship points with villagers.\nA lower setting mean less friendship per action.\nA higher setting means more friendship per action."
   friendship_multiplier:
+    #
     sidneys_secret_range_start: 25
     sidneys_secret_range_end: 800
     random: 0
@@ -455,15 +369,85 @@ Stardew Valley:
     none: 0
     start_clear: 0
 
-  sidneys_secret_documentation-quick_start: "Do you want the quick start package? You will get a few items to help early game automation,\nso you can use the multiple day sleep at its maximum."
-  quick_start:
-    false: 0
-    true: 50
+  sidneys_secret_documentation-movement_buff_number: "Number of movement speed buffs to the player that exist as items in the pool.\nEach movement speed buff is a +25% multiplier that stacks additively"
+  movement_buff_number:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 12
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-luck_buff_number: "Number of luck buffs to the player that exist as items in the pool.\nEach luck buff is a bonus to daily luck of 0.025"
+  luck_buff_number:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 12
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-trap_items: "When rolling filler items, including resource packs, the game can also roll trap items.\nTrap items are negative items that cause problems or annoyances for the player\nThis setting is for choosing if traps will be in the item pool, and if so, how punishing they will be."
+  trap_items:
+    no_traps: 0
+    easy: 0
+    medium: 50
+    hard: 0
+    hell: 0
+    nightmare: 0
+
+  sidneys_secret_documentation-multiple_day_sleep_enabled: "Enable the ability to sleep automatically for multiple days straight?"
+  multiple_day_sleep_enabled:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-multiple_day_sleep_cost: "How much gold it will cost to use MultiSleep. You will have to pay that amount for each day skipped."
+  multiple_day_sleep_cost:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 200
+    random: 0
+    random-low: 0
+    random-high: 0
+    sidneys_secret_notes-free: "equivalent to 0"
+    free: 50
+    sidneys_secret_notes-cheap: "equivalent to 10"
+    cheap: 0
+    sidneys_secret_notes-medium: "equivalent to 25"
+    medium: 0
+    sidneys_secret_notes-expensive: "equivalent to 50"
+    expensive: 0
+    sidneys_secret_notes-very expensive: "equivalent to 100"
+    very expensive: 0
+
+  # Advanced Options
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  progression_balancing:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    sidneys_secret_notes-disabled: "equivalent to 0"
+    disabled: 0
+    sidneys_secret_notes-normal: "equivalent to 50"
+    normal: 50
+    sidneys_secret_notes-extreme: "equivalent to 99"
+    extreme: 0
+
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  accessibility:
+    locations: 0
+    items: 50
+    minimal: 0
 
   sidneys_secret_documentation-gifting: "Do you want to enable gifting items to and from other Archipelago slots?\nItems can only be sent to games that also support gifting"
   gifting:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-mods: "List of mods that will be included in the shuffling."
   mods:
@@ -471,5 +455,38 @@ Stardew Valley:
 
   sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
   death_link:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
+
+  # Item & Location Options
+  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
+  local_items:
+    []
+
+  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
+  non_local_items:
+    []
+
+  sidneys_secret_documentation-start_inventory: "Start with these items."
+  start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
+  start_hints:
+    []
+
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the ``!hint`` command."
+  start_location_hints:
+    []
+
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item."
+  exclude_locations:
+    []
+
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item."
+  priority_locations:
+    []
+
+  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
+  item_links:
+    []

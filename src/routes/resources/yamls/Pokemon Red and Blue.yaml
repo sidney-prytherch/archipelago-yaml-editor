@@ -32,11 +32,13 @@ description: Default Pokemon Red and Blue Template
 
 game: Pokemon Red and Blue
 requires:
-  version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
 
 Pokemon Red and Blue:
-  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  # Game Options
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -49,43 +51,11 @@ Pokemon Red and Blue:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\nLocations: ensure everything can be reached and acquired.\nItems: ensure all logically relevant items can be acquired.\nMinimal: ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
     locations: 0
     items: 50
     minimal: 0
-
-  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
-  local_items:
-    []
-
-  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
-  non_local_items:
-    []
-
-  sidneys_secret_documentation-start_inventory: "Start with these items."
-  start_inventory:
-    {}
-
-  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the !hint command."
-  start_hints:
-    []
-
-  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the !hint command"
-  start_location_hints:
-    []
-
-  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item"
-  exclude_locations:
-    []
-
-  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item"
-  priority_locations:
-    []
-
-  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
-  item_links:
-    []
 
   sidneys_secret_documentation-game_version: "Select Red or Blue version."
   game_version:
@@ -103,6 +73,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-elite_four_badges_condition: "Number of badges required to challenge the Elite Four once the Indigo Plateau has been reached.\nYour rival will reveal the amount needed on the first Route 22 battle (after turning in Oak's Parcel)."
   elite_four_badges_condition:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 8
     8: 50
@@ -112,6 +83,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-elite_four_key_items_condition: "Percentage of available key items (not counting items you can lose) required to challenge the Elite Four. Does\nnot count HMs. Evolution stones and Exp. All are key items in Archipelago."
   elite_four_key_items_condition:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     0: 50
@@ -121,6 +93,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-elite_four_pokedex_condition: "Percentage of logically-reachable Pokemon that must be registered as \"owned\" in the Pokedex in order to\nchallenge the Elite Four."
   elite_four_pokedex_condition:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     0: 50
@@ -130,6 +103,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-victory_road_condition: "Number of badges required to reach the front entrance of Victory Road."
   victory_road_condition:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 8
     7: 50
@@ -139,6 +113,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-route_22_gate_condition: "Number of badges required to pass through the Route 22 Gate"
   route_22_gate_condition:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 7
     7: 50
@@ -148,6 +123,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-viridian_gym_condition: "Number of badges required to enter Viridian Gym."
   viridian_gym_condition:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 7
     7: 50
@@ -157,6 +133,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-cerulean_cave_badges_condition: "Number of badges needed to access the Cerulean Cave entrance in addition to the required Key Items."
   cerulean_cave_badges_condition:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 8
     4: 50
@@ -166,6 +143,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-cerulean_cave_key_items_condition: "Percentage of available key items (not counting items you can lose) required to access the Cerulean Cave\nentrance in addition to the required badges. Does not count HMs.\nEvolution stones and Exp. All are key items in Archipelago."
   cerulean_cave_key_items_condition:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     50: 50
@@ -183,11 +161,12 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-robbed_house_officer: "You can disable to remove the requirement to help Bill before you can enter the robbed house in Cerulean City."
   robbed_house_officer:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-second_fossil_check_condition: "After choosing one of the fossil location items, you can obtain the remaining item from the Cinnabar Lab\nScientist after reviving this number of fossils."
   second_fossil_check_condition:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 3
     3: 50
@@ -216,70 +195,71 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-badgesanity: "Shuffle gym badges into the general item pool. If turned off, badges will be shuffled across the 8 gyms."
   badgesanity:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-badges_needed_for_hm_moves: "Off will remove the requirement for badges to use HM moves. Extra will give the Marsh, Volcano, and Earth Badges\na random HM move to enable. Extra Plus will additionally pick two random badges to enable a second HM move.\nYou will only need one of the required badges to use the HM move."
   badges_needed_for_hm_moves:
-    on: 50
-    off: 0
+    'on': 50
+    'off': 0
     extra: 0
     extra_plus: 0
 
   sidneys_secret_documentation-key_items_only: "Shuffle only Key Items. This overrides Randomize Hidden Items, Trainersanity, and Dexsanity.\nSets all non-excluded locations in your game to Priority Locations.\nMay have high generation failure rates for solo games or small multiworlds, especially with Door Shuffle."
   key_items_only:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-tea: "Adds a Tea item to the item pool which the Saffron guards require instead of the vending machine drinks.\nAdds a location check to the Celadon Mansion 1F, where Tea is acquired in FireRed and LeafGreen."
   tea:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-extra_key_items: "Adds key items that are required to access the Rocket Hideout, Cinnabar Mansion, Safari Zone, and Power Plant.\nAdds four item pickups to Rock Tunnel B1F."
   extra_key_items:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-split_card_key: "Splits the Card Key item into 10 different Keys, one for each Silph Co floor 2F through 11F.\nAdds location checks to 9 NPCs in Silph Co.\nWith Progressive, you will always obtain the keys in order from 2F to 11F."
   split_card_key:
-    off: 50
-    on: 0
+    'off': 50
+    'on': 0
     progressive: 0
 
   sidneys_secret_documentation-all_elevators_locked: "Adds requirements to the Celadon Department Store elevator and Silph Co elevators to have the Lift Key.\nNo logical implications normally, but may have a significant impact on some Door Shuffle options."
   all_elevators_locked:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-extra_strength_boulders: "Adds Strength Boulders blocking the Route 11 gate, and in Route 13 (can be bypassed with Surf).\nThis potentially increases the usefulness of Strength as well as the Bicycle."
   extra_strength_boulders:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-require_item_finder: "Require Item Finder to pick up hidden items."
   require_item_finder:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-randomize_hidden_items: "Randomize hidden items. If you choose exclude, they will be randomized but will be guaranteed junk items."
   randomize_hidden_items:
-    on: 0
-    off: 50
+    'on': 0
+    'off': 50
     exclude: 0
 
   sidneys_secret_documentation-prizesanity: "Shuffles the TM prizes at the Celadon Prize Corner into the item pool."
   prizesanity:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-trainersanity: "Add a location check to every trainer in the game, which can be obtained by talking to a trainer after defeating\nthem. Does not affect gym leaders and some scripted event battles (including all Rival, Giovanni, and\nCinnabar Gym battles)."
   trainersanity:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-dexsanity: "Adds location checks for Pokemon flagged \"owned\" on your Pokedex. You may specify a percentage of Pokemon to\nhave checks added. If Accessibility is set to locations, this will be the percentage of all logically reachable\nPokemon that will get a location check added to it. With items or minimal Accessibility, it will be the percentage\nof all 151 Pokemon.\nIf Pokedex is required, the items for Pokemon acquired before acquiring the Pokedex can be found by talking to\nProfessor Oak or evaluating the Pokedex via Oak's PC."
   dexsanity:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     random: 0
@@ -298,16 +278,17 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-require_pokedex: "Require the Pokedex to obtain items from Oak's Aides or from Dexsanity checks."
   require_pokedex:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-all_pokemon_seen: "Start with all Pokemon \"seen\" in your Pokedex. This allows you to see where Pokemon can be encountered in the\nwild. Pokemon found by fishing or in the Cerulean Cave are not displayed.\nThe Pokedex also shows which HMs can be learned by Pokemon registered as seen."
   all_pokemon_seen:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-oaks_aide_rt_2: "Number of Pokemon registered in the Pokedex required to receive the item from Oak's Aide on Route 2.\nVanilla is 10."
   oaks_aide_rt_2:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 80
     10: 50
@@ -317,6 +298,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-oaks_aide_rt_11: "Number of Pokemon registered in the Pokedex required to receive the item from Oak's Aide on Route 11.\nVanilla is 30."
   oaks_aide_rt_11:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 80
     20: 50
@@ -326,6 +308,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-oaks_aide_rt_15: "Number of Pokemon registered in the Pokedex required to receive the item from Oak's Aide on Route 15.\nVanilla is 50."
   oaks_aide_rt_15:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 80
     30: 50
@@ -335,12 +318,12 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-stonesanity: "Removes the four evolution stones from the Celadon Department Store and replaces four of the five Moon Stones\nin the item pool with the four shop stones. If randomize_hidden_items is off, this will cause the two hidden\nMoon Stone locations to be randomized anyway. These are in Pokemon Mansion 1F and Mt Moon B2F."
   stonesanity:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-door_shuffle: "Simple: entrances are randomized together in groups: Pokemarts, Gyms, single exit dungeons, dual exit dungeons,\nsingle exit misc interiors, dual exit misc interiors are all shuffled separately. Safari Zone is not shuffled.\nOn Simple only, the Town Map will be updated to show the new locations for each dungeon.\nInteriors: Any outdoor entrance may lead to any interior, but intra-interior doors are not shuffled. Previously\nnamed Full.\nFull: Exterior to interior entrances are shuffled, and interior to interior doors are shuffled, separately.\nInsanity: All doors in the game are shuffled.\nDecoupled: Doors may be decoupled from each other, so that leaving through an exit may not return you to the\ndoor you entered from."
   door_shuffle:
-    off: 50
+    'off': 50
     simple: 0
     interiors: 0
     full: 0
@@ -355,26 +338,27 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-randomize_rock_tunnel: "Randomize the layout of Rock Tunnel. If Full, Insanity, or Decoupled Door Shuffle is on, this will cause only the\nmain entrances to Rock Tunnel to be shuffled."
   randomize_rock_tunnel:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-dark_rock_tunnel_logic: "Logically require Flash to traverse the Rock Tunnel, so you are never forced to traverse it in the dark."
   dark_rock_tunnel_logic:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-free_fly_location: "One random Fly destination will be unlocked by default."
   free_fly_location:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-town_map_fly_location: "One random Fly destination will be unlocked when you obtain the Town Map."
   town_map_fly_location:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-blind_trainers: "Chance each frame that you are standing on a tile in a trainer's line of sight that they will fail to initiate a\nbattle. If you move into and out of their line of sight without stopping, this chance will only trigger once."
   blind_trainers:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     0: 50
@@ -384,6 +368,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-minimum_steps_between_encounters: "Minimum number of steps between wild Pokemon encounters."
   minimum_steps_between_encounters:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 255
     3: 50
@@ -393,13 +378,14 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-level_scaling: "Off: Encounters use vanilla game levels.\nBy Spheres: Levels are scaled by access sphere. Areas reachable in later spheres will have higher levels.\nBy Spheres and Distance: Levels are scaled by access spheres as well as distance from Pallet Town, measured by\nnumber  of internal region connections. This is a much more severe curving of levels and may lead to much less\nvariation in levels found in a particular map. However, it may make the higher door shuffle settings significantly\nmore bearable, as these options more often result in a smaller number of larger access spheres.\nAuto: Scales by Spheres if Door Shuffle is off or on Simple, otherwise scales by Spheres and Distance"
   level_scaling:
-    off: 0
+    'off': 0
     by_spheres: 0
     by_spheres_and_distance: 0
     auto: 50
 
   sidneys_secret_documentation-exp_modifier: "Modifier for EXP gained. When specifying a number, exp is multiplied by this amount and divided by 16."
   exp_modifier:
+    #
     sidneys_secret_range_start: 4.0
     sidneys_secret_range_end: 255
     random: 0
@@ -434,8 +420,8 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-area_1_to_1_mapping: "When randomizing wild Pokemon, for each zone, all instances of a particular Pokemon will be replaced with the\nsame Pokemon, resulting in fewer Pokemon in each area."
   area_1_to_1_mapping:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-randomize_starter_pokemon: "Randomize the starter Pokemon choices."
   randomize_starter_pokemon:
@@ -462,7 +448,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-catch_em_all: "Guarantee all first evolution stage Pokemon are available, or all Pokemon of all stages.\nCurrently only has an effect if wild Pokemon are randomized."
   catch_em_all:
-    off: 50
+    'off': 50
     first_stage: 0
     all_pokemon: 0
 
@@ -474,11 +460,12 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-randomize_pokemon_catch_rates: "Randomize the catch rate for each Pokemon."
   randomize_pokemon_catch_rates:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-minimum_catch_rate: "Minimum catch rate for each Pokemon. If randomize_catch_rates is on, this will be the minimum value that can be\nchosen. Otherwise, it will raise any Pokemon's catch rate up to this value if its normal catch rate is lower."
   minimum_catch_rate:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 255
     3: 50
@@ -496,18 +483,18 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-trainer_legendaries: "Allow legendary Pokemon in randomized trainer parties."
   trainer_legendaries:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-move_balancing: "All one-hit-KO moves and fixed-damage moves become normal damaging moves.\nBlizzard, and moves that cause sleep have their accuracy reduced."
   move_balancing:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-fix_combat_bugs: "Fixes a variety of combat-related bugs. Note that this fixes the Focus Energy bug. The Focus Energy bug causes\ncritical strike chances to be doubled when Focus Energy has not been used and halved when it is used.\nFixing this bug means critical strike chances outside the use of Focus Energy are quartered from the vanilla rate."
   fix_combat_bugs:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-randomize_pokemon_movesets: "Randomize the moves learned by Pokemon. prefer_types will prefer moves that match the type of the Pokemon."
   randomize_pokemon_movesets:
@@ -517,26 +504,27 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-confine_transform_to_ditto: "Regardless of moveset randomization, will keep Ditto's first move as Transform no others will learn it.\nIf an enemy Pokemon uses transform before you catch it, it will permanently change to Ditto after capture."
   confine_transform_to_ditto:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-start_with_four_moves: "If movesets are randomized, this will give all Pokemon 4 starting moves."
   start_with_four_moves:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-same_type_attack_bonus: "Here you can disable Same Type Attack Bonus, so that a move matching a Pokemon's type has no benefit.\nIf disabled, all moves will gain 25% extra damage, instead of same type moves gaining 50% extra damage."
   same_type_attack_bonus:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-randomize_tm_moves: "Randomize the moves taught by TMs.\nAll TM items will be flagged as 'filler' items regardless of how good the move they teach are."
   randomize_tm_moves:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-tm_same_type_compatibility: "Chance of each TM being usable on each Pokemon whose type matches the move."
   tm_same_type_compatibility:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     random: 0
@@ -551,6 +539,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-tm_normal_type_compatibility: "Chance of each TM being usable on each Pokemon if the move is Normal type and the Pokemon is not."
   tm_normal_type_compatibility:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     random: 0
@@ -565,6 +554,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-tm_other_type_compatibility: "Chance of each TM being usable on each Pokemon if the move a type other than Normal or one of the Pokemon's types."
   tm_other_type_compatibility:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     random: 0
@@ -579,6 +569,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-hm_same_type_compatibility: "Chance of each HM being usable on each Pokemon whose type matches the move.\nAt least one Pokemon will always be able to learn the moves needed to meet your accessibility requirements."
   hm_same_type_compatibility:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     random: 0
@@ -593,6 +584,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-hm_normal_type_compatibility: "Chance of each HM being usable on each Pokemon if the move is Normal type and the Pokemon is not.\nAt least one Pokemon will always be able to learn the moves needed to meet your accessibility requirements."
   hm_normal_type_compatibility:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     random: 0
@@ -607,6 +599,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-hm_other_type_compatibility: "Chance of each HM being usable on each Pokemon if the move a type other than Normal or one of the Pokemon's types.\nAt least one Pokemon will always be able to learn the moves needed to meet your accessibility requirements."
   hm_other_type_compatibility:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     random: 0
@@ -621,13 +614,13 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-inherit_tm_hm_compatibility: "If on, evolved Pokemon will inherit their pre-evolved form's TM and HM compatibilities.\nThey will then roll the above set chances again at a 50% lower rate for all TMs and HMs their predecessor could not\nlearn, unless the evolved form has additional or different types, then moves of those new types will be rolled\nat the full set chance."
   inherit_tm_hm_compatibility:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-randomize_move_types: "Randomize the types of each move."
   randomize_move_types:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-randomize_pokemon_types: "Randomize the types of each Pokemon. Follow Evolutions will ensure Pokemon's types remain the same when evolving\n(except possibly gaining a type)."
   randomize_pokemon_types:
@@ -637,6 +630,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-secondary_type_chance: "If randomize_pokemon_types is on, this is the chance each Pokemon will have a secondary type. If follow_evolutions\nis selected, it is the chance a second type will be added at each evolution stage. vanilla will give secondary types\nto Pokemon that normally have a secondary type."
   secondary_type_chance:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     random: 0
@@ -653,6 +647,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-normal_matchups: "If 'randomize' is chosen for Randomize Type Chart, this will be the weight for neutral matchups.\nNo effect if 'chaos' is chosen"
   normal_matchups:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 225
     143: 50
@@ -662,6 +657,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-super_effective_matchups: "If 'randomize' is chosen for Randomize Type Chart, this will be the weight for super effective matchups.\nNo effect if 'chaos' is chosen"
   super_effective_matchups:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 225
     38: 50
@@ -671,6 +667,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-not_very_effective_matchups: "If 'randomize' is chosen for Randomize Type Chart, this will be the weight for not very effective matchups.\nNo effect if 'chaos' is chosen"
   not_very_effective_matchups:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 225
     38: 50
@@ -680,6 +677,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-immunity_matchups: "If 'randomize' is chosen for Randomize Type Chart, this will be the exact number of immunities.\nNo effect if 'chaos' is chosen"
   immunity_matchups:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     6: 50
@@ -689,27 +687,28 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-safari_zone_normal_battles: "Change the Safari Zone to have standard wild Pokemon battles."
   safari_zone_normal_battles:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-normalize_encounter_chances: "Each wild encounter table has 10 slots for Pokemon. Normally the chance for each being chosen ranges from\n19.9% to 1.2%. Turn this on to normalize them all to 10% each."
   normalize_encounter_chances:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-reusable_tms: "Makes TMs reusable, so they will not be consumed upon use."
   reusable_tms:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-better_shops: "Change every town's Pokemart to contain all normal Pokemart items. Additionally, you can add the Master Ball\nto these shops."
   better_shops:
-    off: 50
-    on: 0
+    'off': 50
+    'on': 0
     add_master_ball: 0
 
   sidneys_secret_documentation-master_ball_price: "Price for Master Balls. Can only be bought if Better Shops is set to Add Master Ball, but this will affect the\nsell price regardless. Vanilla is 0"
   master_ball_price:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 999999
     5000: 50
@@ -719,6 +718,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-starting_money: "The amount of money you start with."
   starting_money:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 999999
     3000: 50
@@ -728,8 +728,8 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-lose_money_on_blackout: "Lose half your money when blacking out, as in vanilla."
   lose_money_on_blackout:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-poke_doll_skip: "Patch out the Pokemon Tower Poke Doll skip or have this skip considered in logic."
   poke_doll_skip:
@@ -743,6 +743,7 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-trap_percentage: "Chance for each filler item to be replaced with trap items. Keep in mind that trainersanity vastly increases the\nnumber of filler items. The trap weight options will determine which traps can be chosen from and at what likelihood."
   trap_percentage:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     0: 50
@@ -794,5 +795,38 @@ Pokemon Red and Blue:
 
   sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
   death_link:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
+
+  # Item & Location Options
+  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
+  local_items:
+    []
+
+  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
+  non_local_items:
+    []
+
+  sidneys_secret_documentation-start_inventory: "Start with these items."
+  start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
+  start_hints:
+    []
+
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the ``!hint`` command."
+  start_location_hints:
+    []
+
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item."
+  exclude_locations:
+    []
+
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item."
+  priority_locations:
+    []
+
+  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
+  item_links:
+    []

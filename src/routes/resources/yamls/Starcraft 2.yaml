@@ -32,11 +32,13 @@ description: Default Starcraft 2 Template
 
 game: Starcraft 2
 requires:
-  version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
 
 Starcraft 2:
-  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  # Game Options
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -49,43 +51,11 @@ Starcraft 2:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\nLocations: ensure everything can be reached and acquired.\nItems: ensure all logically relevant items can be acquired.\nMinimal: ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
     locations: 0
     items: 50
     minimal: 0
-
-  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
-  local_items:
-    []
-
-  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
-  non_local_items:
-    []
-
-  sidneys_secret_documentation-start_inventory: "Start with these items."
-  start_inventory:
-    {}
-
-  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the !hint command."
-  start_hints:
-    []
-
-  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the !hint command"
-  start_location_hints:
-    []
-
-  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item"
-  exclude_locations:
-    []
-
-  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item"
-  priority_locations:
-    []
-
-  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
-  item_links:
-    []
 
   sidneys_secret_documentation-game_difficulty: "The difficulty of the campaign, affects enemy AI, starting units, and game speed.\n\nFor those unfamiliar with the Archipelago randomizer, the recommended settings are one difficulty level\nlower than the vanilla game"
   game_difficulty:
@@ -105,13 +75,13 @@ Starcraft 2:
 
   sidneys_secret_documentation-disable_forced_camera: "Prevents the game from moving or locking the camera without the player's consent."
   disable_forced_camera:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-skip_cutscenes: "Skips all cutscenes and prevents dialog from blocking progress."
   skip_cutscenes:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-all_in_map: "Determines what version of All-In (WoL final map) that will be generated for the campaign."
   all_in_map:
@@ -133,6 +103,7 @@ Starcraft 2:
 
   sidneys_secret_documentation-maximum_campaign_size: "Sets an upper bound on how many missions to include when a variable-size mission order is selected.\nIf a set-size mission order is selected, does nothing."
   maximum_campaign_size:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 83
     83: 50
@@ -142,8 +113,8 @@ Starcraft 2:
 
   sidneys_secret_documentation-grid_two_start_positions: "If turned on and 'grid' mission order is selected, removes a mission from the starting\ncorner sets the adjacent two missions as the starter missions."
   grid_two_start_positions:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-player_color_terran_raynor: "Determines in-game team color for playable Raynor's Raiders (Terran) factions."
   player_color_terran_raynor:
@@ -231,52 +202,52 @@ Starcraft 2:
 
   sidneys_secret_documentation-enable_wol_missions: "Enables missions from main Wings of Liberty campaign."
   enable_wol_missions:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-enable_prophecy_missions: "Enables missions from Prophecy mini-campaign."
   enable_prophecy_missions:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-enable_hots_missions: "Enables missions from Heart of the Swarm campaign."
   enable_hots_missions:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-enable_lotv_prologue_missions: "Enables missions from Prologue campaign."
   enable_lotv_prologue_missions:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-enable_lotv_missions: "Enables missions from Legacy of the Void campaign."
   enable_lotv_missions:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-enable_epilogue_missions: "Enables missions from Epilogue campaign.\nThese missions are considered very hard.\n\nEnabling Wings of Liberty, Heart of the Swarm and Legacy of the Void is strongly recommended in order to play Epilogue.\nNot recommended for short mission orders.\nSee also: Exclude Very Hard Missions"
   enable_epilogue_missions:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-enable_nco_missions: "Enables missions from Nova Covert Ops campaign.\n\nNote: For best gameplay experience it's recommended to also enable Wings of Liberty campaign."
   enable_nco_missions:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-shuffle_campaigns: "Shuffles the missions between campaigns if enabled.\nOnly available for Vanilla Shuffled and Mini Campaign mission order"
   shuffle_campaigns:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-shuffle_no_build: "Determines if the no-build missions are included in the shuffle.\nIf turned off, the no-build missions will not appear. Has no effect for Vanilla mission order."
   shuffle_no_build:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-starter_unit: "Unlocks a random unit at the start of the game.\n\nOff: No units are provided, the first unit must be obtained from the randomizer\nBalanced: A unit that doesn't give the player too much power early on is given\nAny Starter Unit: Any starter unit can be given"
   starter_unit:
-    off: 50
+    'off': 50
     balanced: 0
     any_starter_unit: 0
 
@@ -288,6 +259,7 @@ Starcraft 2:
 
   sidneys_secret_documentation-ensure_generic_items: "Specifies a minimum percentage of the generic item pool that will be present for the slot.\nThe generic item pool is the pool of all generically useful items after all exclusions.\nGenerically-useful items include: Worker upgrades, Building upgrades, economy upgrades,\nMercenaries, Kerrigan levels and abilities, and Spear of Adun abilities\nIncreasing this percentage will make units less common."
   ensure_generic_items:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     25: 50
@@ -297,6 +269,7 @@ Starcraft 2:
 
   sidneys_secret_documentation-min_number_of_upgrades: "Set a minimum to the number of upgrades a unit/structure can have.\nNote that most units have 4 or 6 upgrades.\nIf a unit has fewer upgrades than the minimum, it will have all of its upgrades.\n\nDoesn't affect shared unit upgrades."
   min_number_of_upgrades:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 12
     2: 50
@@ -306,6 +279,7 @@ Starcraft 2:
 
   sidneys_secret_documentation-max_number_of_upgrades: "Set a maximum to the number of upgrades a unit/structure can have. -1 is used to define unlimited.\nNote that most unit have 4 to 6 upgrades.\n\nDoesn't affect shared unit upgrades."
   max_number_of_upgrades:
+    #
     sidneys_secret_range_start: -1
     sidneys_secret_range_end: 12
     -1: 50
@@ -315,6 +289,7 @@ Starcraft 2:
 
   sidneys_secret_documentation-generic_upgrade_missions: "Determines the percentage of missions in the mission order that must be completed before\nlevel 1 of all weapon and armor upgrades is unlocked.  Level 2 upgrades require double the amount of missions,\nand level 3 requires triple the amount.  The required amounts are always rounded down.\nIf set to 0, upgrades are instead added to the item pool and must be found to be used."
   generic_upgrade_missions:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     0: 50
@@ -344,6 +319,7 @@ Starcraft 2:
 
   sidneys_secret_documentation-kerrigan_levels_per_mission_completed: "Determines how many levels Kerrigan gains when a mission is beaten.\n\nNOTE: Setting this too low can result in generation failures if The Infinite Cycle or Supreme are in the mission pool."
   kerrigan_levels_per_mission_completed:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 20
     0: 50
@@ -353,6 +329,7 @@ Starcraft 2:
 
   sidneys_secret_documentation-kerrigan_levels_per_mission_completed_cap: "Limits how many total levels Kerrigan can gain from beating missions.  This does not affect levels gained from items.  \nSet to -1 to disable this limit.\n\nNOTE: The following missions have these level requirements:\nSupreme: 35\nThe Infinite Cycle: 70\nSee Grant Story Levels for more details."
   kerrigan_levels_per_mission_completed_cap:
+    #
     sidneys_secret_range_start: -1
     sidneys_secret_range_end: 140
     -1: 50
@@ -362,6 +339,7 @@ Starcraft 2:
 
   sidneys_secret_documentation-kerrigan_level_item_sum: "Determines the sum of the level items in the world.  This does not affect levels gained from beating missions.\n\nNOTE: The following missions have these level requirements:\nSupreme: 35\nThe Infinite Cycle: 70\nSee Grant Story Levels for more details."
   kerrigan_level_item_sum:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 140
     70: 50
@@ -384,6 +362,7 @@ Starcraft 2:
 
   sidneys_secret_documentation-kerrigan_total_level_cap: "Limits how many total levels Kerrigan can gain from any source.  Depending on your other settings,\nthere may be more levels available in the world, but they will not affect Kerrigan.  \nSet to -1 to disable this limit.\n\nNOTE: The following missions have these level requirements:\nSupreme: 35\nThe Infinite Cycle: 70\nSee Grant Story Levels for more details."
   kerrigan_total_level_cap:
+    #
     sidneys_secret_range_start: -1
     sidneys_secret_range_end: 140
     -1: 50
@@ -393,6 +372,7 @@ Starcraft 2:
 
   sidneys_secret_documentation-start_primary_abilities: "Number of Primary Abilities (Kerrigan Tier 1, 2, and 4) to start the game with.\nIf set to 4, a Tier 7 ability is also included."
   start_primary_abilities:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 4
     0: 50
@@ -418,8 +398,8 @@ Starcraft 2:
 
   sidneys_secret_documentation-spear_of_adun_present_in_no_build: "Determines if Spear of Adun calldowns are available in no-build missions.\n\nIf turned on, Spear of Adun calldown powers are available in missions specified under \"Spear of Adun Presence\".\nIf turned off, Spear of Adun calldown powers are unavailable in all no-build missions"
   spear_of_adun_present_in_no_build:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-spear_of_adun_autonomously_cast_ability_presence: "Determines availability of Spear of Adun powers, that are autonomously cast.\nAffects abilities like Reconstruction Beam or Overwatch\n\nNot Presents: Autocasts are not available.\nLotV Protoss: Spear of Adun autocasts are only available in LotV main campaign\nProtoss: Spear od Adun autocasts are available in any Protoss mission\nEverywhere: Spear od Adun autocasts are available in any mission of any race"
   spear_of_adun_autonomously_cast_ability_presence:
@@ -430,13 +410,13 @@ Starcraft 2:
 
   sidneys_secret_documentation-spear_of_adun_autonomously_cast_present_in_no_build: "Determines if Spear of Adun autocasts are available in no-build missions.\n\nIf turned on, Spear of Adun autocasts are available in missions specified under \"Spear of Adun Autonomously Cast Powers Presence\".\nIf turned off, Spear of Adun autocasts are unavailable in all no-build missions"
   spear_of_adun_autonomously_cast_present_in_no_build:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-grant_story_tech: "If set true, grants special tech required for story mission completion for duration of the mission.\nOtherwise, you need to find these tech by a normal means as items.\nAffects story missions like Back in the Saddle and Supreme\n\nLocked to true if Required Tactics is set to no logic."
   grant_story_tech:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-grant_story_levels: "If enabled, grants Kerrigan the required minimum levels for the following missions:\nSupreme: 35\nThe Infinite Cycle: 70\nThe bonus levels only apply during the listed missions, and can exceed the Total Level Cap.\n\nIf disabled, either of these missions is included, and there are not enough levels in the world, generation may fail.  \nTo prevent this, either increase the amount of levels in the world, or enable this option.\n\nIf disabled and Required Tactics is set to no logic, this option is forced to Minimum.\n\nDisabled: Kerrigan does not get bonus levels for these missions,\n    instead the levels must be gained from items or beating missions.\nAdditive: Kerrigan gains bonus levels equal to the mission's required level.\nMinimum: Kerrigan is either at her real level, or at the mission's required level,\n   depending on which is higher."
   grant_story_levels:
@@ -446,8 +426,8 @@ Starcraft 2:
 
   sidneys_secret_documentation-take_over_ai_allies: "On maps supporting this feature allows you to take control over an AI Ally."
   take_over_ai_allies:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-locked_items: "Guarantees that these items will be unlockable"
   locked_items:
@@ -464,23 +444,23 @@ Starcraft 2:
   sidneys_secret_documentation-exclude_very_hard_missions: "Excludes Very Hard missions outside of Epilogue campaign (All-In, Salvation, and all Epilogue missions are considered Very Hard).\nDoesn't apply to \"Vanilla\" mission order.\n\nDefault: Not excluded for mission orders \"Vanilla Shuffled\" or \"Grid\" with Maximum Campaign Size >= 20,\n   excluded for any other order\nYes: Non-Epilogue Very Hard missions are excluded and won't be generated\nNo: Non-Epilogue Very Hard missions can appear normally. Not recommended for too short mission orders.\n\nSee also: Excluded Missions, Enable Epilogue Missions, Maximum Campaign Size"
   exclude_very_hard_missions:
     default: 50
-    true: 0
-    false: 0
+    'true': 0
+    'false': 0
 
   sidneys_secret_documentation-nco_items: "If turned on, the equipment upgrades from Nova Covert Ops may be present in the world.\n\nIf Nova Covert Ops campaign is enabled, this option is locked to be turned on."
   nco_items:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-bw_items: "If turned on, returning items from StarCraft: Brood War may appear in the world."
   bw_items:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-ext_items: "If turned on, original items that did not appear in Campaign mode may appear in the world."
   ext_items:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-vanilla_locations: "Enables or disables item rewards for completing vanilla objectives.\nVanilla objectives are bonus objectives from the vanilla game,\nalong with some additional objectives to balance the missions.\nEnable these locations for a balanced experience.\n\nEnabled: All locations fitting into this do their normal rewards\nResources: Forces these locations to contain Starting Resources\nDisabled: Removes item rewards from these locations.\n\nNote: Individual locations subject to plando are always enabled, so the plando can be placed properly.\nSee also: Excluded Locations, Item Plando (https://archipelago.gg/tutorial/Archipelago/plando/en#item-plando)"
   vanilla_locations:
@@ -508,6 +488,7 @@ Starcraft 2:
 
   sidneys_secret_documentation-minerals_per_item: "Configures how many minerals are given per resource item."
   minerals_per_item:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 500
     25: 50
@@ -517,6 +498,7 @@ Starcraft 2:
 
   sidneys_secret_documentation-vespene_per_item: "Configures how much vespene gas is given per resource item."
   vespene_per_item:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 500
     25: 50
@@ -526,9 +508,43 @@ Starcraft 2:
 
   sidneys_secret_documentation-starting_supply_per_item: "Configures how much starting supply per is given per item."
   starting_supply_per_item:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 200
     5: 50
     random: 0
     random-low: 0
     random-high: 0
+
+  # Item & Location Options
+  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
+  local_items:
+    []
+
+  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
+  non_local_items:
+    []
+
+  sidneys_secret_documentation-start_inventory: "Start with these items."
+  start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
+  start_hints:
+    []
+
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the ``!hint`` command."
+  start_location_hints:
+    []
+
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item."
+  exclude_locations:
+    []
+
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item."
+  priority_locations:
+    []
+
+  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
+  item_links:
+    []

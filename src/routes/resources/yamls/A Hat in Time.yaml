@@ -1,0 +1,582 @@
+﻿# Q. What is this file?
+# A. This file contains options which allow you to configure your multiworld experience while allowing
+#    others to play how they want as well.
+#
+# Q. How do I use it?
+# A. The options in this file are weighted. This means the higher number you assign to a value, the
+#    more chances you have for that option to be chosen. For example, an option like this:
+#
+#    map_shuffle:
+#      on: 5
+#      off: 15
+#
+#    Means you have 5 chances for map shuffle to occur, and 15 chances for map shuffle to be turned
+#    off.
+#
+# Q. I've never seen a file like this before. What characters am I allowed to use?
+# A. This is a .yaml file. You are allowed to use most characters.
+#    To test if your yaml is valid or not, you can use this website:
+#        http://www.yamllint.com/
+#    You can also verify that your Archipelago options are valid at this site:
+#        https://archipelago.gg/check
+
+# Your name in-game, limited to 16 characters.
+#     {player} will be replaced with the player's slot number.
+#     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
+#     {number} will be replaced with the counter value of the name.
+#     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
+name: Player{number}
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Default A Hat in Time Template
+
+game: A Hat in Time
+requires:
+  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+
+A Hat in Time:
+  # Game Options
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  progression_balancing:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    sidneys_secret_notes-disabled: "equivalent to 0"
+    disabled: 0
+    sidneys_secret_notes-normal: "equivalent to 50"
+    normal: 50
+    sidneys_secret_notes-extreme: "equivalent to 99"
+    extreme: 0
+
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  accessibility:
+    locations: 0
+    items: 50
+    minimal: 0
+
+  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
+  death_link:
+    'false': 50
+    'true': 0
+
+  # General Options
+  sidneys_secret_documentation-EndGoal: "The end goal required to beat the game.\nFinale: Reach Time's End and beat Mustache Girl. The Finale will be in its vanilla location.\n\nRush Hour: Reach and complete Rush Hour. The level will be in its vanilla location and Chapter 7\nwill be the final chapter. You also must find Nyakuza Metro itself and complete all of its levels.\nRequires DLC2 content to be enabled.\n\nSeal the Deal: Reach and complete the Seal the Deal death wish main objective.\nRequires Death Wish content to be enabled."
+  EndGoal:
+    finale: 50
+    rush_hour: 0
+    seal_the_deal: 0
+
+  sidneys_secret_documentation-ShuffleAlpineZiplines: "If enabled, Alpine's zipline paths leading to the peaks will be locked behind items."
+  ShuffleAlpineZiplines:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-LogicDifficulty: "Choose the difficulty setting for logic.\nFor an exhaustive list of all logic tricks for each difficulty, see this Google Doc:\nhttps://docs.google.com/document/d/1x9VLSQ5davfx1KGamR9T0mD5h69_lDXJ6H7Gq7knJRI/edit?usp=sharing"
+  LogicDifficulty:
+    normal: 50
+    moderate: 0
+    hard: 0
+    expert: 0
+
+  sidneys_secret_documentation-ShuffleStorybookPages: "If enabled, each storybook page in the purple Time Rifts is an item check.\nThe Compass Badge can track these down for you."
+  ShuffleStorybookPages:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-ShuffleActContracts: "If enabled, shuffle Snatcher's act contracts into the pool as items"
+  ShuffleActContracts:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-ShuffleSubconPaintings: "If enabled, shuffle items into the pool that unlock Subcon Forest fire spirit paintings.\nThese items are progressive, with the order of Village-Swamp-Courtyard."
+  ShuffleSubconPaintings:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-NoPaintingSkips: "If enabled, prevent Subcon fire wall skips from being in logic on higher difficulty settings."
+  NoPaintingSkips:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-CTRLogic: "Choose how you want to logically clear Cheating the Race."
+  CTRLogic:
+    time_stop_only: 50
+    scooter: 0
+    sprint: 0
+    nothing: 0
+
+  sidneys_secret_documentation-MinPonCost: "The minimum number of Pons that any item in the Badge Seller's shop can cost."
+  MinPonCost:
+    #
+    sidneys_secret_range_start: 10
+    sidneys_secret_range_end: 800
+    75: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-MaxPonCost: "The maximum number of Pons that any item in the Badge Seller's shop can cost."
+  MaxPonCost:
+    #
+    sidneys_secret_range_start: 10
+    sidneys_secret_range_end: 800
+    300: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-BadgeSellerMinItems: "The smallest number of items that the Badge Seller can have for sale."
+  BadgeSellerMinItems:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 10
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-BadgeSellerMaxItems: "The largest number of items that the Badge Seller can have for sale."
+  BadgeSellerMaxItems:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 10
+    8: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  # Act Options
+  sidneys_secret_documentation-ActRandomizer: "If enabled, shuffle the game's Acts between each other.\nLight will cause Time Rifts to only be shuffled amongst each other,\nand Blue Time Rifts and Purple Time Rifts to be shuffled separately."
+  ActRandomizer:
+    'false': 0
+    light: 50
+    insanity: 0
+
+  sidneys_secret_documentation-ActPlando: "Plando acts onto other acts. For example, \"Train Rush\": \"Alpine Free Roam\" will place Alpine Free Roam\nat Train Rush."
+  ActPlando:
+    {}
+
+  sidneys_secret_documentation-ActBlacklist: "Blacklist acts from being shuffled onto other acts. Multiple can be listed per act.\nFor example, \"Barrel Battle\": [\"The Big Parade\", \"Dead Bird Studio\"]\nwill prevent The Big Parade and Dead Bird Studio from being shuffled onto Barrel Battle."
+  ActBlacklist:
+    {}
+
+  sidneys_secret_documentation-FinaleShuffle: "If enabled, chapter finales will only be shuffled amongst each other in act shuffle."
+  FinaleShuffle:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-StartingChapter: "Determines which chapter you will be guaranteed to be able to enter at the beginning of the game."
+  StartingChapter:
+    '1': 50
+    '2': 0
+    '3': 0
+    '4': 0
+
+  sidneys_secret_documentation-LowestChapterCost: "Value determining the lowest possible cost for a chapter.\nChapter costs will, progressively, be calculated based on this value (except for the final chapter)."
+  LowestChapterCost:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 10
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-HighestChapterCost: "Value determining the highest possible cost for a chapter.\nChapter costs will, progressively, be calculated based on this value (except for the final chapter)."
+  HighestChapterCost:
+    #
+    sidneys_secret_range_start: 15
+    sidneys_secret_range_end: 45
+    25: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-ChapterCostIncrement: "Lower values mean chapter costs increase slower. Higher values make the cost differences more steep."
+  ChapterCostIncrement:
+    #
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 8
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-ChapterCostMinDifference: "The minimum difference between chapter costs."
+  ChapterCostMinDifference:
+    #
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 8
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-FinalChapterMinCost: "Minimum Time Pieces required to enter the final chapter. This is part of your goal."
+  FinalChapterMinCost:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 50
+    30: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-FinalChapterMaxCost: "Maximum Time Pieces required to enter the final chapter. This is part of your goal."
+  FinalChapterMaxCost:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 50
+    35: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  # Item Options
+  sidneys_secret_documentation-YarnBalancePercent: "How much (in percentage) of the yarn in the pool that will be progression balanced."
+  YarnBalancePercent:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 100
+    20: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-TimePieceBalancePercent: "How much (in percentage) of time pieces in the pool that will be progression balanced."
+  TimePieceBalancePercent:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 100
+    35: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-RandomizeHatOrder: "Randomize the order that hats are stitched in.\nTime Stop Last will force Time Stop to be the last hat in the sequence."
+  RandomizeHatOrder:
+    'false': 0
+    'true': 50
+    time_stop_last: 0
+
+  sidneys_secret_documentation-UmbrellaLogic: "Makes Hat Kid's default punch attack do absolutely nothing, making the Umbrella much more relevant and useful"
+  UmbrellaLogic:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-StartWithCompassBadge: "If enabled, start with the Compass Badge. In Archipelago, the Compass Badge will track all items in the world\n(instead of just Relics). Recommended if you're not familiar with where item locations are."
+  StartWithCompassBadge:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-CompassBadgeMode: "closest - Compass Badge points to the closest item regardless of classification\nimportant_only - Compass Badge points to progression/useful items only\nimportant_first - Compass Badge points to progression/useful items first, then it will point to junk items"
+  CompassBadgeMode:
+    closest: 50
+    important_only: 0
+    important_first: 0
+
+  sidneys_secret_documentation-MaxExtraTimePieces: "Maximum number of extra Time Pieces from the DLCs.\nArctic Cruise will add up to 6. Nyakuza Metro will add up to 10. The absolute maximum is 56."
+  MaxExtraTimePieces:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 16
+    16: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-YarnCostMin: "The minimum possible yarn needed to stitch a hat."
+  YarnCostMin:
+    #
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 12
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-YarnCostMax: "The maximum possible yarn needed to stitch a hat."
+  YarnCostMax:
+    #
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 12
+    8: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-YarnAvailable: "How much yarn is available to collect in the item pool."
+  YarnAvailable:
+    #
+    sidneys_secret_range_start: 30
+    sidneys_secret_range_end: 80
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-MinExtraYarn: "The minimum number of extra yarn in the item pool.\nThere must be at least this much more yarn over the total number of yarn needed to craft all hats.\nFor example, if this option's value is 10, and the total yarn needed to craft all hats is 40,\nthere must be at least 50 yarn in the pool."
+  MinExtraYarn:
+    #
+    sidneys_secret_range_start: 5
+    sidneys_secret_range_end: 15
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-HatItems: "Removes all yarn from the pool and turns the hats into individual items instead."
+  HatItems:
+    'false': 50
+    'true': 0
+
+  # Arctic Cruise Options
+  sidneys_secret_documentation-EnableDLC1: "Shuffle content from The Arctic Cruise (Chapter 6) into the game. This also includes the Tour time rift.\nDO NOT ENABLE THIS OPTION IF YOU DO NOT HAVE SEAL THE DEAL DLC INSTALLED!!!"
+  EnableDLC1:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-Tasksanity: "If enabled, Ship Shape tasks will become checks. Requires DLC1 content to be enabled."
+  Tasksanity:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-TasksanityTaskStep: "How many tasks the player must complete in Tasksanity to send a check."
+  TasksanityTaskStep:
+    #
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 3
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-TasksanityCheckCount: "How many Tasksanity checks there will be in total."
+  TasksanityCheckCount:
+    #
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 30
+    18: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-ExcludeTour: "Removes the Tour time rift from the game. This option is recommended if you don't want to deal with\nimportant levels being shuffled onto the Tour time rift, or important items being shuffled onto Tour pages\nwhen your goal is Time's End."
+  ExcludeTour:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-ShipShapeCustomTaskGoal: "Change the number of tasks required to complete Ship Shape. If this option's value is 0, the number of tasks\nrequired will be TasksanityTaskStep x TasksanityCheckCount, if Tasksanity is enabled. If Tasksanity is disabled,\nit will use the game's default of 18.\nThis option will not affect Cruisin' for a Bruisin'."
+  ShipShapeCustomTaskGoal:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 90
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  # Nyakuza Metro Options
+  sidneys_secret_documentation-EnableDLC2: "Shuffle content from Nyakuza Metro (Chapter 7) into the game.\nDO NOT ENABLE THIS OPTION IF YOU DO NOT HAVE NYAKUZA METRO DLC INSTALLED!!!"
+  EnableDLC2:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-BaseballBat: "Replace the Umbrella with the baseball bat from Nyakuza Metro.\nDLC2 content does not have to be shuffled for this option but Nyakuza Metro still needs to be installed."
+  BaseballBat:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-MetroMinPonCost: "The cheapest an item can be in any Nyakuza Metro shop. Includes ticket booths."
+  MetroMinPonCost:
+    #
+    sidneys_secret_range_start: 10
+    sidneys_secret_range_end: 800
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-MetroMaxPonCost: "The most expensive an item can be in any Nyakuza Metro shop. Includes ticket booths."
+  MetroMaxPonCost:
+    #
+    sidneys_secret_range_start: 10
+    sidneys_secret_range_end: 800
+    200: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-NyakuzaThugMinShopItems: "The smallest number of items that the thugs in Nyakuza Metro can have for sale."
+  NyakuzaThugMinShopItems:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 5
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-NyakuzaThugMaxShopItems: "The largest number of items that the thugs in Nyakuza Metro can have for sale."
+  NyakuzaThugMaxShopItems:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 5
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-NoTicketSkips: "Prevent metro gate skips from being in logic on higher difficulties.\nRush Hour option will only consider the ticket skips for Rush Hour in logic."
+  NoTicketSkips:
+    'false': 50
+    'true': 0
+    rush_hour: 0
+
+  # Death Wish Options
+  sidneys_secret_documentation-EnableDeathWish: "Shuffle Death Wish contracts into the game. Each contract by default will have 1 check granted upon completion.\nDO NOT ENABLE THIS OPTION IF YOU DO NOT HAVE SEAL THE DEAL DLC INSTALLED!!!"
+  EnableDeathWish:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-DWShuffle: "An alternative mode for Death Wish where each contract is unlocked one by one, in a random order.\nStamp requirements to unlock contracts is removed. Any excluded contracts will not be shuffled into the sequence.\nIf Seal the Deal is the end goal, it will always be the last Death Wish in the sequence.\nDisabling candles is highly recommended."
+  DWShuffle:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-DWShuffleCountMin: "The minimum number of Death Wishes that can be in the Death Wish shuffle sequence.\nThe final result is clamped at the number of non-excluded Death Wishes."
+  DWShuffleCountMin:
+    #
+    sidneys_secret_range_start: 5
+    sidneys_secret_range_end: 38
+    18: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-DWShuffleCountMax: "The maximum number of Death Wishes that can be in the Death Wish shuffle sequence.\nThe final result is clamped at the number of non-excluded Death Wishes."
+  DWShuffleCountMax:
+    #
+    sidneys_secret_range_start: 5
+    sidneys_secret_range_end: 38
+    25: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-DeathWishOnly: "An alternative gameplay mode that allows you to exclusively play Death Wish in a seed.\nThis has the following effects:\n- Death Wish is instantly unlocked from the start\n- All hats and other progression items are instantly given to you\n- Useful items such as Fast Hatter Badge will still be in the item pool instead of in your inventory at the start\n- All chapters and their levels are unlocked, act shuffle is forced off\n- Any checks other than Death Wish contracts are completely removed\n- All Pons in the item pool are replaced with Health Pons or random cosmetics\n- The EndGoal option is forced to complete Seal the Deal"
+  DeathWishOnly:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-DWEnableBonus: "In Death Wish, add a location for completing all of a DW contract's bonuses,\nin addition to the location for completing the DW contract normally.\nWARNING!! Only for the brave! This option can create VERY DIFFICULT SEEDS!\nONLY turn this on if you know what you are doing to yourself and everyone else in the multiworld!\nUsing Peace and Tranquility to auto-complete the bonuses will NOT count!"
+  DWEnableBonus:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-DWAutoCompleteBonuses: "If enabled, auto complete all bonus stamps after completing the main objective in a Death Wish.\nThis option will have no effect if bonus checks (DWEnableBonus) are turned on."
+  DWAutoCompleteBonuses:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-DWExcludeAnnoyingContracts: "Exclude Death Wish contracts from the pool that are particularly tedious or take a long time to reach/clear.\nExcluded Death Wishes are automatically completed as soon as they are unlocked.\nThis option currently excludes the following contracts:\n- Vault Codes in the Wind\n- Boss Rush\n- Camera Tourist\n- The Mustache Gauntlet\n- Rift Collapse: Deep Sea\n- Cruisin' for a Bruisin'\n- Seal the Deal (non-excluded if goal, but the checks are still excluded)"
+  DWExcludeAnnoyingContracts:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-DWExcludeAnnoyingBonuses: "If Death Wish full completions are shuffled in, exclude tedious Death Wish full completions from the pool.\nExcluded bonus Death Wishes automatically reward their bonus stamps upon completion of the main objective.\nThis option currently excludes the following bonuses:\n- So You're Back From Outer Space\n- Encore! Encore!\n- Snatcher's Hit List\n- 10 Seconds until Self-Destruct\n- Killing Two Birds\n- Zero Jumps\n- Bird Sanctuary\n- Wound-Up Windmill\n- Vault Codes in the Wind\n- Boss Rush\n- Camera Tourist\n- The Mustache Gauntlet\n- Rift Collapse: Deep Sea\n- Cruisin' for a Bruisin'\n- Seal the Deal"
+  DWExcludeAnnoyingBonuses:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-DWExcludeCandles: "If enabled, exclude all candle Death Wishes."
+  DWExcludeCandles:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-DWTimePieceRequirement: "How many Time Pieces that will be required to unlock Death Wish."
+  DWTimePieceRequirement:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 35
+    15: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  # Trap Options
+  sidneys_secret_documentation-TrapChance: "The chance for any junk item in the pool to be replaced by a trap."
+  TrapChance:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 100
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-BabyTrapWeight: "The weight of Baby Traps in the trap pool.\nBaby Traps place a multitude of the Conductor's grandkids into Hat Kid's hands, causing her to lose her balance."
+  BabyTrapWeight:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 100
+    40: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-LaserTrapWeight: "The weight of Laser Traps in the trap pool.\nLaser Traps will spawn multiple giant lasers (from Snatcher's boss fight) at Hat Kid's location."
+  LaserTrapWeight:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 100
+    40: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-ParadeTrapWeight: "The weight of Parade Traps in the trap pool.\nParade Traps will summon multiple Express Band owls with knives that chase Hat Kid by mimicking her movement."
+  ParadeTrapWeight:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 100
+    20: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  # Item & Location Options
+  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
+  local_items:
+    []
+
+  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
+  non_local_items:
+    []
+
+  sidneys_secret_documentation-start_inventory: "Start with these items."
+  start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
+  start_hints:
+    []
+
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the ``!hint`` command."
+  start_location_hints:
+    []
+
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item."
+  exclude_locations:
+    []
+
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item."
+  priority_locations:
+    []
+
+  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
+  item_links:
+    []

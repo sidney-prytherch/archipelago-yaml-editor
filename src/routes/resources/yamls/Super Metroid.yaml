@@ -32,11 +32,13 @@ description: Default Super Metroid Template
 
 game: Super Metroid
 requires:
-  version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
 
 Super Metroid:
-  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  # Game Options
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -49,48 +51,16 @@ Super Metroid:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\nLocations: ensure everything can be reached and acquired.\nItems: ensure all logically relevant items can be acquired.\nMinimal: ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
     locations: 0
     items: 50
     minimal: 0
 
-  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
-  local_items:
-    []
-
-  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
-  non_local_items:
-    []
-
-  sidneys_secret_documentation-start_inventory: "Start with these items."
-  start_inventory:
-    {}
-
-  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the !hint command."
-  start_hints:
-    []
-
-  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the !hint command"
-  start_location_hints:
-    []
-
-  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item"
-  exclude_locations:
-    []
-
-  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item"
-  priority_locations:
-    []
-
-  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
-  item_links:
-    []
-
   sidneys_secret_documentation-start_inventory_removes_from_pool: "Remove items in starting inventory from pool."
   start_inventory_removes_from_pool:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-preset: "Choose one of the presets or specify \"varia_custom\" to use varia_custom_preset option or specify \"custom\" to use\ncustom_preset option."
   preset:
@@ -127,8 +97,8 @@ Super Metroid:
 
   sidneys_secret_documentation-remote_items: "Indicates you get items sent from your own world. This allows coop play of a world."
   remote_items:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-death_link: "When DeathLink is enabled and someone dies, you will die. With survive reserve tanks can save you."
   death_link:
@@ -153,16 +123,17 @@ Super Metroid:
 
   sidneys_secret_documentation-hide_items: "Hides half of the visible items.\nItems always visible:\n- Energy Tank, Gauntlet\n- Energy Tank, Terminator\n- Morphing Ball\n- Missile (Crateria moat)\n- Missile (green Brinstar below super missile)\n- Missile (above Crocomire)\n- Power Bomb (lower Norfair above fire flea room)\n- Missile (Gravity Suit)\n- Missile (green Maridia shinespark)"
   hide_items:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-strict_minors: "Instead of using the Minors proportions as probabilities, enforce a strict distribution to match the proportions\nas closely as possible."
   strict_minors:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-missile_qty: "The higher the number the higher the probability of choosing missles when placing a minor."
   missile_qty:
+    #
     sidneys_secret_range_start: 10
     sidneys_secret_range_end: 90
     30: 50
@@ -172,6 +143,7 @@ Super Metroid:
 
   sidneys_secret_documentation-super_qty: "The higher the number the higher the probability of choosing super missles when placing a minor."
   super_qty:
+    #
     sidneys_secret_range_start: 10
     sidneys_secret_range_end: 90
     20: 50
@@ -181,6 +153,7 @@ Super Metroid:
 
   sidneys_secret_documentation-power_bomb_qty: "The higher the number the higher the probability of choosing power bombs when placing a minor."
   power_bomb_qty:
+    #
     sidneys_secret_range_start: 10
     sidneys_secret_range_end: 90
     10: 50
@@ -190,6 +163,7 @@ Super Metroid:
 
   sidneys_secret_documentation-minor_qty: "From 7%, minimum number of minors required to finish the game, to 100%."
   minor_qty:
+    #
     sidneys_secret_range_start: 7
     sidneys_secret_range_end: 100
     100: 50
@@ -206,69 +180,69 @@ Super Metroid:
 
   sidneys_secret_documentation-area_randomization: "Randomize areas together using bidirectional access portals."
   area_randomization:
-    off: 50
+    'off': 50
     light: 0
     full: 0
 
   sidneys_secret_documentation-area_layout: "Some layout tweaks to make your life easier in areas randomizer."
   area_layout:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-doors_colors_rando: "Randomize the color of Red/Green/Yellow doors. Add four new type of doors which require Ice/Wave/Spazer/Plasma\nbeams to open them."
   doors_colors_rando:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-allow_grey_doors: "When randomizing the color of Red/Green/Yellow doors, some doors can be randomized to Grey. Grey doors will never\nopen, you will have to go around them."
   allow_grey_doors:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-boss_randomization: "Randomize Golden 4 bosses access doors using bidirectional access portals."
   boss_randomization:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-escape_rando: "When leaving Tourian, get teleported to the exit of a random Map station (between Brinstar/Maridia/Norfair/Wrecked Ship).\nYou then have to find your way to the ship in the remaining time. Allotted time depends on area layout, but not on skill settings and is pretty generous.\n\nDuring the escape sequence:\n- All doors are opened\n- Maridia tube is opened\n- The Hyper Beam can destroy Bomb , Power Bomb  and Super Missile  blocks and open blue/green gates from both sides\n- All mini bosses are defeated\n- All minor enemies are removed to allow you to move faster and remove lag\n\nDuring regular game only Crateria Map station door can be opened and activating the station will act as if all map stations were activated at once.\n\nAnimals Challenges:\nYou can use the extra available time to:\n- find the animals that are hidden behind a (now blue) map station door\n- go to the vanilla animals door to cycle through the 4 available escapes, and complete as many escapes as you can\n\nPick your challenge, or try to do both, but watch your timer!"
   escape_rando:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-remove_escape_enemies: "Remove enemies during escape sequence, disable it to blast through enemies with your Hyper Beam and cause lag."
   remove_escape_enemies:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-fun_combat: "Forces removal of Plasma Beam and Screw Attack if the preset and settings allow it. In addition, can randomly\nremove Spazer and Wave Beam from the Combat set. If used, might force 'minimal' accessibility."
   fun_combat:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-fun_movement: "Forces removal of Space Jump if the preset allows it. In addition, can randomly remove High Jump, Grappling Beam,\nSpring Ball, Speed Booster, and Bombs from the Movement set. If used, might force 'minimal' accessibility."
   fun_movement:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-fun_suits: "If the preset and seed layout allow it, will force removal of at least one of Varia Suit and/or Gravity Suit. If\nused, might force 'minimal' accessibility."
   fun_suits:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-layout_patches: "Include the anti-softlock layout patches. Disable at your own softlocking risk!"
   layout_patches:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-varia_tweaks: "Include minor tweaks for the game to behave 'as it should' in a randomizer context"
   varia_tweaks:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-nerfed_charge: "Samus begins with a starter Charge Beam that does one third of charged shot damage that can damage bosses. Pseudo\nScrews also do one third damage. Special Beam Attacks do normal damage but cost 3 Power Bombs instead of 1. Once the\nCharge Beam item has been collected, it does full damage and special attacks are back to normal."
   nerfed_charge:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-gravity_behaviour: "Modify the heat damage and enemy damage reduction qualities of the Gravity and Varia Suits."
   gravity_behaviour:
@@ -278,53 +252,53 @@ Super Metroid:
 
   sidneys_secret_documentation-elevators_speed: "Accelerate elevators transitions."
   elevators_speed:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-fast_doors: "Accelerate doors transitions."
   fast_doors:
-    false: 0
-    true: 50
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-spin_jump_restart: "Allows Samus to start spinning in mid air after jumping or falling."
   spin_jump_restart:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-rando_speed: "Let Samus keeps her momentum when landing from a fall or from jumping."
   rando_speed:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-infinite_space_jump: "Space jumps can be done quicker and at any time in air, water or lava, even after falling long distances."
   infinite_space_jump:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-refill_before_save: "Refill energy and ammo when saving."
   refill_before_save:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-hud: "Displays the current area name and the number of remaining items of selected item split in the HUD for the\ncurrent area."
   hud:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-animals: "Replace saving the animals in the escape sequence by a random surprise.\nNote: This setting is not available when Escape Randomization is enabled, as it is replaced by Animals Challenges\n(see Escape Randomization help for more information)."
   animals:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-no_music: "Disable the background music."
   no_music:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-random_music: "Randomize the background music."
   random_music:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-custom_preset: "see https://randommetroidsolver.pythonanywhere.com/presets for detailed info on each preset settings\nknows: each skill (know) has a pair [can use, perceived difficulty using one of 1, 5, 10, 25, 50 or 100 each one\n    matching a max_difficulty]\nsettings: hard rooms, hellruns and bosses settings\ncontroller: predefined controller mapping and moon walk setting"
   custom_preset:
@@ -344,8 +318,8 @@ Super Metroid:
 
   sidneys_secret_documentation-custom_objective: "Use randomized custom objectives. You can choose which objectives are available for the randomizer to choose from. If enabled, the randomizer \nwill choose \"Custom objective count\" objectives from \"Custom objective list\". Otherwise, only objective is used. Default is disabled."
   custom_objective:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-custom_objective_list: "If \"\"Custom objectives\"\" is enabled, \"Custom Objective count\" will be used to pick an amount of objective from the list.\nThis setting is ignored if \"\"Custom objectives\"\" is set to false.\nNote: If you leave the list empty no objective is required to access Tourian, ie. it's open.\nNote: See the Tourian parameter to enable fast Tourian or trigger the escape when all objectives are completed.\nNote: Current percentage of collected items is displayed in the inventory pause menu.\nNote: Collect 100% items is excluded by default as it requires you to complete all the objectives.\nNote: In AP, Items% and areas objectives are counted toward location checks, not items collected or received, except for \"collect all upgrades\"\n\nFormat as a comma-separated list of objective names: [\"kill three G4\", \"collect 75% items\"] or [\"random\"] to specify the whole list except\n\"collect 100% items\" and \"nothing\". The default is [\"random\"]. A full list of supported objectives can be found at:\nhttps://github.com/ArchipelagoMW/Archipelago/blob/main/worlds/sm/variaRandomizer/utils/objectives.py"
   custom_objective_list:
@@ -353,6 +327,7 @@ Super Metroid:
 
   sidneys_secret_documentation-custom_objective_count: "By default you need to complete 4 objectives from the list to access Tourian. You can choose between 1 and 5. This setting is ignored if\n\"\"Custom objectives\"\" is set to false."
   custom_objective_count:
+    #
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 5
     4: 50
@@ -366,5 +341,38 @@ Super Metroid:
 
   sidneys_secret_documentation-relaxed_round_robin_cf: "Changes Crystal Flashes behavior and requirements as follows:\n\nYou can perform a Crystal Flash with any amount of ammo, but you need at least one Power Bomb to begin the process.\nAfter consuming 1 ammo, Samus gains 50 energy, and it will try a different ammo type next,  \ncycling through Missiles, Supers, and Power Bombs as available. The cycling is to keep the consumption even between ammo types.\nIf one of your ammo types is at 0, it will be skipped.\nThe Crystal Flash ends when Samus is out of ammo or a total of 30 ammo has been consumed."
   relaxed_round_robin_cf:
-    false: 50
-    true: 0
+    'false': 50
+    'true': 0
+
+  # Item & Location Options
+  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
+  local_items:
+    []
+
+  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
+  non_local_items:
+    []
+
+  sidneys_secret_documentation-start_inventory: "Start with these items."
+  start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
+  start_hints:
+    []
+
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the ``!hint`` command."
+  start_location_hints:
+    []
+
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item."
+  exclude_locations:
+    []
+
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item."
+  priority_locations:
+    []
+
+  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
+  item_links:
+    []

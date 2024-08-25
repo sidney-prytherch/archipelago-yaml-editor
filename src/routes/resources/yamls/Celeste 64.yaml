@@ -32,11 +32,13 @@ description: Default Celeste 64 Template
 
 game: Celeste 64
 requires:
-  version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
 
 Celeste 64:
-  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  # Game Options
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
+    #
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -49,12 +51,101 @@ Celeste 64:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\nLocations: ensure everything can be reached and acquired.\nItems: ensure all logically relevant items can be acquired.\nMinimal: ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
     locations: 0
     items: 50
     minimal: 0
 
+  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
+  death_link:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-death_link_amnesty: "How many deaths it takes to send a DeathLink"
+  death_link_amnesty:
+    #
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 30
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-logic_difficulty: "Whether the logic expects you to play the intended way, or to be able to use advanced tricks and skips"
+  logic_difficulty:
+    standard: 50
+    hard: 0
+
+  sidneys_secret_documentation-move_shuffle: "Whether the following base movement abilities are shuffled into the item pool:\n- Ground Dash\n- Air Dash\n- Skid Jump\n- Climb\n\nNOTE: Having Move Shuffle and Standard Logic Difficulty will guarantee that one of the four Move items will be immediately accessible\n\nWARNING: Combining Move Shuffle and Hard Logic Difficulty can require very difficult tricks"
+  move_shuffle:
+    'false': 50
+    'true': 0
+
+  # Goal Options
+  sidneys_secret_documentation-total_strawberries: "How many Strawberries exist"
+  total_strawberries:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 46
+    20: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-strawberries_required_percentage: "Percentage of existing Strawberries you must receive to finish"
+  strawberries_required_percentage:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 100
+    80: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  # Sanity Options
+  sidneys_secret_documentation-friendsanity: "Whether chatting with your friends grants location checks"
+  friendsanity:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-signsanity: "Whether reading signs grants location checks"
+  signsanity:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-carsanity: "Whether riding on cars grants location checks"
+  carsanity:
+    'false': 50
+    'true': 0
+
+  # Badeline Chasers
+  sidneys_secret_documentation-badeline_chaser_source: "What type of action causes more Badeline Chasers to start spawning\n\nLocations: The number of locations you've checked contributes to Badeline Chasers\n\nStrawberries: The number of Strawberry items you've received contributes to Badeline Chasers"
+  badeline_chaser_source:
+    locations: 50
+    strawberries: 0
+
+  sidneys_secret_documentation-badeline_chaser_frequency: "How many of the `Badeline Chaser Source` actions must occur to make each Badeline Chaser start spawning\n\nNOTE: Choosing `0` disables Badeline Chasers entirely\n\nWARNING: Turning on Badeline Chasers alongside Move Shuffle could result in extremely difficult situations"
+  badeline_chaser_frequency:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 10
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-badeline_chaser_speed: "How many seconds behind you each Badeline Chaser will be"
+  badeline_chaser_speed:
+    #
+    sidneys_secret_range_start: 2
+    sidneys_secret_range_end: 10
+    3: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  # Item & Location Options
   sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
   local_items:
     []
@@ -67,45 +158,22 @@ Celeste 64:
   start_inventory:
     {}
 
-  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the !hint command."
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
   start_hints:
     []
 
-  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the !hint command"
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the ``!hint`` command."
   start_location_hints:
     []
 
-  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item"
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item."
   exclude_locations:
     []
 
-  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item"
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item."
   priority_locations:
     []
 
   sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
   item_links:
     []
-
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
-  death_link:
-    false: 50
-    true: 0
-
-  sidneys_secret_documentation-death_link_amnesty: "How many deaths it takes to send a DeathLink"
-  death_link_amnesty:
-    sidneys_secret_range_start: 1
-    sidneys_secret_range_end: 30
-    10: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  sidneys_secret_documentation-strawberries_required: "How many Strawberries you must receive to finish"
-  strawberries_required:
-    sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 20
-    15: 50
-    random: 0
-    random-low: 0
-    random-high: 0
