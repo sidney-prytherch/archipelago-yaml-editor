@@ -1,0 +1,208 @@
+﻿
+name: Player{number}
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Default A Link Between Worlds Template
+
+game: A Link Between Worlds
+requires:
+  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+
+A Link Between Worlds:
+  # Game Options
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  progression_balancing:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    sidneys_secret_notes-disabled: "equivalent to 0"
+    disabled: 0
+    sidneys_secret_notes-normal: "equivalent to 50"
+    normal: 50
+    sidneys_secret_notes-extreme: "equivalent to 99"
+    extreme: 0
+
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  accessibility:
+    locations: 0
+    items: 50
+    minimal: 0
+
+  sidneys_secret_documentation-logic_mode: "Logic to use for item placement.\nnormal: Standard gameplay, no tricky item use or glitches. If unsure, choose this.\nhard: Adds tricks that aren't technically glitches. Lamp + Net considered as weapons. No glitches.\nglitched: Includes the above plus a selection of easy-to-learn glitches.\nadv_glitched: Includes the above plus \"advanced\" glitches that may be a challenge to master.\nhell: Includes every known RTA-viable glitch. Don't choose this."
+  logic_mode:
+    normal: 50
+    hard: 0
+    glitched: 0
+    adv_glitched: 0
+    hell: 0
+
+  sidneys_secret_documentation-randomize_dungeon_prizes: "This shuffles all Sage Portraits and Pendants among themselves."
+  randomize_dungeon_prizes:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-lorule_castle_requirement: "Choose how many Portraits are needed to enter Lorule Castle and fight Yuganon."
+  lorule_castle_requirement:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 7
+    7: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-pedestal_requirement: "Choose which Pendants are required to reach the Master Sword Pedestal.\nvanilla: Only the Pendants of Power and Wisdom are required.\nstandard: All Pendants are required."
+  pedestal_requirement:
+    vanilla: 0
+    standard: 50
+
+  sidneys_secret_documentation-nice_items: "Choose how to handle Nice Items.\nvanilla: Nice Items are obtained as upgrades from Mother Maiamai.\nshuffled: Freely shuffles two progressive copies of each Ravio Item.\noff: Removes Nice Items from the game."
+  nice_items:
+    vanilla: 50
+    shuffled: 0
+    'off': 0
+
+  sidneys_secret_documentation-super_items: "This shuffles a second progressive copy of the Lamp and Net into the general item pool."
+  super_items:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-lamp_and_net_as_weapons: "Treat the base Lamp and Net as damage-dealing weapons?\n- The red base Lamp and Net each deal 1/2 the damage of the Forgotten Sword (i.e. they're VERY BAD weapons).\n- The blue Super Lamp and Super Net each deal 4 damage (same as MS Lv3) and are always considered weapons, regardless of this setting."
+  lamp_and_net_as_weapons:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-no_progression_enemies: "Removes Enemies from dungeons that are themselves Progression (e.g.: Bawbs, the bomb enemy).\nLogic will be adjusted to require the player's items instead."
+  no_progression_enemies:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-assured_weapon: "\"If enabled at least one weapon is guaranteed to be placed in Ravio's Shop."
+  assured_weapon:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-maiamai_mayhem: "This shuffles Maiamai into the pool, adding 100 more locations."
+  maiamai_mayhem:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-initial_crack_state: "Choose the initial Crack state:\nclosed: All Cracks except the Hyrule Castle Crack (and its pair) remain closed until the Quake Item is found.\nopen: All Cracks are open from the start of the game, and the Quake Item is not in the item pool."
+  initial_crack_state:
+    closed: 0
+    open: 50
+
+  sidneys_secret_documentation-crack_shuffle: "Choose how to shuffle Cracks (NOT YET IMPLEMENTED):\noff: Cracks are not shuffled.\ncross_world_pairs: Cracks are shuffled, but remain in Hyrule/Lorule pairs.\nany_world_pairs: Cracks are shuffled freely, and can lead to the same or opposite world.\nmirrored_cross_world_pairs: Same as Cross World Pairs, but each pair's vanilla counterparts will be in a matching pair.\nmirrored_any_world_pairs: Same as Any World Pairs, but each pair's vanilla counterparts will be in a matching pair."
+  crack_shuffle:
+    'off': 50
+    cross_world_pairs: 0
+    any_world_pairs: 0
+    mirrored_cross_world_pairs: 0
+    mirrored_any_world_pairs: 0
+
+  sidneys_secret_documentation-minigames_excluded: "Excludes the following: Octoball Derby, Dodge the Cuccos, Hyrule Hotfoot, Treacherous Tower, and both Rupee Rushes."
+  minigames_excluded:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-skip_big_bomb_flower: "Skips the Big Bomb Flower by removing the 5 Big Rocks in Lorule Field.\n(Does not affect Lorule Castle Bomb Trial)"
+  skip_big_bomb_flower:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-trials_required: "Choose the number of (randomly selected) trials required to open the Lorule Castle Trials Door."
+  trials_required:
+    #
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 4
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-open_trials_door: "Makes the Lorule Castle Trials Door automatically open from both sides.\nThis may require entering Lorule Castle early via the crack.\nIf turned on, this overrides the Trials Required setting."
+  open_trials_door:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-bow_of_light_in_castle: "Limits the Bow of Light's placement to somewhere in Lorule Castle (including possibly Zelda)."
+  bow_of_light_in_castle:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-weather_vanes: "Choose Weather Vanes behavior. Logic may require using them to progress.\nstandard: Start with only the standard complimentary Weather Vanes (Link's House & Vacant House)\nshuffled: Weather Vane destinations are shuffled into random pairs\nconvenient: Start with convenient Weather Vanes that don't affect logic\nhyrule: Start with the 9 Hyrule Weather Vanes (and Vacant House)\nlorule: Start with the 13 Lorule Weather Vanes (and Link's House)\nall: Start with all 22 Weather Vanes"
+  weather_vanes:
+    standard: 50
+    shuffled: 0
+    convenient: 0
+    hyrule: 0
+    lorule: 0
+    all: 0
+
+  sidneys_secret_documentation-dark_rooms_lampless: "If enabled the logic may expect players to cross Dark Rooms without the Lamp.\nNot for beginners and those who like being able to see things."
+  dark_rooms_lampless:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-swordless_mode: "Removes *ALL* Swords from the game.\nThe Bug Net becomes a required item to play Dead Man's Volley against Yuga Ganon."
+  swordless_mode:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-treacherous_tower_floors: "Choose how many floors the Treacherous Tower should have (2-66)."
+  treacherous_tower_floors:
+    #
+    sidneys_secret_range_start: 2
+    sidneys_secret_range_end: 66
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-purple_potion_bottles: "Fills all Empty Bottles with a free Purple Potion."
+  purple_potion_bottles:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-keysy: "This setting removes keys and locked doors from dungeons if enabled."
+  keysy:
+    'off': 50
+    small: 0
+    big: 0
+    all: 0
+
+  # Item & Location Options
+  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
+  local_items:
+    []
+
+  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
+  non_local_items:
+    []
+
+  sidneys_secret_documentation-start_inventory: "Start with these items."
+  start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
+  start_hints:
+    []
+
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the ``!hint`` command."
+  start_location_hints:
+    []
+
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item."
+  exclude_locations:
+    []
+
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item."
+  priority_locations:
+    []
+
+  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
+  item_links:
+    []
