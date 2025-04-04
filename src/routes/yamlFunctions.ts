@@ -13,6 +13,14 @@ export function downloadYaml(playerOptions: AnyObject) {
         formattedData[game] = getFormattedGameOptions(playerOptions[game]);
     }
     console.log(jsYaml.dump(formattedData))
+
+    const link = document.createElement("a");
+    const content = jsYaml.dump(formattedData);
+    const file = new Blob([content], { type: 'text/plain' });
+    link.href = URL.createObjectURL(file);
+    link.download = "yamlFileForYouToRename.yaml";
+    link.click();
+    URL.revokeObjectURL(link.href);
 }
 
 function getFormattedGameOptions(gameOptions: AnyObject) {
