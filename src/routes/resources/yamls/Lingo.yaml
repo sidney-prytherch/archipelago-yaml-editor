@@ -32,13 +32,16 @@ description: Default Lingo Template
 
 game: Lingo
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Lingo:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,17 +54,21 @@ Lingo:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
-  sidneys_secret_documentation-shuffle_doors: "If on, opening doors will require their respective \"keys\".\n\n- **Simple:** Doors are sorted into logical groups, which are all opened by\n  receiving an item.\n- **Complex:** The items are much more granular, and will usually only open\n  a single door each."
+  sidneys_secret_documentation-shuffle_doors: "This option specifies how doors open.\n\n- **None:** Doors in the game will open the way they do in vanilla.\n- **Panels:** Doors still open as in vanilla, but the panels that open the\n  doors will be locked, and an item will be required to unlock the panels.\n- **Doors:** the doors themselves are locked behind items, and will open\n  automatically without needing to solve a panel once the key is obtained."
   shuffle_doors:
     none: 50
-    simple: 0
-    complex: 0
+    panels: 0
+    doors: 0
+
+  sidneys_secret_documentation-group_doors: "By default, door shuffle in either panels or doors mode will create individual keys for every panel or door to be locked.\n\nWhen group doors is on, some panels and doors are sorted into logical groups, which are opened together by receiving an item."
+  group_doors:
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-location_checks: "Determines what locations are available.\n\n- **Normal:** There will be a location check for each panel set that would\n  ordinarily open a door, as well as for achievement panels and a small\n  handful of other panels.\n- **Reduced:** Many of the locations that are associated with opening doors\n  are removed.\n- **Insanity:** Every individual panel in the game is a location check."
   location_checks:
@@ -74,7 +81,7 @@ Lingo:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-shuffle_panels: "If on, the puzzles on each panel are randomized.\n\nOn \"rearrange\", the puzzles are the same as the ones in the base game, but\nare placed in different areas."
+  sidneys_secret_documentation-shuffle_panels: "Determines how panel puzzles are randomized.\n\n- **None:** Most panels remain the same as in the base game. Note that there are\n  some panels (in particular, in Starting Room and Second Room) that are changed\n  by the randomizer even when panel shuffle is disabled.\n- **Rearrange:** The puzzles are the same as the ones in the base game, but are\n  placed in different areas.\n\nMore options for puzzle randomization are planned in the future."
   shuffle_panels:
     none: 50
     rearrange: 0
@@ -93,6 +100,11 @@ Lingo:
 
   sidneys_secret_documentation-early_color_hallways: "When on, a painting warp to the color hallways area will appear in the starting room.\n\nThis lets you avoid being trapped in the starting room for long periods of\ntime when door shuffle is on."
   early_color_hallways:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-shuffle_postgame: "When off, locations that could not be reached without also reaching your victory condition are removed."
+  shuffle_postgame:
     'false': 50
     'true': 0
 
@@ -131,12 +143,12 @@ Lingo:
     'true': 0
 
   # Fine-tuning
-  sidneys_secret_documentation-progressive_orange_tower: "When \"Shuffle Doors\" is on, this setting governs the manner in which the Orange Tower floors open up.\n\n- **Off:** There is an item for each floor of the tower, and each floor's\n  item is the only one needed to access that floor.\n- **On:** There are six progressive items, which open up the tower from the\n  bottom floor upward."
+  sidneys_secret_documentation-progressive_orange_tower: "When \"Shuffle Doors\" is on doors mode, this setting governs the manner in which the Orange Tower floors open up.\n\n- **Off:** There is an item for each floor of the tower, and each floor's\n  item is the only one needed to access that floor.\n- **On:** There are six progressive items, which open up the tower from the\n  bottom floor upward."
   progressive_orange_tower:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-progressive_colorful: "When \"Shuffle Doors\" is on \"complex\", this setting governs the manner in which The Colorful opens up.\n\n- **Off:** There is an item for each room of The Colorful, meaning that\n  random rooms in the middle of the sequence can open up without giving you\n  access to them.\n- **On:** There are ten progressive items, which open up the sequence from\n  White forward."
+  sidneys_secret_documentation-progressive_colorful: "When \"Shuffle Doors\" is on either panels or doors mode and \"Group Doors\" is off, this setting governs the manner in which The Colorful opens up.\n\n- **Off:** There is an item for each room of The Colorful, meaning that\n  random rooms in the middle of the sequence can open up without giving you\n  access to them.\n- **On:** There are ten progressive items, which open up the sequence from\n  White forward."
   progressive_colorful:
     'false': 0
     'true': 50
@@ -144,6 +156,9 @@ Lingo:
   sidneys_secret_documentation-mastery_achievements: "The number of achievements required to unlock THE MASTER.\n\n- In the base game, 21 achievements are needed.\n- If you include The Scientific and The Unchallenged, which are in the base\n  game but are not counted for mastery, 23 would be required.\n- If you include the custom achievement (The Wanderer), 24 would be\n  required."
   mastery_achievements:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 24
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 24
     21: 50
@@ -154,6 +169,9 @@ Lingo:
   sidneys_secret_documentation-level_2_requirement: "The number of panel solves required to unlock LEVEL 2.\n\nIn the base game, 223 are needed. Note that this count includes ANOTHER TRY.\nWhen set to 1, the panel hunt is disabled, and you can access LEVEL 2 for\nfree."
   level_2_requirement:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 800
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 800
     223: 50
@@ -164,6 +182,9 @@ Lingo:
   sidneys_secret_documentation-trap_percentage: "Replaces junk items with traps, at the specified rate."
   trap_percentage:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     20: 50
@@ -177,9 +198,17 @@ Lingo:
     Iceland Trap: 1
     Slowness Trap: 1
 
+  sidneys_secret_documentation-speed_boost_mode: "If on, the player's default speed is halved, as if affected by a Slowness Trap. Speed Boosts are added to\nthe item pool, which temporarily return the player to normal speed. Slowness Traps are removed from the pool."
+  speed_boost_mode:
+    'false': 50
+    'true': 0
+
   sidneys_secret_documentation-puzzle_skip_percentage: "Replaces junk items with puzzle skips, at the specified rate."
   puzzle_skip_percentage:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     20: 50
@@ -198,6 +227,10 @@ Lingo:
 
   sidneys_secret_documentation-start_inventory: "Start with these items."
   start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\n\nThe game decides what the replacement items will be."
+  start_inventory_from_pool:
     {}
 
   sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
@@ -219,7 +252,3 @@ Lingo:
   sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
   item_links:
     []
-
-  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\n\nThe game decides what the replacement items will be."
-  start_inventory_from_pool:
-    {}

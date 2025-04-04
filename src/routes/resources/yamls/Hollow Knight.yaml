@@ -32,13 +32,16 @@ description: Default Hollow Knight Template
 
 game: Hollow Knight
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Hollow Knight:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,148 +54,147 @@ Hollow Knight:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
-  sidneys_secret_documentation-RandomizeDreamers: "Allow for Dreamers to be randomized into the item pool and opens their locations for randomization."
+  sidneys_secret_documentation-RandomizeDreamers: "Allow for Dreamers to be randomized into the item pool and opens their locations for randomization.\nThis option adds approximately 4 locations."
   RandomizeDreamers:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-RandomizeSkills: "Allow for Skills, such as Mantis Claw or Shade Soul, to be randomized into the item pool. Also opens their locations\nfor receiving randomized items."
+  sidneys_secret_documentation-RandomizeSkills: "Allow for Skills, such as Mantis Claw or Shade Soul, to be randomized into the item pool. Also opens their locations\nfor receiving randomized items.\nThis option adds approximately 18 locations."
   RandomizeSkills:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-RandomizeFocus: "Removes the ability to focus and randomizes it into the item pool."
+  sidneys_secret_documentation-RandomizeFocus: "Removes the ability to focus and randomizes it into the item pool.\nThis option adds approximately 1 location."
   RandomizeFocus:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-RandomizeSwim: "Removes the ability to swim in water and randomizes it into the item pool."
+  sidneys_secret_documentation-RandomizeSwim: "Removes the ability to swim in water and randomizes it into the item pool.\nThis option adds approximately 0 locations."
   RandomizeSwim:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-RandomizeCharms: "Allow for Charms to be randomized into the item pool and open their locations for randomization. Includes Charms\nsold in shops."
+  sidneys_secret_documentation-RandomizeCharms: "Allow for Charms to be randomized into the item pool and open their locations for randomization. Includes Charms\nsold in shops.\nThis option adds approximately 45 locations."
   RandomizeCharms:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-RandomizeKeys: "Allow for Keys to be randomized into the item pool. Includes those sold in shops."
+  sidneys_secret_documentation-RandomizeKeys: "Allow for Keys to be randomized into the item pool. Includes those sold in shops.\nThis option adds approximately 13 locations."
   RandomizeKeys:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-RandomizeMaskShards: "Allow for Mask Shard to be randomized into the item pool and open their locations for randomization."
+  sidneys_secret_documentation-RandomizeMaskShards: "Allow for Mask Shard to be randomized into the item pool and open their locations for randomization.\nThis option adds approximately 16 locations."
   RandomizeMaskShards:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-RandomizeVesselFragments: "Allow for Vessel Fragments to be randomized into the item pool and open their locations for randomization."
+  sidneys_secret_documentation-RandomizeVesselFragments: "Allow for Vessel Fragments to be randomized into the item pool and open their locations for randomization.\nThis option adds approximately 9 locations."
   RandomizeVesselFragments:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-RandomizeCharmNotches: "Allow for Charm Notches to be randomized into the item pool. Includes those sold by Salubra."
+  sidneys_secret_documentation-RandomizeCharmNotches: "Allow for Charm Notches to be randomized into the item pool. Includes those sold by Salubra.\nThis option adds approximately 9 locations."
   RandomizeCharmNotches:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-RandomizePaleOre: "Randomize Pale Ores into the item pool and open their locations for randomization."
+  sidneys_secret_documentation-RandomizePaleOre: "Randomize Pale Ores into the item pool and open their locations for randomization.\nThis option adds approximately 6 locations."
   RandomizePaleOre:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-RandomizeGeoChests: "Allow for Geo Chests to contain randomized items, as well as their Geo reward being randomized into the item pool."
+  sidneys_secret_documentation-RandomizeGeoChests: "Allow for Geo Chests to contain randomized items, as well as their Geo reward being randomized into the item pool.\nThis option adds approximately 8 locations."
   RandomizeGeoChests:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-RandomizeJunkPitChests: "Randomize the contents of junk pit chests into the item pool and open their locations for randomization."
+  sidneys_secret_documentation-RandomizeJunkPitChests: "Randomize the contents of junk pit chests into the item pool and open their locations for randomization.\nThis option adds approximately 5 locations."
   RandomizeJunkPitChests:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-RandomizeRancidEggs: "Randomize Rancid Eggs into the item pool and open their locations for randomization"
+  sidneys_secret_documentation-RandomizeRancidEggs: "Randomize Rancid Eggs into the item pool and open their locations for randomization\nThis option adds approximately 20 locations."
   RandomizeRancidEggs:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-RandomizeRelics: "Randomize Relics (King's Idol, et al.) into the item pool and open their locations for randomization."
+  sidneys_secret_documentation-RandomizeRelics: "Randomize Relics (King's Idol, et al.) into the item pool and open their locations for randomization.\nThis option adds approximately 43 locations."
   RandomizeRelics:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-RandomizeWhisperingRoots: "Randomize the essence rewards from Whispering Roots into the item pool. Whispering Roots will now grant a randomized\nitem when completed. This can be previewed by standing on the root."
+  sidneys_secret_documentation-RandomizeWhisperingRoots: "Randomize the essence rewards from Whispering Roots into the item pool. Whispering Roots will now grant a randomized\nitem when completed. This can be previewed by standing on the root.\nThis option adds approximately 15 locations."
   RandomizeWhisperingRoots:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-RandomizeBossEssence: "Randomize boss essence drops, such as those for defeating Warrior Dreams, into the item pool and open their locations\nfor randomization."
+  sidneys_secret_documentation-RandomizeBossEssence: "Randomize boss essence drops, such as those for defeating Warrior Dreams, into the item pool and open their locations\nfor randomization.\nThis option adds approximately 12 locations."
   RandomizeBossEssence:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-RandomizeGrubs: "Randomize Grubs into the item pool and open their locations for randomization."
+  sidneys_secret_documentation-RandomizeGrubs: "Randomize Grubs into the item pool and open their locations for randomization.\nThis option adds approximately 46 locations."
   RandomizeGrubs:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-RandomizeMimics: "Randomize Mimic Grubs into the item pool and open their locations for randomization."
+  sidneys_secret_documentation-RandomizeMimics: "Randomize Mimic Grubs into the item pool and open their locations for randomization.\nThis option adds approximately 4 locations."
   RandomizeMimics:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-RandomizeMaps: "Randomize Maps into the item pool. This causes Cornifer to give you a message allowing you to see and buy an item\nthat is randomized into that location as well."
+  sidneys_secret_documentation-RandomizeMaps: "Randomize Maps into the item pool. This causes Cornifer to give you a message allowing you to see and buy an item\nthat is randomized into that location as well.\nThis option adds approximately 15 locations."
   RandomizeMaps:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-RandomizeStags: "Randomize Stag Stations unlocks into the item pool as well as placing randomized items on the stag station bell/toll."
+  sidneys_secret_documentation-RandomizeStags: "Randomize Stag Stations unlocks into the item pool as well as placing randomized items on the stag station bell/toll.\nThis option adds approximately 11 locations."
   RandomizeStags:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-RandomizeLifebloodCocoons: "Randomize Lifeblood Cocoon grants into the item pool and open their locations for randomization."
+  sidneys_secret_documentation-RandomizeLifebloodCocoons: "Randomize Lifeblood Cocoon grants into the item pool and open their locations for randomization.\nThis option adds approximately 8 locations."
   RandomizeLifebloodCocoons:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-RandomizeGrimmkinFlames: "Randomize Grimmkin Flames into the item pool and open their locations for randomization."
+  sidneys_secret_documentation-RandomizeGrimmkinFlames: "Randomize Grimmkin Flames into the item pool and open their locations for randomization.\nThis option adds approximately 10 locations."
   RandomizeGrimmkinFlames:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-RandomizeJournalEntries: "Randomize the Hunter's Journal as well as the findable journal entries into the item pool, and open their locations\nfor randomization. Does not include journal entries gained by killing enemies."
+  sidneys_secret_documentation-RandomizeJournalEntries: "Randomize the Hunter's Journal as well as the findable journal entries into the item pool, and open their locations\nfor randomization. Does not include journal entries gained by killing enemies.\nThis option adds approximately 6 locations."
   RandomizeJournalEntries:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-RandomizeNail: "Removes the ability to swing the nail left, right and up, and shuffles these into the item pool."
+  sidneys_secret_documentation-RandomizeNail: "Removes the ability to swing the nail left, right and up, and shuffles these into the item pool.\nThis option adds approximately 0 locations."
   RandomizeNail:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-RandomizeGeoRocks: "Randomize Geo Rock rewards into the item pool and open their locations for randomization."
+  sidneys_secret_documentation-RandomizeGeoRocks: "Randomize Geo Rock rewards into the item pool and open their locations for randomization.\nThis option adds approximately 207 locations."
   RandomizeGeoRocks:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-RandomizeBossGeo: "Randomize boss Geo drops into the item pool and open those locations for randomization."
+  sidneys_secret_documentation-RandomizeBossGeo: "Randomize boss Geo drops into the item pool and open those locations for randomization.\nThis option adds approximately 8 locations."
   RandomizeBossGeo:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-RandomizeSoulTotems: "Randomize Soul Refill items into the item pool and open the Soul Totem locations for randomization."
+  sidneys_secret_documentation-RandomizeSoulTotems: "Randomize Soul Refill items into the item pool and open the Soul Totem locations for randomization.\nThis option adds approximately 59 locations."
   RandomizeSoulTotems:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-RandomizeLoreTablets: "Randomize Lore items into the itempool, one per Lore Tablet, and place randomized item grants on the tablets themselves.\nYou must still read the tablet to get the item."
+  sidneys_secret_documentation-RandomizeLoreTablets: "Randomize Lore items into the itempool, one per Lore Tablet, and place randomized item grants on the tablets themselves.\nYou must still read the tablet to get the item.\nThis option adds approximately 33 locations."
   RandomizeLoreTablets:
     'false': 50
     'true': 0
@@ -202,7 +204,7 @@ Hollow Knight:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-PreciseMovement: "Places skips into logic which require extremely precise player movement, possibly without movement skills such as\ndash or hook."
+  sidneys_secret_documentation-PreciseMovement: "Places skips into logic which require extremely precise player movement, possibly without movement skills such as\ndash or claw."
   PreciseMovement:
     'false': 50
     'true': 0
@@ -294,8 +296,24 @@ Hollow Knight:
     radiance: 0
     godhome: 0
     godhome_flower: 0
+    grub_hunt: 0
 
-  sidneys_secret_documentation-WhitePalace: "Whether or not to include White Palace or not.  Note: Even if excluded, the King Fragment check may still be\nrequired if charms are vanilla."
+  sidneys_secret_documentation-GrubHuntGoal: "The amount of grubs required to finish Grub Hunt.\nOn 'All' any grubs from item links replacements etc. will be counted"
+  GrubHuntGoal:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 46
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 46
+    46: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+    sidneys_secret_notes-all: "equivalent to -1"
+    all: 0
+
+  sidneys_secret_documentation-WhitePalace: "Whether or not to include White Palace or not. Note: Even if excluded, the King Fragment check may still be\nrequired if charms are vanilla."
   WhitePalace:
     exclude: 50
     kingfragment: 0
@@ -315,6 +333,9 @@ Hollow Knight:
   sidneys_secret_documentation-StartingGeo: "The amount of starting geo you have."
   StartingGeo:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 1000
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 1000
     0: 50
@@ -322,7 +343,7 @@ Hollow Knight:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-DeathLink: "When you die, everyone dies. Of course the reverse is true too."
+  sidneys_secret_documentation-DeathLink: "When you die, everyone who enabled death link dies. Of course, the reverse is true too."
   DeathLink:
     'false': 50
     'true': 0
@@ -341,6 +362,9 @@ Hollow Knight:
   sidneys_secret_documentation-MinimumGeoPrice: "The minimum geo price for items in geo shops."
   MinimumGeoPrice:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 200
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 200
     1: 50
@@ -351,6 +375,9 @@ Hollow Knight:
   sidneys_secret_documentation-MaximumGeoPrice: "The maximum geo price for items in geo shops."
   MaximumGeoPrice:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 2000
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 2000
     400: 50
@@ -361,6 +388,9 @@ Hollow Knight:
   sidneys_secret_documentation-MinimumGrubPrice: "The minimum grub price in the range of prices that an item should cost from Grubfather."
   MinimumGrubPrice:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 46
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 46
     1: 50
@@ -371,6 +401,9 @@ Hollow Knight:
   sidneys_secret_documentation-MaximumGrubPrice: "The maximum grub price in the range of prices that an item should cost from Grubfather."
   MaximumGrubPrice:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 46
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 46
     23: 50
@@ -381,6 +414,9 @@ Hollow Knight:
   sidneys_secret_documentation-MinimumEssencePrice: "The minimum essence price in the range of prices that an item should cost from Seer."
   MinimumEssencePrice:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 2800
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 2800
     1: 50
@@ -391,6 +427,9 @@ Hollow Knight:
   sidneys_secret_documentation-MaximumEssencePrice: "The maximum essence price in the range of prices that an item should cost from Seer."
   MaximumEssencePrice:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 2800
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 2800
     1400: 50
@@ -401,6 +440,9 @@ Hollow Knight:
   sidneys_secret_documentation-MinimumCharmPrice: "The minimum charm price in the range of prices that an item should cost for Salubra's shop item which also\ncarry a charm cost."
   MinimumCharmPrice:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 40
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 40
     1: 50
@@ -411,6 +453,9 @@ Hollow Knight:
   sidneys_secret_documentation-MaximumCharmPrice: "The maximum charm price in the range of prices that an item should cost for Salubra's shop item which also\ncarry a charm cost."
   MaximumCharmPrice:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 40
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 40
     20: 50
@@ -421,6 +466,9 @@ Hollow Knight:
   sidneys_secret_documentation-RandomCharmCosts: "Total Notch Cost of all Charms together. Vanilla sums to 90.\nThis value is distributed among all charms in a random fashion.\nSpecial Cases:\nSet to -1 or vanilla for vanilla costs.\nSet to -2 or shuffle to shuffle around the vanilla costs to different charms."
   RandomCharmCosts:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 240
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 240
     random: 0
@@ -438,6 +486,9 @@ Hollow Knight:
   sidneys_secret_documentation-MinimumEggPrice: "The minimum rancid egg price in the range of prices that an item should cost from Jiji.\nOnly takes effect if the EggSlotShops option is greater than 0."
   MinimumEggPrice:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 20
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 20
     1: 50
@@ -448,6 +499,9 @@ Hollow Knight:
   sidneys_secret_documentation-MaximumEggPrice: "The maximum rancid egg price in the range of prices that an item should cost from Jiji.\nOnly takes effect if the EggSlotShops option is greater than 0."
   MaximumEggPrice:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 20
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 20
     10: 50
@@ -458,6 +512,9 @@ Hollow Knight:
   sidneys_secret_documentation-EggShopSlots: "For each slot, add a location to the Egg Shop and a filler item to the item pool."
   EggShopSlots:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 16
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 16
     0: 50
@@ -468,6 +525,9 @@ Hollow Knight:
   sidneys_secret_documentation-SlyShopSlots: "For each extra slot, add a location to the Sly Shop and a filler item to the item pool."
   SlyShopSlots:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 16
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 16
     8: 50
@@ -478,6 +538,9 @@ Hollow Knight:
   sidneys_secret_documentation-SlyKeyShopSlots: "For each extra slot, add a location to the Sly Shop (requiring Shopkeeper's Key) and a filler item to the item\npool."
   SlyKeyShopSlots:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 16
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 16
     6: 50
@@ -488,6 +551,9 @@ Hollow Knight:
   sidneys_secret_documentation-IseldaShopSlots: "For each extra slot, add a location to the Iselda Shop and a filler item to the item pool."
   IseldaShopSlots:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 16
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 16
     2: 50
@@ -498,6 +564,9 @@ Hollow Knight:
   sidneys_secret_documentation-SalubraShopSlots: "For each extra slot, add a location to the Salubra Shop, and a filler item to the item pool."
   SalubraShopSlots:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 16
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 16
     5: 50
@@ -508,6 +577,9 @@ Hollow Knight:
   sidneys_secret_documentation-SalubraCharmShopSlots: "For each extra slot, add a location to the Salubra Shop (requiring Charms), and a filler item to the item\npool."
   SalubraCharmShopSlots:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 16
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 16
     5: 50
@@ -518,6 +590,9 @@ Hollow Knight:
   sidneys_secret_documentation-LegEaterShopSlots: "For each extra slot, add a location to the Leg Eater Shop and a filler item to the item pool."
   LegEaterShopSlots:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 16
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 16
     3: 50
@@ -528,6 +603,9 @@ Hollow Knight:
   sidneys_secret_documentation-GrubfatherRewardSlots: "For each extra slot, add a location to the Grubfather and a filler item to the item pool."
   GrubfatherRewardSlots:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 16
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 16
     7: 50
@@ -538,6 +616,9 @@ Hollow Knight:
   sidneys_secret_documentation-SeerRewardSlots: "For each extra slot, add a location to the Seer and a filler item to the item pool."
   SeerRewardSlots:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 16
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 16
     8: 50
@@ -548,6 +629,9 @@ Hollow Knight:
   sidneys_secret_documentation-ExtraShopSlots: "For each extra slot, add a location to a randomly chosen shop a filler item to the item pool.\n\nThe Egg Shop will be excluded from this list unless it has at least one item.\n\nShops are capped at 16 items each."
   ExtraShopSlots:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 144
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 144
     0: 50
@@ -580,6 +664,9 @@ Hollow Knight:
   sidneys_secret_documentation-CostSanityHybridChance: "The chance that a CostSanity cost will include two components instead of one, e.g. Grubs + Essence"
   CostSanityHybridChance:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     10: 50
@@ -590,6 +677,9 @@ Hollow Knight:
   sidneys_secret_documentation-CostSanityEggWeight: "The likelihood of Costsanity choosing a Egg cost. Chosen as a sum of all weights from other types."
   CostSanityEggWeight:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 1000
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 1000
     1: 50
@@ -600,6 +690,9 @@ Hollow Knight:
   sidneys_secret_documentation-CostSanityGrubWeight: "The likelihood of Costsanity choosing a Grub cost. Chosen as a sum of all weights from other types."
   CostSanityGrubWeight:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 1000
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 1000
     1: 50
@@ -610,6 +703,9 @@ Hollow Knight:
   sidneys_secret_documentation-CostSanityEssenceWeight: "The likelihood of Costsanity choosing a Essence cost. Chosen as a sum of all weights from other types."
   CostSanityEssenceWeight:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 1000
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 1000
     1: 50
@@ -620,6 +716,9 @@ Hollow Knight:
   sidneys_secret_documentation-CostSanityCharmWeight: "The likelihood of Costsanity choosing a Charm cost. Chosen as a sum of all weights from other types."
   CostSanityCharmWeight:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 1000
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 1000
     1: 50
@@ -630,6 +729,9 @@ Hollow Knight:
   sidneys_secret_documentation-CostSanityGeoWeight: "The likelihood of Costsanity choosing a Geo cost. Chosen as a sum of all weights from other types."
   CostSanityGeoWeight:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 1000
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 1000
     8: 50

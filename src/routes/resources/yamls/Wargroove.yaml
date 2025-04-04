@@ -32,13 +32,16 @@ description: Default Wargroove Template
 
 game: Wargroove
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Wargroove:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,15 +54,17 @@ Wargroove:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
   sidneys_secret_documentation-income_boost: "How much extra income the player gets per turn per boost received."
   income_boost:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     25: 50
@@ -70,6 +75,9 @@ Wargroove:
   sidneys_secret_documentation-commander_defense_boost: "How much extra defense the player's commander gets per boost received."
   commander_defense_boost:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 8
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 8
     2: 50

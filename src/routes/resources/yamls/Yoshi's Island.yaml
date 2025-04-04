@@ -32,13 +32,16 @@ description: Default Yoshi's Island Template
 
 game: Yoshi's Island
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Yoshi's Island:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,10 +54,9 @@ Yoshi's Island:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
   sidneys_secret_documentation-starting_world: "This sets which world you start in. Other worlds can be accessed by receiving a Gate respective to that world."
@@ -69,6 +71,9 @@ Yoshi's Island:
   sidneys_secret_documentation-starting_lives: "This sets the amount of lives Yoshi will have upon loading the game."
   starting_lives:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 999
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 999
     3: 50
@@ -84,6 +89,9 @@ Yoshi's Island:
   sidneys_secret_documentation-luigi_pieces_required: "This will set how many Luigi Pieces are required to trigger a victory."
   luigi_pieces_required:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 100
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 100
     25: 50
@@ -94,6 +102,9 @@ Yoshi's Island:
   sidneys_secret_documentation-luigi_pieces_in_pool: "This will set how many Luigi Pieces are in the item pool.\n   If the number in the pool is lower than the number required,\n   the amount in the pool will be randomized, with the minimum being the amount required."
   luigi_pieces_in_pool:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 100
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 100
     50: 50
@@ -164,6 +175,9 @@ Yoshi's Island:
   sidneys_secret_documentation-castle_open_condition: "This sets how many bosses need to be defeated to access 6-8.\n   You can check this in-game by pressing SELECT while in any level."
   castle_open_condition:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 11
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 11
     5: 50
@@ -174,6 +188,9 @@ Yoshi's Island:
   sidneys_secret_documentation-castle_clear_condition: "This sets how many bosses need to be defeated to access the boss of 6-8.\n   You can check this in-game by pressing SELECT while in any level."
   castle_clear_condition:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 11
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 11
     0: 50
@@ -233,6 +250,9 @@ Yoshi's Island:
   sidneys_secret_documentation-trap_percent: "Percentage of the item pool that becomes replaced with traps."
   trap_percent:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     10: 50
@@ -240,7 +260,7 @@ Yoshi's Island:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
+  sidneys_secret_documentation-death_link: "When you die, everyone who enabled death link dies. Of course, the reverse is true too."
   death_link:
     'false': 50
     'true': 0

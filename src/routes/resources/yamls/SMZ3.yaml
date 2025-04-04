@@ -32,13 +32,16 @@ description: Default SMZ3 Template
 
 game: SMZ3
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 SMZ3:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,11 +54,11 @@ SMZ3:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired.\n\n**Items:** ensure all logically relevant items can be acquired. Some items, such as keys, may be self-locking, and\nsome locations may be inaccessible."
   accessibility:
-    locations: 0
-    items: 50
+    full: 0
     minimal: 0
+    items: 50
 
   sidneys_secret_documentation-sm_logic: "This option selects what kind of logic to use for item placement inside\nSuper Metroid.\n\nNormal - Normal logic includes only what Super Metroid teaches players\nitself. Anything that's not demonstrated in-game or by the intro cutscenes\nwill not be required here.\n\nHard - Hard logic is based upon the \"no major glitches\" ruleset and\nincludes most tricks that are considered minor glitches, with some \nrestrictions. You'll want to be somewhat of a Super Metroid veteran for\nthis logic.\n\nSee https://samus.link/information for required moves."
   sm_logic:
@@ -88,6 +91,9 @@ SMZ3:
   sidneys_secret_documentation-open_tower: "The amount of crystals required to be able to enter Ganon's Tower. \nIf this is set to Random, the amount can be found in-game on a sign next to Ganon's Tower."
   open_tower:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 7
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 7
     7: 50
@@ -98,6 +104,9 @@ SMZ3:
   sidneys_secret_documentation-ganon_vulnerable: "The amount of crystals required to be able to harm Ganon. The amount can be found \nin-game on a sign near the top of the Pyramid."
   ganon_vulnerable:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 7
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 7
     7: 50
@@ -108,6 +117,9 @@ SMZ3:
   sidneys_secret_documentation-open_tourian: "The amount of boss tokens required to enter Tourian. The amount can be found in-game \non a sign above the door leading to the Tourian entrance."
   open_tourian:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 4
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 4
     4: 50
@@ -156,6 +168,10 @@ SMZ3:
 
   sidneys_secret_documentation-start_inventory: "Start with these items."
   start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\n\nThe game decides what the replacement items will be."
+  start_inventory_from_pool:
     {}
 
   sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."

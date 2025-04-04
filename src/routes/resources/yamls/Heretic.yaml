@@ -32,13 +32,16 @@ description: Default Heretic Template
 
 game: Heretic
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Heretic:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,10 +54,9 @@ Heretic:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
   sidneys_secret_documentation-goal: "Choose the main goal.\ncomplete_all_levels: All levels of the selected episodes\ncomplete_boss_levels: Boss levels (E#M8) of selected episodes"
@@ -62,7 +64,7 @@ Heretic:
     complete_all_levels: 50
     complete_boss_levels: 0
 
-  sidneys_secret_documentation-difficulty: "Choose the difficulty option. Those match DOOM's difficulty options.\nbaby (I'm too young to die.) double ammos, half damage, less monsters or strength.\neasy (Hey, not too rough.) less monsters or strength.\nmedium (Hurt me plenty.) Default.\nhard (Ultra-Violence.) More monsters or strength.\nnightmare (Nightmare!) Monsters attack more rapidly and respawn.\n\nwet nurse (hou needeth a wet-nurse) - Fewer monsters and more items than medium. Damage taken is halved, and ammo pickups carry twice as much ammo. Any Quartz Flasks and Mystic Urns are automatically used when the player nears death.\neasy (Yellowbellies-r-us) - Fewer monsters and more items than medium.\nmedium (Bringest them oneth) - Completely balanced, this is the standard difficulty level.\nhard (Thou art a smite-meister) - More monsters and fewer items than medium.\nblack plague (Black plague possesses thee) - Same as hard, but monsters and their projectiles move much faster. Cheating is also disabled."
+  sidneys_secret_documentation-difficulty: "Choose the game difficulty. These options match Heretic's skill levels.\nwet nurse (Thou needeth a wet-nurse) - Fewer monsters and more items than medium. Damage taken is halved, and ammo pickups carry twice as much ammo. Any Quartz Flasks and Mystic Urns are automatically used when the player nears death.\neasy (Yellowbellies-r-us) - Fewer monsters and more items than medium.\nmedium (Bringest them oneth) - Completely balanced, this is the standard difficulty level.\nhard (Thou art a smite-meister) - More monsters and fewer items than medium.\nblack plague (Black plague possesses thee) - Same as hard, but monsters and their projectiles move much faster. Cheating is also disabled."
   difficulty:
     wet_nurse: 0
     easy: 0
@@ -114,7 +116,7 @@ Heretic:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
+  sidneys_secret_documentation-death_link: "When you die, everyone who enabled death link dies. Of course, the reverse is true too."
   death_link:
     'false': 50
     'true': 0
@@ -144,6 +146,180 @@ Heretic:
     'false': 50
     'true': 0
 
+  sidneys_secret_documentation-split_bag_of_holding: "Split the Bag of Holding into six individual items, each one increasing ammo capacity for one type of weapon only."
+  split_bag_of_holding:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-bag_of_holding_count: "How many Bags of Holding will be available.\nIf Split Bag of Holding is set, this will be the number of each capacity upgrade available."
+  bag_of_holding_count:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 10
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 10
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_ammo_crystals: "Set the starting ammo capacity for crystals (Elven Wand ammo)."
+  max_ammo_crystals:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 100
+    # Maximum value is 999
+    sidneys_secret_range_start: 100
+    sidneys_secret_range_end: 999
+    100: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_ammo_arrows: "Set the starting ammo capacity for arrows (Ethereal Crossbow ammo)."
+  max_ammo_arrows:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 50
+    # Maximum value is 999
+    sidneys_secret_range_start: 50
+    sidneys_secret_range_end: 999
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_ammo_claw_orbs: "Set the starting ammo capacity for claw orbs (Dragon Claw ammo)."
+  max_ammo_claw_orbs:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 200
+    # Maximum value is 999
+    sidneys_secret_range_start: 200
+    sidneys_secret_range_end: 999
+    200: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_ammo_runes: "Set the starting ammo capacity for runes (Hellstaff ammo)."
+  max_ammo_runes:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 200
+    # Maximum value is 999
+    sidneys_secret_range_start: 200
+    sidneys_secret_range_end: 999
+    200: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_ammo_flame_orbs: "Set the starting ammo capacity for flame orbs (Phoenix Rod ammo)."
+  max_ammo_flame_orbs:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 20
+    # Maximum value is 999
+    sidneys_secret_range_start: 20
+    sidneys_secret_range_end: 999
+    20: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_ammo_spheres: "Set the starting ammo capacity for spheres (Firemace ammo)."
+  max_ammo_spheres:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 150
+    # Maximum value is 999
+    sidneys_secret_range_start: 150
+    sidneys_secret_range_end: 999
+    150: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-added_ammo_crystals: "Set the amount of crystal capacity gained when collecting a bag of holding or a capacity upgrade."
+  added_ammo_crystals:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 10
+    # Maximum value is 999
+    sidneys_secret_range_start: 10
+    sidneys_secret_range_end: 999
+    100: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-added_ammo_arrows: "Set the amount of arrow capacity gained when collecting a bag of holding or a capacity upgrade."
+  added_ammo_arrows:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 5
+    # Maximum value is 999
+    sidneys_secret_range_start: 5
+    sidneys_secret_range_end: 999
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-added_ammo_claw_orbs: "Set the amount of claw orb capacity gained when collecting a bag of holding or a capacity upgrade."
+  added_ammo_claw_orbs:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 20
+    # Maximum value is 999
+    sidneys_secret_range_start: 20
+    sidneys_secret_range_end: 999
+    200: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-added_ammo_runes: "Set the amount of rune capacity gained when collecting a bag of holding or a capacity upgrade."
+  added_ammo_runes:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 20
+    # Maximum value is 999
+    sidneys_secret_range_start: 20
+    sidneys_secret_range_end: 999
+    200: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-added_ammo_flame_orbs: "Set the amount of flame orb capacity gained when collecting a bag of holding or a capacity upgrade."
+  added_ammo_flame_orbs:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 2
+    # Maximum value is 999
+    sidneys_secret_range_start: 2
+    sidneys_secret_range_end: 999
+    20: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-added_ammo_spheres: "Set the amount of sphere capacity gained when collecting a bag of holding or a capacity upgrade."
+  added_ammo_spheres:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 15
+    # Maximum value is 999
+    sidneys_secret_range_start: 15
+    sidneys_secret_range_end: 999
+    150: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
   # Item & Location Options
   sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
   local_items:
@@ -155,6 +331,10 @@ Heretic:
 
   sidneys_secret_documentation-start_inventory: "Start with these items."
   start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\n\nThe game decides what the replacement items will be."
+  start_inventory_from_pool:
     {}
 
   sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
@@ -176,7 +356,3 @@ Heretic:
   sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
   item_links:
     []
-
-  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\n\nThe game decides what the replacement items will be."
-  start_inventory_from_pool:
-    {}

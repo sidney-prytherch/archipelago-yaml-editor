@@ -32,13 +32,16 @@ description: Default Overcooked! 2 Template
 
 game: Overcooked! 2
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Overcooked! 2:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,10 +54,9 @@ Overcooked! 2:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
   sidneys_secret_documentation-location_balancing: "Location balancing affects the density of progression items found in your world relative to other worlds. This setting changes nothing for solo games.\n\n- Disabled: Location density in your world can fluctuate greatly depending on the settings of other players. In extreme cases, your world may be entirely populated with filler items\n\n- Compromise: Locations are balanced to a midpoint between \"fair\" and \"natural\"\n\n- Full: Locations are balanced in an attempt to make the number of progression items sent out and received equal over the entire game"
@@ -132,6 +134,9 @@ Overcooked! 2:
   sidneys_secret_documentation-stars_to_win: "Number of stars required to unlock 6-6.\n\nLevel purchase requirements between 1-1 and 6-6 will be spread between these two numbers. Using too high of a number\nmay result in more frequent generation failures, especially when horde levels are enabled."
   stars_to_win:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     60: 50
@@ -142,6 +147,9 @@ Overcooked! 2:
   sidneys_secret_documentation-star_threshold_scale: "How difficult should the third star for each level be on a scale of 1-100%, where 100% is the current world\nrecord score and 45% is the average vanilla 4-star score."
   star_threshold_scale:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 100
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 100
     35: 50

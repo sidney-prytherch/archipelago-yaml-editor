@@ -32,13 +32,16 @@ description: Default Zillion Template
 
 game: Zillion
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Zillion:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,15 +54,17 @@ Zillion:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
   sidneys_secret_documentation-continues: "number of continues before game over\n\ngame over teleports you to your ship, keeping items and open doors"
   continues:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 21
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 21
     random: 0
@@ -73,6 +78,9 @@ Zillion:
   sidneys_secret_documentation-floppy_req: "how many floppy disks are required"
   floppy_req:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 8
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 8
     5: 50
@@ -102,6 +110,9 @@ Zillion:
   sidneys_secret_documentation-max_level: "the highest level you can get"
   max_level:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 3
+    # Maximum value is 8
     sidneys_secret_range_start: 3
     sidneys_secret_range_end: 8
     8: 50
@@ -119,6 +130,9 @@ Zillion:
   sidneys_secret_documentation-opas_per_level: "how many Opa-Opas are required to level up\n\nLower makes you level up faster."
   opas_per_level:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 5
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 5
     2: 50
@@ -134,6 +148,9 @@ Zillion:
   sidneys_secret_documentation-skill: "the difficulty level of the game\n\nhigher skill:\n- can require more precise platforming movement\n- lowers your defense\n- gives you less time to escape at the end"
   skill:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 5
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 5
     2: 50
@@ -144,6 +161,9 @@ Zillion:
   sidneys_secret_documentation-starting_cards: "how many ID Cards to start the game with\n\nRefilling at the ship also ensures you have at least this many cards.\n0 gives vanilla behavior."
   starting_cards:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 10
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 10
     2: 50
@@ -153,15 +173,24 @@ Zillion:
     sidneys_secret_notes-vanilla: "equivalent to 0"
     vanilla: 0
 
-  sidneys_secret_documentation-room_gen: "whether to generate rooms with random terrain"
-  room_gen:
-    'false': 50
-    'true': 0
+  sidneys_secret_documentation-map_gen: "- none: vanilla map\n- rooms: random terrain inside rooms, but path through base is vanilla\n- full: random path through base"
+  map_gen:
+    none: 50
+    rooms: 0
+    full: 0
+
+  sidneys_secret_documentation-priority_dead_ends: "Single locations that are in a dead end behind a door\n(example: vanilla Apple location)\nare prioritized for progression items."
+  priority_dead_ends:
+    'false': 0
+    'true': 50
 
   # item counts
   sidneys_secret_documentation-id_card_count: "how many ID Cards are in the game\n\nVanilla is 63\n\nmaximum total for all items is 144"
   id_card_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 126
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 126
     42: 50
@@ -172,6 +201,9 @@ Zillion:
   sidneys_secret_documentation-bread_count: "how many Breads are in the game\n\nVanilla is 33\n\nmaximum total for all items is 144"
   bread_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 126
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 126
     50: 50
@@ -182,6 +214,9 @@ Zillion:
   sidneys_secret_documentation-opa_opa_count: "how many Opa-Opas are in the game\n\nVanilla is 26\n\nmaximum total for all items is 144"
   opa_opa_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 126
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 126
     26: 50
@@ -192,6 +227,9 @@ Zillion:
   sidneys_secret_documentation-zillion_count: "how many Zillion gun power ups are in the game\n\nVanilla is 6\n\nmaximum total for all items is 144"
   zillion_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 126
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 126
     8: 50
@@ -202,6 +240,9 @@ Zillion:
   sidneys_secret_documentation-floppy_disk_count: "how many Floppy Disks are in the game\n\nVanilla is 5\n\nmaximum total for all items is 144"
   floppy_disk_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 126
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 126
     7: 50
@@ -212,6 +253,9 @@ Zillion:
   sidneys_secret_documentation-scope_count: "how many Scopes are in the game\n\nVanilla is 4\n\nmaximum total for all items is 144"
   scope_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 126
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 126
     4: 50
@@ -222,6 +266,9 @@ Zillion:
   sidneys_secret_documentation-red_id_card_count: "how many Red ID Cards are in the game\n\nVanilla is 1\n\nmaximum total for all items is 144"
   red_id_card_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 126
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 126
     2: 50

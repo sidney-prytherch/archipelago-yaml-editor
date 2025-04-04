@@ -32,13 +32,16 @@ description: Default Dark Souls III Template
 
 game: Dark Souls III
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Dark Souls III:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,116 +54,114 @@ Dark Souls III:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
-  sidneys_secret_documentation-enable_weapon_locations: "Randomizes weapons (+76 locations)"
-  enable_weapon_locations:
-    'false': 0
-    'true': 50
+  sidneys_secret_documentation-early_banner: "Force Small Lothric Banner into an early sphere in your world or across all worlds."
+  early_banner:
+    'off': 50
+    early_global: 0
+    early_local: 0
 
-  sidneys_secret_documentation-enable_shield_locations: "Randomizes shields (+24 locations)"
-  enable_shield_locations:
-    'false': 0
-    'true': 50
+  sidneys_secret_documentation-late_basin_of_vows: "Guarantee that you don't need to enter Lothric Castle until later in the run.\n\n- **Off:** You may have to enter Lothric Castle and the areas beyond it immediately after High\n  Wall of Lothric.\n- **After Small Lothric Banner:** You may have to enter Lothric Castle after Catacombs of\n  Carthus.\n- **After Small Doll:** You won't have to enter Lothric Castle until after Irithyll of the\n  Boreal Valley."
+  late_basin_of_vows:
+    'off': 50
+    after_small_lothric_banner: 0
+    after_small_doll: 0
 
-  sidneys_secret_documentation-enable_armor_locations: "Randomizes armor pieces (+97 locations)"
-  enable_armor_locations:
-    'false': 0
-    'true': 50
+  sidneys_secret_documentation-late_dlc: "Guarantee that you don't need to enter the DLC until later in the run.\n\n- **Off:** You may have to enter the DLC after Catacombs of Carthus.\n- **After Small Doll:** You may have to enter the DLC after Irithyll of the Boreal Valley.\n- **After Basin:** You won't have to enter the DLC until after Lothric Castle."
+  late_dlc:
+    'off': 50
+    after_small_doll: 0
+    after_basin: 0
 
-  sidneys_secret_documentation-enable_ring_locations: "Randomizes rings (+49 locations)"
-  enable_ring_locations:
-    'false': 0
-    'true': 50
-
-  sidneys_secret_documentation-enable_spell_locations: "Randomizes spells (+18 locations)"
-  enable_spell_locations:
-    'false': 0
-    'true': 50
-
-  sidneys_secret_documentation-enable_key_locations: "Randomizes items which unlock doors or bypass barriers"
-  enable_key_locations:
-    'false': 0
-    'true': 50
-
-  sidneys_secret_documentation-enable_boss_locations: "Randomizes Boss Souls (+18 Locations)"
-  enable_boss_locations:
-    'false': 0
-    'true': 50
-
-  sidneys_secret_documentation-enable_npc_locations: "Randomizes friendly NPC drops (meaning you will probably have to kill them) (+14 locations)"
-  enable_npc_locations:
+  sidneys_secret_documentation-death_link: "When you die, everyone who enabled death link dies. Of course, the reverse is true too."
+  death_link:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-enable_misc_locations: "Randomizes miscellaneous items (ashes, tomes, scrolls, etc.) to the pool. (+36 locations)"
-  enable_misc_locations:
+  sidneys_secret_documentation-enable_dlc: "Include DLC locations, items, and enemies in the randomized pools.\n\nTo use this option, you must own both the \"Ashes of Ariandel\" and the \"Ringed City\" DLCs."
+  enable_dlc:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-enable_health_upgrade_locations: "Randomizes health upgrade items. (+21 locations)"
-  enable_health_upgrade_locations:
+  sidneys_secret_documentation-enable_ngp: "Include items and locations exclusive to NG+ cycles."
+  enable_ngp:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-enable_progressive_locations: "Randomizes upgrade materials and consumables such as the titanite shards, firebombs, resin, etc...\n\nInstead of specific locations, these are progressive, so Titanite Shard #1 is the first titanite shard\nyou pick up, regardless of whether it's from an enemy drop late in the game or an item on the ground in the\nfirst 5 minutes."
-  enable_progressive_locations:
-    'false': 50
-    'true': 0
+  # Equipment
+  sidneys_secret_documentation-random_starting_loadout: "Randomizes the equipment characters begin with."
+  random_starting_loadout:
+    'false': 0
+    'true': 50
 
-  sidneys_secret_documentation-pool_type: "Changes which non-progression items you add to the pool\n\nShuffle: Items are picked from the locations being randomized\nVarious: Items are picked from a list of all items in the game, but are the same type of item they replace"
-  pool_type:
-    shuffle: 50
-    various: 0
-
-  sidneys_secret_documentation-guaranteed_items: "Guarantees that the specified items will be in the item pool"
-  guaranteed_items:
-    {}
+  sidneys_secret_documentation-require_one_handed_starting_weapons: "Require starting equipment to be usable one-handed."
+  require_one_handed_starting_weapons:
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-auto_equip: "Automatically equips any received armor or left/right weapons."
   auto_equip:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-lock_equip: "Lock the equipment slots so you cannot change your armor or your left/right weapons. Works great with the\nAuto-equip option."
+  sidneys_secret_documentation-lock_equip: "Lock the equipment slots so you cannot change your armor or your left/right weapons.\n\nWorks great with the Auto-equip option."
   lock_equip:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-no_weapon_requirements: "Disable the weapon requirements by removing any movement or damage penalties.\nPermitting you to use any weapon early"
+  sidneys_secret_documentation-no_equip_load: "Disable the equip load constraint from the game."
+  no_equip_load:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-no_weapon_requirements: "Disable the weapon requirements by removing any movement or damage penalties, permitting you\nto use any weapon early."
   no_weapon_requirements:
     'false': 50
     'true': 0
 
+  sidneys_secret_documentation-no_spell_requirements: "Disable the spell requirements permitting you to use any spell."
+  no_spell_requirements:
+    'false': 50
+    'true': 0
+
+  # Weapons
   sidneys_secret_documentation-randomize_infusion: "Enable this option to infuse a percentage of the pool of weapons and shields."
   randomize_infusion:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-randomize_infusion_percentage: "The percentage of weapons/shields in the pool to be infused if Randomize Infusion is toggled"
+  sidneys_secret_documentation-randomize_infusion_percentage: "The percentage of weapons/shields in the pool to be infused if Randomize Infusion is toggled."
   randomize_infusion_percentage:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     33: 50
     random: 0
     random-low: 0
     random-high: 0
+    sidneys_secret_notes-similar to base game: "equivalent to 2"
+    similar to base game: 0
 
-  sidneys_secret_documentation-randomize_weapon_level: "Enable this option to upgrade a percentage of the pool of weapons to a random value between the minimum and \nmaximum levels defined.\n\nAll: All weapons are eligible, both basic and epic\nBasic: Only weapons that can be upgraded to +10\nEpic: Only weapons that can be upgraded to +5"
+  sidneys_secret_documentation-randomize_weapon_level: "Enable this option to upgrade a percentage of the pool of weapons to a random value between\nthe minimum and maximum levels defined.\n\n- **All:** All weapons are eligible, both basic and epic\n- **Basic:** Only weapons that can be upgraded to +10\n- **Epic:** Only weapons that can be upgraded to +5"
   randomize_weapon_level:
     none: 50
     all: 0
     basic: 0
     epic: 0
 
-  sidneys_secret_documentation-randomize_weapon_level_percentage: "The percentage of weapons in the pool to be upgraded if randomize weapons level is toggled"
+  sidneys_secret_documentation-randomize_weapon_level_percentage: "The percentage of weapons in the pool to be upgraded if randomize weapons level is toggled."
   randomize_weapon_level_percentage:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     33: 50
@@ -168,9 +169,12 @@ Dark Souls III:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-min_levels_in_5: "The minimum upgraded value of a weapon in the pool of weapons that can only reach +5"
+  sidneys_secret_documentation-min_levels_in_5: "The minimum upgraded value of a weapon in the pool of weapons that can only reach +5."
   min_levels_in_5:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 5
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 5
     1: 50
@@ -178,9 +182,12 @@ Dark Souls III:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-max_levels_in_5: "The maximum upgraded value of a weapon in the pool of weapons that can only reach +5"
+  sidneys_secret_documentation-max_levels_in_5: "The maximum upgraded value of a weapon in the pool of weapons that can only reach +5."
   max_levels_in_5:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 5
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 5
     5: 50
@@ -188,9 +195,12 @@ Dark Souls III:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-min_levels_in_10: "The minimum upgraded value of a weapon in the pool of weapons that can reach +10"
+  sidneys_secret_documentation-min_levels_in_10: "The minimum upgraded value of a weapon in the pool of weapons that can reach +10."
   min_levels_in_10:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 10
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 10
     1: 50
@@ -198,9 +208,12 @@ Dark Souls III:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-max_levels_in_10: "The maximum upgraded value of a weapon in the pool of weapons that can reach +10"
+  sidneys_secret_documentation-max_levels_in_10: "The maximum upgraded value of a weapon in the pool of weapons that can reach +10."
   max_levels_in_10:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 10
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 10
     10: 50
@@ -208,43 +221,84 @@ Dark Souls III:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-early_banner: "This option makes it so the user can choose to force the Small Lothric Banner into an early sphere in their world or\ninto an early sphere across all worlds."
-  early_banner:
-    'off': 50
-    early_global: 0
-    early_local: 0
+  # Item Smoothing
+  sidneys_secret_documentation-smooth_soul_items: "Distribute soul items in a similar order as the base game.\n\nBy default, soul items will be distributed totally randomly. If this is set, less valuable soul\nitems will generally appear in earlier spheres and more valuable ones will generally appear\nlater."
+  smooth_soul_items:
+    'false': 0
+    'true': 50
 
-  sidneys_secret_documentation-late_basin_of_vows: "This option makes it so the Basin of Vows is still randomized, but guarantees you that you wont have to venture into\nLothric Castle to find your Small Lothric Banner to get out of High Wall of Lothric. So you may find Basin of Vows early, \nbut you wont have to fight Dancer to find your Small Lothric Banner."
-  late_basin_of_vows:
+  sidneys_secret_documentation-smooth_upgrade_items: "Distribute upgrade items in a similar order as the base game.\n\nBy default, upgrade items will be distributed totally randomly. If this is set, lower-level\nupgrade items will generally appear in earlier spheres and higher-level ones will generally\nappear later."
+  smooth_upgrade_items:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-smooth_upgraded_weapons: "Distribute upgraded weapons in a similar order as the base game.\n\nBy default, upgraded weapons will be distributed totally randomly. If this is set, lower-level\nweapons will generally appear in earlier spheres and higher-level ones will generally appear\nlater."
+  smooth_upgraded_weapons:
+    'false': 0
+    'true': 50
+
+  # Enemies
+  sidneys_secret_documentation-randomize_enemies: "Randomize enemy and boss placements."
+  randomize_enemies:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-simple_early_bosses: "Avoid replacing Iudex Gundyr and Vordt with late bosses.\n\nThis excludes all bosses after Dancer of the Boreal Valley from these two boss fights. Disable\nit for a chance at a much harder early game.\n\nThis is ignored unless enemies are randomized."
+  simple_early_bosses:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-scale_enemies: "Scale randomized enemy stats to match the areas in which they appear.\n\nDisabling this will tend to make the early game much more difficult and the late game much\neasier.\n\nThis is ignored unless enemies are randomized."
+  scale_enemies:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-randomize_mimics_with_enemies: "Mix Mimics into the main enemy pool.\n\nIf this is enabled, Mimics will be replaced by normal enemies who drop the Mimic rewards on\ndeath, and Mimics will be placed randomly in place of normal enemies. It's recommended to enable\nImpatient Mimics as well if you enable this.\n\nThis is ignored unless enemies are randomized."
+  randomize_mimics_with_enemies:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-late_dlc: "This option makes it so you are guaranteed to find your Small Doll without having to venture off into the DLC, \neffectively putting anything in the DLC in logic after finding both Contraption Key and Small Doll, \nand being able to get into Irithyll of the Boreal Valley."
-  late_dlc:
+  sidneys_secret_documentation-randomize_small_crystal_lizards_with_enemies: "Mix small Crystal Lizards into the main enemy pool.\n\nIf this is enabled, Crystal Lizards will be replaced by normal enemies who drop the Crystal\nLizard rewards on death, and Crystal Lizards will be placed randomly in place of normal enemies.\n\nThis is ignored unless enemies are randomized."
+  randomize_small_crystal_lizards_with_enemies:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-no_spell_requirements: "Disable the spell requirements permitting you to use any spell"
-  no_spell_requirements:
+  sidneys_secret_documentation-reduce_harmless_enemies: "Reduce the frequency that \"harmless\" enemies appear.\n\nEnable this to add a bit of extra challenge. This severely limits the number of enemies that are\nslow to aggro, slow to attack, and do very little damage that appear in the enemy pool.\n\nThis is ignored unless enemies are randomized."
+  reduce_harmless_enemies:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-no_equip_load: "Disable the equip load constraint from the game"
-  no_equip_load:
+  sidneys_secret_documentation-all_chests_are_mimics: "Replace all chests with mimics that drop the same items.\n\nIf \"Randomize Mimics With Enemies\" is set, these chests will instead be replaced with random\nenemies that drop the same items.\n\nThis is ignored unless enemies are randomized."
+  all_chests_are_mimics:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
-  death_link:
+  sidneys_secret_documentation-impatient_mimics: "Mimics attack as soon as you get close instead of waiting for you to open them.\n\nThis is ignored unless enemies are randomized."
+  impatient_mimics:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-enable_dlc: "To use this option, you must own both the ASHES OF ARIANDEL and the RINGED CITY DLC"
-  enable_dlc:
-    'false': 50
-    'true': 0
+  sidneys_secret_documentation-random_enemy_preset: "The YAML preset for the static enemy randomizer.\n\nSee the static randomizer documentation in `randomizer/presets/README.txt` for details.\nInclude this as nested YAML. For example:\n\n.. code-block:: YAML\n\n  random_enemy_preset:\n RemoveSource: Ancient Wyvern; Darkeater Midir\n DontRandomize: Iudex Gundyr"
+  random_enemy_preset:
+    {}
 
   # Item & Location Options
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item."
+  exclude_locations:
+    ['Small Souls', 'Small Crystal Lizards', 'Upgrade', 'Hidden', 'Miscellaneous']
+
+  sidneys_secret_documentation-excluded_location_behavior: "How to choose items for excluded locations in DS3.\n\n- **Allow Useful:** Excluded locations can't have progression items, but they can have useful\n  items.\n- **Forbid Useful:** Neither progression items nor useful items can be placed in excluded\n  locations.\n- **Do Not Randomize:** Excluded locations always contain the same item as in vanilla Dark Souls\n  III.\n\nA \"progression item\" is anything that's required to unlock another location in some game. A\n\"useful item\" is something each game defines individually, usually items that are quite\ndesirable but not strictly necessary."
+  excluded_location_behavior:
+    allow_useful: 0
+    forbid_useful: 50
+    do_not_randomize: 0
+
+  sidneys_secret_documentation-missable_location_behavior: "Which items can be placed in locations that can be permanently missed.\n\n- **Allow Useful:** Missable locations can't have progression items, but they can have useful\n  items.\n- **Forbid Useful:** Neither progression items nor useful items can be placed in missable\n  locations.\n- **Do Not Randomize:** Missable locations always contain the same item as in vanilla Dark Souls\n  III.\n\nA \"progression item\" is anything that's required to unlock another location in some game. A\n\"useful item\" is something each game defines individually, usually items that are quite\ndesirable but not strictly necessary."
+  missable_location_behavior:
+    allow_useful: 0
+    forbid_useful: 50
+    do_not_randomize: 0
+
   sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
   local_items:
     []
@@ -263,10 +317,6 @@ Dark Souls III:
 
   sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the ``!hint`` command."
   start_location_hints:
-    []
-
-  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item."
-  exclude_locations:
     []
 
   sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item."

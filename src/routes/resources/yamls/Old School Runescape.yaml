@@ -1,0 +1,571 @@
+﻿# Q. What is this file?
+# A. This file contains options which allow you to configure your multiworld experience while allowing
+#    others to play how they want as well.
+#
+# Q. How do I use it?
+# A. The options in this file are weighted. This means the higher number you assign to a value, the
+#    more chances you have for that option to be chosen. For example, an option like this:
+#
+#    map_shuffle:
+#      on: 5
+#      off: 15
+#
+#    Means you have 5 chances for map shuffle to occur, and 15 chances for map shuffle to be turned
+#    off.
+#
+# Q. I've never seen a file like this before. What characters am I allowed to use?
+# A. This is a .yaml file. You are allowed to use most characters.
+#    To test if your yaml is valid or not, you can use this website:
+#        http://www.yamllint.com/
+#    You can also verify that your Archipelago options are valid at this site:
+#        https://archipelago.gg/check
+
+# Your name in-game, limited to 16 characters.
+#     {player} will be replaced with the player's slot number.
+#     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
+#     {number} will be replaced with the counter value of the name.
+#     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
+name: Player{number}
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Default Old School Runescape Template
+
+game: Old School Runescape
+requires:
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
+
+Old School Runescape:
+  # Game Options
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  progression_balancing:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    sidneys_secret_notes-disabled: "equivalent to 0"
+    disabled: 0
+    sidneys_secret_notes-normal: "equivalent to 50"
+    normal: 50
+    sidneys_secret_notes-extreme: "equivalent to 99"
+    extreme: 0
+
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
+  accessibility:
+    full: 50
+    minimal: 0
+
+  sidneys_secret_documentation-starting_area: "Which chunks are available at the start. The player may need to move through locked chunks to reach the starting\narea, but any areas that require quests, skills, or coins are not available as a starting location.\n\n\"Any Bank\" rolls a random region that contains a bank.\nChunksanity can start you in any chunk. Hope you like woodcutting!"
+  starting_area:
+    lumbridge: 50
+    al_kharid: 0
+    varrock_east: 0
+    varrock_west: 0
+    edgeville: 0
+    falador: 0
+    draynor: 0
+    wilderness: 0
+    any_bank: 0
+    chunksanity: 0
+
+  sidneys_secret_documentation-brutal_grinds: "Whether to allow skill tasks without having reasonable access to the usual skill training path.\nFor example, if enabled, you could be forced to train smithing without an anvil purely by smelting bars,\nor training fishing to high levels entirely on shrimp."
+  brutal_grinds:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-progressive_tasks: "Whether skill tasks should always be generated in order of easiest to hardest.\nIf enabled, you would not be assigned \"Mine Gold\" without also being assigned\n\"Mine Silver\", \"Mine Coal\", and \"Mine Iron\". Enabling this will result in a generally shorter seed, but with\na lower variety of tasks."
+  progressive_tasks:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-max_combat_level: "The highest combat level of monster to possibly be assigned as a task.\nIf set to 0, no combat tasks will be generated."
+  max_combat_level:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 1520
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 1520
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_combat_tasks: "The maximum number of Combat Tasks to possibly be assigned.\nIf set to 0, no combat tasks will be generated.\nThis only determines the maximum possible, fewer than the maximum could be assigned."
+  max_combat_tasks:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 16
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 16
+    16: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-combat_task_weight: "How much to favor generating combat tasks over other types of task.\nWeights of all Task Types will be compared against each other, a task with 50 weight\nis twice as likely to appear as one with 25."
+  combat_task_weight:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_prayer_level: "The highest Prayer requirement of any task generated.\nIf set to 0, no Prayer tasks will be generated."
+  max_prayer_level:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_prayer_tasks: "The maximum number of Prayer Tasks to possibly be assigned.\nIf set to 0, no Prayer tasks will be generated.\nThis only determines the maximum possible, fewer than the maximum could be assigned."
+  max_prayer_tasks:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 3
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 3
+    3: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-prayer_task_weight: "How much to favor generating Prayer tasks over other types of task.\nWeights of all Task Types will be compared against each other, a task with 50 weight\nis twice as likely to appear as one with 25."
+  prayer_task_weight:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_magic_level: "The highest Magic requirement of any task generated.\nIf set to 0, no Magic tasks will be generated."
+  max_magic_level:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_magic_tasks: "The maximum number of Magic Tasks to possibly be assigned.\nIf set to 0, no Magic tasks will be generated.\nThis only determines the maximum possible, fewer than the maximum could be assigned."
+  max_magic_tasks:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 4
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 4
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-magic_task_weight: "How much to favor generating Magic tasks over other types of task.\nWeights of all Task Types will be compared against each other, a task with 50 weight\nis twice as likely to appear as one with 25."
+  magic_task_weight:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_runecraft_level: "The highest Runecraft requirement of any task generated.\nIf set to 0, no Runecraft tasks will be generated."
+  max_runecraft_level:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_runecraft_tasks: "The maximum number of Runecraft Tasks to possibly be assigned.\nIf set to 0, no Runecraft tasks will be generated.\nThis only determines the maximum possible, fewer than the maximum could be assigned."
+  max_runecraft_tasks:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 3
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 3
+    3: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-runecraft_task_weight: "How much to favor generating Runecraft tasks over other types of task.\nWeights of all Task Types will be compared against each other, a task with 50 weight\nis twice as likely to appear as one with 25."
+  runecraft_task_weight:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_crafting_level: "The highest Crafting requirement of any task generated.\nIf set to 0, no Crafting tasks will be generated."
+  max_crafting_level:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_crafting_tasks: "The maximum number of Crafting Tasks to possibly be assigned.\nIf set to 0, no Crafting tasks will be generated.\nThis only determines the maximum possible, fewer than the maximum could be assigned."
+  max_crafting_tasks:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 5
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 5
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-crafting_task_weight: "How much to favor generating Crafting tasks over other types of task.\nWeights of all Task Types will be compared against each other, a task with 50 weight\nis twice as likely to appear as one with 25."
+  crafting_task_weight:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_mining_level: "The highest Mining requirement of any task generated.\nIf set to 0, no Mining tasks will be generated."
+  max_mining_level:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_mining_tasks: "The maximum number of Mining Tasks to possibly be assigned.\nIf set to 0, no Mining tasks will be generated.\nThis only determines the maximum possible, fewer than the maximum could be assigned."
+  max_mining_tasks:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 5
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 5
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-mining_task_weight: "How much to favor generating Mining tasks over other types of task.\nWeights of all Task Types will be compared against each other, a task with 50 weight\nis twice as likely to appear as one with 25."
+  mining_task_weight:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_smithing_level: "The highest Smithing requirement of any task generated.\nIf set to 0, no Smithing tasks will be generated."
+  max_smithing_level:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_smithing_tasks: "The maximum number of Smithing Tasks to possibly be assigned.\nIf set to 0, no Smithing tasks will be generated.\nThis only determines the maximum possible, fewer than the maximum could be assigned."
+  max_smithing_tasks:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 4
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 4
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-smithing_task_weight: "How much to favor generating Smithing tasks over other types of task.\nWeights of all Task Types will be compared against each other, a task with 50 weight\nis twice as likely to appear as one with 25."
+  smithing_task_weight:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_fishing_level: "The highest Fishing requirement of any task generated.\nIf set to 0, no Fishing tasks will be generated."
+  max_fishing_level:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_fishing_tasks: "The maximum number of Fishing Tasks to possibly be assigned.\nIf set to 0, no Fishing tasks will be generated.\nThis only determines the maximum possible, fewer than the maximum could be assigned."
+  max_fishing_tasks:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 5
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 5
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-fishing_task_weight: "How much to favor generating Fishing tasks over other types of task.\nWeights of all Task Types will be compared against each other, a task with 50 weight\nis twice as likely to appear as one with 25."
+  fishing_task_weight:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_cooking_level: "The highest Cooking requirement of any task generated.\nIf set to 0, no Cooking tasks will be generated."
+  max_cooking_level:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_cooking_tasks: "The maximum number of Cooking Tasks to possibly be assigned.\nIf set to 0, no Cooking tasks will be generated.\nThis only determines the maximum possible, fewer than the maximum could be assigned."
+  max_cooking_tasks:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 5
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 5
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-cooking_task_weight: "How much to favor generating Cooking tasks over other types of task.\nWeights of all Task Types will be compared against each other, a task with 50 weight\nis twice as likely to appear as one with 25."
+  cooking_task_weight:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_firemaking_level: "The highest Firemaking requirement of any task generated.\nIf set to 0, no Firemaking tasks will be generated."
+  max_firemaking_level:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_firemaking_tasks: "The maximum number of Firemaking Tasks to possibly be assigned.\nIf set to 0, no Firemaking tasks will be generated.\nThis only determines the maximum possible, fewer than the maximum could be assigned."
+  max_firemaking_tasks:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 2
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 2
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-firemaking_task_weight: "How much to favor generating Firemaking tasks over other types of task.\nWeights of all Task Types will be compared against each other, a task with 50 weight\nis twice as likely to appear as one with 25."
+  firemaking_task_weight:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_woodcutting_level: "The highest Woodcutting requirement of any task generated.\nIf set to 0, no Woodcutting tasks will be generated."
+  max_woodcutting_level:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_woodcutting_tasks: "The maximum number of Woodcutting Tasks to possibly be assigned.\nIf set to 0, no Woodcutting tasks will be generated.\nThis only determines the maximum possible, fewer than the maximum could be assigned."
+  max_woodcutting_tasks:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 3
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 3
+    3: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-woodcutting_task_weight: "How much to favor generating Woodcutting tasks over other types of task.\nWeights of all Task Types will be compared against each other, a task with 50 weight\nis twice as likely to appear as one with 25."
+  woodcutting_task_weight:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-minimum_general_tasks: "How many guaranteed general progression tasks to be assigned (total level, total XP, etc.).\nGeneral progression tasks will be used to fill out any holes caused by having fewer possible tasks than needed, so\nthere is no maximum."
+  minimum_general_tasks:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 22
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 22
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-general_task_weight: "How much to favor generating General tasks over other types of task.\nWeights of all Task Types will be compared against each other, a task with 50 weight\nis twice as likely to appear as one with 25."
+  general_task_weight:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  # Item & Location Options
+  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
+  local_items:
+    []
+
+  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
+  non_local_items:
+    []
+
+  sidneys_secret_documentation-start_inventory: "Start with these items."
+  start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
+  start_hints:
+    []
+
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the ``!hint`` command."
+  start_location_hints:
+    []
+
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item."
+  exclude_locations:
+    []
+
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item."
+  priority_locations:
+    []
+
+  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
+  item_links:
+    []

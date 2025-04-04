@@ -32,13 +32,16 @@ description: Default Blasphemous Template
 
 game: Blasphemous
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Blasphemous:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,12 +54,55 @@ Blasphemous:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
+  sidneys_secret_documentation-difficulty: "Adjusts the overall difficulty of the randomizer, including upgrades required to defeat bosses and advanced movement tricks or glitches."
+  difficulty:
+    easy: 0
+    normal: 50
+    hard: 0
+
+  sidneys_secret_documentation-penitence: "Allows one of the three Penitences to be chosen at the beginning of the game."
+  penitence:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-starting_location: "Choose where to start the randomizer. Note that some starting locations cannot be chosen with certain other options.\n\nSpecifically, Brotherhood and Mourning And Havoc cannot be chosen if Shuffle Dash is enabled, and Grievance Ascends cannot be chosen if Shuffle Wall Climb is enabled."
+  starting_location:
+    brotherhood: 50
+    albero: 0
+    convent: 0
+    grievance: 0
+    knot_of_words: 0
+    rooftops: 0
+    mourning_havoc: 0
+
+  sidneys_secret_documentation-ending: "Choose which ending is required to complete the game.\n\nTalking to Tirso in Albero will tell you the selected ending for the current game.\n\nEnding A: Collect all thorn upgrades.\n\nEnding C: Collect all thorn upgrades and the Holy Wound of Abnegation."
+  ending:
+    any_ending: 50
+    ending_a: 0
+    ending_c: 0
+
+  sidneys_secret_documentation-thorn_shuffle: "Shuffles the Thorn given by Deogracias and all Thorn upgrades into the item pool."
+  thorn_shuffle:
+    anywhere: 50
+    local_only: 0
+    vanilla: 0
+
+  sidneys_secret_documentation-reliquary_shuffle: "Adds the True Torment exclusive Reliquary rosary beads into the item pool."
+  reliquary_shuffle:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-death_link: "When you die, everyone dies. The reverse is also true.\n\nNote that Guilt Fragments will not appear when killed by Death Link."
+  death_link:
+    'false': 50
+    'true': 0
+
+  # Quality of Life
   sidneys_secret_documentation-prie_dieu_warp: "Automatically unlocks the ability to warp between Prie Dieu shrines."
   prie_dieu_warp:
     'false': 0
@@ -72,44 +118,17 @@ Blasphemous:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-difficulty: "Adjusts the overall difficulty of the randomizer, including upgrades required to defeat bosses \nand advanced movement tricks or glitches."
-  difficulty:
-    easy: 0
-    normal: 50
-    hard: 0
-
-  sidneys_secret_documentation-penitence: "Allows one of the three Penitences to be chosen at the beginning of the game."
-  penitence:
-    'false': 50
-    'true': 0
-
-  sidneys_secret_documentation-starting_location: "Choose where to start the randomizer. Note that some starting locations cannot be chosen with certain \nother options.\nSpecifically, Brotherhood and Mourning And Havoc cannot be chosen if Shuffle Dash is enabled, and Grievance Ascends \ncannot be chosen if Shuffle Wall Climb is enabled."
-  starting_location:
-    brotherhood: 50
-    albero: 0
-    convent: 0
-    grievance: 0
-    knot_of_words: 0
-    rooftops: 0
-    mourning_havoc: 0
-
-  sidneys_secret_documentation-ending: "Choose which ending is required to complete the game.\nTalking to Tirso in Albero will tell you the selected ending for the current game.\nEnding A: Collect all thorn upgrades.\nEnding C: Collect all thorn upgrades and the Holy Wound of Abnegation."
-  ending:
-    any_ending: 50
-    ending_a: 0
-    ending_c: 0
-
-  sidneys_secret_documentation-skip_long_quests: "Ensures that the rewards for long quests will be filler items.\nAffected locations: \"Albero: Donate 50000 Tears\", \"Ossuary: 11th reward\", \"AtTotS: Miriam's gift\", \n\"TSC: Jocinero's final reward\""
+  sidneys_secret_documentation-skip_long_quests: "Ensures that the rewards for long quests will be filler items.\n\nAffected locations: \"Albero: Donate 50000 Tears\", \"Ossuary: 11th reward\", \"AtTotS: Miriam's gift\", \"TSC: Jocinero's final reward\""
   skip_long_quests:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-thorn_shuffle: "Shuffles the Thorn given by Deogracias and all Thorn upgrades into the item pool."
-  thorn_shuffle:
-    anywhere: 50
-    local_only: 0
-    vanilla: 0
+  sidneys_secret_documentation-start_wheel: "Changes the beginning gift to The Young Mason's Wheel."
+  start_wheel:
+    'false': 50
+    'true': 0
 
+  # Moveset
   sidneys_secret_documentation-dash_shuffle: "Turns the ability to dash into an item that must be found in the multiworld."
   dash_shuffle:
     'false': 50
@@ -120,51 +139,37 @@ Blasphemous:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-reliquary_shuffle: "Adds the True Torment exclusive Reliquary rosary beads into the item pool."
-  reliquary_shuffle:
-    'false': 0
-    'true': 50
-
-  sidneys_secret_documentation-boots_of_pleading: "Adds the custom relic Boots of Pleading into the item pool, which grants the ability to fall onto spikes \nand survive.\nMust have the \"Blasphemous-Boots-of-Pleading\" mod installed to connect to a multiworld."
-  boots_of_pleading:
-    'false': 50
-    'true': 0
-
-  sidneys_secret_documentation-purified_hand: "Adds the custom relic Purified Hand of the Nun into the item pool, which grants the ability to jump \na second time in mid-air.\nMust have the \"Blasphemous-Double-Jump\" mod installed to connect to a multiworld."
-  purified_hand:
-    'false': 50
-    'true': 0
-
-  sidneys_secret_documentation-start_wheel: "Changes the beginning gift to The Young Mason's Wheel."
-  start_wheel:
-    'false': 50
-    'true': 0
-
   sidneys_secret_documentation-skill_randomizer: "Randomizes the abilities from the skill tree into the item pool."
   skill_randomizer:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-enemy_randomizer: "Randomizes the enemies that appear in each room.\nShuffled: Enemies will be shuffled amongst each other, but can only appear as many times as they do in \na standard game.\nRandomized: Every enemy is completely random, and can appear any number of times.\nSome enemies will never be randomized."
+  sidneys_secret_documentation-boots_of_pleading: "Adds the custom relic Boots of Pleading into the item pool, which grants the ability to fall onto spikes and survive.\n\nMust have the \"Boots of Pleading\" mod installed to connect to a multiworld."
+  boots_of_pleading:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-purified_hand: "Adds the custom relic Purified Hand of the Nun into the item pool, which grants the ability to jump a second time in mid-air.\n\nMust have the \"Double Jump\" mod installed to connect to a multiworld."
+  purified_hand:
+    'false': 50
+    'true': 0
+
+  # Enemy Randomizer
+  sidneys_secret_documentation-enemy_randomizer: "Randomizes the enemies that appear in each room.\n\nShuffled: Enemies will be shuffled amongst each other, but can only appear as many times as they do in a standard game.\n\nRandomized: Every enemy is completely random, and can appear any number of times.\n\nSome enemies will never be randomized."
   enemy_randomizer:
     disabled: 50
     shuffled: 0
     randomized: 0
 
-  sidneys_secret_documentation-enemy_groups: "Randomized enemies will chosen from sets of specific groups. \n(Weak, normal, large, flying)\nHas no effect if Enemy Randomizer is disabled."
+  sidneys_secret_documentation-enemy_groups: "Randomized enemies will be chosen from sets of specific groups. \n\n(Weak, normal, large, flying)\n\nHas no effect if Enemy Randomizer is disabled."
   enemy_groups:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-enemy_scaling: "Randomized enemies will have their stats increased or decreased depending on the area they appear in.\nHas no effect if Enemy Randomizer is disabled."
+  sidneys_secret_documentation-enemy_scaling: "Randomized enemies will have their stats increased or decreased depending on the area they appear in.\n\nHas no effect if Enemy Randomizer is disabled."
   enemy_scaling:
     'false': 0
     'true': 50
-
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. The reverse is also true.\nNote that Guilt Fragments will not appear when killed by Death Link."
-  death_link:
-    'false': 50
-    'true': 0
 
   # Item & Location Options
   sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
@@ -175,8 +180,12 @@ Blasphemous:
   non_local_items:
     []
 
-  sidneys_secret_documentation-start_inventory: "Start with these items and don't place them in the world.\n\nThe game decides what the replacement items will be."
+  sidneys_secret_documentation-start_inventory: "Start with these items."
   start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\n\nThe game decides what the replacement items will be."
+  start_inventory_from_pool:
     {}
 
   sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."

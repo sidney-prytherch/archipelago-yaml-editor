@@ -32,13 +32,16 @@ description: Default Super Mario World Template
 
 game: Super Mario World
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Super Mario World:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,13 +54,12 @@ Super Mario World:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
+  sidneys_secret_documentation-death_link: "When you die, everyone who enabled death link dies. Of course, the reverse is true too."
   death_link:
     'false': 50
     'true': 0
@@ -76,6 +78,9 @@ Super Mario World:
   sidneys_secret_documentation-bosses_required: "How many Bosses (Koopalings or Reznor) must be defeated in order to defeat Bowser"
   bosses_required:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 11
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 11
     7: 50
@@ -86,6 +91,9 @@ Super Mario World:
   sidneys_secret_documentation-max_yoshi_egg_cap: "Maximum possible number of Yoshi Eggs that will be in the item pool\n\nIf fewer available locations exist in the pool than this number, the number of available locations will be used instead.\n\nRequired Percentage of Yoshi Eggs will be calculated based off of that number."
   max_yoshi_egg_cap:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 255
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 255
     50: 50
@@ -96,6 +104,9 @@ Super Mario World:
   sidneys_secret_documentation-percentage_of_yoshi_eggs: "What Percentage of Yoshi Eggs are required to finish Yoshi Egg Hunt"
   percentage_of_yoshi_eggs:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 100
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 100
     100: 50
@@ -130,6 +141,16 @@ Super Mario World:
     'true': 0
 
   # Level Shuffling
+  sidneys_secret_documentation-level_shuffle: "Whether levels are shuffled"
+  level_shuffle:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-exclude_special_zone: "If active, this option will prevent any progression items from being placed in Special Zone levels.\n\nAdditionally, if Level Shuffle is active, Special Zone levels will not be shuffled away from their vanilla tiles."
+  exclude_special_zone:
+    'false': 50
+    'true': 0
+
   sidneys_secret_documentation-bowser_castle_doors: "How the doors of Bowser's Castle behave\n\nVanilla: Front and Back Doors behave as vanilla\n\nFast: Both doors behave as the Back Door\n\nSlow: Both doors behave as the Front Door\n\n\"Front Door\" rooms depend on the `bowser_castle_rooms` option\n\n\"Back Door\" only requires going through the dark hallway to Bowser"
   bowser_castle_doors:
     vanilla: 50
@@ -143,16 +164,6 @@ Super Mario World:
     random_five_room: 0
     gauntlet: 0
     labyrinth: 0
-
-  sidneys_secret_documentation-level_shuffle: "Whether levels are shuffled"
-  level_shuffle:
-    'false': 50
-    'true': 0
-
-  sidneys_secret_documentation-exclude_special_zone: "If active, this option will prevent any progression items from being placed in Special Zone levels.\n\nAdditionally, if Level Shuffle is active, Special Zone levels will not be shuffled away from their vanilla tiles."
-  exclude_special_zone:
-    'false': 50
-    'true': 0
 
   sidneys_secret_documentation-boss_shuffle: "How bosses are shuffled\n\nNone: Bosses are not shuffled\n\nSimple: Four Reznors and the seven Koopalings are shuffled around\n\nFull: Each boss location gets a fully random boss\n\nSingularity: One or two bosses are chosen and placed at every boss location"
   boss_shuffle:
@@ -170,6 +181,9 @@ Super Mario World:
   sidneys_secret_documentation-junk_fill_percentage: "Replace a percentage of non-required Yoshi Eggs in the item pool with random junk items (only applicable on Yoshi Egg Hunt goal)"
   junk_fill_percentage:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     0: 50
@@ -180,6 +194,9 @@ Super Mario World:
   sidneys_secret_documentation-trap_fill_percentage: "Replace a percentage of junk items in the item pool with random traps"
   trap_fill_percentage:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     0: 50
@@ -287,6 +304,9 @@ Super Mario World:
   sidneys_secret_documentation-starting_life_count: "How many extra lives to start the game with"
   starting_life_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 99
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 99
     5: 50

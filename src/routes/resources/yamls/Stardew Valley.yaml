@@ -32,11 +32,11 @@ description: Default Stardew Valley Template
 
 game: Stardew Valley
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Stardew Valley:
   # General
-  sidneys_secret_documentation-goal: "Goal for this playthrough\nCommunity Center: Complete the Community Center\nGrandpa's Evaluation: 4 lit candles in Grandpa's evaluation\nBottom of the Mines: Reach level 120 in the mines\nCryptic Note: Complete the quest \"Cryptic Note\" (Skull Cavern Floor 100)\nMaster Angler: Catch every fish. Adapts to Fishsanity\nComplete Collection: Complete the museum collection\nFull House: Get married and have 2 children\nGreatest Walnut Hunter: Find 130 Golden Walnuts\nProtector of the Valley: Complete the monster slayer goals. Adapts to Monstersanity\nFull Shipment: Ship every item. Adapts to Shipsanity\nGourmet Chef: Cook every recipe. Adapts to Cooksanity\nCraft Master: Craft every item\nLegend: Earn 10 000 000g\nMystery of the Stardrops: Find every stardrop\nAllsanity: Complete every check in your slot\nPerfection: Attain Perfection"
+  sidneys_secret_documentation-goal: "Goal for this playthrough\nCommunity Center: Complete the Community Center\nGrandpa's Evaluation: 4 lit candles in Grandpa's evaluation\nBottom of the Mines: Reach level 120 in the mines\nCryptic Note: Complete the quest \"Cryptic Note\" (Skull Cavern Floor 100)\nMaster Angler: Catch every fish. Adapts to Fishsanity\nComplete Collection: Complete the museum collection\nFull House: Get married and have 2 children\nGreatest Walnut Hunter: Find 130 Golden Walnuts. Pairs well with Walnutsanity\nProtector of the Valley: Complete the monster slayer goals. Adapts to Monstersanity\nFull Shipment: Ship every item. Adapts to Shipsanity\nGourmet Chef: Cook every recipe. Adapts to Cooksanity\nCraft Master: Craft every item\nLegend: Earn 10 000 000g\nMystery of the Stardrops: Find every stardrop\nAllsanity: Complete every check in your slot\nPerfection: Attain Perfection"
   goal:
     community_center: 50
     grandpa_evaluation: 0
@@ -55,7 +55,7 @@ Stardew Valley:
     allsanity: 0
     perfection: 0
 
-  sidneys_secret_documentation-farm_type: "What farm to play on?"
+  sidneys_secret_documentation-farm_type: "What farm to play on?\nCustom farms are not supported"
   farm_type:
     standard: 0
     riverland: 0
@@ -64,13 +64,15 @@ Stardew Valley:
     wilderness: 0
     four_corners: 0
     beach: 0
+    meadowlands: 0
     random: 50
 
-  sidneys_secret_documentation-bundle_randomization: "What items are needed for the community center bundles?\nVanilla: Standard bundles from the vanilla game\nThematic: Every bundle will require random items compatible with their original theme\nRemixed: Picks bundles at random from thematic, vanilla remixed and new custom ones\nShuffled: Every bundle will require random items and follow no particular structure"
+  sidneys_secret_documentation-bundle_randomization: "What items are needed for the community center bundles?\nVanilla: Standard bundles from the vanilla game\nThematic: Every bundle will require random items compatible with their original theme\nRemixed: Picks bundles at random from thematic, vanilla remixed and new custom ones\nRemixed Anywhere: Remixed, but bundles are not locked to specific rooms.\nShuffled: Every bundle will require random items and follow no particular structure"
   bundle_randomization:
     vanilla: 0
     thematic: 0
     remixed: 50
+    remixed_anywhere: 0
     shuffled: 0
 
   sidneys_secret_documentation-bundle_price: "How many items are needed for the community center bundles?\nMinimum: Every bundle will require only one item\nVery Cheap: Every bundle will require 2 items fewer than usual\nCheap: Every bundle will require 1 item fewer than usual\nNormal: Every bundle will require the vanilla number of items\nExpensive: Every bundle will require 1 extra item\nVery Expensive: Every bundle will require 2 extra items\nMaximum: Every bundle will require many extra items"
@@ -83,15 +85,16 @@ Stardew Valley:
     very_expensive: 0
     maximum: 0
 
-  sidneys_secret_documentation-entrance_randomization: "Should area entrances be randomized?\nDisabled: No entrance randomization is done\nPelican Town: Only doors in the main town area are randomized with each other\nNon Progression: Only entrances that are always available are randomized with each other\nBuildings: All entrances that allow you to enter a building are randomized with each other\nChaos: Same as \"Buildings\", but the entrances get reshuffled every single day!"
+  sidneys_secret_documentation-entrance_randomization: "Should area entrances be randomized?\nDisabled: No entrance randomization is done\nPelican Town: Only doors in the main town area are randomized with each other\nNon Progression: Only entrances that are always available are randomized with each other\nBuildings: All entrances that allow you to enter a building are randomized with each other\nBuildings Without House: Buildings, but excluding the farmhouse\nChaos: Same as \"Buildings\", but the entrances get reshuffled every single day!"
   entrance_randomization:
     disabled: 50
     pelican_town: 0
     non_progression: 0
+    buildings_without_house: 0
     buildings: 0
     chaos: 0
 
-  sidneys_secret_documentation-exclude_ginger_island: "Exclude Ginger Island?\nThis option will forcefully exclude everything related to Ginger Island from the slot.\nIf you pick a goal that requires Ginger Island, you cannot exclude it and it will get included anyway"
+  sidneys_secret_documentation-exclude_ginger_island: "Exclude Ginger Island?\nThis option will forcefully exclude everything related to Ginger Island from the slot.\nIf you pick a goal that requires Ginger Island, this option will get forced to 'false'"
   exclude_ginger_island:
     'false': 50
     'true': 0
@@ -104,7 +107,7 @@ Stardew Valley:
     randomized_not_winter: 0
     progressive: 0
 
-  sidneys_secret_documentation-cropsanity: "Formerly named \"Seed Shuffle\"\nPierre now sells a random amount of seasonal seeds and Joja sells them without season requirements, but only in huge packs.\nDisabled: All the seeds are unlocked from the start, there are no location checks for growing and harvesting crops\nEnabled: Seeds are unlocked as archipelago items, for each seed there is a location check for growing and harvesting that crop"
+  sidneys_secret_documentation-cropsanity: "Pierre now sells a random amount of seasonal seeds and Joja sells them without season requirements, but only in huge packs.\nDisabled: All the seeds are unlocked from the start, there are no location checks for growing and harvesting crops\nEnabled: Seeds are unlocked as archipelago items, for each seed there is a location check for growing and harvesting that crop"
   cropsanity:
     disabled: 0
     enabled: 50
@@ -115,7 +118,7 @@ Stardew Valley:
     progressive: 0
     early_progressive: 50
 
-  sidneys_secret_documentation-tool_progression: "Shuffle the tool upgrades?\nVanilla: Clint will upgrade your tools with metal bars.\nProgressive: You will randomly find Progressive Tool upgrades.\nCheap: Tool Upgrades will cost 2/5th as much\nVery Cheap: Tool Upgrades will cost 1/5th as much"
+  sidneys_secret_documentation-tool_progression: "Shuffle the tool upgrades?\nVanilla: Clint will upgrade your tools with metal bars.\nProgressive: Your tools upgrades are randomized.\nCheap: Tool Upgrades have a 60% discount\nVery Cheap: Tool Upgrades have an 80% discount"
   tool_progression:
     vanilla: 0
     progressive: 50
@@ -124,12 +127,19 @@ Stardew Valley:
     progressive_cheap: 0
     progressive_very_cheap: 0
 
-  sidneys_secret_documentation-skill_progression: "Shuffle skill levels?\nVanilla: Leveling up skills is normal\nProgressive: Skill levels are unlocked randomly, and earning xp sends checks"
+  sidneys_secret_documentation-elevator_progression: "Shuffle the elevator?\nVanilla: Reaching a mineshaft floor unlocks the elevator for it\nProgressive: You will randomly find Progressive Mine Elevators to go deeper.\nProgressive from previous floor: Same as progressive, but you cannot use the elevator to check elevator locations.\n You must reach elevator floors on your own."
+  elevator_progression:
+    vanilla: 0
+    progressive: 0
+    progressive_from_previous_floor: 50
+
+  sidneys_secret_documentation-skill_progression: "Shuffle skill levels?\nVanilla: Leveling up skills is normal\nProgressive: Skill levels are unlocked randomly, and earning xp sends checks. Masteries are excluded\nWith Masteries: Skill levels are unlocked randomly, and earning xp sends checks. Masteries are included"
   skill_progression:
     vanilla: 0
-    progressive: 50
+    progressive: 0
+    progressive_with_masteries: 50
 
-  sidneys_secret_documentation-building_progression: "Shuffle Carpenter Buildings?\nVanilla: You can buy each building normally.\nProgressive: You will receive the buildings and will be able to build the first one of each type for free,\n once it is received. If you want more of the same building, it will cost the vanilla price.\nCheap: Buildings will cost half as much\nVery Cheap: Buildings will cost 1/5th as much"
+  sidneys_secret_documentation-building_progression: "Shuffle Carpenter Buildings?\nVanilla: You can buy each building normally.\nProgressive: You will receive the buildings and will be able to build the first one of each type for free,\n once it is received. If you want more of the same building, it will cost the vanilla price.\nCheap: Buildings will have a 50% discount\nVery Cheap: Buildings will an 80% discount"
   building_progression:
     vanilla: 0
     vanilla_cheap: 0
@@ -137,12 +147,6 @@ Stardew Valley:
     progressive: 0
     progressive_cheap: 50
     progressive_very_cheap: 0
-
-  sidneys_secret_documentation-elevator_progression: "Shuffle the elevator?\nVanilla: Reaching a mineshaft floor unlocks the elevator for it\nProgressive: You will randomly find Progressive Mine Elevators to go deeper.\nProgressive from previous floor: Same as progressive, but you cannot use the elevator to check elevator locations.\n You must reach elevator floors on your own."
-  elevator_progression:
-    vanilla: 0
-    progressive: 0
-    progressive_from_previous_floor: 50
 
   # Extra Shuffling
   sidneys_secret_documentation-festival_locations: "Shuffle Festival Activities?\nDisabled: You do not need to attend festivals\nEasy: Every festival has checks, but they are easy and usually only require attendance\nHard: Festivals have more checks, and many require performing well, not just attending"
@@ -158,15 +162,24 @@ Stardew Valley:
     victories_easy: 0
     full_shuffling: 50
 
-  sidneys_secret_documentation-special_order_locations: "Shuffle Special Orders?\nDisabled: The special orders are not included in the Archipelago shuffling.\nBoard Only: The Special Orders on the board in town are location checks\nBoard and Qi: The Special Orders from Mr Qi's walnut room are checks, in addition to the board in town"
+  sidneys_secret_documentation-special_order_locations: "Shuffle Special Orders?\nVanilla: The special orders are not included in the Archipelago shuffling. You may need to complete some of them anyway for their vanilla rewards\nBoard Only: The Special Orders on the board in town are location checks\nBoard and Qi: The Special Orders from Mr Qi's walnut room are checks, in addition to the board in town\nShort: All Special Order requirements are reduced by 40%\nVery Short: All Special Order requirements are reduced by 80%"
   special_order_locations:
-    disabled: 0
-    board_only: 50
+    vanilla: 0
+    board: 0
     board_qi: 0
+    vanilla_short: 0
+    board_short: 50
+    board_qi_short: 0
+    vanilla_very_short: 0
+    board_very_short: 0
+    board_qi_very_short: 0
 
   sidneys_secret_documentation-quest_locations: "Include location checks for quests\nNone: No quests are checks\nStory: Only story quests are checks\nNumber: Story quests and help wanted quests are checks up to the specified amount. Multiple of 7 recommended\nOut of every 7 help wanted quests, 4 will be item deliveries, and then 1 of each for: Fishing, Gathering and Slaying Monsters.\nExtra Help wanted quests might be added if current settings don't have enough locations"
   quest_locations:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 56
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 56
     random: 0
@@ -185,7 +198,7 @@ Stardew Valley:
     sidneys_secret_notes-maximum: "equivalent to 56"
     maximum: 0
 
-  sidneys_secret_documentation-fishsanity: "Locations for catching a fish the first time?\nNone: There are no locations for catching fish\nLegendaries: Each of the 5 legendary fish are checks, plus the extended family if qi board is turned on\nSpecial: A curated selection of strong fish are checks\nRandomized: A random selection of fish are checks\nAll: Every single fish in the game is a location that contains an item. Pairs well with the Master Angler Goal\nExclude Legendaries: Every fish except legendaries\nExclude Hard Fish: Every fish under difficulty 80\nOnly Easy Fish: Every fish under difficulty 50"
+  sidneys_secret_documentation-fishsanity: "Locations for catching each fish the first time?\nNone: There are no locations for catching fish\nLegendaries: Each of the 5 legendary fish are checks, plus the extended family if qi board is turned on\nSpecial: A curated selection of strong fish are checks\nRandomized: A random selection of fish are checks\nAll: Every single fish in the game is a location that contains an item.\nExclude Legendaries: Every fish except legendaries\nExclude Hard Fish: Every fish under difficulty 80\nOnly Easy Fish: Every fish under difficulty 50"
   fishsanity:
     none: 50
     legendaries: 0
@@ -202,6 +215,27 @@ Stardew Valley:
     milestones: 50
     randomized: 0
     all: 0
+
+  sidneys_secret_documentation-friendsanity: "Shuffle Friendships?\nNone: Friendship hearts are earned normally\nBachelors: Hearts with bachelors are shuffled\nStarting NPCs: Hearts for NPCs available immediately are shuffled\nAll: Hearts for all npcs are shuffled, including Leo, Kent, Sandy, etc\nAll With Marriage: All hearts for all npcs are shuffled, including romance hearts up to 14 when applicable"
+  friendsanity:
+    none: 50
+    bachelors: 0
+    starting_npcs: 0
+    all: 0
+    all_with_marriage: 0
+
+  sidneys_secret_documentation-friendsanity_heart_size: "If using friendsanity, how many hearts are received per heart item, and how many hearts must be earned to send a check\nA higher value will lead to fewer heart items in the item pool, reducing bloat"
+  friendsanity_heart_size:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 8
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 8
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
 
   sidneys_secret_documentation-monstersanity: "Locations for slaying monsters?\nNone: There are no checks for slaying monsters\nOne per category: Every category visible at the adventure guild gives one check\nOne per Monster: Every unique monster gives one check\nMonster Eradication Goals: The Monster Eradication Goals each contain one check\nShort Monster Eradication Goals: The Monster Eradication Goals each contain one check, but are reduced by 60%\nVery Short Monster Eradication Goals: The Monster Eradication Goals each contain one check, but are reduced by 90%\nProgressive Eradication Goals: The Monster Eradication Goals each contain 5 checks, each 20% of the way\nSplit Eradication Goals: The Monster Eradication Goals are split by monsters, each monster has one check"
   monstersanity:
@@ -232,6 +266,9 @@ Stardew Valley:
   sidneys_secret_documentation-chefsanity: "Locations for learning cooking recipes?\nVanilla: All cooking recipes are learned normally\nQueen of Sauce: Every Queen of sauce episode is a check, all queen of sauce recipes are items\nPurchases: Every purchasable recipe is a check\nFriendship: Recipes obtained from friendship are checks\nSkills: Recipes obtained from skills are checks\nAll: Learning every cooking recipe is a check"
   chefsanity:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 15
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 15
     random: 0
@@ -252,38 +289,29 @@ Stardew Valley:
     sidneys_secret_notes-all: "equivalent to 15"
     all: 0
 
-  sidneys_secret_documentation-craftsanity: "Checks for crafting items?\nIf enabled, all recipes purchased in shops will be checks as well.\nRecipes obtained from other sources will depend on related archipelago settings"
+  sidneys_secret_documentation-craftsanity: "Checks for crafting items?\nIf enabled, all recipes purchased in shops will be checks as well.\nRecipes obtained from other sources will depend on their respective archipelago settings"
   craftsanity:
     none: 50
     all: 0
 
-  sidneys_secret_documentation-friendsanity: "Shuffle Friendships?\nNone: Friendship hearts are earned normally\nBachelors: Hearts with bachelors are shuffled\nStarting NPCs: Hearts for NPCs available immediately are checks\nAll: Hearts for all npcs are checks, including Leo, Kent, Sandy, etc\nAll With Marriage: Hearts for all npcs are checks, including romance hearts up to 14 when applicable"
-  friendsanity:
-    none: 50
-    bachelors: 0
-    starting_npcs: 0
+  sidneys_secret_documentation-booksanity: "Shuffle Books?\nNone: All books behave like vanilla\nPower: Power books are turned into checks\nPower and Skill: Power and skill books are turned into checks.\nAll: Lost books are also included in the shuffling"
+  booksanity:
+    none: 0
+    power: 0
+    power_skill: 50
     all: 0
-    all_with_marriage: 0
 
-  sidneys_secret_documentation-friendsanity_heart_size: "If using friendsanity, how many hearts are received per heart item, and how many hearts must be earned to send a check\nA higher value will lead to fewer heart items in the item pool, reducing bloat"
-  friendsanity_heart_size:
-    #
-    sidneys_secret_range_start: 1
-    sidneys_secret_range_end: 8
-    4: 50
-    random: 0
-    random-low: 0
-    random-high: 0
+  sidneys_secret_documentation-walnutsanity: "Shuffle walnuts?\nPuzzles: Walnuts obtained from solving a special puzzle or winning a minigame\nBushes: Walnuts that are in a bush and can be collected by clicking it\nDig Spots: Walnuts that are underground and must be digged up. Includes Journal scrap walnuts\nRepeatables: Random chance walnuts from normal actions (fishing, farming, combat, etc)"
+  walnutsanity:
+    []
 
   # Multipliers and Buffs
-  sidneys_secret_documentation-quick_start: "Do you want the quick start package? You will get a few items to help early game automation,\nso you can use the multiple day sleep at its maximum."
-  quick_start:
-    'false': 0
-    'true': 50
-
   sidneys_secret_documentation-starting_money: "Amount of gold when arriving at the farm.\nSet to -1 or unlimited for infinite money"
   starting_money:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 50000
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 50000
     random: 0
@@ -305,6 +333,9 @@ Stardew Valley:
   sidneys_secret_documentation-profit_margin: "Multiplier over all gold earned in-game by the player."
   profit_margin:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 25
+    # Maximum value is 400
     sidneys_secret_range_start: 25
     sidneys_secret_range_end: 400
     random: 0
@@ -326,6 +357,9 @@ Stardew Valley:
   sidneys_secret_documentation-experience_multiplier: "How fast you want to earn skill experience.\nA lower setting mean less experience.\nA higher setting means more experience."
   experience_multiplier:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 25
+    # Maximum value is 800
     sidneys_secret_range_start: 25
     sidneys_secret_range_end: 800
     random: 0
@@ -345,6 +379,9 @@ Stardew Valley:
   sidneys_secret_documentation-friendship_multiplier: "How fast you want to earn friendship points with villagers.\nA lower setting mean less friendship per action.\nA higher setting means more friendship per action."
   friendship_multiplier:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 25
+    # Maximum value is 800
     sidneys_secret_range_start: 25
     sidneys_secret_range_end: 800
     random: 0
@@ -372,6 +409,9 @@ Stardew Valley:
   sidneys_secret_documentation-movement_buff_number: "Number of movement speed buffs to the player that exist as items in the pool.\nEach movement speed buff is a +25% multiplier that stacks additively"
   movement_buff_number:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 12
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 12
     4: 50
@@ -379,15 +419,9 @@ Stardew Valley:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-luck_buff_number: "Number of luck buffs to the player that exist as items in the pool.\nEach luck buff is a bonus to daily luck of 0.025"
-  luck_buff_number:
-    #
-    sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 12
-    4: 50
-    random: 0
-    random-low: 0
-    random-high: 0
+  sidneys_secret_documentation-enabled_filler_buffs: "Enable various permanent player buffs to roll as filler items\nLuck: Increased daily luck\nDamage: Increased Damage %\nDefense: Increased Defense\nImmunity: Increased Immunity\nHealth: Increased Max Health\nEnergy: Increased Max Energy\nBite Rate: Shorter delay to get a bite when fishing\nFish Trap: Effect similar to the Trap Bobber, but weaker\nFishing Bar Size: Increased Fishing Bar Size"
+  enabled_filler_buffs:
+    ['Bite Rate', 'Defense', 'Luck']
 
   sidneys_secret_documentation-trap_items: "When rolling filler items, including resource packs, the game can also roll trap items.\nTrap items are negative items that cause problems or annoyances for the player\nThis setting is for choosing if traps will be in the item pool, and if so, how punishing they will be."
   trap_items:
@@ -406,6 +440,9 @@ Stardew Valley:
   sidneys_secret_documentation-multiple_day_sleep_cost: "How much gold it will cost to use MultiSleep. You will have to pay that amount for each day skipped."
   multiple_day_sleep_cost:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 200
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 200
     random: 0
@@ -422,10 +459,36 @@ Stardew Valley:
     sidneys_secret_notes-very expensive: "equivalent to 100"
     very expensive: 0
 
+  sidneys_secret_documentation-quick_start: "Do you want the quick start package? You will get a few items to help early game automation,\nso you can use the multiple day sleep at its maximum."
+  quick_start:
+    'false': 0
+    'true': 50
+
   # Advanced Options
+  sidneys_secret_documentation-gifting: "Do you want to enable gifting items to and from other Archipelago slots?\nItems can only be sent to games that also support gifting"
+  gifting:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-death_link: "When you die, everyone who enabled death link dies. Of course, the reverse is true too."
+  death_link:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-mods: "List of mods that will be included in the shuffling."
+  mods:
+    []
+
+  sidneys_secret_documentation-bundle_plando: "If using Remixed bundles, this guarantees some of them will show up in your community center.\nIf more bundles are specified than what fits in their parent room, that room will randomly pick from only the plando ones"
+  bundle_plando:
+    []
+
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -438,25 +501,10 @@ Stardew Valley:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
-
-  sidneys_secret_documentation-gifting: "Do you want to enable gifting items to and from other Archipelago slots?\nItems can only be sent to games that also support gifting"
-  gifting:
-    'false': 0
-    'true': 50
-
-  sidneys_secret_documentation-mods: "List of mods that will be included in the shuffling."
-  mods:
-    []
-
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
-  death_link:
-    'false': 50
-    'true': 0
 
   # Item & Location Options
   sidneys_secret_documentation-local_items: "Forces these items to be in their native world."

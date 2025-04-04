@@ -32,13 +32,16 @@ description: Default Minecraft Template
 
 game: Minecraft
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Minecraft:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,10 +54,9 @@ Minecraft:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
   sidneys_secret_documentation-plando_connections: "Generic connections plando. Format is:\n- entrance: \"Entrance Name\"\n  exit: \"Exit Name\"\n  direction: \"Direction\"\n  percentage: 100\nDirection must be one of 'entrance', 'exit', or 'both', and defaults to 'both' if omitted.\nPercentage is an integer from 1 to 100, and defaults to 100 when omitted."
@@ -64,6 +66,9 @@ Minecraft:
   sidneys_secret_documentation-advancement_goal: "Number of advancements required to spawn bosses."
   advancement_goal:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 114
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 114
     40: 50
@@ -74,6 +79,9 @@ Minecraft:
   sidneys_secret_documentation-egg_shards_required: "Number of dragon egg shards to collect to spawn bosses."
   egg_shards_required:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 50
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 50
     0: 50
@@ -84,6 +92,9 @@ Minecraft:
   sidneys_secret_documentation-egg_shards_available: "Number of dragon egg shards available to collect."
   egg_shards_available:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 50
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 50
     0: 50
@@ -132,6 +143,9 @@ Minecraft:
   sidneys_secret_documentation-bee_traps: "Replaces a percentage of junk items with bee traps, which spawn multiple angered bees around every player when\nreceived."
   bee_traps:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     0: 50
@@ -144,12 +158,12 @@ Minecraft:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
+  sidneys_secret_documentation-death_link: "When you die, everyone who enabled death link dies. Of course, the reverse is true too."
   death_link:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-starting_items: "Start with these items. Each entry should be of this format: {item: \"item_name\", amount: #, nbt: \"nbt_string\"}"
+  sidneys_secret_documentation-starting_items: "Start with these items. Each entry should be of this format: {item: \"item_name\", amount: #}\n`item` can include components, and should be in an identical format to a `/give` command with\n`\"` escaped for json reasons.\n\n`amount` is optional and will default to 1 if omitted.\n\nexample:\n```\nstarting_items: [\n { \"item\": \"minecraft:stick[minecraft:custom_name=\"{'text':'pointy stick'}\"]\" },\n { \"item\": \"minecraft:arrow[minecraft:rarity=epic]\", amount: 64 }\n]\n```"
   starting_items:
     []
 

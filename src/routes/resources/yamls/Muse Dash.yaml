@@ -32,13 +32,16 @@ description: Default Muse Dash Template
 
 game: Muse Dash
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Muse Dash:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,15 +54,17 @@ Muse Dash:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
   sidneys_secret_documentation-starting_song_count: "The number of songs that will be automatically unlocked at the start of a run."
   starting_song_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 3
+    # Maximum value is 10
     sidneys_secret_range_start: 3
     sidneys_secret_range_end: 10
     5: 50
@@ -70,8 +75,11 @@ Muse Dash:
   sidneys_secret_documentation-additional_song_count: "The total number of songs that will be placed in the randomization pool.\n- This does not count any starting songs or the goal song.\n- The final song count may be lower due to other settings."
   additional_song_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 15
+    # Maximum value is 600
     sidneys_secret_range_start: 15
-    sidneys_secret_range_end: 534
+    sidneys_secret_range_end: 600
     40: 50
     random: 0
     random-low: 0
@@ -80,6 +88,9 @@ Muse Dash:
   sidneys_secret_documentation-music_sheet_count_percentage: "Controls how many music sheets are added to the pool based on the number of songs, including starting songs.\n\nHigher numbers leads to more consistent game lengths, but will cause individual music sheets to be less important."
   music_sheet_count_percentage:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 10
+    # Maximum value is 40
     sidneys_secret_range_start: 10
     sidneys_secret_range_end: 40
     20: 50
@@ -90,6 +101,9 @@ Muse Dash:
   sidneys_secret_documentation-music_sheet_win_count_percentage: "The percentage of Music Sheets in the item pool that are needed to unlock the winning song."
   music_sheet_win_count_percentage:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 50
+    # Maximum value is 100
     sidneys_secret_range_start: 50
     sidneys_secret_range_end: 100
     80: 50
@@ -100,7 +114,7 @@ Muse Dash:
   # Song Choice
   sidneys_secret_documentation-dlc_packs: "Choose which DLC Packs will be included in the pool of chooseable songs.\n\nNote: The [Just As Planned] DLC contains all [Muse Plus] songs."
   dlc_packs:
-    {}
+    []
 
   sidneys_secret_documentation-streamer_mode_enabled: "In Muse Dash, an option named 'Streamer Mode' removes songs which may trigger copyright issues when streaming.\n\nIf this is enabled, only songs available under Streamer Mode will be available for randomization."
   streamer_mode_enabled:
@@ -116,6 +130,15 @@ Muse Dash:
     []
 
   # Difficulty
+  sidneys_secret_documentation-grade_needed: "Completing a song will require a grade of this value or higher in order to unlock items.\nThe grades are as follows:\n- Silver S (SS): >= 95% accuracy\n- Pink S (S): >= 90% accuracy\n- A: >= 80% or a Full Combo\n- B: >= 70%\n- C: >= 60%"
+  grade_needed:
+    any: 50
+    c: 0
+    b: 0
+    a: 0
+    pinks: 0
+    silvers: 0
+
   sidneys_secret_documentation-song_difficulty_mode: "Ensures that at any chosen song has at least 1 value falling within these values.\n- Any: All songs are available\n- Easy: 1, 2 or 3\n- Medium: 4, 5\n- Hard: 6, 7\n- Expert: 8, 9\n- Master: 10+\n- Manual: Uses the provided minimum and maximum range."
   song_difficulty_mode:
     any: 50
@@ -129,6 +152,9 @@ Muse Dash:
   sidneys_secret_documentation-song_difficulty_min: "Ensures that 1 difficulty has at least 1 this value or higher per song.\n\nNote: Difficulty Mode must be set to Manual."
   song_difficulty_min:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 11
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 11
     4: 50
@@ -139,6 +165,9 @@ Muse Dash:
   sidneys_secret_documentation-song_difficulty_max: "Ensures that 1 difficulty has at least 1 this value or lower per song.\n\nNote: Difficulty Mode must be set to Manual."
   song_difficulty_max:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 11
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 11
     8: 50
@@ -146,16 +175,7 @@ Muse Dash:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-grade_needed: "Completing a song will require a grade of this value or higher in order to unlock items.\nThe grades are as follows:\n- Silver S (SS): >= 95% accuracy\n- Pink S (S): >= 90% accuracy\n- A: >= 80% or a Full Combo\n- B: >= 70%\n- C: >= 60%"
-  grade_needed:
-    any: 50
-    c: 0
-    b: 0
-    a: 0
-    pinks: 0
-    silvers: 0
-
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
+  sidneys_secret_documentation-death_link: "When you die, everyone who enabled death link dies. Of course, the reverse is true too."
   death_link:
     'false': 50
     'true': 0
@@ -163,11 +183,14 @@ Muse Dash:
   # Traps
   sidneys_secret_documentation-chosen_traps: "This controls the types of traps that can be added to the pool.\n- Traps last the length of a song, or until you die.\n- VFX Traps consist of visual effects that play over the song. (i.e. Grayscale.)\n- SFX Traps consist of changing your sfx setting to one possibly more annoying sfx.\n\nNote: SFX traps are only available if [Just as Planned] DLC songs are enabled."
   chosen_traps:
-    {}
+    []
 
   sidneys_secret_documentation-trap_count_percentage: "This controls how many traps to add into the pool, based the total number of songs."
   trap_count_percentage:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 35
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 35
     15: 50

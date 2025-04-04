@@ -32,13 +32,16 @@ description: Default Mario & Luigi Superstar Saga Template
 
 game: Mario & Luigi Superstar Saga
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Mario & Luigi Superstar Saga:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,10 +54,9 @@ Mario & Luigi Superstar Saga:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
   sidneys_secret_documentation-coins: "Add all coin blocks in the game to the location pool."
@@ -67,7 +69,7 @@ Mario & Luigi Superstar Saga:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-castle_skip: "Skip straight from the entrance hall to Bowletta in Bowser's Castle.\nAll Bowser's Castle locations will be removed from the location pool."
+  sidneys_secret_documentation-castle_skip: "Skip straight from the Entrance Hall to Bowletta in Bowser's Castle.\nAll Bowser's Castle locations will be removed from the location pool."
   castle_skip:
     'false': 50
     'true': 0
@@ -87,8 +89,8 @@ Mario & Luigi Superstar Saga:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-harhalls_pants: "This will remove the Harhall's Pants check from the pool."
-  harhalls_pants:
+  sidneys_secret_documentation-disable_harhalls_pants: "This will remove the Harhall's Pants check from the pool."
+  disable_harhalls_pants:
     'false': 50
     'true': 0
 
@@ -103,6 +105,37 @@ Mario & Luigi Superstar Saga:
     none: 0
     only_visible: 0
     all: 50
+
+  sidneys_secret_documentation-goal: "Vanilla: Complete jokes end with the required items and defeat Birdo to unlock Bowser's Castle.\n\nEmblem Hunt: Find the required number of Beanstar Emblems to gain access to Bowser's Castle."
+  goal:
+    vanilla: 50
+    emblem_hunt: 0
+
+  sidneys_secret_documentation-emblems_required: "Number of Beanstar Emblems to collect to unlock Bowser's Castle.\n\nIf Goal is not Emblem Hunt, this does nothing."
+  emblems_required:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 100
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 100
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-emblems_amount: "Number of Beanstar Emblems that are in the pool.\n\nIf Goal is not Emblem Hunt, this does nothing."
+  emblems_amount:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 150
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 150
+    75: 50
+    random: 0
+    random-low: 0
+    random-high: 0
 
   sidneys_secret_documentation-music_options: "Choose if you want to randomize or disable music.\ndefault: Music will be untouched.\nrandomize: Music will be randomized.\ndisable: All music will be disabled. No music will play throughout the entire game."
   music_options:
@@ -140,6 +173,9 @@ Mario & Luigi Superstar Saga:
   sidneys_secret_documentation-xp_multiplier: "This will multiply any XP you receive in battle by the chosen multiplier."
   xp_multiplier:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 4
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 4
     1: 50
@@ -227,6 +263,10 @@ Mario & Luigi Superstar Saga:
   start_inventory:
     {}
 
+  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\n\nThe game decides what the replacement items will be."
+  start_inventory_from_pool:
+    {}
+
   sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
   start_hints:
     []
@@ -246,7 +286,3 @@ Mario & Luigi Superstar Saga:
   sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
   item_links:
     []
-
-  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\n\nThe game decides what the replacement items will be."
-  start_inventory_from_pool:
-    {}

@@ -32,13 +32,16 @@ description: Default Ocarina of Time Template
 
 game: Ocarina of Time
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Ocarina of Time:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,15 +54,19 @@ Ocarina of Time:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
   sidneys_secret_documentation-plando_connections: "Generic connections plando. Format is:\n- entrance: \"Entrance Name\"\n  exit: \"Exit Name\"\n  direction: \"Direction\"\n  percentage: 100\nDirection must be one of 'entrance', 'exit', or 'both', and defaults to 'both' if omitted.\nPercentage is an integer from 1 to 100, and defaults to 100 when omitted."
   plando_connections:
     []
+
+  sidneys_secret_documentation-death_link: "When you die, everyone who enabled death link dies. Of course, the reverse is true too."
+  death_link:
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-logic_rules: "Set the logic used for the generator.\nGlitchless: Normal gameplay. Can enable more difficult logical paths using the Logic Tricks option.\nGlitched: Many powerful glitches expected, such as bomb hovering and clipping.\nGlitched is incompatible with the following settings:\n- All forms of entrance randomizer\n- MQ dungeons\n- Pot shuffle\n- Freestanding item shuffle\n- Crate shuffle\n- Beehive shuffle\nNo Logic: No logic is used when placing items. Not recommended for most players."
   logic_rules:
@@ -72,6 +79,11 @@ Ocarina of Time:
     'false': 50
     'true': 0
 
+  sidneys_secret_documentation-logic_tricks: "Set various tricks for logic in Ocarina of Time. \nFormat as a comma-separated list of \"nice\" names: [\"Fewer Tunic Requirements\", \"Hidden Grottos without Stone of Agony\"].\nA full list of supported tricks can be found at:\nhttps://github.com/ArchipelagoMW/Archipelago/blob/main/worlds/oot/LogicTricks.py"
+  logic_tricks:
+    []
+
+  # Open
   sidneys_secret_documentation-open_forest: "Set the state of Kokiri Forest and the path to Deku Tree.\nOpen: Neither the forest exit nor the path to Deku Tree is blocked.\nClosed Deku: The forest exit is not blocked; the path to Deku Tree requires Kokiri Sword and Deku Shield.\nClosed: Path to Deku Tree requires sword and shield. The forest exit is blocked until Deku Tree is beaten.\nClosed forest will force child start, and becomes Closed Deku if interior entrances, overworld entrances, warp songs, or random spawn positions are enabled."
   open_forest:
     open: 50
@@ -114,6 +126,9 @@ Ocarina of Time:
   sidneys_secret_documentation-trials: "Set the number of required trials in Ganon's Castle."
   trials:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 6
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 6
     0: 50
@@ -121,6 +136,7 @@ Ocarina of Time:
     random-low: 0
     random-high: 0
 
+  # World
   sidneys_secret_documentation-starting_age: "Choose which age Link will start as."
   starting_age:
     child: 50
@@ -179,6 +195,9 @@ Ocarina of Time:
   sidneys_secret_documentation-triforce_goal: "Number of Triforce pieces required to complete the game."
   triforce_goal:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 80
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 80
     20: 50
@@ -189,6 +208,9 @@ Ocarina of Time:
   sidneys_secret_documentation-extra_triforce_percentage: "Percentage of additional Triforce pieces in the pool. With high numbers, you may need to randomize additional\nlocations to have enough items."
   extra_triforce_percentage:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     50: 50
@@ -226,6 +248,9 @@ Ocarina of Time:
   sidneys_secret_documentation-mq_dungeons_count: "With MQ dungeons as Count: number of randomly-selected dungeons to be MQ layout."
   mq_dungeons_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 12
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 12
     0: 50
@@ -236,6 +261,9 @@ Ocarina of Time:
   sidneys_secret_documentation-bridge_stones: "With Stones bridge: set the number of Spiritual Stones required."
   bridge_stones:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 3
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 3
     3: 50
@@ -246,6 +274,9 @@ Ocarina of Time:
   sidneys_secret_documentation-bridge_medallions: "With Medallions bridge: set the number of medallions required."
   bridge_medallions:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 6
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 6
     6: 50
@@ -256,6 +287,9 @@ Ocarina of Time:
   sidneys_secret_documentation-bridge_rewards: "With Dungeons bridge: set the number of dungeon rewards required."
   bridge_rewards:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 9
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 9
     9: 50
@@ -266,6 +300,9 @@ Ocarina of Time:
   sidneys_secret_documentation-bridge_tokens: "With Tokens bridge: set the number of Gold Skulltula Tokens required."
   bridge_tokens:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     40: 50
@@ -276,6 +313,9 @@ Ocarina of Time:
   sidneys_secret_documentation-bridge_hearts: "With Hearts bridge: set the number of hearts required."
   bridge_hearts:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 4
+    # Maximum value is 20
     sidneys_secret_range_start: 4
     sidneys_secret_range_end: 20
     20: 50
@@ -283,127 +323,7 @@ Ocarina of Time:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-shuffle_mapcompass: "Control where to shuffle dungeon maps and compasses.\nRemove: There will be no maps or compasses in the itempool.\nStartwith: You start with all maps and compasses.\nVanilla: Maps and compasses remain vanilla.\nDungeon: Maps and compasses are shuffled within their original dungeon.\nRegional: Maps and compasses are shuffled only in regions near the original dungeon.\nOverworld: Maps and compasses are shuffled locally outside of dungeons.\nAny Dungeon: Maps and compasses are shuffled locally in any dungeon.\nKeysanity: Maps and compasses can be anywhere in the multiworld."
-  shuffle_mapcompass:
-    remove: 0
-    startwith: 50
-    vanilla: 0
-    dungeon: 0
-    regional: 0
-    overworld: 0
-    any_dungeon: 0
-    keysanity: 0
-
-  sidneys_secret_documentation-shuffle_smallkeys: "Control where to shuffle dungeon small keys.\nRemove/\"Keysy\": There will be no small keys in the itempool. All small key doors are automatically unlocked.\nVanilla: Small keys remain vanilla. You may start with extra small keys in some dungeons to prevent softlocks.\nDungeon: Small keys are shuffled within their original dungeon.\nRegional: Small keys are shuffled only in regions near the original dungeon.\nOverworld: Small keys are shuffled locally outside of dungeons.\nAny Dungeon: Small keys are shuffled locally in any dungeon.\nKeysanity: Small keys can be anywhere in the multiworld."
-  shuffle_smallkeys:
-    remove: 0
-    vanilla: 0
-    dungeon: 50
-    regional: 0
-    overworld: 0
-    any_dungeon: 0
-    keysanity: 0
-
-  sidneys_secret_documentation-shuffle_hideoutkeys: "Control where to shuffle the Thieves' Hideout small keys.\nVanilla: Hideout keys remain vanilla.\nRegional: Hideout keys are shuffled only in the Gerudo Valley/Desert Colossus area.\nOverworld: Hideout keys are shuffled locally outside of dungeons.\nAny Dungeon: Hideout keys are shuffled locally in any dungeon.\nKeysanity: Hideout keys can be anywhere in the multiworld."
-  shuffle_hideoutkeys:
-    vanilla: 50
-    regional: 0
-    overworld: 0
-    any_dungeon: 0
-    keysanity: 0
-
-  sidneys_secret_documentation-shuffle_bosskeys: "Control where to shuffle boss keys, except the Ganon's Castle Boss Key.\nRemove/\"Keysy\": There will be no boss keys in the itempool. All boss key doors are automatically unlocked.\nVanilla: Boss keys remain vanilla. You may start with extra small keys in some dungeons to prevent softlocks.\nDungeon: Boss keys are shuffled within their original dungeon.\nRegional: Boss keys are shuffled only in regions near the original dungeon.\nOverworld: Boss keys are shuffled locally outside of dungeons.\nAny Dungeon: Boss keys are shuffled locally in any dungeon.\nKeysanity: Boss keys can be anywhere in the multiworld."
-  shuffle_bosskeys:
-    remove: 0
-    vanilla: 0
-    dungeon: 50
-    regional: 0
-    overworld: 0
-    any_dungeon: 0
-    keysanity: 0
-
-  sidneys_secret_documentation-enhance_map_compass: "Map tells if a dungeon is vanilla or MQ. Compass tells what the dungeon reward is."
-  enhance_map_compass:
-    'false': 50
-    'true': 0
-
-  sidneys_secret_documentation-shuffle_ganon_bosskey: "Control how to shuffle the Ganon's Castle Boss Key (GCBK).\nRemove: GCBK is removed, and the boss key door is automatically unlocked.\nVanilla: GCBK remains vanilla.\nDungeon: GCBK is shuffled within its original dungeon.\nRegional: GCBK is shuffled only in Hyrule Field, Market, and Hyrule Castle areas.\nOverworld: GCBK is shuffled locally outside of dungeons.\nAny Dungeon: GCBK is shuffled locally in any dungeon.\nKeysanity: GCBK can be anywhere in the multiworld.\nOn LACS: GCBK is on the Light Arrow Cutscene, which requires Shadow and Spirit Medallions.\nStones: GCBK will be awarded when reaching the target number of Spiritual Stones.\nMedallions: GCBK will be awarded when reaching the target number of medallions.\nDungeons: GCBK will be awarded when reaching the target number of dungeon rewards.\nTokens: GCBK will be awarded when reaching the target number of Gold Skulltula Tokens.\nHearts: GCBK will be awarded when reaching the target number of hearts."
-  shuffle_ganon_bosskey:
-    remove: 50
-    vanilla: 0
-    dungeon: 0
-    regional: 0
-    overworld: 0
-    any_dungeon: 0
-    keysanity: 0
-    on_lacs: 0
-    stones: 0
-    medallions: 0
-    dungeons: 0
-    tokens: 0
-    hearts: 0
-
-  sidneys_secret_documentation-ganon_bosskey_medallions: "With medallions GCBK: set how many medallions are required to receive GCBK."
-  ganon_bosskey_medallions:
-    #
-    sidneys_secret_range_start: 1
-    sidneys_secret_range_end: 6
-    6: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  sidneys_secret_documentation-ganon_bosskey_stones: "With stones GCBK: set how many Spiritual Stones are required to receive GCBK."
-  ganon_bosskey_stones:
-    #
-    sidneys_secret_range_start: 1
-    sidneys_secret_range_end: 3
-    3: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  sidneys_secret_documentation-ganon_bosskey_rewards: "With dungeons GCBK: set how many dungeon rewards are required to receive GCBK."
-  ganon_bosskey_rewards:
-    #
-    sidneys_secret_range_start: 1
-    sidneys_secret_range_end: 9
-    9: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  sidneys_secret_documentation-ganon_bosskey_tokens: "With tokens GCBK: set how many Gold Skulltula Tokens are required to receive GCBK."
-  ganon_bosskey_tokens:
-    #
-    sidneys_secret_range_start: 1
-    sidneys_secret_range_end: 100
-    40: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  sidneys_secret_documentation-ganon_bosskey_hearts: "With hearts GCBK: set how many hearts are required to receive GCBK."
-  ganon_bosskey_hearts:
-    #
-    sidneys_secret_range_start: 4
-    sidneys_secret_range_end: 20
-    20: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  sidneys_secret_documentation-key_rings: "A key ring grants all dungeon small keys at once, rather than individually.\nChoose: Use the option \"key_rings_list\" to choose which dungeons have key rings.\nAll: All dungeons have key rings instead of small keys."
-  key_rings:
-    'off': 50
-    choose: 0
-    all: 0
-    random_dungeons: 0
-
-  sidneys_secret_documentation-key_rings_list: "With key rings as Choose: select areas with key rings rather than individual small keys."
-  key_rings_list:
-    []
-
+  # Shuffle
   sidneys_secret_documentation-shuffle_song_items: "Set where songs can appear.\nSong: Songs are shuffled into other song locations.\nDungeon: Songs are placed into end-of-dungeon locations:\n- The 8 boss heart containers\n- Sheik in Ice Cavern\n- Lens of Truth chest in Bottom of the Well\n- Ice Arrows chest in Gerudo Training Ground\n- Impa at Hyrule Castle\nAny: Songs can appear anywhere in the multiworld."
   shuffle_song_items:
     song: 50
@@ -419,6 +339,9 @@ Ocarina of Time:
   sidneys_secret_documentation-shop_slots: "With Shopsanity fixed number: quantity of multiworld locations per shop to be randomized."
   shop_slots:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 4
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 4
     0: 50
@@ -516,6 +439,144 @@ Ocarina of Time:
     'false': 50
     'true': 0
 
+  # Dungeon Items
+  sidneys_secret_documentation-shuffle_mapcompass: "Control where to shuffle dungeon maps and compasses.\nRemove: There will be no maps or compasses in the itempool.\nStartwith: You start with all maps and compasses.\nVanilla: Maps and compasses remain vanilla.\nDungeon: Maps and compasses are shuffled within their original dungeon.\nRegional: Maps and compasses are shuffled only in regions near the original dungeon.\nOverworld: Maps and compasses are shuffled locally outside of dungeons.\nAny Dungeon: Maps and compasses are shuffled locally in any dungeon.\nKeysanity: Maps and compasses can be anywhere in the multiworld."
+  shuffle_mapcompass:
+    remove: 0
+    startwith: 50
+    vanilla: 0
+    dungeon: 0
+    regional: 0
+    overworld: 0
+    any_dungeon: 0
+    keysanity: 0
+
+  sidneys_secret_documentation-shuffle_smallkeys: "Control where to shuffle dungeon small keys.\nRemove/\"Keysy\": There will be no small keys in the itempool. All small key doors are automatically unlocked.\nVanilla: Small keys remain vanilla. You may start with extra small keys in some dungeons to prevent softlocks.\nDungeon: Small keys are shuffled within their original dungeon.\nRegional: Small keys are shuffled only in regions near the original dungeon.\nOverworld: Small keys are shuffled locally outside of dungeons.\nAny Dungeon: Small keys are shuffled locally in any dungeon.\nKeysanity: Small keys can be anywhere in the multiworld."
+  shuffle_smallkeys:
+    remove: 0
+    vanilla: 0
+    dungeon: 50
+    regional: 0
+    overworld: 0
+    any_dungeon: 0
+    keysanity: 0
+
+  sidneys_secret_documentation-shuffle_hideoutkeys: "Control where to shuffle the Thieves' Hideout small keys.\nVanilla: Hideout keys remain vanilla.\nRegional: Hideout keys are shuffled only in the Gerudo Valley/Desert Colossus area.\nOverworld: Hideout keys are shuffled locally outside of dungeons.\nAny Dungeon: Hideout keys are shuffled locally in any dungeon.\nKeysanity: Hideout keys can be anywhere in the multiworld."
+  shuffle_hideoutkeys:
+    vanilla: 50
+    regional: 0
+    overworld: 0
+    any_dungeon: 0
+    keysanity: 0
+
+  sidneys_secret_documentation-shuffle_bosskeys: "Control where to shuffle boss keys, except the Ganon's Castle Boss Key.\nRemove/\"Keysy\": There will be no boss keys in the itempool. All boss key doors are automatically unlocked.\nVanilla: Boss keys remain vanilla. You may start with extra small keys in some dungeons to prevent softlocks.\nDungeon: Boss keys are shuffled within their original dungeon.\nRegional: Boss keys are shuffled only in regions near the original dungeon.\nOverworld: Boss keys are shuffled locally outside of dungeons.\nAny Dungeon: Boss keys are shuffled locally in any dungeon.\nKeysanity: Boss keys can be anywhere in the multiworld."
+  shuffle_bosskeys:
+    remove: 0
+    vanilla: 0
+    dungeon: 50
+    regional: 0
+    overworld: 0
+    any_dungeon: 0
+    keysanity: 0
+
+  sidneys_secret_documentation-enhance_map_compass: "Map tells if a dungeon is vanilla or MQ. Compass tells what the dungeon reward is."
+  enhance_map_compass:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-shuffle_ganon_bosskey: "Control how to shuffle the Ganon's Castle Boss Key (GCBK).\nRemove: GCBK is removed, and the boss key door is automatically unlocked.\nVanilla: GCBK remains vanilla.\nDungeon: GCBK is shuffled within its original dungeon.\nRegional: GCBK is shuffled only in Hyrule Field, Market, and Hyrule Castle areas.\nOverworld: GCBK is shuffled locally outside of dungeons.\nAny Dungeon: GCBK is shuffled locally in any dungeon.\nKeysanity: GCBK can be anywhere in the multiworld.\nOn LACS: GCBK is on the Light Arrow Cutscene, which requires Shadow and Spirit Medallions.\nStones: GCBK will be awarded when reaching the target number of Spiritual Stones.\nMedallions: GCBK will be awarded when reaching the target number of medallions.\nDungeons: GCBK will be awarded when reaching the target number of dungeon rewards.\nTokens: GCBK will be awarded when reaching the target number of Gold Skulltula Tokens.\nHearts: GCBK will be awarded when reaching the target number of hearts."
+  shuffle_ganon_bosskey:
+    remove: 50
+    vanilla: 0
+    dungeon: 0
+    regional: 0
+    overworld: 0
+    any_dungeon: 0
+    keysanity: 0
+    on_lacs: 0
+    stones: 0
+    medallions: 0
+    dungeons: 0
+    tokens: 0
+    hearts: 0
+
+  sidneys_secret_documentation-ganon_bosskey_medallions: "With medallions GCBK: set how many medallions are required to receive GCBK."
+  ganon_bosskey_medallions:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 6
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 6
+    6: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-ganon_bosskey_stones: "With stones GCBK: set how many Spiritual Stones are required to receive GCBK."
+  ganon_bosskey_stones:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 3
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 3
+    3: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-ganon_bosskey_rewards: "With dungeons GCBK: set how many dungeon rewards are required to receive GCBK."
+  ganon_bosskey_rewards:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 9
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 9
+    9: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-ganon_bosskey_tokens: "With tokens GCBK: set how many Gold Skulltula Tokens are required to receive GCBK."
+  ganon_bosskey_tokens:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 100
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 100
+    40: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-ganon_bosskey_hearts: "With hearts GCBK: set how many hearts are required to receive GCBK."
+  ganon_bosskey_hearts:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 4
+    # Maximum value is 20
+    sidneys_secret_range_start: 4
+    sidneys_secret_range_end: 20
+    20: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-key_rings: "A key ring grants all dungeon small keys at once, rather than individually.\nChoose: Use the option \"key_rings_list\" to choose which dungeons have key rings.\nAll: All dungeons have key rings instead of small keys."
+  key_rings:
+    'off': 50
+    choose: 0
+    all: 0
+    random_dungeons: 0
+
+  sidneys_secret_documentation-key_rings_list: "With key rings as Choose: select areas with key rings rather than individual small keys."
+  key_rings_list:
+    []
+
+  # Timesavers
   sidneys_secret_documentation-no_escape_sequence: "Skips the tower collapse sequence between the Ganondorf and Ganon fights."
   no_escape_sequence:
     'false': 0
@@ -569,6 +630,9 @@ Ocarina of Time:
   sidneys_secret_documentation-chicken_count: "Controls the number of Cuccos for Anju to give an item as child."
   chicken_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 7
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 7
     7: 50
@@ -579,6 +643,9 @@ Ocarina of Time:
   sidneys_secret_documentation-big_poe_count: "Number of Big Poes required for the Poe Collector's item."
   big_poe_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 10
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 10
     1: 50
@@ -589,6 +656,9 @@ Ocarina of Time:
   sidneys_secret_documentation-fae_torch_count: "Number of lit torches required to open Shadow Temple.\nDoes not affect logic; use the trick Shadow Temple Entry with Fire Arrows if desired."
   fae_torch_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 24
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 24
     24: 50
@@ -596,6 +666,7 @@ Ocarina of Time:
     random-low: 0
     random-high: 0
 
+  # Misc
   sidneys_secret_documentation-correct_chest_appearances: "Changes chest textures and/or sizes to match their contents.\nOff: All chests have their vanilla size/appearance.\nTextures: Chest textures reflect their contents.\nBoth: Like Textures, but progression items and boss keys get big chests, and other items get small chests.\nClassic: Old behavior of CSMC; textures distinguish keys from non-keys, and size distinguishes importance."
   correct_chest_appearances:
     'off': 50
@@ -701,6 +772,7 @@ Ocarina of Time:
     'false': 50
     'true': 0
 
+  # Item Pool
   sidneys_secret_documentation-item_pool_value: "Changes the number of items available in the game.\nPlentiful: One extra copy of every major item.\nBalanced: Original item pool.\nScarce: Extra copies of major items are removed. Heart containers are removed.\nMinimal: All major item upgrades not used for locations are removed. All health is removed."
   item_pool_value:
     plentiful: 0
@@ -735,6 +807,7 @@ Ocarina of Time:
     eyedrops: 0
     claim_check: 50
 
+  # Cosmetics
   sidneys_secret_documentation-default_targeting: "Default targeting option."
   default_targeting:
     hold: 50
@@ -1138,6 +1211,9 @@ Ocarina of Time:
   sidneys_secret_documentation-sword_trail_duration: "Set the duration for sword trails."
   sword_trail_duration:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 4
+    # Maximum value is 20
     sidneys_secret_range_start: 4
     sidneys_secret_range_end: 20
     4: 50
@@ -1347,6 +1423,7 @@ Ocarina of Time:
     purple: 0
     orange: 0
 
+  # SFX
   sidneys_secret_documentation-sfx_navi_overworld: "Choose a sound effect. \"random_choice\" selects a random option. \"random_ear_safe\" selects a random safe option.\n \"completely_random\" selects any random sound."
   sfx_navi_overworld:
     default: 50
@@ -1647,15 +1724,6 @@ Ocarina of Time:
     harp: 0
     grind_organ: 0
     flute: 0
-
-  sidneys_secret_documentation-logic_tricks: "Set various tricks for logic in Ocarina of Time. \nFormat as a comma-separated list of \"nice\" names: [\"Fewer Tunic Requirements\", \"Hidden Grottos without Stone of Agony\"].\nA full list of supported tricks can be found at:\nhttps://github.com/ArchipelagoMW/Archipelago/blob/main/worlds/oot/LogicTricks.py"
-  logic_tricks:
-    []
-
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
-  death_link:
-    'false': 50
-    'true': 0
 
   # Item & Location Options
   sidneys_secret_documentation-local_items: "Forces these items to be in their native world."

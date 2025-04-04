@@ -32,13 +32,16 @@ description: Default Sonic Adventure 2 Battle Template
 
 game: Sonic Adventure 2 Battle
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Sonic Adventure 2 Battle:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,24 +54,32 @@ Sonic Adventure 2 Battle:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
+
+  sidneys_secret_documentation-gate_boss_plando: "Possible Locations:\n\"Gate 1 Boss\"\n\"Gate 2 Boss\"\n\"Gate 3 Boss\"\n\"Gate 4 Boss\"\n\"Gate 5 Boss\"\n\nPossible Bosses:\n\"Sonic vs Shadow 1\"\n\"Sonic vs Shadow 2\"\n\"Tails vs Eggman 1\"\n\"Tails vs Eggman 2\"\n\"Knuckles vs Rouge 1\"\n\"BIG FOOT\"\n\"HOT SHOT\"\n\"FLYING DOG\"\n\"Egg Golem (Sonic)\"\n\"Egg Golem (Eggman)\"\n\"King Boom Boo\""
+  gate_boss_plando:
+    plando: 50
 
   sidneys_secret_documentation-ring_link: "Whether your in-level ring gain/loss is linked to other players"
   ring_link:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
+  sidneys_secret_documentation-trap_link: "Whether your received traps are linked to other players\n\nYou will also receive any linked traps from other players with Trap Link enabled,\nif you have a weight above \"none\" set for that trap"
+  trap_link:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-death_link: "When you die, everyone who enabled death link dies. Of course, the reverse is true too."
   death_link:
     'false': 50
     'true': 0
 
   # General Options
-  sidneys_secret_documentation-goal: "Determines the goal of the seed\n\nBiolizard: Finish Cannon's Core and defeat the Biolizard and Finalhazard\n\nChaos Emerald Hunt: Find the Seven Chaos Emeralds and reach Green Hill Zone\n\nFinalhazard Chaos Emerald Hunt: Find the Seven Chaos Emeralds and reach Green Hill Zone, then defeat Finalhazard\n\nGrand Prix: Win every race in Kart Race Mode (all standard levels are disabled)\n\nBoss Rush: Beat all of the bosses in the Boss Rush, ending with Finalhazard\n\nCannon's Core Boss Rush: Beat Cannon's Core, then beat all of the bosses in the Boss Rush, ending with Finalhazard\n\nBoss Rush Chaos Emerald Hunt: Find the Seven Chaos Emeralds, then beat all of the bosses in the Boss Rush, ending with Finalhazard\n\nChaos Chao: Raise a Chaos Chao to win"
+  sidneys_secret_documentation-goal: "Determines the goal of the seed\n\nBiolizard: Finish Cannon's Core and defeat the Biolizard and Finalhazard\n\nChaos Emerald Hunt: Find the Seven Chaos Emeralds and reach Green Hill Zone\n\nFinalhazard Chaos Emerald Hunt: Find the Seven Chaos Emeralds and reach Green Hill Zone, then defeat Finalhazard\n\nGrand Prix: Win every race in Kart Race Mode (all standard levels are disabled)\n\nBoss Rush: Beat all of the bosses in the Boss Rush, ending with Finalhazard\n\nCannon's Core Boss Rush: Beat Cannon's Core, then beat all of the bosses in the Boss Rush, ending with Finalhazard\n\nBoss Rush Chaos Emerald Hunt: Find the Seven Chaos Emeralds, then beat all of the bosses in the Boss Rush, ending with Finalhazard\n\nChaos Chao: Raise a Chaos Chao to win\n\nMinigame Madness: Win a certain amount of each Minigame Trap, then defeat Finalhazard"
   goal:
     biolizard: 50
     chaos_emerald_hunt: 0
@@ -78,6 +89,7 @@ Sonic Adventure 2 Battle:
     cannons_core_boss_rush: 0
     boss_rush_chaos_emerald_hunt: 0
     chaos_chao: 0
+    minigame_madness: 0
 
   sidneys_secret_documentation-boss_rush_shuffle: "Determines how bosses in Boss Rush Mode are shuffled\n\nVanilla: Bosses appear in the Vanilla ordering\n\nShuffled: The same bosses appear, but in a random order\n\nChaos: Each boss is randomly chosen separately (one will always be King Boom Boo)\n\nSingularity: One boss is chosen and placed in every slot (one will always be replaced with King Boom Boo)"
   boss_rush_shuffle:
@@ -86,10 +98,37 @@ Sonic Adventure 2 Battle:
     chaos: 0
     singularity: 0
 
-  sidneys_secret_documentation-logic_difficulty: "What set of Upgrade Requirement logic to use\n\nStandard: The logic assumes the \"intended\" usage of Upgrades to progress through levels\n\nHard: Some simple skips or sequence breaks may be required"
+  sidneys_secret_documentation-minigame_madness_requirement: "Determines how many of each Minigame Trap must be won (for Minigame Madness goal)\n\nReceiving this many of a Minigame Trap will allow you to replay that minigame at-will in the Chao World lobby"
+  minigame_madness_requirement:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 10
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 10
+    3: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-minigame_madness_minimum: "Determines the minimum number of each Minigame Trap that are created (for Minigame Madness goal)\n\nAt least this many of each trap will be created as \"Progression Traps\", regardless of other trap option selections"
+  minigame_madness_minimum:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 10
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 10
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-logic_difficulty: "What set of Upgrade Requirement logic to use\n\nStandard: The logic assumes the \"intended\" usage of Upgrades to progress through levels\n\nHard: Some simple skips or sequence breaks may be required, but no out-of-bounds\n\nExpert: If it is humanly possible, it may be required"
   logic_difficulty:
     standard: 50
     hard: 0
+    expert: 0
 
   sidneys_secret_documentation-required_rank: "Determines what minimum Rank is required to send a check for a mission"
   required_rank:
@@ -102,6 +141,9 @@ Sonic Adventure 2 Battle:
   sidneys_secret_documentation-max_emblem_cap: "Determines the maximum number of emblems that can be in the item pool.\n\nIf fewer available locations exist in the pool than this number, the number of available locations will be used instead.\n\nGate and Cannon's Core costs will be calculated based off of that number."
   max_emblem_cap:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 50
+    # Maximum value is 1000
     sidneys_secret_range_start: 50
     sidneys_secret_range_end: 1000
     180: 50
@@ -109,7 +151,7 @@ Sonic Adventure 2 Battle:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-ring_loss: "How taking damage is handled\n\nClassic: You lose all of your rings when hit\n\nModern: You lose 20 rings when hit\n\nOHKO: You die immediately when hit (NOTE: Some Hard Logic tricks may require damage boosts!)"
+  sidneys_secret_documentation-ring_loss: "How taking damage is handled\n\nClassic: You lose all of your rings when hit\n\nModern: You lose 20 rings when hit\n\nOHKO: You die immediately when hit (NOTE: Some Hard or Expert Logic tricks may require damage boosts!)"
   ring_loss:
     classic: 50
     modern: 0
@@ -121,14 +163,12 @@ Sonic Adventure 2 Battle:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-required_cannons_core_missions: "Determines how many Cannon's Core missions must be completed (for Biolizard or Cannon's Core goals)\n\nFirst: Only the first mission must be completed\n\nAll Active: All active Cannon's Core missions must be completed"
-  required_cannons_core_missions:
-    first: 50
-    all_active: 0
-
   sidneys_secret_documentation-emblem_percentage_for_cannons_core: "Allows logic to gate the final mission behind a number of Emblems"
   emblem_percentage_for_cannons_core:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 75
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 75
     50: 50
@@ -136,9 +176,17 @@ Sonic Adventure 2 Battle:
     random-low: 0
     random-high: 0
 
+  sidneys_secret_documentation-required_cannons_core_missions: "Determines how many Cannon's Core missions must be completed (for Biolizard or Cannon's Core goals)\n\nFirst: Only the first mission must be completed\n\nAll Active: All active Cannon's Core missions must be completed"
+  required_cannons_core_missions:
+    first: 50
+    all_active: 0
+
   sidneys_secret_documentation-number_of_level_gates: "The number emblem-locked gates which lock sets of levels"
   number_of_level_gates:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 5
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 5
     3: 50
@@ -146,23 +194,23 @@ Sonic Adventure 2 Battle:
     random-low: 0
     random-high: 0
 
+  sidneys_secret_documentation-level_gate_costs: "Determines how many emblems are required to unlock level gates"
+  level_gate_costs:
+    low: 50
+    medium: 0
+    high: 0
+
   sidneys_secret_documentation-level_gate_distribution: "Determines how levels are distributed between level gate regions\n\nEarly: Earlier regions will have more levels than later regions\n\nEven: Levels will be evenly distributed between all regions\n\nLate: Later regions will have more levels than earlier regions"
   level_gate_distribution:
     early: 0
     even: 50
     late: 0
 
-  sidneys_secret_documentation-level_gate_costs: "Determines how many emblems are required to unlock level gates"
-  level_gate_costs:
-    low: 0
-    medium: 0
-    high: 50
-
   # Sanity Options
   sidneys_secret_documentation-keysanity: "Determines whether picking up Chao Keys grants checks\n(86 Locations)"
   keysanity:
-    'false': 50
-    'true': 0
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-whistlesanity: "Determines whether whistling at various spots grants checks\n\nNone: No Whistle Spots grant checks\n\nPipes: Whistling at Pipes grants checks (97 Locations)\n\nHidden: Whistling at Hidden Whistle Spots grants checks (32 Locations)\n\nBoth: Whistling at both Pipes and Hidden Whistle Spots grants checks (129 Locations)"
   whistlesanity:
@@ -173,16 +221,27 @@ Sonic Adventure 2 Battle:
 
   sidneys_secret_documentation-beetlesanity: "Determines whether destroying Gold Beetles grants checks\n(27 Locations)"
   beetlesanity:
-    'false': 50
-    'true': 0
+    'false': 0
+    'true': 50
 
   sidneys_secret_documentation-omosanity: "Determines whether activating Omochao grants checks\n(192 Locations)"
   omosanity:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-animalsanity: "Determines whether unique counts of animals grant checks.\n(421 Locations)\n\nALL animals must be collected in a single run of a mission to get all checks."
+  sidneys_secret_documentation-animalsanity: "Determines whether unique counts of animals grant checks.\n(422 Locations)\n\nALL animals must be collected in a single run of a mission to get all checks."
   animalsanity:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-itemboxsanity: "Determines whether collecting Item Boxes grants checks\nNone: No Item Boxes grant checks\nExtra Lives: Extra Life Boxes grant checks (94 Locations)\nAll: All Item Boxes grant checks (502 Locations Total)"
+  itemboxsanity:
+    none: 50
+    extra_lives: 0
+    all: 0
+
+  sidneys_secret_documentation-bigsanity: "Determines whether helping Big fish grants checks.\n(32 Locations)"
+  bigsanity:
     'false': 50
     'true': 0
 
@@ -196,6 +255,9 @@ Sonic Adventure 2 Battle:
   sidneys_secret_documentation-black_market_slots: "Determines how many multiworld items are available to purchase from the Black Market"
   black_market_slots:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 64
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 64
     0: 50
@@ -212,6 +274,9 @@ Sonic Adventure 2 Battle:
   sidneys_secret_documentation-black_market_price_multiplier: "Determines how many rings the Black Market items cost\n\nThe base ring costs of items in the Black Market range from 50-100, and are then multiplied by this value"
   black_market_price_multiplier:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 40
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 40
     1: 50
@@ -247,6 +312,9 @@ Sonic Adventure 2 Battle:
   sidneys_secret_documentation-chao_stats: "Determines the highest level in each Chao Stat that grants checks\n(Swim, Fly, Run, Power)"
   chao_stats:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     0: 50
@@ -257,6 +325,9 @@ Sonic Adventure 2 Battle:
   sidneys_secret_documentation-chao_stats_frequency: "Determines how many levels in each Chao Stat grant checks (up to the maximum set in the `chao_stats` option)\n\n`1` means every level is included, `2` means every other level is included, `3` means every third, and so on"
   chao_stats_frequency:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 20
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 20
     5: 50
@@ -294,6 +365,9 @@ Sonic Adventure 2 Battle:
   sidneys_secret_documentation-junk_fill_percentage: "Replace a percentage of non-required emblems in the item pool with random junk items"
   junk_fill_percentage:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     50: 50
@@ -304,6 +378,9 @@ Sonic Adventure 2 Battle:
   sidneys_secret_documentation-trap_fill_percentage: "Replace a percentage of junk items in the item pool with random traps"
   trap_fill_percentage:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     0: 50
@@ -381,6 +458,35 @@ Sonic Adventure 2 Battle:
     medium: 50
     high: 0
 
+  sidneys_secret_documentation-literature_trap_weight: "Likelihood of receiving a trap which forces you to read"
+  literature_trap_weight:
+    none: 0
+    low: 0
+    medium: 50
+    high: 0
+
+  sidneys_secret_documentation-controller_drift_trap_weight: "Likelihood of receiving a trap which causes your control sticks to drift"
+  controller_drift_trap_weight:
+    none: 0
+    low: 0
+    medium: 50
+    high: 0
+
+  sidneys_secret_documentation-poison_trap_weight: "Likelihood of receiving a trap which causes you to lose rings over time"
+  poison_trap_weight:
+    none: 0
+    low: 0
+    medium: 50
+    high: 0
+
+  sidneys_secret_documentation-bee_trap_weight: "Likelihood of receiving a trap which spawns a swarm of bees"
+  bee_trap_weight:
+    none: 0
+    low: 0
+    medium: 50
+    high: 0
+
+  # Minigames
   sidneys_secret_documentation-pong_trap_weight: "Likelihood of receiving a trap which forces you to play a Pong minigame"
   pong_trap_weight:
     none: 0
@@ -388,16 +494,104 @@ Sonic Adventure 2 Battle:
     medium: 50
     high: 0
 
-  sidneys_secret_documentation-minigame_trap_difficulty: "How difficult any Minigame-style traps are"
+  sidneys_secret_documentation-breakout_trap_weight: "Likelihood of receiving a trap which forces you to play a Breakout minigame"
+  breakout_trap_weight:
+    none: 0
+    low: 0
+    medium: 50
+    high: 0
+
+  sidneys_secret_documentation-fishing_trap_weight: "Likelihood of receiving a trap which forces you to play a Fishing minigame"
+  fishing_trap_weight:
+    none: 0
+    low: 0
+    medium: 50
+    high: 0
+
+  sidneys_secret_documentation-trivia_trap_weight: "Likelihood of receiving a trap which forces you to play a Trivia minigame"
+  trivia_trap_weight:
+    none: 0
+    low: 0
+    medium: 50
+    high: 0
+
+  sidneys_secret_documentation-pokemon_trivia_trap_weight: "Likelihood of receiving a trap which forces you to play a Pokemon Trivia minigame"
+  pokemon_trivia_trap_weight:
+    none: 0
+    low: 0
+    medium: 50
+    high: 0
+
+  sidneys_secret_documentation-pokemon_count_trap_weight: "Likelihood of receiving a trap which forces you to play a Pokemon Count minigame"
+  pokemon_count_trap_weight:
+    none: 0
+    low: 0
+    medium: 50
+    high: 0
+
+  sidneys_secret_documentation-number_sequence_trap_weight: "Likelihood of receiving a trap which forces you to play a Number Sequence minigame"
+  number_sequence_trap_weight:
+    none: 0
+    low: 0
+    medium: 50
+    high: 0
+
+  sidneys_secret_documentation-light_up_path_trap_weight: "Likelihood of receiving a trap which forces you to play a Light Up Path minigame"
+  light_up_path_trap_weight:
+    none: 0
+    low: 0
+    medium: 50
+    high: 0
+
+  sidneys_secret_documentation-pinball_trap_weight: "Likelihood of receiving a trap which forces you to play a Pinball minigame"
+  pinball_trap_weight:
+    none: 0
+    low: 0
+    medium: 50
+    high: 0
+
+  sidneys_secret_documentation-math_quiz_trap_weight: "Likelihood of receiving a trap which forces you to solve a math problem"
+  math_quiz_trap_weight:
+    none: 0
+    low: 0
+    medium: 50
+    high: 0
+
+  sidneys_secret_documentation-snake_trap_weight: "Likelihood of receiving a trap which forces you to play a Snake minigame"
+  snake_trap_weight:
+    none: 0
+    low: 0
+    medium: 50
+    high: 0
+
+  sidneys_secret_documentation-input_sequence_trap_weight: "Likelihood of receiving a trap which forces you to press a sequence of inputs"
+  input_sequence_trap_weight:
+    none: 0
+    low: 0
+    medium: 50
+    high: 0
+
+  sidneys_secret_documentation-minigame_trap_difficulty: "How difficult any Minigame-style traps are\nChaos causes the difficulty to be random per-minigame"
   minigame_trap_difficulty:
     easy: 0
     medium: 50
     hard: 0
+    chaos: 0
 
-  # Speed Missions
-  sidneys_secret_documentation-speed_mission_count: "The number of active missions to include for Sonic and Shadow stages"
-  speed_mission_count:
+  sidneys_secret_documentation-big_fishing_difficulty: "How difficult Big's Fishing Minigames are\nChaos causes the difficulty to be random per-minigame"
+  big_fishing_difficulty:
+    easy: 0
+    medium: 50
+    hard: 0
+    chaos: 0
+
+  # Sonic Missions
+  sidneys_secret_documentation-sonic_mission_count: "The number of active missions to include for Sonic stages"
+  sonic_mission_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 5
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 5
     2: 50
@@ -405,30 +599,33 @@ Sonic Adventure 2 Battle:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-speed_mission_2: "Determines if the Sonic and Shadow 100 rings missions should be included"
-  speed_mission_2:
+  sidneys_secret_documentation-sonic_mission_2: "Determines if the Sonic 100 rings missions should be included"
+  sonic_mission_2:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-speed_mission_3: "Determines if the Sonic and Shadow lost chao missions should be included"
-  speed_mission_3:
+  sidneys_secret_documentation-sonic_mission_3: "Determines if the Sonic lost chao missions should be included"
+  sonic_mission_3:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-speed_mission_4: "Determines if the Sonic and Shadow time trial missions should be included"
-  speed_mission_4:
+  sidneys_secret_documentation-sonic_mission_4: "Determines if the Sonic time trial missions should be included"
+  sonic_mission_4:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-speed_mission_5: "Determines if the Sonic and Shadow hard missions should be included"
-  speed_mission_5:
+  sidneys_secret_documentation-sonic_mission_5: "Determines if the Sonic hard missions should be included"
+  sonic_mission_5:
     'false': 0
     'true': 50
 
-  # Mech Missions
-  sidneys_secret_documentation-mech_mission_count: "The number of active missions to include for Tails and Eggman stages"
-  mech_mission_count:
+  # Shadow Missions
+  sidneys_secret_documentation-shadow_mission_count: "The number of active missions to include for Shadow stages"
+  shadow_mission_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 5
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 5
     2: 50
@@ -436,30 +633,33 @@ Sonic Adventure 2 Battle:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-mech_mission_2: "Determines if the Tails and Eggman 100 rings missions should be included"
-  mech_mission_2:
+  sidneys_secret_documentation-shadow_mission_2: "Determines if the Shadow 100 rings missions should be included"
+  shadow_mission_2:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-mech_mission_3: "Determines if the Tails and Eggman lost chao missions should be included"
-  mech_mission_3:
+  sidneys_secret_documentation-shadow_mission_3: "Determines if the Shadow lost chao missions should be included"
+  shadow_mission_3:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-mech_mission_4: "Determines if the Tails and Eggman time trial missions should be included"
-  mech_mission_4:
+  sidneys_secret_documentation-shadow_mission_4: "Determines if the Shadow time trial missions should be included"
+  shadow_mission_4:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-mech_mission_5: "Determines if the Tails and Eggman hard missions should be included"
-  mech_mission_5:
+  sidneys_secret_documentation-shadow_mission_5: "Determines if the Shadow hard missions should be included"
+  shadow_mission_5:
     'false': 0
     'true': 50
 
-  # Hunt Missions
-  sidneys_secret_documentation-hunt_mission_count: "The number of active missions to include for Knuckles and Rouge stages"
-  hunt_mission_count:
+  # Tails Missions
+  sidneys_secret_documentation-tails_mission_count: "The number of active missions to include for Tails stages"
+  tails_mission_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 5
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 5
     2: 50
@@ -467,23 +667,125 @@ Sonic Adventure 2 Battle:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-hunt_mission_2: "Determines if the Knuckles and Rouge 100 rings missions should be included"
-  hunt_mission_2:
+  sidneys_secret_documentation-tails_mission_2: "Determines if the Tails 100 rings missions should be included"
+  tails_mission_2:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-hunt_mission_3: "Determines if the Knuckles and Rouge lost chao missions should be included"
-  hunt_mission_3:
+  sidneys_secret_documentation-tails_mission_3: "Determines if the Tails lost chao missions should be included"
+  tails_mission_3:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-hunt_mission_4: "Determines if the Knuckles and Rouge time trial missions should be included"
-  hunt_mission_4:
+  sidneys_secret_documentation-tails_mission_4: "Determines if the Tails time trial missions should be included"
+  tails_mission_4:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-hunt_mission_5: "Determines if the Knuckles and Rouge hard missions should be included"
-  hunt_mission_5:
+  sidneys_secret_documentation-tails_mission_5: "Determines if the Tails hard missions should be included"
+  tails_mission_5:
+    'false': 0
+    'true': 50
+
+  # Eggman Missions
+  sidneys_secret_documentation-eggman_mission_count: "The number of active missions to include for Eggman stages"
+  eggman_mission_count:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 5
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 5
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-eggman_mission_2: "Determines if the Eggman 100 rings missions should be included"
+  eggman_mission_2:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-eggman_mission_3: "Determines if the Eggman lost chao missions should be included"
+  eggman_mission_3:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-eggman_mission_4: "Determines if the Eggman time trial missions should be included"
+  eggman_mission_4:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-eggman_mission_5: "Determines if the Eggman hard missions should be included"
+  eggman_mission_5:
+    'false': 0
+    'true': 50
+
+  # Knuckles Missions
+  sidneys_secret_documentation-knuckles_mission_count: "The number of active missions to include for Knuckles stages"
+  knuckles_mission_count:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 5
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 5
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-knuckles_mission_2: "Determines if the Knuckles 100 rings missions should be included"
+  knuckles_mission_2:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-knuckles_mission_3: "Determines if the Knuckles lost chao missions should be included"
+  knuckles_mission_3:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-knuckles_mission_4: "Determines if the Knuckles time trial missions should be included"
+  knuckles_mission_4:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-knuckles_mission_5: "Determines if the Knuckles hard missions should be included"
+  knuckles_mission_5:
+    'false': 0
+    'true': 50
+
+  # Rouge Missions
+  sidneys_secret_documentation-rouge_mission_count: "The number of active missions to include for Rouge stages"
+  rouge_mission_count:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 5
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 5
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-rouge_mission_2: "Determines if the Rouge 100 rings missions should be included"
+  rouge_mission_2:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-rouge_mission_3: "Determines if the Rouge lost chao missions should be included"
+  rouge_mission_3:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-rouge_mission_4: "Determines if the Rouge time trial missions should be included"
+  rouge_mission_4:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-rouge_mission_5: "Determines if the Rouge hard missions should be included"
+  rouge_mission_5:
     'false': 0
     'true': 50
 
@@ -491,6 +793,9 @@ Sonic Adventure 2 Battle:
   sidneys_secret_documentation-kart_mission_count: "The number of active missions to include for Route 101 and 280"
   kart_mission_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 5
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 5
     2: 50
@@ -522,6 +827,9 @@ Sonic Adventure 2 Battle:
   sidneys_secret_documentation-cannons_core_mission_count: "The number of active missions to include for Cannon's Core"
   cannons_core_mission_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 5
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 5
     2: 50

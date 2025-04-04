@@ -32,13 +32,16 @@ description: Default MegaMan Battle Network 3 Template
 
 game: MegaMan Battle Network 3
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 MegaMan Battle Network 3:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,15 +54,17 @@ MegaMan Battle Network 3:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
   sidneys_secret_documentation-extra_ranks: "How many extra Undernet Ranks to add to the pool in place of filler items.\nThe more ranks there are, the faster the game will go.\nDepending on your other options, you might not have enough filler items to replace.\nIf generation errors occur, consider reducing this value."
   extra_ranks:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 16
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 16
     0: 50
@@ -67,10 +72,15 @@ MegaMan Battle Network 3:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-include_jobs: "Whether Jobs can be included in logic."
+  sidneys_secret_documentation-include_jobs: "Whether Jobs can contain progression or useful items."
   include_jobs:
     'false': 0
     'true': 50
+
+  sidneys_secret_documentation-include_secret: "Whether the Secret Area (including Serenade) can contain progression or useful items."
+  include_secret:
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-trade_quest_hinting: "Whether NPCs offering Chip Trades should show what item they provide.\nNone - NPCs will not provide any information on what item they will give\nPartial - NPCs will state if an item is progression or not, but not the specific item\nFull - NPCs will state what item they will give, providing an Archipelago Hint when doing so"
   trade_quest_hinting:

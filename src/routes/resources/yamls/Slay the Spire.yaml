@@ -32,13 +32,16 @@ description: Default Slay the Spire Template
 
 game: Slay the Spire
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Slay the Spire:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,10 +54,9 @@ Slay the Spire:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
   sidneys_secret_documentation-character: "Enter the internal ID of the character to use.\n\n  if you don't know the exact ID to enter with the mod installed go to\n `Mods -> Archipelago Multi-world -> config` to view a list of installed modded character IDs.\n\n the downfall characters will only work if you have downfall installed.\n\n Spire Take the Wheel will have your client pick a random character from the list of all your installed characters\n including custom ones.\n\n if the chosen character mod is not installed it will default back to 'The Ironclad'"
@@ -76,6 +78,9 @@ Slay the Spire:
   sidneys_secret_documentation-ascension: "What Ascension do you wish to play with."
   ascension:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 20
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 20
     0: 50
@@ -92,6 +97,19 @@ Slay the Spire:
   downfall:
     'false': 50
     'true': 0
+
+  sidneys_secret_documentation-death_link: "Percentage of health to lose when a death link is received."
+  death_link:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 100
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
 
   # Item & Location Options
   sidneys_secret_documentation-local_items: "Forces these items to be in their native world."

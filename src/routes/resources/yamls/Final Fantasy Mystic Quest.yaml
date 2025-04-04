@@ -32,13 +32,16 @@ description: Default Final Fantasy Mystic Quest Template
 
 game: Final Fantasy Mystic Quest
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Final Fantasy Mystic Quest:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,11 +54,11 @@ Final Fantasy Mystic Quest:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired.\n\n**Items:** ensure all logically relevant items can be acquired. Some items, such as keys, may be self-locking, and\nsome locations may be inaccessible."
   accessibility:
-    locations: 0
-    items: 50
+    full: 0
     minimal: 0
+    items: 50
 
   sidneys_secret_documentation-logic: "Placement logic sets the rules that will be applied when placing items. Friendly: Required Items to clear a\ndungeon will never be placed in that dungeon to avoid the need to revisit it. Also, the Magic Mirror and the Mask\nwill always be available before Ice Pyramid and Volcano, respectively. Note: If Dungeons are shuffled, Friendly\nlogic will only ensure the availability of the Mirror and the Mask. Standard: Items are randomly placed and logic\nmerely verifies that they're all accessible. As for Region access, only the Coins are considered. Expert: Same as\nStandard, but Items Placement logic also includes other routes than Coins: the Crests Teleporters, the\nFireburg-Aquaria Lava bridge and the Sealed Temple Exit trick."
   logic:
@@ -120,6 +123,9 @@ Final Fantasy Mystic Quest:
   sidneys_secret_documentation-available_companions: "Select randomly which companions will join your party. Unavailable companions can still be reached to get their items and complete their quests if needed.\nNote: If a Starting Companion is selected, it will always be available, regardless of this setting."
   available_companions:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 4
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 4
     4: 50

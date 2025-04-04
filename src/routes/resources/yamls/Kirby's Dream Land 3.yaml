@@ -32,13 +32,21 @@ description: Default Kirby's Dream Land 3 Template
 
 game: Kirby's Dream Land 3
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Kirby's Dream Land 3:
   # Game Options
+  sidneys_secret_documentation-death_link: "When you die, everyone who enabled death link dies. Of course, the reverse is true too."
+  death_link:
+    'false': 50
+    'true': 0
+
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,26 +59,16 @@ Kirby's Dream Land 3:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
   sidneys_secret_documentation-plando_connections: "Generic connections plando. Format is:\n- entrance: \"Entrance Name\"\n  exit: \"Exit Name\"\n  direction: \"Direction\"\n  percentage: 100\nDirection must be one of 'entrance', 'exit', or 'both', and defaults to 'both' if omitted.\nPercentage is an integer from 1 to 100, and defaults to 100 when omitted."
   plando_connections:
     []
 
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
-  death_link:
-    'false': 50
-    'true': 0
-
-  sidneys_secret_documentation-game_language: "The language that the game should display. This does not have to match the given rom."
-  game_language:
-    japanese: 0
-    english: 50
-
+  # Goal Options
   sidneys_secret_documentation-goal: "Zero: collect the Heart Stars, and defeat Zero in the Hyper Zone.\nBoss Butch: collect the Heart Stars, and then complete the boss rematches in the Boss Butch mode.\nMG5: collect the Heart Stars, and then complete a perfect run through the minigame gauntlet within the Super MG5\nJumping: collect the Heart Stars, and then reach a designated score within the Jumping sub-game"
   goal:
     zero: 50
@@ -83,11 +81,14 @@ Kirby's Dream Land 3:
     normal: 50
     fast: 0
 
-  sidneys_secret_documentation-total_heart_stars: "Maximum number of heart stars to include in the pool of items."
-  total_heart_stars:
+  sidneys_secret_documentation-max_heart_stars: "Maximum number of heart stars to include in the pool of items.\nIf fewer available locations exist in the pool than this number, the number of available locations will be used instead."
+  max_heart_stars:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 5
+    # Maximum value is 99
     sidneys_secret_range_start: 5
-    sidneys_secret_range_end: 50
+    sidneys_secret_range_end: 99
     30: 50
     random: 0
     random-low: 0
@@ -96,6 +97,9 @@ Kirby's Dream Land 3:
   sidneys_secret_documentation-heart_stars_required: "Percentage of heart stars required to purify the five bosses and reach Zero.\nEach boss will require a differing amount of heart stars to purify."
   heart_stars_required:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 100
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 100
     50: 50
@@ -103,9 +107,64 @@ Kirby's Dream Land 3:
     random-low: 0
     random-high: 0
 
+  sidneys_secret_documentation-jumping_target: "The required score needed to complete the Jumping minigame."
+  jumping_target:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 25
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 25
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  # World Options
+  sidneys_secret_documentation-remote_items: "Enables receiving items from your own world, primarily for co-op play."
+  remote_items:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-strict_bosses: "If enabled, one will not be able to move onto the next world until the previous world's boss has been purified."
+  strict_bosses:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-open_world: "If enabled, all 6 stages will be unlocked upon entering a world for the first time. A certain amount of stages\nwill need to be completed in order to unlock the bosses"
+  open_world:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-ow_boss_requirement: "The amount of stages completed needed to unlock the boss of a world when Open World is turned on."
+  ow_boss_requirement:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 6
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 6
+    3: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-consumables: "When enabled, adds all 1-Ups and Maxim Tomatoes as possible locations."
+  consumables:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-starsanity: "When enabled, every star in a given stage will become a check.\nWill increase the possible filler pool to include 1/3/5 stars."
+  starsanity:
+    'false': 50
+    'true': 0
+
   sidneys_secret_documentation-filler_percentage: "Percentage of non-required Heart Stars to be converted to filler items (1-Ups, Maxim Tomatoes, Invincibility Candy)."
   filler_percentage:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     50: 50
@@ -116,6 +175,9 @@ Kirby's Dream Land 3:
   sidneys_secret_documentation-trap_percentage: "Percentage of filler items to be converted to trap items (Gooey Bags, Slowness, Eject Ability)."
   trap_percentage:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     50: 50
@@ -126,6 +188,9 @@ Kirby's Dream Land 3:
   sidneys_secret_documentation-gooey_trap_weight: "Chance that any given trap is a Gooey Bag (spawns Gooey when you receive it)."
   gooey_trap_weight:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     50: 50
@@ -136,6 +201,9 @@ Kirby's Dream Land 3:
   sidneys_secret_documentation-slow_trap_weight: "Chance that any given trap is Slowness (halves your max speed for 15 seconds when you receive it)."
   slow_trap_weight:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     50: 50
@@ -146,19 +214,12 @@ Kirby's Dream Land 3:
   sidneys_secret_documentation-ability_trap_weight: "Chance that any given trap is an Eject Ability (ejects your ability when you receive it)."
   ability_trap_weight:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     50: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  sidneys_secret_documentation-jumping_target: "The required score needed to complete the Jumping minigame."
-  jumping_target:
-    #
-    sidneys_secret_range_start: 1
-    sidneys_secret_range_end: 25
-    10: 50
     random: 0
     random-low: 0
     random-high: 0
@@ -177,12 +238,6 @@ Kirby's Dream Land 3:
     full: 0
     singularity: 0
 
-  sidneys_secret_documentation-allow_bb: "Allow Boss Butch variants of bosses in Boss Shuffle.\nEnabled: any boss placed will have a 50% chance of being the Boss Butch variant, including bosses not present\nEnforced: all bosses will be their Boss Butch variant.\nBoss Butch boss changes are only visual."
-  allow_bb:
-    disabled: 50
-    enabled: 0
-    enforced: 0
-
   sidneys_secret_documentation-animal_randomization: "Disabled: all animal positions will be vanilla.\nShuffled: all animal positions will be shuffled amongst each other.\nFull: random animals will be placed across the levels. At least one of each animal is guaranteed."
   animal_randomization:
     disabled: 50
@@ -195,38 +250,8 @@ Kirby's Dream Land 3:
     enabled: 0
     enabled_plus_minus: 0
 
-  sidneys_secret_documentation-strict_bosses: "If enabled, one will not be able to move onto the next world until the previous world's boss has been purified."
-  strict_bosses:
-    'false': 0
-    'true': 50
-
-  sidneys_secret_documentation-open_world: "If enabled, all 6 stages will be unlocked upon entering a world for the first time. A certain amount of stages\nwill need to be completed in order to unlock the bosses"
-  open_world:
-    'false': 0
-    'true': 50
-
-  sidneys_secret_documentation-ow_boss_requirement: "The amount of stages completed needed to unlock the boss of a world when Open World is turned on."
-  ow_boss_requirement:
-    #
-    sidneys_secret_range_start: 1
-    sidneys_secret_range_end: 6
-    3: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
   sidneys_secret_documentation-boss_requirement_random: "If enabled, boss purification will require a random amount of Heart Stars. Depending on options, this may have\nboss purification unlock in a random order."
   boss_requirement_random:
-    'false': 50
-    'true': 0
-
-  sidneys_secret_documentation-consumables: "When enabled, adds all 1-Ups and Maxim Tomatoes as possible locations."
-  consumables:
-    'false': 50
-    'true': 0
-
-  sidneys_secret_documentation-starsanity: "When enabled, every star in a given stage will become a check.\nWill increase the possible filler pool to include 1/3/5 stars."
-  starsanity:
     'false': 50
     'true': 0
 
@@ -234,6 +259,18 @@ Kirby's Dream Land 3:
   gifting:
     'false': 50
     'true': 0
+
+  # Cosmetic Options
+  sidneys_secret_documentation-game_language: "The language that the game should display. This does not have to match the given rom."
+  game_language:
+    japanese: 0
+    english: 50
+
+  sidneys_secret_documentation-allow_bb: "Allow Boss Butch variants of bosses in Boss Shuffle.\nEnabled: any boss placed will have a 50% chance of being the Boss Butch variant, including bosses not present\nEnforced: all bosses will be their Boss Butch variant.\nBoss Butch boss changes are only visual."
+  allow_bb:
+    disabled: 50
+    enabled: 0
+    enforced: 0
 
   sidneys_secret_documentation-kirby_flavor_preset: "The color of Kirby, from a list of presets."
   kirby_flavor_preset:
@@ -251,6 +288,7 @@ Kirby's Dream Land 3:
     orange: 0
     lime: 0
     lavender: 0
+    miku: 0
     custom: 0
 
   sidneys_secret_documentation-kirby_flavor: "A custom color for Kirby. To use a custom color, set the preset to Custom and then define a dict of keys from \"1\" to\n\"15\", with their values being an HTML hex color."

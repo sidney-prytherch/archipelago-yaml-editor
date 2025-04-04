@@ -32,13 +32,16 @@ description: Default Super Mario 64 Template
 
 game: Super Mario 64
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Super Mario 64:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,12 +54,22 @@ Super Mario 64:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
+  sidneys_secret_documentation-death_link: "When you die, everyone who enabled death link dies. Of course, the reverse is true too."
+  death_link:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-completion_type: "Set goal for game completion"
+  completion_type:
+    last_bowser_stage: 50
+    all_bowser_stages: 0
+
+  # Logic Options
   sidneys_secret_documentation-area_rando: "Randomize Entrances"
   area_rando:
     'off': 50
@@ -71,27 +84,19 @@ Super Mario 64:
 
   sidneys_secret_documentation-exclamation_boxes: "Include 1Up Exclamation Boxes during randomization.\nAdds 29 locations to the pool."
   exclamation_boxes:
-    'off': 50
-    1ups_only: 0
+    'false': 50
+    'true': 0
 
   sidneys_secret_documentation-progressive_keys: "Keys will first grant you access to the Basement, then to the Second Floor"
   progressive_keys:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-enable_coin_stars: "Disable to Ignore 100 Coin Stars. You can still collect them, but they don't do anything.\nRemoves 15 locations from the pool."
+  sidneys_secret_documentation-enable_coin_stars: "Determine logic for 100 Coin Stars.\n\nOff - Removed from pool. You can still collect them, but they don't do anything.\nOptimal for ignoring 100 Coin Stars entirely. Removes 15 locations from the pool.\n\nOn - Kept in pool, potentially randomized.\n\nVanilla - Kept in pool, but NOT randomized."
   enable_coin_stars:
-    'false': 0
-    'true': 50
-
-  sidneys_secret_documentation-enable_move_rando: "Mario is unable to perform some actions until a corresponding item is picked up.\nThis option is incompatible with builds using a 'nomoverando' branch.\nSpecific actions to randomize can be specified in the YAML."
-  enable_move_rando:
-    'false': 50
-    'true': 0
-
-  sidneys_secret_documentation-move_rando_actions: "Which actions to randomize when Move Randomizer is enabled"
-  move_rando_actions:
-    ['Triple Jump', 'Long Jump', 'Backflip', 'Side Flip', 'Wall Kick', 'Dive', 'Ground Pound', 'Kick', 'Climb', 'Ledge Grab']
+    'off': 50
+    'on': 0
+    vanilla: 0
 
   sidneys_secret_documentation-strict_cap_requirements: "If disabled, Stars that expect special caps may have to be acquired without the caps"
   strict_cap_requirements:
@@ -103,14 +108,28 @@ Super Mario 64:
     'false': 0
     'true': 50
 
+  # Ability Options
+  sidneys_secret_documentation-enable_move_rando: "Mario is unable to perform some actions until a corresponding item is picked up.\nThis option is incompatible with builds using a 'nomoverando' branch.\nSpecific actions to randomize can be specified in the YAML."
+  enable_move_rando:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-move_rando_actions: "Which actions to randomize when Move Randomizer is enabled"
+  move_rando_actions:
+    ['Triple Jump', 'Long Jump', 'Backflip', 'Side Flip', 'Wall Kick', 'Dive', 'Ground Pound', 'Kick', 'Climb', 'Ledge Grab']
+
   sidneys_secret_documentation-strict_move_requirements: "If disabled, Stars that expect certain moves may have to be acquired without them. Only makes a difference\nif Move Randomization is enabled"
   strict_move_requirements:
     'false': 0
     'true': 50
 
+  # Star Options
   sidneys_secret_documentation-amount_of_stars: "How many stars exist.\nIf there aren't enough locations to hold the given total, the total will be reduced."
   amount_of_stars:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 35
+    # Maximum value is 120
     sidneys_secret_range_start: 35
     sidneys_secret_range_end: 120
     120: 50
@@ -121,6 +140,9 @@ Super Mario 64:
   sidneys_secret_documentation-first_bowser_star_door_cost: "What percent of the total stars are required at the Star Door to Bowser in the Dark World"
   first_bowser_star_door_cost:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 40
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 40
     7: 50
@@ -131,6 +153,9 @@ Super Mario 64:
   sidneys_secret_documentation-basement_star_door_cost: "What percent of the total stars are required at the Star Door in the Basement"
   basement_star_door_cost:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 50
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 50
     25: 50
@@ -141,6 +166,9 @@ Super Mario 64:
   sidneys_secret_documentation-second_floor_star_door_cost: "What percent of the total stars are required to access the third floor"
   second_floor_star_door_cost:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 70
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 70
     42: 50
@@ -151,6 +179,9 @@ Super Mario 64:
   sidneys_secret_documentation-mips1_cost: "What percent of the total stars are required to spawn MIPS the first time"
   mips1_cost:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 35
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 35
     12: 50
@@ -161,6 +192,9 @@ Super Mario 64:
   sidneys_secret_documentation-mips2_cost: "What percent of the total stars are required to spawn MIPS the second time."
   mips2_cost:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 70
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 70
     42: 50
@@ -171,22 +205,15 @@ Super Mario 64:
   sidneys_secret_documentation-stars_to_finish: "What percent of the total stars are required at the infinite stairs"
   stars_to_finish:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 90
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 90
     58: 50
     random: 0
     random-low: 0
     random-high: 0
-
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
-  death_link:
-    'false': 50
-    'true': 0
-
-  sidneys_secret_documentation-completion_type: "Set goal for game completion"
-  completion_type:
-    last_bowser_stage: 50
-    all_bowser_stages: 0
 
   # Item & Location Options
   sidneys_secret_documentation-local_items: "Forces these items to be in their native world."

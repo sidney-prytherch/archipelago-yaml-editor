@@ -32,13 +32,16 @@ description: Default Super Metroid Template
 
 game: Super Metroid
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Super Metroid:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,10 +54,9 @@ Super Metroid:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
   sidneys_secret_documentation-start_inventory_removes_from_pool: "Remove items in starting inventory from pool."
@@ -134,6 +136,9 @@ Super Metroid:
   sidneys_secret_documentation-missile_qty: "The higher the number the higher the probability of choosing missles when placing a minor."
   missile_qty:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 10
+    # Maximum value is 90
     sidneys_secret_range_start: 10
     sidneys_secret_range_end: 90
     30: 50
@@ -144,6 +149,9 @@ Super Metroid:
   sidneys_secret_documentation-super_qty: "The higher the number the higher the probability of choosing super missles when placing a minor."
   super_qty:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 10
+    # Maximum value is 90
     sidneys_secret_range_start: 10
     sidneys_secret_range_end: 90
     20: 50
@@ -154,6 +162,9 @@ Super Metroid:
   sidneys_secret_documentation-power_bomb_qty: "The higher the number the higher the probability of choosing power bombs when placing a minor."
   power_bomb_qty:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 10
+    # Maximum value is 90
     sidneys_secret_range_start: 10
     sidneys_secret_range_end: 90
     10: 50
@@ -164,6 +175,9 @@ Super Metroid:
   sidneys_secret_documentation-minor_qty: "From 7%, minimum number of minors required to finish the game, to 100%."
   minor_qty:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 7
+    # Maximum value is 100
     sidneys_secret_range_start: 7
     sidneys_secret_range_end: 100
     100: 50
@@ -328,6 +342,9 @@ Super Metroid:
   sidneys_secret_documentation-custom_objective_count: "By default you need to complete 4 objectives from the list to access Tourian. You can choose between 1 and 5. This setting is ignored if\n\"\"Custom objectives\"\" is set to false."
   custom_objective_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 5
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 5
     4: 50

@@ -32,13 +32,16 @@ description: Default Adventure Template
 
 game: Adventure
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Adventure:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,10 +54,9 @@ Adventure:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
   sidneys_secret_documentation-dragon_slay_check: "If true, slaying each dragon for the first time is a check"
@@ -62,7 +64,7 @@ Adventure:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
+  sidneys_secret_documentation-death_link: "When you die, everyone who enabled death link dies. Of course, the reverse is true too."
   death_link:
     'false': 50
     'true': 0
@@ -76,6 +78,9 @@ Adventure:
   sidneys_secret_documentation-freeincarnate_max: "How many maximum freeincarnate items to allow\n\nWhen done generating items, any remaining item slots will be filled\nwith freeincarnates, up to this maximum amount.  Any remaining item\nslots after that will be 'nothing' items placed locally, so in multigame\nmultiworlds, keeping this value high will allow more items from other games\ninto Adventure."
   freeincarnate_max:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 17
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 17
     17: 50
@@ -98,6 +103,9 @@ Adventure:
   sidneys_secret_documentation-yorgle_speed: "Sets Yorgle's initial speed.  Yorgle has a speed of 2 in the original game\nDefault value: 2"
   yorgle_speed:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 9
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 9
     2: 50
@@ -108,6 +116,9 @@ Adventure:
   sidneys_secret_documentation-yorgle_min_speed: "Sets Yorgle's speed when all speed reducers are found.  Yorgle has a speed of 2 in the original game\nDefault value: 2"
   yorgle_min_speed:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 9
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 9
     1: 50
@@ -118,6 +129,9 @@ Adventure:
   sidneys_secret_documentation-grundle_speed: "Sets Grundle's initial speed.  Grundle has a speed of 2 in the original game\nDefault value: 2"
   grundle_speed:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 9
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 9
     2: 50
@@ -128,6 +142,9 @@ Adventure:
   sidneys_secret_documentation-grundle_min_speed: "Sets Grundle's speed when all speed reducers are found.  Grundle has a speed of 2 in the original game\nDefault value: 2"
   grundle_min_speed:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 9
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 9
     1: 50
@@ -138,6 +155,9 @@ Adventure:
   sidneys_secret_documentation-rhindle_speed: "Sets Rhindle's initial speed.  Rhindle has a speed of 3 in the original game\nDefault value: 3"
   rhindle_speed:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 9
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 9
     3: 50
@@ -148,6 +168,9 @@ Adventure:
   sidneys_secret_documentation-rhindle_min_speed: "Sets Rhindle's speed when all speed reducers are found.  Rhindle has a speed of 3 in the original game\nDefault value: 2"
   rhindle_min_speed:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 9
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 9
     2: 50

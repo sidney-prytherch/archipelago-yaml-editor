@@ -32,13 +32,16 @@ description: Default The Messenger Template
 
 game: The Messenger
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 The Messenger:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,13 +54,13 @@ The Messenger:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired.\n\n**Items:** ensure all logically relevant items can be acquired. Some items, such as keys, may be self-locking, and\nsome locations may be inaccessible."
   accessibility:
-    locations: 50
-    items: 0
+    full: 50
     minimal: 0
+    items: 0
 
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
+  sidneys_secret_documentation-death_link: "When you die, everyone who enabled death link dies. Of course, the reverse is true too."
   death_link:
     'false': 50
     'true': 0
@@ -85,6 +88,9 @@ The Messenger:
   sidneys_secret_documentation-available_portals: "Number of portals that are available from the start. Autumn Hills, Howling Grotto, and Glacial Peak are always available. If portal outputs are not randomized, Searing Crags will also be available."
   available_portals:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 3
+    # Maximum value is 6
     sidneys_secret_range_start: 3
     sidneys_secret_range_end: 6
     6: 50
@@ -99,6 +105,12 @@ The Messenger:
     checkpoints: 0
     anywhere: 0
 
+  sidneys_secret_documentation-shuffle_transitions: "Whether the transitions between the levels should be randomized.\nSupports plando.\n\nNone: Level transitions lead where they should.\nCoupled: Returning through a transition will take you from whence you came.\nDecoupled: Any level transition can take you to any other level transition."
+  shuffle_transitions:
+    none: 50
+    coupled: 0
+    decoupled: 0
+
   sidneys_secret_documentation-goal: "Requirement to finish the game. To win with the power seal hunt goal, you must enter the Music Box through the shop chest."
   goal:
     open_music_box: 50
@@ -112,6 +124,9 @@ The Messenger:
   sidneys_secret_documentation-notes_needed: "How many notes are needed to access the Music Box."
   notes_needed:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 6
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 6
     6: 50
@@ -122,6 +137,9 @@ The Messenger:
   sidneys_secret_documentation-total_seals: "Number of power seals that exist in the item pool when power seal hunt is the goal."
   total_seals:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 85
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 85
     45: 50
@@ -132,6 +150,9 @@ The Messenger:
   sidneys_secret_documentation-percent_seals_required: "Percentage of total seals required to open the shop chest."
   percent_seals_required:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 10
+    # Maximum value is 100
     sidneys_secret_range_start: 10
     sidneys_secret_range_end: 100
     100: 50
@@ -147,6 +168,9 @@ The Messenger:
   sidneys_secret_documentation-shop_price: "Percentage modifier for shuffled item prices in shops"
   shop_price:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 25
+    # Maximum value is 400
     sidneys_secret_range_start: 25
     sidneys_secret_range_end: 400
     100: 50
@@ -160,6 +184,10 @@ The Messenger:
 
   sidneys_secret_documentation-portal_plando: "Plando connections to be used with portal shuffle. Direction is ignored.\nList of valid connections can be found here: https://github.com/ArchipelagoMW/Archipelago/blob/main/worlds/messenger/portals.py#L12.\nThe entering Portal should *not* have \"Portal\" appended.\nFor the exits, those in checkpoints and shops should just be the name of the spot, while portals should have \" Portal\" at the end.\nExample:\n- entrance: Riviere Turquoise\n  exit: Wingsuit\n- entrance: Sunken Shrine\n  exit: Sunny Day\n- entrance: Searing Crags\n  exit: Glacial Peak Portal"
   portal_plando:
+    []
+
+  sidneys_secret_documentation-plando_connections: "Plando connections to be used with transition shuffle.\nList of valid connections can be found at https://github.com/ArchipelagoMW/Archipelago/blob/main/worlds/messenger/connections.py#L641.\nDictionary keys (left) are entrances and values (right) are exits. If transition shuffle is on coupled all plando\nconnections will be coupled. If on decoupled, \"entrance\" and \"exit\" will be treated the same, simply making the\nplando connection one-way from entrance to exit.\nExample:\n- entrance: Searing Crags - Top\n  exit: Dark Cave - Right\n  direction: both"
+  plando_connections:
     []
 
   # Item & Location Options

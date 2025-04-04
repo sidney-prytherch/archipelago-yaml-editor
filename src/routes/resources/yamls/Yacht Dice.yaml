@@ -1,0 +1,292 @@
+﻿# Q. What is this file?
+# A. This file contains options which allow you to configure your multiworld experience while allowing
+#    others to play how they want as well.
+#
+# Q. How do I use it?
+# A. The options in this file are weighted. This means the higher number you assign to a value, the
+#    more chances you have for that option to be chosen. For example, an option like this:
+#
+#    map_shuffle:
+#      on: 5
+#      off: 15
+#
+#    Means you have 5 chances for map shuffle to occur, and 15 chances for map shuffle to be turned
+#    off.
+#
+# Q. I've never seen a file like this before. What characters am I allowed to use?
+# A. This is a .yaml file. You are allowed to use most characters.
+#    To test if your yaml is valid or not, you can use this website:
+#        http://www.yamllint.com/
+#    You can also verify that your Archipelago options are valid at this site:
+#        https://archipelago.gg/check
+
+# Your name in-game, limited to 16 characters.
+#     {player} will be replaced with the player's slot number.
+#     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
+#     {number} will be replaced with the counter value of the name.
+#     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
+name: Player{number}
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Default Yacht Dice Template
+
+game: Yacht Dice
+requires:
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
+
+Yacht Dice:
+  # Game Options
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  progression_balancing:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    sidneys_secret_notes-disabled: "equivalent to 0"
+    disabled: 0
+    sidneys_secret_notes-normal: "equivalent to 50"
+    normal: 50
+    sidneys_secret_notes-extreme: "equivalent to 99"
+    extreme: 0
+
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
+  accessibility:
+    full: 50
+    minimal: 0
+
+  sidneys_secret_documentation-game_difficulty: "Difficulty. This option determines how difficult the scores are to achieve.\nEasy: for beginners. No luck required, just roll the dice and have fun. Lower final goal.\nMedium: intended difficulty. If you play smart, you will finish the game without any trouble.\nHard: you will need to play smart and be lucky.\nExtreme: really hard mode, which requires many brain wrinkles and insane luck. NOT RECOMMENDED FOR MULTIWORLDS."
+  game_difficulty:
+    easy: 0
+    medium: 50
+    hard: 0
+    extreme: 0
+
+  sidneys_secret_documentation-score_for_last_check: "The items in the item pool will always allow you to reach a score of 1000.\nBy default, the last check is also at a score of 1000.\nHowever, you can set the score for the last check to be lower. This will make the game shorter and easier."
+  score_for_last_check:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 500
+    # Maximum value is 1000
+    sidneys_secret_range_start: 500
+    sidneys_secret_range_end: 1000
+    1000: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-score_for_goal: "This option determines what score you need to reach to finish the game.\nIt cannot be higher than the score for the last check (if it is, this option is changed automatically)."
+  score_for_goal:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 500
+    # Maximum value is 1000
+    sidneys_secret_range_start: 500
+    sidneys_secret_range_end: 1000
+    777: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-minimal_number_of_dice_and_rolls: "The minimal number of dice and rolls in the pool.\nThese are guaranteed, unlike the later items.\nYou can never get more than 8 dice and 5 rolls.\nYou start with one dice and one roll."
+  minimal_number_of_dice_and_rolls:
+    5_dice_and_3_rolls: 50
+    5_dice_and_5_rolls: 0
+    6_dice_and_4_rolls: 0
+    7_dice_and_3_rolls: 0
+    8_dice_and_2_rolls: 0
+
+  sidneys_secret_documentation-number_of_dice_fragments_per_dice: "Dice can be split into fragments, gathering enough will give you an extra dice.\nYou start with one dice, and there will always be one full dice in the pool.\nThe other dice are split into fragments, according to this option.\nSetting this to 1 fragment per dice just puts \"Dice\" objects in the pool."
+  number_of_dice_fragments_per_dice:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 5
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 5
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-number_of_roll_fragments_per_roll: "Rolls can be split into fragments, gathering enough will give you an extra roll.\nYou start with one roll, and there will always be one full roll in the pool.\nThe other rolls are split into fragments, according to this option.\nSetting this to 1 fragment per roll just puts \"Roll\" objects in the pool."
+  number_of_roll_fragments_per_roll:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 5
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 5
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-alternative_categories: "There are 16 default categories, but there are also 16 alternative categories.\nThese alternative categories can be randomly selected to replace the default categories.\nThey are a little strange, but can give a fun new experience.\nIn the game, you can hover over categories to check what they do.\nThis option determines the number of alternative categories in your game."
+  alternative_categories:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 16
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 16
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-allow_manual_input: "If allowed, players can roll IRL dice and input them manually into the game.\nBy sending \"manual\" in the chat, an input field appears where you can type your dice rolls.\nOf course, we cannot check anymore if the player is playing fair."
+  allow_manual_input:
+    yes_allow: 50
+    no_dont_allow: 0
+
+  # Extra progression items
+  sidneys_secret_documentation-weight_of_dice: "The item pool is always filled in such a way that you can reach a score of 1000.\nExtra progression items are added that will help you on your quest.\nYou can set the weight for each extra progressive item in the following options.\n\nOf course, more dice = more points!"
+  weight_of_dice:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 100
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-weight_of_roll: "With more rolls, you will be able to reach higher scores."
+  weight_of_roll:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 100
+    20: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-weight_of_fixed_score_multiplier: "Getting a Fixed Score Multiplier will boost all future scores by 10%."
+  weight_of_fixed_score_multiplier:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 100
+    30: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-weight_of_step_score_multiplier: "The Step Score Multiplier boosts your multiplier after every roll by 1%, and resets on sheet reset.\nSo, keep high scoring categories for later to get the most out of them.\nBy default, this item is not included. It is fun however, you just need to know the above strategy."
+  weight_of_step_score_multiplier:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 100
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-weight_of_double_category: "This option allows categories to appear multiple times.\nEach time you get a category after the first, its score value gets doubled."
+  weight_of_double_category:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 100
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-weight_of_points: "Are you tired of rolling dice countless times and tallying up points one by one, all by yourself? \nWorry not, as this option will simply add some points items to the item pool! \nAnd getting one of these points items gives you... points!\nImagine how nice it would be to find tons of them. Or even better, having others find them FOR you!"
+  weight_of_points:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 100
+    20: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-points_size: "If you choose to add points to the item pool, you can choose to have many small points,\nmedium-size points, a few larger points, or a mix of them."
+  points_size:
+    small: 0
+    medium: 50
+    large: 0
+    mix: 0
+
+  # Other items
+  sidneys_secret_documentation-minimize_extra_items: "Besides necessary items, Yacht Dice has extra useful/filler items in the item pool.\nIt is possible however to decrease the number of locations and extra items.\nThis option will:\n- decrease the number of locations at the start (you'll start with 2 dice and 2 rolls).\n- will limit the number of dice/roll fragments per dice/roll to 2.\n- in multiplayer games, it will reduce the number of filler items."
+  minimize_extra_items:
+    no_dont: 50
+    yes_please: 0
+
+  sidneys_secret_documentation-add_bonus_points: "Yacht Dice typically has space for extra items.\nThis option determines if bonus points are put into the item pool.\nThey make the game a little bit easier, as they are not considered in the logic.\n\nAll Of It: fill all locations with extra points\nSure: put some bonus points in\nNever: do not put any bonus points"
+  add_bonus_points:
+    all_of_it: 0
+    sure: 50
+    never: 0
+
+  sidneys_secret_documentation-add_story_chapters: "Yacht Dice typically has space for more items.\nThis option determines if extra story chapters are put into the item pool.\nNote: if you have extra points on \"all_of_it\", there will not be story chapters.\n\nAll Of It: fill all locations with story chapters\nSure: if there is space left, put in 10 story chapters.\nNever: do not put any story chapters in, I do not like reading (but I am glad you are reading THIS!)"
+  add_story_chapters:
+    all_of_it: 0
+    sure: 0
+    never: 50
+
+  sidneys_secret_documentation-which_story: "The most important part of Yacht Dice is the narrative.\nOf course you will need to add story chapters to the item pool.\nYou can read story chapters in the feed on the website and there are several stories to choose from."
+  which_story:
+    the_quest_of_the_dice_warrior: 0
+    the_tragedy_of_fortunas_gambit: 0
+    the_dicey_animal_dice_game: 0
+    whispers_of_fate: 0
+    a_yacht_dice_odyssey: 0
+    a_rollin_rhyme_adventure: 0
+    random_story: 50
+
+  # Item & Location Options
+  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
+  local_items:
+    []
+
+  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
+  non_local_items:
+    []
+
+  sidneys_secret_documentation-start_inventory: "Start with these items."
+  start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
+  start_hints:
+    []
+
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the ``!hint`` command."
+  start_location_hints:
+    []
+
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item."
+  exclude_locations:
+    []
+
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item."
+  priority_locations:
+    []
+
+  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
+  item_links:
+    []

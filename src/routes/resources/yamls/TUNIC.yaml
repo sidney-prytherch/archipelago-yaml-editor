@@ -32,13 +32,16 @@ description: Default TUNIC Template
 
 game: TUNIC
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 TUNIC:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,10 +54,9 @@ TUNIC:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
   sidneys_secret_documentation-sword_progression: "Adds four sword upgrades to the item pool that will progressively grant stronger melee weapons, including two new swords with increased range and attack power."
@@ -67,20 +69,58 @@ TUNIC:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-keys_behind_bosses: "Places the three hexagon keys behind their respective boss fight in your world."
+  sidneys_secret_documentation-keys_behind_bosses: "Places the three hexagon keys behind their respective boss fight in your world.\nIf playing Hexagon Quest, it will place three gold hexagons at the boss locations."
   keys_behind_bosses:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-ability_shuffling: "Locks the usage of Prayer, Holy Cross*, and the Icebolt combo until the relevant pages of the manual have been found.\nIf playing Hexagon Quest, abilities are instead randomly unlocked after obtaining 25%, 50%, and 75% of the required Hexagon goal amount.\n* Certain Holy Cross usages are still allowed, such as the free bomb codes, the seeking spell, and other player-facing codes."
+  sidneys_secret_documentation-ability_shuffling: "Locks the usage of Prayer, Holy Cross*, and the Icebolt combo until the relevant pages of the manual have been found.\nIf playing Hexagon Quest, abilities are instead randomly unlocked after obtaining 25%, 50%, and 75% of the required\nHexagon goal amount, unless the option is set to have them unlock via pages instead.\n* Certain Holy Cross usages are still allowed, such as the free bomb codes, the seeking spell, and other player-facing codes."
   ability_shuffling:
-    'false': 50
-    'true': 0
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-fool_traps: "Replaces low-to-medium value money rewards in the item pool with fool traps, which cause random negative effects to the player."
+  fool_traps:
+    'off': 0
+    normal: 50
+    double: 0
+    onslaught: 0
+
+  sidneys_secret_documentation-laurels_location: "Force the Hero's Laurels to be placed at a location in your world.\nFor if you want to avoid or specify early or late Laurels."
+  laurels_location:
+    anywhere: 50
+    6_coins: 0
+    10_coins: 0
+    10_fairies: 0
 
   sidneys_secret_documentation-shuffle_ladders: "Turns several ladders in the game into items that must be found before they can be climbed on.\nAdds more layers of progression to the game by blocking access to many areas early on.\n\"Ladders were a mistake.\"\n—Andrew Shouldice"
   shuffle_ladders:
     'false': 50
     'true': 0
+
+  sidneys_secret_documentation-grass_randomizer: "Turns over 6,000 blades of grass and bushes in the game into checks."
+  grass_randomizer:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-breakable_shuffle: "Turns approximately 250 breakable objects in the game into checks."
+  breakable_shuffle:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-local_fill: "Choose the percentage of your filler/trap items that will be kept local or distributed to other TUNIC players with this option enabled.\nIf you have Grass Randomizer enabled, this option must be set to 95% or higher to avoid flooding the item pool. The host can remove this restriction by turning off the limit_grass_rando setting in host.yaml.\nThis option defaults to 95% if you have Grass Randomizer enabled, and to 0% otherwise.\nThis option ignores items placed in your local_items or non_local_items.\nThis option does nothing in single player games."
+  local_fill:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 98
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 98
+    random: 0
+    random-low: 0
+    random-high: 0
+    sidneys_secret_notes-default: "equivalent to -1"
+    default: 50
 
   sidneys_secret_documentation-entrance_rando: "Randomize the connections between scenes.\nA small, very lost fox on a big adventure.\n\nIf you set this option's value to a string, it will be used as a custom seed.\nEvery player who uses the same custom seed will have the same entrances, choosing the most restrictive settings among these players for the purpose of pairing entrances."
   entrance_rando:
@@ -92,13 +132,11 @@ TUNIC:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-fool_traps: "Replaces low-to-medium value money rewards in the item pool with fool traps, which cause random negative effects to the player."
-  fool_traps:
-    'off': 0
-    normal: 50
-    double: 0
-    onslaught: 0
+  sidneys_secret_documentation-plando_connections: "Generic connection plando. Format is:\n- entrance: \"Entrance Name\"\n  exit: \"Exit Name\"\n  percentage: 100\nPercentage is an integer from 0 to 100 which determines whether that connection will be made. Defaults to 100 if omitted."
+  plando_connections:
+    []
 
+  # Hexagon Quest Options
   sidneys_secret_documentation-hexagon_quest: "An alternate goal that shuffles Gold \"Questagon\" items into the item pool and allows the game to be completed after collecting the required number of them."
   hexagon_quest:
     'false': 50
@@ -107,16 +145,22 @@ TUNIC:
   sidneys_secret_documentation-hexagon_goal: "How many Gold Questagons are required to complete the game on Hexagon Quest."
   hexagon_goal:
     #
-    sidneys_secret_range_start: 15
-    sidneys_secret_range_end: 50
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 100
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 100
     20: 50
     random: 0
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-extra_hexagon_percentage: "How many extra Gold Questagons are shuffled into the item pool, taken as a percentage of the goal amount."
+  sidneys_secret_documentation-extra_hexagon_percentage: "How many extra Gold Questagons are shuffled into the item pool, taken as a percentage of the goal amount.\nThe max number of Gold Questagons that can be in the item pool is 100, so this option may be overridden and/or\nreduced if the Hexagon Goal amount is greater than 50."
   extra_hexagon_percentage:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     50: 50
@@ -124,23 +168,17 @@ TUNIC:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-laurels_location: "Force the Hero's Laurels to be placed at a location in your world.\nFor if you want to avoid or specify early or late Laurels."
-  laurels_location:
-    anywhere: 50
-    6_coins: 0
-    10_coins: 0
-    10_fairies: 0
-
-  sidneys_secret_documentation-plando_connections: "Generic connection plando. Format is:\n- entrance: \"Entrance Name\"\n  exit: \"Exit Name\"\n  percentage: 100\nPercentage is an integer from 0 to 100 which determines whether that connection will be made. Defaults to 100 if omitted."
-  plando_connections:
-    []
+  sidneys_secret_documentation-hexagon_quest_ability_type: "Determines how abilities are unlocked when playing Hexagon Quest with Shuffled Abilities enabled.\n\nHexagons: A new ability is randomly unlocked after obtaining 25%, 50%, and 75% of the required Hexagon goal amount. Requires at least 3 Gold Hexagons in the item pool, or 15 if Keys Behind Bosses is enabled.\nPages: Abilities are unlocked by finding specific pages in the manual.\n\nThis option does nothing if Shuffled Abilities is not enabled."
+  hexagon_quest_ability_type:
+    hexagons: 50
+    pages: 0
 
   # Logic Options
-  sidneys_secret_documentation-logic_rules: "Set which logic rules to use for your world.\nRestricted: Standard logic, no glitches.\nNo Major Glitches: Sneaky Laurels zips, ice grapples through doors, shooting the west bell, and boss quick kills are included in logic.\n* Ice grappling through the Ziggurat door is not in logic since you will get stuck in there without Prayer.\nUnrestricted: Logic in No Major Glitches, as well as ladder storage to get to certain places early.\n* Torch is given to the player at the start of the game due to the high softlock potential with various tricks. Using the torch is not required in logic.\n* Using Ladder Storage to get to individual chests is not in logic to avoid tedium.\n* Getting knocked out of the air by enemies during Ladder Storage to reach places is not in logic, except for in Rooted Ziggurat Lower. This is so you're not punished for playing with enemy rando on."
-  logic_rules:
-    restricted: 50
-    no_major_glitches: 0
-    unrestricted: 0
+  sidneys_secret_documentation-combat_logic: "If enabled, the player will logically require a combination of stat upgrade items and equipment to get some checks or navigate to some areas, with a goal of matching the vanilla combat difficulty.\nThe player may still be expected to run past enemies, reset aggro (by using a checkpoint or doing a scene transition), or find sneaky paths to checks.\nThis option marks many more items as progression and may force weapons much earlier than normal.\nBosses Only makes it so that additional combat logic is only added to the boss fights and the Gauntlet.\nIf disabled, the standard, looser logic is used. The standard logic does not include stat upgrades, just minimal weapon requirements, such as requiring a Sword or Magic Wand for Quarry, or not requiring a weapon for Swamp."
+  combat_logic:
+    'off': 50
+    bosses_only: 0
+    'on': 0
 
   sidneys_secret_documentation-lanternless: "Choose whether you require the Lantern for dark areas.\nWhen enabled, the Lantern is marked as Useful instead of Progression."
   lanternless:
@@ -149,6 +187,30 @@ TUNIC:
 
   sidneys_secret_documentation-maskless: "Choose whether you require the Scavenger's Mask for Lower Quarry.\nWhen enabled, the Scavenger's Mask is marked as Useful instead of Progression."
   maskless:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-laurels_zips: "Choose whether to include using the Hero's Laurels to zip through gates, doors, and tricky spots.\nNotable inclusions are the Monastery gate, Ruined Passage door, Old House gate, Forest Grave Path gate, and getting from the Back of Swamp to the Middle of Swamp."
+  laurels_zips:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-ice_grappling: "Choose whether grappling frozen enemies is in logic.\nEasy includes ice grappling enemies that are in range without luring them. May include clips through terrain.\nMedium includes using ice grapples to push enemies through doors or off ledges without luring them. Also includes bringing an enemy over to the Temple Door to grapple through it.\nHard includes luring or grappling enemies to get to where you want to go.\nEnabling any of these difficulty options will give the player the Torch to return to the Overworld checkpoint to avoid softlocks. Using the Torch is considered in logic.\nNote: You will still be expected to ice grapple to the slime in East Forest from below with this option off."
+  ice_grappling:
+    'off': 50
+    easy: 0
+    medium: 0
+    hard: 0
+
+  sidneys_secret_documentation-ladder_storage: "Choose whether Ladder Storage is in logic.\nEasy includes uses of Ladder Storage to get to open doors over a long distance without too much difficulty. May include convenient elevation changes (going up Mountain stairs, stairs in front of Special Shop, etc.).\nMedium includes the above as well as changing your elevation using the environment and getting knocked down by melee enemies mid-LS.\nHard includes the above as well as going behind the map to enter closed doors from behind, shooting a fuse with the magic wand to knock yourself down at close range, and getting into the Cathedral Secret Legend room mid-LS.\nEnabling any of these difficulty options will give the player the Torch to return to the Overworld checkpoint to avoid softlocks. Using the Torch is considered in logic.\nOpening individual chests while doing ladder storage is excluded due to tedium.\nKnocking yourself out of LS with a bomb is excluded due to the problematic nature of consumables in logic."
+  ladder_storage:
+    'off': 50
+    easy: 0
+    medium: 0
+    hard: 0
+
+  sidneys_secret_documentation-ladder_storage_without_items: "If disabled, you logically require Stick, Sword, Magic Orb, or Shield to perform Ladder Storage.\nIf enabled, you will be expected to perform Ladder Storage without progression items.\nThis can be done with the plushie code, a Golden Coin, Prayer, and many other options.\n\nThis option has no effect if you do not have Ladder Storage Logic enabled."
+  ladder_storage_without_items:
     'false': 50
     'true': 0
 
@@ -163,6 +225,10 @@ TUNIC:
 
   sidneys_secret_documentation-start_inventory: "Start with these items."
   start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\n\nThe game decides what the replacement items will be."
+  start_inventory_from_pool:
     {}
 
   sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
@@ -184,7 +250,3 @@ TUNIC:
   sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
   item_links:
     []
-
-  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\n\nThe game decides what the replacement items will be."
-  start_inventory_from_pool:
-    {}

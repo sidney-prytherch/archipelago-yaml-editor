@@ -32,13 +32,21 @@ description: Default Timespinner Template
 
 game: Timespinner
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Timespinner:
   # Game Options
+  sidneys_secret_documentation-death_link: "When you die, everyone who enabled death link dies. Of course, the reverse is true too."
+  death_link:
+    'false': 50
+    'true': 0
+
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,77 +59,77 @@ Timespinner:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
-  sidneys_secret_documentation-StartWithJewelryBox: "Start with Jewelry Box unlocked"
-  StartWithJewelryBox:
+  sidneys_secret_documentation-start_with_jewelry_box: "Start with Jewelry Box unlocked"
+  start_with_jewelry_box:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-DownloadableItems: "With the tablet you will be able to download items at terminals"
-  DownloadableItems:
+  sidneys_secret_documentation-downloadable_items: "With the tablet you will be able to download items at terminals"
+  downloadable_items:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-EyeSpy: "Requires Oculus Ring in inventory to be able to break hidden walls."
-  EyeSpy:
+  sidneys_secret_documentation-eye_spy: "Requires Oculus Ring in inventory to be able to break hidden walls."
+  eye_spy:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-StartWithMeyef: "Start with Meyef, ideal for when you want to play multiplayer."
-  StartWithMeyef:
+  sidneys_secret_documentation-start_with_meyef: "Start with Meyef, ideal for when you want to play multiplayer."
+  start_with_meyef:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-QuickSeed: "Start with Talaria Attachment, Nyoom!"
-  QuickSeed:
+  sidneys_secret_documentation-quick_seed: "Start with Talaria Attachment, Nyoom!"
+  quick_seed:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-SpecificKeycards: "Keycards can only open corresponding doors"
-  SpecificKeycards:
+  sidneys_secret_documentation-specific_keycards: "Keycards can only open corresponding doors"
+  specific_keycards:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-Inverted: "Start in the past"
-  Inverted:
+  sidneys_secret_documentation-inverted: "Start in the past"
+  inverted:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-GyreArchives: "Gyre locations are in logic. New warps are gated by Merchant Crow and Kobo"
-  GyreArchives:
+  sidneys_secret_documentation-gyre_archives: "Gyre locations are in logic. New warps are gated by Merchant Crow and Kobo"
+  gyre_archives:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-Cantoran: "Cantoran's fight and check are available upon revisiting his room"
-  Cantoran:
+  sidneys_secret_documentation-cantoran: "Cantoran's fight and check are available upon revisiting his room"
+  cantoran:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-LoreChecks: "Memories and journal entries contain items."
-  LoreChecks:
+  sidneys_secret_documentation-lore_checks: "Memories and journal entries contain items."
+  lore_checks:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-BossRando: "Wheter all boss locations are shuffled, and if their damage/hp should be scaled."
-  BossRando:
+  sidneys_secret_documentation-boss_rando: "Wheter all boss locations are shuffled, and if their damage/hp should be scaled."
+  boss_rando:
     'off': 50
     scaled: 0
     unscaled: 0
 
-  sidneys_secret_documentation-EnemyRando: "Wheter enemies will be randomized, and if their damage/hp should be scaled."
-  EnemyRando:
+  sidneys_secret_documentation-enemy_rando: "Wheter enemies will be randomized, and if their damage/hp should be scaled."
+  enemy_rando:
     'off': 50
     scaled: 0
     unscaled: 0
     ryshia: 0
+    no_hell_spiders: 0
 
-  sidneys_secret_documentation-DamageRando: "Randomly nerfs and buffs some orbs and their associated spells as well as some associated rings."
-  DamageRando:
+  sidneys_secret_documentation-damage_rando: "Randomly nerfs and buffs some orbs and their associated spells as well as some associated rings."
+  damage_rando:
     'off': 50
     allnerfs: 0
     mostlynerfs: 0
@@ -130,8 +138,8 @@ Timespinner:
     allbuffs: 0
     manual: 0
 
-  sidneys_secret_documentation-DamageRandoOverrides: "Manual +/-/normal odds for an orb. Put 0 if you don't want a certain nerf or buff to be a possibility. Orbs that\nyou don't specify will roll with 1/1/1 as odds"
-  DamageRandoOverrides:
+  sidneys_secret_documentation-damage_rando_overrides: "Manual +/-/normal odds for an orb. Put 0 if you don't want a certain nerf or buff to be a possibility. Orbs that\nyou don't specify will roll with 1/1/1 as odds"
+  damage_rando_overrides:
     Blade:
       MinusOdds: 1
       NormalOdds: 1
@@ -197,9 +205,12 @@ Timespinner:
       NormalOdds: 1
       PlusOdds: 1
 
-  sidneys_secret_documentation-HpCap: "Sets the number that Lunais's HP maxes out at."
-  HpCap:
+  sidneys_secret_documentation-hp_cap: "Sets the number that Lunais's HP maxes out at."
+  hp_cap:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 999
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 999
     999: 50
@@ -207,9 +218,25 @@ Timespinner:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-LevelCap: "Sets the max level Lunais can achieve."
-  LevelCap:
+  sidneys_secret_documentation-aura_cap: "Sets the maximum Aura Lunais is allowed to have. Level 1 is 80. Djinn Inferno costs 45."
+  aura_cap:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 45
+    # Maximum value is 999
+    sidneys_secret_range_start: 45
+    sidneys_secret_range_end: 999
+    999: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-level_cap: "Sets the max level Lunais can achieve."
+  level_cap:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 99
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 99
     99: 50
@@ -217,9 +244,12 @@ Timespinner:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-ExtraEarringsXP: "Adds additional XP granted by Galaxy Earrings."
-  ExtraEarringsXP:
+  sidneys_secret_documentation-extra_earrings_xp: "Adds additional XP granted by Galaxy Earrings."
+  extra_earrings_xp:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 24
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 24
     0: 50
@@ -227,26 +257,29 @@ Timespinner:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-BossHealing: "Enables/disables healing after boss fights. NOTE: Currently only applicable when Boss Rando is enabled."
-  BossHealing:
+  sidneys_secret_documentation-boss_healing: "Enables/disables healing after boss fights. NOTE: Currently only applicable when Boss Rando is enabled."
+  boss_healing:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-ShopFill: "Sets the items for sale in Merchant Crow's shops.\nDefault: No sunglasses or trendy jacket, but sand vials for sale.\nRandomized: Up to 4 random items in each shop.\nVanilla: Keep shops the same as the base game.\nEmpty: Sell no items at the shop."
-  ShopFill:
+  sidneys_secret_documentation-shop_fill: "Sets the items for sale in Merchant Crow's shops.\nDefault: No sunglasses or trendy jacket, but sand vials for sale.\nRandomized: Up to 4 random items in each shop.\nVanilla: Keep shops the same as the base game.\nEmpty: Sell no items at the shop."
+  shop_fill:
     default: 50
     randomized: 0
     vanilla: 0
     empty: 0
 
-  sidneys_secret_documentation-ShopWarpShards: "Shops always sell warp shards (when keys possessed), ignoring inventory setting."
-  ShopWarpShards:
+  sidneys_secret_documentation-shop_warp_shards: "Shops always sell warp shards (when keys possessed), ignoring inventory setting."
+  shop_warp_shards:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-ShopMultiplier: "Multiplier for the cost of items in the shop. Set to 0 for free shops."
-  ShopMultiplier:
+  sidneys_secret_documentation-shop_multiplier: "Multiplier for the cost of items in the shop. Set to 0 for free shops."
+  shop_multiplier:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 10
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 10
     1: 50
@@ -254,22 +287,25 @@ Timespinner:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-LootPool: "Sets the items that drop from enemies (does not apply to boss reward checks)\nVanilla: Drops are the same as the base game\nRandomized: Each slot of every enemy's drop table is given a random use item or piece of equipment.\nEmpty: Enemies drop nothing."
-  LootPool:
+  sidneys_secret_documentation-loot_pool: "Sets the items that drop from enemies (does not apply to boss reward checks)\nVanilla: Drops are the same as the base game\nRandomized: Each slot of every enemy's drop table is given a random use item or piece of equipment.\nEmpty: Enemies drop nothing."
+  loot_pool:
     vanilla: 50
     randomized: 0
     empty: 0
 
-  sidneys_secret_documentation-DropRateCategory: "Sets the drop rate when 'Loot Pool' is set to 'Random'\nTiered: Based on item rarity/value\nVanilla: Based on bestiary slot the item is placed into\nRandom: Assigned a random tier/drop rate\nFixed: Set by the 'Fixed Drop Rate' setting"
-  DropRateCategory:
+  sidneys_secret_documentation-drop_rate_category: "Sets the drop rate when 'Loot Pool' is set to 'Random'\nTiered: Based on item rarity/value\nVanilla: Based on bestiary slot the item is placed into\nRandom: Assigned a random tier/drop rate\nFixed: Set by the 'Fixed Drop Rate' setting"
+  drop_rate_category:
     tiered: 50
     vanilla: 0
     randomized: 0
     fixed: 0
 
-  sidneys_secret_documentation-FixedDropRate: "Base drop rate percentage when 'Drop Rate Category' is set to 'Fixed'"
-  FixedDropRate:
+  sidneys_secret_documentation-fixed_drop_rate: "Base drop rate percentage when 'Drop Rate Category' is set to 'Fixed'"
+  fixed_drop_rate:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     5: 50
@@ -277,39 +313,39 @@ Timespinner:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-LootTierDistro: "Sets how often items of each rarity tier are placed when 'Loot Pool' is set to 'Random'\nDefault Weight: Rarer items will be assigned to enemy drop slots less frequently than common items\nFull Random: Any item has an equal chance of being placed in an enemy's drop slot\nInverted Weight: Rarest items show up the most frequently, while common items are the rarest"
-  LootTierDistro:
+  sidneys_secret_documentation-loot_tier_distro: "Sets how often items of each rarity tier are placed when 'Loot Pool' is set to 'Random'\nDefault Weight: Rarer items will be assigned to enemy drop slots less frequently than common items\nFull Random: Any item has an equal chance of being placed in an enemy's drop slot\nInverted Weight: Rarest items show up the most frequently, while common items are the rarest"
+  loot_tier_distro:
     default_weight: 50
     full_random: 0
     inverted_weight: 0
 
-  sidneys_secret_documentation-ShowBestiary: "All entries in the bestiary are visible, without needing to kill one of a given enemy first"
-  ShowBestiary:
+  sidneys_secret_documentation-show_bestiary: "All entries in the bestiary are visible, without needing to kill one of a given enemy first"
+  show_bestiary:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-ShowDrops: "All item drops in the bestiary are visible, without needing an enemy to drop one of a given item first"
-  ShowDrops:
+  sidneys_secret_documentation-show_drops: "All item drops in the bestiary are visible, without needing an enemy to drop one of a given item first"
+  show_drops:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-EnterSandman: "The Ancient Pyramid is unlocked by the Twin Pyramid Keys, but the final boss door opens if you have all 5 Timespinner pieces"
-  EnterSandman:
+  sidneys_secret_documentation-enter_sandman: "The Ancient Pyramid is unlocked by the Twin Pyramid Keys, but the final boss door opens if you have all 5 Timespinner pieces"
+  enter_sandman:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-DadPercent: "The win condition is beating the boss of Emperor's Tower"
-  DadPercent:
+  sidneys_secret_documentation-dad_percent: "The win condition is beating the boss of Emperor's Tower"
+  dad_percent:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-RisingTides: "Random areas are flooded or drained, can be further specified with RisingTidesOverrides"
-  RisingTides:
+  sidneys_secret_documentation-rising_tides: "Random areas are flooded or drained, can be further specified with RisingTidesOverrides"
+  rising_tides:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-RisingTidesOverrides: "Odds for specific areas to be flooded or drained, only has effect when RisingTides is on.\nAreas that are not specified will roll with the default 33% chance of getting flooded or drained"
-  RisingTidesOverrides:
+  sidneys_secret_documentation-rising_tides_overrides: "Odds for specific areas to be flooded or drained, only has effect when RisingTides is on.\nAreas that are not specified will roll with the default 33% chance of getting flooded or drained"
+  rising_tides_overrides:
     AncientPyramidShaft:
       Dry: 67
       Flooded: 33
@@ -345,14 +381,52 @@ Timespinner:
       Dry: 67
       Flooded: 33
 
-  sidneys_secret_documentation-UnchainedKeys: "Start with Twin Pyramid Key, which does not give free warp;\nwarp items for Past, Present, (and ??? with Enter Sandman) can be found."
-  UnchainedKeys:
+  sidneys_secret_documentation-unchained_keys: "Start with Twin Pyramid Key, which does not give free warp;\nwarp items for Past, Present, (and ??? with Enter Sandman) can be found."
+  unchained_keys:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-TrapChance: "Chance of traps in the item pool.\nTraps will only replace filler items such as potions, vials and antidotes"
-  TrapChance:
+  sidneys_secret_documentation-back_to_the_future: "When inverted, allows using the refugee camp warp when both the Timespinner Wheel and Spindle is acquired."
+  back_to_the_future:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-prism_break: "Adds 3 Laser Access items to the item pool to remove the lasers blocking the military hangar area\ninstead of needing to beat the Golden Idol, Aelana, and The Maw."
+  prism_break:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-lock_key_amadeus: "Lasers in Amadeus' Laboratory are disabled via items, rather than by de-powering the lab. Experiments will spawn in the lab."
+  lock_key_amadeus:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-risky_warps: "Expanded free-warp eligible locations, including Azure Queen, Xarion, Amadeus' Laboratory, and Emperor's Tower."
+  risky_warps:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-pyramid_start: "Start in ???. Takes priority over Inverted. Additional chests in Dark Forest and Pyramid. Sandman door behaves as it does in Enter Sandman."
+  pyramid_start:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-gate_keep: "The castle drawbridge starts raised, and can be lowered via item."
+  gate_keep:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-royal_roadblock: "The Royal Towers entrance door requires a royal orb (Plasma Orb, Plasma Geyser, or Royal Ring) to enter."
+  royal_roadblock:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-trap_chance: "Chance of traps in the item pool.\nTraps will only replace filler items such as potions, vials and antidotes"
+  trap_chance:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     10: 50
@@ -360,19 +434,9 @@ Timespinner:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-Traps: "List of traps that may be in the item pool to find"
-  Traps:
-    ['Meteor Sparrow Trap', 'Poison Trap', 'Chaos Trap', 'Neurotoxin Trap', 'Bee Trap']
-
-  sidneys_secret_documentation-PresentAccessWithWheelAndSpindle: "When inverted, allows using the refugee camp warp when both the Timespinner Wheel and Spindle is acquired."
-  PresentAccessWithWheelAndSpindle:
-    'false': 50
-    'true': 0
-
-  sidneys_secret_documentation-DeathLink: "When you die, everyone dies. Of course the reverse is true too."
-  DeathLink:
-    'false': 50
-    'true': 0
+  sidneys_secret_documentation-traps: "List of traps that may be in the item pool to find"
+  traps:
+    ['Meteor Sparrow Trap', 'Poison Trap', 'Chaos Trap', 'Neurotoxin Trap', 'Bee Trap', 'Throw Stun Trap']
 
   # Item & Location Options
   sidneys_secret_documentation-local_items: "Forces these items to be in their native world."

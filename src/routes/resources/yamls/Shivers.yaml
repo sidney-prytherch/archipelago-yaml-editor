@@ -32,13 +32,16 @@ description: Default Shivers Template
 
 game: Shivers
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Shivers:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,19 +54,31 @@ Shivers:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
-  sidneys_secret_documentation-lobby_access: "Chooses how keys needed to reach the lobby are placed.\n- Normal: Keys are placed anywhere\n- Early: Keys are placed early \n- Local: Keys are placed locally"
+  sidneys_secret_documentation-ixupi_captures_needed: "Number of Ixupi Captures needed for goal condition."
+  ixupi_captures_needed:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 10
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 10
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-lobby_access: "Chooses how keys needed to reach the lobby are placed.\n- Normal: Keys are placed anywhere\n- Early: Keys are placed early \n- Local: Keys are placed locally and early"
   lobby_access:
-    normal: 50
-    early: 0
+    normal: 0
+    early: 50
     local: 0
 
-  sidneys_secret_documentation-puzzle_hints_required: "If turned on puzzle hints will be available before the corresponding puzzle is required. For example: The Shaman\nDrums puzzle will be placed after access to the security cameras which give you the solution. Turning this off\nallows for greater randomization."
+  sidneys_secret_documentation-puzzle_hints_required: "If turned on puzzle hints/solutions will be available before the corresponding puzzle is required.\n\nFor example: The Red Door puzzle will be logically required only after obtaining access to Beth's Address Book\nwhich gives you the solution.\n\nTurning this off allows for greater randomization."
   puzzle_hints_required:
     'false': 0
     'true': 50
@@ -83,7 +98,7 @@ Shivers:
     'false': 0
     'true': 50
 
-  sidneys_secret_documentation-early_beth: "Beth's body is open at the start of the game. This allows any pot piece to be placed in the slide and early checks on the second half of the final riddle."
+  sidneys_secret_documentation-early_beth: "Beth's body is open at the start of the game.\nThis allows any pot piece to be placed in the slide and early checks on the second half of the final riddle."
   early_beth:
     'false': 0
     'true': 50
@@ -92,6 +107,29 @@ Shivers:
   early_lightning:
     'false': 50
     'true': 0
+
+  sidneys_secret_documentation-location_pot_pieces: "Chooses where pot pieces will be located within the multiworld.\n- Own World: Pot pieces will be located within your own world\n- Different World: Pot pieces will be located in another world\n- Any World: Pot pieces will be located in any world"
+  location_pot_pieces:
+    own_world: 0
+    different_world: 0
+    any_world: 50
+
+  sidneys_secret_documentation-full_pots: "Chooses if pots will be in pieces or already completed\n- Pieces: Only pot pieces will be added to the item pool\n- Complete: Only completed pots will be added to the item pool\n- Mixed: Each pot will be randomly chosen to be pieces or already completed."
+  full_pots:
+    pieces: 50
+    complete: 0
+    mixed: 0
+
+  sidneys_secret_documentation-ixupi_captures_priority: "Ixupi captures are set to priority locations. This forces a progression item into these locations if possible."
+  ixupi_captures_priority:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-puzzle_collect_behavior: "Defines what happens to puzzles on collect.\n- Solve None: No puzzles will be solved when collected.\n- Prevent Out Of Logic Access: All puzzles, except Red Door and Skull Door, will be solved when collected.\nThis prevents out of logic access to Gods Room and Slide.\n- Solve All: All puzzles will be solved when collected. (original behavior)"
+  puzzle_collect_behavior:
+    solve_none: 0
+    prevent_out_of_logic_access: 50
+    solve_all: 0
 
   # Item & Location Options
   sidneys_secret_documentation-local_items: "Forces these items to be in their native world."

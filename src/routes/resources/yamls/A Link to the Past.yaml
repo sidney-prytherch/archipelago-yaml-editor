@@ -32,13 +32,16 @@ description: Default A Link to the Past Template
 
 game: A Link to the Past
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 A Link to the Past:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,11 +54,11 @@ A Link to the Past:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired.\n\n**Items:** ensure all logically relevant items can be acquired. Some items, such as keys, may be self-locking, and\nsome locations may be inaccessible."
   accessibility:
-    locations: 0
-    items: 50
+    full: 0
     minimal: 0
+    items: 50
 
   sidneys_secret_documentation-plando_connections: "Generic connections plando. Format is:\n- entrance: \"Entrance Name\"\n  exit: \"Exit Name\"\n  direction: \"Direction\"\n  percentage: 100\nDirection must be one of 'entrance', 'exit', or 'both', and defaults to 'both' if omitted.\nPercentage is an integer from 1 to 100, and defaults to 100 when omitted."
   plando_connections:
@@ -107,6 +110,9 @@ A Link to the Past:
   sidneys_secret_documentation-crystals_needed_for_gt: "Number of crystals needed to open Ganon's Tower"
   crystals_needed_for_gt:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 7
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 7
     7: 50
@@ -117,6 +123,9 @@ A Link to the Past:
   sidneys_secret_documentation-crystals_needed_for_ganon: "Number of crystals needed to damage Ganon"
   crystals_needed_for_ganon:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 7
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 7
     7: 50
@@ -133,6 +142,9 @@ A Link to the Past:
   sidneys_secret_documentation-triforce_pieces_percentage: "Set to how many triforce pieces according to a percentage of the required ones, are available to collect in the world."
   triforce_pieces_percentage:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 100
+    # Maximum value is 1000
     sidneys_secret_range_start: 100
     sidneys_secret_range_end: 1000
     150: 50
@@ -143,6 +155,9 @@ A Link to the Past:
   sidneys_secret_documentation-triforce_pieces_required: "Set to how many out of X triforce pieces you need to win the game in a triforce hunt.\nDefault is 20. Max is 90, Min is 1."
   triforce_pieces_required:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 90
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 90
     20: 50
@@ -153,6 +168,9 @@ A Link to the Past:
   sidneys_secret_documentation-triforce_pieces_available: "Set to how many triforces pieces are available to collect in the world. Default is 30. Max is 90, Min is 1"
   triforce_pieces_available:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 90
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 90
     30: 50
@@ -163,6 +181,9 @@ A Link to the Past:
   sidneys_secret_documentation-triforce_pieces_extra: "Set to how many extra triforces pieces are available to collect in the world."
   triforce_pieces_extra:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 89
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 89
     10: 50
@@ -332,6 +353,9 @@ A Link to the Past:
   sidneys_secret_documentation-shop_item_slots: "Number of slots in all shops available to have items from the multiworld"
   shop_item_slots:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 30
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 30
     0: 50
@@ -368,6 +392,9 @@ A Link to the Past:
   sidneys_secret_documentation-shop_price_modifier: "Percentage modifier for shuffled item prices in shops"
   shop_price_modifier:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 400
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 400
     100: 50
@@ -420,6 +447,9 @@ A Link to the Past:
   sidneys_secret_documentation-beemizer_total_chance: "Percentage chance for each junk-fill item (rupees, bombs, arrows) to be\nreplaced with either a bee swarm trap or a single bottle-filling bee."
   beemizer_total_chance:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     0: 50
@@ -430,6 +460,9 @@ A Link to the Past:
   sidneys_secret_documentation-beemizer_trap_chance: "Percentage chance for each replaced junk-fill item to be a bee swarm\ntrap; all other replaced items are single bottle-filling bees."
   beemizer_trap_chance:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     60: 50
@@ -449,6 +482,9 @@ A Link to the Past:
   sidneys_secret_documentation-countdown_start_time: "For Timed OHKO and Timed Countdown timer modes, the amount of time in minutes to start with."
   countdown_start_time:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 480
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 480
     10: 50
@@ -459,6 +495,9 @@ A Link to the Past:
   sidneys_secret_documentation-red_clock_time: "For all timer modes, the amount of time in minutes to gain or lose when picking up a red clock."
   red_clock_time:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is -60
+    # Maximum value is 60
     sidneys_secret_range_start: -60
     sidneys_secret_range_end: 60
     -2: 50
@@ -469,6 +508,9 @@ A Link to the Past:
   sidneys_secret_documentation-blue_clock_time: "For all timer modes, the amount of time in minutes to gain or lose when picking up a blue clock."
   blue_clock_time:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is -60
+    # Maximum value is 60
     sidneys_secret_range_start: -60
     sidneys_secret_range_end: 60
     2: 50
@@ -479,6 +521,9 @@ A Link to the Past:
   sidneys_secret_documentation-green_clock_time: "For all timer modes, the amount of time in minutes to gain or lose when picking up a green clock."
   green_clock_time:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is -60
+    # Maximum value is 60
     sidneys_secret_range_start: -60
     sidneys_secret_range_end: 60
     4: 50
@@ -486,7 +531,7 @@ A Link to the Past:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
+  sidneys_secret_documentation-death_link: "When you die, everyone who enabled death link dies. Of course, the reverse is true too."
   death_link:
     'false': 50
     'true': 0
@@ -615,6 +660,10 @@ A Link to the Past:
   start_inventory:
     {}
 
+  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\n\nThe game decides what the replacement items will be."
+  start_inventory_from_pool:
+    {}
+
   sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
   start_hints:
     []
@@ -634,7 +683,3 @@ A Link to the Past:
   sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
   item_links:
     []
-
-  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\n\nThe game decides what the replacement items will be."
-  start_inventory_from_pool:
-    {}

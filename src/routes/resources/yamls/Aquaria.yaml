@@ -32,13 +32,16 @@ description: Default Aquaria Template
 
 game: Aquaria
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Aquaria:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,10 +54,9 @@ Aquaria:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
   sidneys_secret_documentation-objective: "The game objective can be to kill the creator or to kill the creator after obtaining all three secret memories."
@@ -65,6 +67,9 @@ Aquaria:
   sidneys_secret_documentation-mini_bosses_to_beat: "The number of minibosses to beat before having access to the creator (the final boss). The minibosses are\n\"Nautilus Prime\", \"Blaster Peg Prime\", \"Mergog\", \"Mithalan priests\", \"Octopus Prime\", \"Crabbius Maximus\",\n\"Mantis Shrimp Prime\" and \"King Jellyfish God Prime\".\nNote that the Energy Statue and Simon Says are not minibosses."
   mini_bosses_to_beat:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 8
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 8
     0: 50
@@ -72,9 +77,12 @@ Aquaria:
     random-low: 0
     random-high: 0
 
-  sidneys_secret_documentation-big_bosses_to_beat: "The number of big bosses to beat before having access to the creator (the final boss). The big bosses are\n\"Fallen God\", \"Mithalan God\", \"Drunian God\", \"Sun God\" and \"The Golem\"."
+  sidneys_secret_documentation-big_bosses_to_beat: "The number of big bosses to beat before having access to the creator (the final boss). The big bosses are\n\"Fallen God\", \"Mithalan God\", \"Drunian God\", \"Lumerean God\" and \"The Golem\"."
   big_bosses_to_beat:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 5
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 5
     0: 50
@@ -88,10 +96,17 @@ Aquaria:
     all: 0
     all_except_final: 50
 
-  sidneys_secret_documentation-early_energy_form: "Force the Energy Form to be in a location early in the game"
+  sidneys_secret_documentation-early_energy_form: "Force the Energy form to be in a location early in the multiworld (or directly in your world if Early and Local is\nselected)."
   early_energy_form:
-    'false': 0
-    'true': 50
+    'off': 0
+    early: 50
+    early_and_local: 0
+
+  sidneys_secret_documentation-early_bind_song: "Force the Bind song to be in a location early in the multiworld (or directly in your world if Early and Local is\nselected)."
+  early_bind_song:
+    'off': 0
+    early: 50
+    early_and_local: 0
 
   sidneys_secret_documentation-light_needed_to_get_to_dark_places: "Make sure that the sun form or the dumbo pet can be acquired before getting to dark places.\nBe aware that navigating in dark places without light is extremely difficult."
   light_needed_to_get_to_dark_places:
@@ -100,10 +115,10 @@ Aquaria:
 
   sidneys_secret_documentation-bind_song_needed_to_get_under_rock_bulb: "Make sure that the bind song can be acquired before having to obtain sing bulbs under rocks."
   bind_song_needed_to_get_under_rock_bulb:
-    'false': 50
-    'true': 0
+    'false': 0
+    'true': 50
 
-  sidneys_secret_documentation-unconfine_home_water: "Open the way out of the Home Water area so that Naija can go to open water and beyond without the bind song."
+  sidneys_secret_documentation-unconfine_home_water: "Open the way out of the Home Waters area so that Naija can go to open water and beyond without the bind song.\nNote that if you turn this option off, it is recommended to turn on the Early Energy form and Early Bind Song\noptions."
   unconfine_home_water:
     'off': 50
     via_energy_door: 0
@@ -136,8 +151,8 @@ Aquaria:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
-  death_link:
+  sidneys_secret_documentation-blind_goal: "Hide the goal's requirements from the help page so that you have to go to the last boss door to know\nwhat is needed to access the boss."
+  blind_goal:
     'false': 50
     'true': 0
 
@@ -152,6 +167,10 @@ Aquaria:
 
   sidneys_secret_documentation-start_inventory: "Start with these items."
   start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\n\nThe game decides what the replacement items will be."
+  start_inventory_from_pool:
     {}
 
   sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
@@ -173,7 +192,3 @@ Aquaria:
   sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
   item_links:
     []
-
-  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\n\nThe game decides what the replacement items will be."
-  start_inventory_from_pool:
-    {}

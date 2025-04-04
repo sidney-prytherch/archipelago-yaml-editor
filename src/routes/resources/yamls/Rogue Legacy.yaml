@@ -32,13 +32,16 @@ description: Default Rogue Legacy Template
 
 game: Rogue Legacy
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Rogue Legacy:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,10 +54,9 @@ Rogue Legacy:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
   sidneys_secret_documentation-starting_gender: "Determines the gender of your initial 'Sir Lee' character."
@@ -76,7 +78,7 @@ Rogue Legacy:
 
   sidneys_secret_documentation-available_classes: "List of classes that will be in the item pool to find. The upgraded form of the class will be added with it.\nThe upgraded form of your starting class will be available regardless."
   available_classes:
-    ['Mage', 'Barbarian', 'Knave', 'Dragon', 'Knight', 'Lich', 'Traitor', 'Spellthief', 'Miner', 'Shinobi']
+    ['Barbarian', 'Dragon', 'Knave', 'Mage', 'Miner', 'Lich', 'Shinobi', 'Traitor', 'Spellthief', 'Knight']
 
   sidneys_secret_documentation-new_game_plus: "Puts the castle in new game plus mode which vastly increases enemy level, but increases gold gain by 50%. Not\nrecommended for those inexperienced to Rogue Legacy!"
   new_game_plus:
@@ -87,6 +89,9 @@ Rogue Legacy:
   sidneys_secret_documentation-fairy_chests_per_zone: "Determines the number of Fairy Chests in a given zone that contain items. After these have been checked, only stat\nbonuses can be found in Fairy Chests."
   fairy_chests_per_zone:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 15
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 15
     1: 50
@@ -97,6 +102,9 @@ Rogue Legacy:
   sidneys_secret_documentation-chests_per_zone: "Determines the number of Non-Fairy Chests in a given zone that contain items. After these have been checked, only\ngold or stat bonuses can be found in Chests."
   chests_per_zone:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 20
+    # Maximum value is 50
     sidneys_secret_range_start: 20
     sidneys_secret_range_end: 50
     20: 50
@@ -131,6 +139,9 @@ Rogue Legacy:
   sidneys_secret_documentation-architect_fee: "Determines how large of a percentage the architect takes from the player when utilizing his services. 100 means he\ntakes all your gold. 0 means his services are free."
   architect_fee:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     40: 50
@@ -164,6 +175,9 @@ Rogue Legacy:
   sidneys_secret_documentation-number_of_children: "Determines the number of offspring you can choose from on the lineage screen after a death."
   number_of_children:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 5
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 5
     3: 50
@@ -199,6 +213,9 @@ Rogue Legacy:
   sidneys_secret_documentation-health_pool: "Determines the number of Health Ups in the item pool."
   health_pool:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 15
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 15
     15: 50
@@ -209,6 +226,9 @@ Rogue Legacy:
   sidneys_secret_documentation-mana_pool: "Determines the number of Mana Ups in the item pool."
   mana_pool:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 15
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 15
     15: 50
@@ -219,6 +239,9 @@ Rogue Legacy:
   sidneys_secret_documentation-attack_pool: "Determines the number of Attack Ups in the item pool."
   attack_pool:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 15
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 15
     15: 50
@@ -229,6 +252,9 @@ Rogue Legacy:
   sidneys_secret_documentation-magic_damage_pool: "Determines the number of Magic Damage Ups in the item pool."
   magic_damage_pool:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 15
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 15
     15: 50
@@ -239,6 +265,9 @@ Rogue Legacy:
   sidneys_secret_documentation-armor_pool: "Determines the number of Armor Ups in the item pool."
   armor_pool:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 10
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 10
     10: 50
@@ -249,6 +278,9 @@ Rogue Legacy:
   sidneys_secret_documentation-equip_pool: "Determines the number of Equip Ups in the item pool."
   equip_pool:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 10
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 10
     10: 50
@@ -259,6 +291,9 @@ Rogue Legacy:
   sidneys_secret_documentation-crit_chance_pool: "Determines the number of Crit Chance Ups in the item pool."
   crit_chance_pool:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 5
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 5
     5: 50
@@ -269,6 +304,9 @@ Rogue Legacy:
   sidneys_secret_documentation-crit_damage_pool: "Determines the number of Crit Damage Ups in the item pool."
   crit_damage_pool:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 5
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 5
     5: 50
@@ -289,7 +327,7 @@ Rogue Legacy:
   additional_sir_names:
     []
 
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
+  sidneys_secret_documentation-death_link: "When you die, everyone who enabled death link dies. Of course, the reverse is true too."
   death_link:
     'false': 50
     'true': 0

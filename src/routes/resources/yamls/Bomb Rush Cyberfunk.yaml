@@ -32,13 +32,16 @@ description: Default Bomb Rush Cyberfunk Template
 
 game: Bomb Rush Cyberfunk
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Bomb Rush Cyberfunk:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,10 +54,9 @@ Bomb Rush Cyberfunk:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
   sidneys_secret_documentation-logic: "Choose the logic used by the randomizer."
@@ -80,6 +82,9 @@ Bomb Rush Cyberfunk:
   sidneys_secret_documentation-total_rep: "Change the total amount of REP in your world.\n\nAt least 960 REP is needed to finish the game.\n\nWill be rounded to the nearest number divisible by 8."
   total_rep:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1000
+    # Maximum value is 2000
     sidneys_secret_range_start: 1000
     sidneys_secret_range_end: 2000
     1400: 50
@@ -129,6 +134,9 @@ Bomb Rush Cyberfunk:
   sidneys_secret_documentation-damage_multiplier: "Multiplies all damage received.\n\nAt 3x, most damage will OHKO the player, including falling into pits.\nAt 6x, all damage will OHKO the player.\n\nThis can be changed later in the options menu inside the Archipelago phone app."
   damage_multiplier:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 6
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 6
     1: 50

@@ -32,13 +32,16 @@ description: Default DOOM II Template
 
 game: DOOM II
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 DOOM II:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,13 +54,12 @@ DOOM II:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
-  sidneys_secret_documentation-difficulty: "Choose the difficulty option. Those match DOOM's difficulty options.\nbaby (I'm too young to die.) double ammos, half damage, less monsters or strength.\neasy (Hey, not too rough.) less monsters or strength.\nmedium (Hurt me plenty.) Default.\nhard (Ultra-Violence.) More monsters or strength.\nnightmare (Nightmare!) Monsters attack more rapidly and respawn."
+  sidneys_secret_documentation-difficulty: "Choose the game difficulty. These options match DOOM's skill levels.\nbaby (I'm too young to die.) Same as easy, with double ammo pickups and half damage taken.\neasy (Hey, not too rough.) Less monsters or strength.\nmedium (Hurt me plenty.) Default.\nhard (Ultra-Violence.) More monsters or strength.\nnightmare (Nightmare!) Monsters attack more rapidly and respawn."
   difficulty:
     baby: 0
     easy: 0
@@ -105,7 +107,7 @@ DOOM II:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
+  sidneys_secret_documentation-death_link: "When you die, everyone who enabled death link dies. Of course, the reverse is true too."
   death_link:
     'false': 50
     'true': 0
@@ -135,6 +137,128 @@ DOOM II:
     'false': 50
     'true': 0
 
+  sidneys_secret_documentation-split_backpack: "Split the Backpack into four individual items, each one increasing ammo capacity for one type of weapon only."
+  split_backpack:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-backpack_count: "How many Backpacks will be available.\nIf Split Backpack is set, this will be the number of each capacity upgrade available."
+  backpack_count:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 10
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 10
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_ammo_bullets: "Set the starting ammo capacity for bullets."
+  max_ammo_bullets:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 200
+    # Maximum value is 999
+    sidneys_secret_range_start: 200
+    sidneys_secret_range_end: 999
+    200: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_ammo_shells: "Set the starting ammo capacity for shotgun shells."
+  max_ammo_shells:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 50
+    # Maximum value is 999
+    sidneys_secret_range_start: 50
+    sidneys_secret_range_end: 999
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_ammo_rockets: "Set the starting ammo capacity for rockets."
+  max_ammo_rockets:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 50
+    # Maximum value is 999
+    sidneys_secret_range_start: 50
+    sidneys_secret_range_end: 999
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-max_ammo_energy_cells: "Set the starting ammo capacity for energy cells."
+  max_ammo_energy_cells:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 300
+    # Maximum value is 999
+    sidneys_secret_range_start: 300
+    sidneys_secret_range_end: 999
+    300: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-added_ammo_bullets: "Set the amount of bullet capacity added when collecting a backpack or capacity upgrade."
+  added_ammo_bullets:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 20
+    # Maximum value is 999
+    sidneys_secret_range_start: 20
+    sidneys_secret_range_end: 999
+    200: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-added_ammo_shells: "Set the amount of shotgun shell capacity added when collecting a backpack or capacity upgrade."
+  added_ammo_shells:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 5
+    # Maximum value is 999
+    sidneys_secret_range_start: 5
+    sidneys_secret_range_end: 999
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-added_ammo_rockets: "Set the amount of rocket capacity added when collecting a backpack or capacity upgrade."
+  added_ammo_rockets:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 5
+    # Maximum value is 999
+    sidneys_secret_range_start: 5
+    sidneys_secret_range_end: 999
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-added_ammo_energy_cells: "Set the amount of energy cell capacity added when collecting a backpack or capacity upgrade."
+  added_ammo_energy_cells:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 30
+    # Maximum value is 999
+    sidneys_secret_range_start: 30
+    sidneys_secret_range_end: 999
+    300: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
   # Item & Location Options
   sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
   local_items:
@@ -146,6 +270,10 @@ DOOM II:
 
   sidneys_secret_documentation-start_inventory: "Start with these items."
   start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\n\nThe game decides what the replacement items will be."
+  start_inventory_from_pool:
     {}
 
   sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
@@ -167,7 +295,3 @@ DOOM II:
   sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
   item_links:
     []
-
-  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\n\nThe game decides what the replacement items will be."
-  start_inventory_from_pool:
-    {}

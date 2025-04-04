@@ -32,13 +32,16 @@ description: Default Pokemon Emerald Template
 
 game: Pokemon Emerald
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Pokemon Emerald:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,10 +54,9 @@ Pokemon Emerald:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
   sidneys_secret_documentation-goal: "Determines what your goal is to consider the game beaten.\n\n- Champion: Become the champion and enter the hall of fame\n- Steven: Defeat Steven in Meteor Falls\n- Norman: Defeat Norman in Petalburg Gym\n- Legendary Hunt: Defeat or catch legendary pokemon (or whatever was randomized into their encounters)"
@@ -116,12 +118,12 @@ Pokemon Emerald:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-dexsanity: "Adding a \"caught\" pokedex entry gives you an item (catching, evolving, trading, etc.). Only wild encounters are considered logical access to a species.\n\nBlacklisting wild encounters removes the dexsanity location.\n\nDefeating gym leaders provides dex info, allowing you to see where on the map you can catch species you need.\n\nEach pokedex entry adds a Poke Ball, Great Ball, or Ultra Ball to the pool."
+  sidneys_secret_documentation-dexsanity: "Adding a \"caught\" pokedex entry gives you an item (catching, evolving, trading, etc.). Only wild encounters are considered logical access to a species.\n\nBlacklisting wild encounters removes the dexsanity location.\n\nDefeating gym leaders provides dex info, allowing you to see where on the map you can catch species you need.\n\nEach pokedex entry adds a Poke Ball, Great Ball, or Ultra Ball to the pool.\n\nWarning: This adds a lot of locations and will slow you down significantly."
   dexsanity:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-trainersanity: "Defeating a trainer gives you an item.\n\nTrainers are no longer missable. Trainers no longer give you money for winning. Each trainer adds a valuable item (Nugget, Stardust, etc.) to the pool."
+  sidneys_secret_documentation-trainersanity: "Defeating a trainer gives you an item.\n\nTrainers are no longer missable. Trainers no longer give you money for winning. Each trainer adds a valuable item (Nugget, Stardust, etc.) to the pool.\n\nWarning: This adds a lot of locations and will slow you down significantly."
   trainersanity:
     'false': 50
     'true': 0
@@ -152,6 +154,9 @@ Pokemon Emerald:
   sidneys_secret_documentation-elite_four_count: "Sets the number of badges/gyms required to challenge the elite four."
   elite_four_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 8
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 8
     8: 50
@@ -167,6 +172,9 @@ Pokemon Emerald:
   sidneys_secret_documentation-norman_count: "Sets the number of badges/gyms required to challenge the Petalburg Gym."
   norman_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 7
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 7
     4: 50
@@ -182,6 +190,9 @@ Pokemon Emerald:
   sidneys_secret_documentation-legendary_hunt_count: "Sets the number of legendaries that must be caught/defeated for the Legendary Hunt goal."
   legendary_hunt_count:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 12
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 12
     3: 50
@@ -193,7 +204,7 @@ Pokemon Emerald:
   allowed_legendary_hunt_encounters:
     ['Groudon', 'Kyogre', 'Rayquaza', 'Latios', 'Latias', 'Regirock', 'Registeel', 'Regice', 'Ho-Oh', 'Lugia', 'Deoxys', 'Mew']
 
-  sidneys_secret_documentation-wild_pokemon: "Randomizes wild pokemon encounters (grass, caves, water, fishing).\n\n- Vanilla: Wild encounters are unchanged\n- Match Base Stats: Wild pokemon are replaced with species with approximately the same bst\n- Match Type: Wild pokemon are replaced with species that share a type with the original\n- Match Base Stats and Type: Apply both Match Base Stats and Match Type\n- Completely Random: There are no restrictions"
+  sidneys_secret_documentation-wild_pokemon: "Randomizes wild pokemon encounters (grass, caves, water, fishing).\n\nWarning: Matching both base stats and type may severely limit the variety for certain pokemon.\n\n- Vanilla: Wild encounters are unchanged\n- Match Base Stats: Wild pokemon are replaced with species with approximately the same bst\n- Match Type: Wild pokemon are replaced with species that share a type with the original\n- Match Base Stats and Type: Apply both Match Base Stats and Match Type\n- Completely Random: There are no restrictions"
   wild_pokemon:
     vanilla: 50
     match_base_stats: 0
@@ -217,7 +228,7 @@ Pokemon Emerald:
   starter_blacklist:
     []
 
-  sidneys_secret_documentation-trainer_parties: "Randomizes the parties of all trainers.\n\n- Vanilla: Parties are unchanged\n- Match Base Stats: Trainer pokemon are replaced with species with approximately the same bst\n- Match Type: Trainer pokemon are replaced with species that share a type with the original\n- Match Base Stats and Type: Apply both Match Base Stats and Match Type\n- Completely Random: There are no restrictions"
+  sidneys_secret_documentation-trainer_parties: "Randomizes the parties of all trainers.\n\nWarning: Matching both base stats and type may severely limit the variety for certain pokemon.\n\n- Vanilla: Parties are unchanged\n- Match Base Stats: Trainer pokemon are replaced with species with approximately the same bst\n- Match Type: Trainer pokemon are replaced with species that share a type with the original\n- Match Base Stats and Type: Apply both Match Base Stats and Match Type\n- Completely Random: There are no restrictions"
   trainer_parties:
     vanilla: 50
     match_base_stats: 0
@@ -229,9 +240,12 @@ Pokemon Emerald:
   trainer_party_blacklist:
     []
 
-  sidneys_secret_documentation-force_fully_evolved: "When an opponent uses a pokemon of the specified level or higher, restricts the species to only fully evolved pokemon."
+  sidneys_secret_documentation-force_fully_evolved: "When an opponent uses a pokemon of the specified level or higher, restricts the species to only fully evolved pokemon.\n\nOnly applies when trainer parties are randomized.\n\nWarning: Combining a low value with matched base stats may severely limit the variety for certain pokemon."
   force_fully_evolved:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 100
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 100
     100: 50
@@ -283,6 +297,9 @@ Pokemon Emerald:
   sidneys_secret_documentation-move_match_type_bias: "Sets the probability that a learned move will be forced match one of the types of a pokemon.\n\nIf a move is not forced to match type, it will roll for Normal type bias."
   move_match_type_bias:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     0: 50
@@ -293,6 +310,9 @@ Pokemon Emerald:
   sidneys_secret_documentation-move_normal_type_bias: "After it has been decided that a move will not be forced to match types, sets the probability that a learned move will be forced to be the Normal type.\n\nIf a move is not forced to be Normal, it will be completely random."
   move_normal_type_bias:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     0: 50
@@ -303,6 +323,9 @@ Pokemon Emerald:
   sidneys_secret_documentation-tm_tutor_compatibility: "Sets the percent chance that a given TM or move tutor is compatible with a species.\n\nSome opponents like gym leaders are allowed to use TMs. This option can affect the moves they know."
   tm_tutor_compatibility:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     random: 0
@@ -316,6 +339,9 @@ Pokemon Emerald:
   sidneys_secret_documentation-hm_compatibility: "Sets the percent chance that a given HM is compatible with a species.\n\nSome opponents like gym leaders are allowed to use HMs. This option can affect the moves they know."
   hm_compatibility:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 50
+    # Maximum value is 100
     sidneys_secret_range_start: 50
     sidneys_secret_range_end: 100
     random: 0
@@ -343,6 +369,9 @@ Pokemon Emerald:
   sidneys_secret_documentation-min_catch_rate: "Sets the minimum catch rate a pokemon can have. Any pokemon with a catch rate below this floor will have it raised to this value.\n\nLegendaries are often in the single digits\nFully evolved pokemon are often double digits\nPidgey is 255"
   min_catch_rate:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 3
+    # Maximum value is 255
     sidneys_secret_range_start: 3
     sidneys_secret_range_end: 255
     3: 50
@@ -363,6 +392,9 @@ Pokemon Emerald:
   sidneys_secret_documentation-exp_modifier: "Multiplies gained experience by a percentage.\n\n100 is default\n50 is half\n200 is double\netc."
   exp_modifier:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 1000
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 1000
     100: 50
@@ -389,6 +421,9 @@ Pokemon Emerald:
   sidneys_secret_documentation-match_trainer_levels_bonus: "A level bonus (or penalty) to apply to your team when matching an opponent's levels.\n\nWhen the match trainer levels option is \"additive\", this value is added to your team's levels during a battle.\n For example, if this value is 5 (+5 levels), you'll have a level 25 team against a level 20 team, and a level 45 team against a level 40 team.\n\nWhen the match trainer levels option is \"multiplicative\", this is a percent bonus.\n For example, if this value is 5 (+5%), you'll have a level 21 team against a level 20 team, and a level 42 team against a level 40 team."
   match_trainer_levels_bonus:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is -100
+    # Maximum value is 100
     sidneys_secret_range_start: -100
     sidneys_secret_range_end: 100
     0: 50
@@ -399,6 +434,9 @@ Pokemon Emerald:
   sidneys_secret_documentation-double_battle_chance: "The percent chance that a trainer with more than 1 pokemon will be converted into a double battle.\n\nIf these trainers would normally approach you, they will only do so if you have 2 unfainted pokemon.\n\nThey can be battled by talking to them no matter what."
   double_battle_chance:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     0: 50
@@ -435,6 +473,10 @@ Pokemon Emerald:
     'false': 50
     'true': 0
 
+  sidneys_secret_documentation-free_fly_blacklist: "Disables specific locations as valid free fly locations.\n\nHas no effect if Free Fly Location is disabled."
+  free_fly_blacklist:
+    ['Littleroot Town', 'Oldale Town', 'Petalburg City', 'Rustboro City', 'Dewford Town']
+
   sidneys_secret_documentation-hm_requirements: "Sets the requirements to use HMs outside of battle."
   hm_requirements:
     vanilla: 50
@@ -466,7 +508,7 @@ Pokemon Emerald:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
+  sidneys_secret_documentation-death_link: "When you die, everyone who enabled death link dies. Of course, the reverse is true too.\n\nIn Pokemon Emerald, whiting out sends a death and receiving a death causes you to white out."
   death_link:
     'false': 50
     'true': 0
@@ -481,6 +523,10 @@ Pokemon Emerald:
     EMERALD SECRET: 50
 
   # Item & Location Options
+  sidneys_secret_documentation-start_inventory: "Start with these items.\n\nThey will be in your PC, which you can access from your home or a pokemon center."
+  start_inventory:
+    {}
+
   sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
   local_items:
     []
@@ -488,10 +534,6 @@ Pokemon Emerald:
   sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
   non_local_items:
     []
-
-  sidneys_secret_documentation-start_inventory: "Start with these items."
-  start_inventory:
-    {}
 
   sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
   start_hints:

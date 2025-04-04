@@ -1,0 +1,162 @@
+﻿# Q. What is this file?
+# A. This file contains options which allow you to configure your multiworld experience while allowing
+#    others to play how they want as well.
+#
+# Q. How do I use it?
+# A. The options in this file are weighted. This means the higher number you assign to a value, the
+#    more chances you have for that option to be chosen. For example, an option like this:
+#
+#    map_shuffle:
+#      on: 5
+#      off: 15
+#
+#    Means you have 5 chances for map shuffle to occur, and 15 chances for map shuffle to be turned
+#    off.
+#
+# Q. I've never seen a file like this before. What characters am I allowed to use?
+# A. This is a .yaml file. You are allowed to use most characters.
+#    To test if your yaml is valid or not, you can use this website:
+#        http://www.yamllint.com/
+#    You can also verify that your Archipelago options are valid at this site:
+#        https://archipelago.gg/check
+
+# Your name in-game, limited to 16 characters.
+#     {player} will be replaced with the player's slot number.
+#     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
+#     {number} will be replaced with the counter value of the name.
+#     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
+name: Player{number}
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Default Civilization VI Template
+
+game: Civilization VI
+requires:
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
+
+Civilization VI:
+  # Game Options
+  sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
+  progression_balancing:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    sidneys_secret_notes-disabled: "equivalent to 0"
+    disabled: 0
+    sidneys_secret_notes-normal: "equivalent to 50"
+    normal: 50
+    sidneys_secret_notes-extreme: "equivalent to 99"
+    extreme: 0
+
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
+  accessibility:
+    full: 50
+    minimal: 0
+
+  sidneys_secret_documentation-progression_style: "**Districts Only**: Each tech/civic that would normally unlock a district or building now has a logical progression.\nExample: TECH_BRONZE_WORKING is now PROGRESSIVE_ENCAMPMENT\n\n**Eras and Districts**: Players will be defeated if they play until the world era advances beyond the currently unlocked maximum era.\nUnlocked eras can be seen in both the tech and civic trees. Includes all progressive districts.\n\n**None**: No progressive items will be included. This means you can get district upgrades that won't be usable until the relevant district is unlocked."
+  progression_style:
+    districts_only: 50
+    eras_and_districts: 0
+    none: 0
+
+  sidneys_secret_documentation-shuffle_goody_hut_rewards: "Shuffles the goody hut rewards.\nGoody huts will only contain junk items and locations are checked sequentially (First goody hut gives GOODY_HUT_1, second gives GOODY_HUT_2, etc.)."
+  shuffle_goody_hut_rewards:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-boostsanity: "Boosts for Civics/Techs are location checks. Boosts can now be triggered even if the item has already been\nresearched.\n\n**Note**: If a boost is dependent upon a unit that is now obsolete, you can click to toggle on/off the relevant tech in\nthe tech tree."
+  boostsanity:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-research_cost_multiplier: "Multiplier for research cost of techs and civics, higher values make research more expensive."
+  research_cost_multiplier:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 50
+    # Maximum value is 150
+    sidneys_secret_range_start: 50
+    sidneys_secret_range_end: 150
+    100: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  sidneys_secret_documentation-pre_hint_items: "Controls what items from the tech/civics trees are pre-hinted for the multiworld.\n**Progression**: Include Progression items in hints\n**Useful**: Include Useful items in hints\n**Filler**: Include Filler items in hints"
+  pre_hint_items:
+    []
+
+  sidneys_secret_documentation-hide_item_names: "Each Tech and Civic Location will have a title of 'Unrevealed' until its prereqs have been researched. Note that\nhints will still be precollected if that option is enabled."
+  hide_item_names:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-advisor_show_progression_items: "If enabled, an advisor icon will be added to any location that contains a progression item."
+  advisor_show_progression_items:
+    'false': 0
+    'true': 50
+
+  sidneys_secret_documentation-death_link: "If enabled, losing a unit will trigger a death link effect on other players in the multiworld. When a death link is received, the player will receive the effect specified in 'Death Link Effect'."
+  death_link:
+    'false': 50
+    'true': 0
+
+  sidneys_secret_documentation-death_link_effect: "What happens when a unit dies.\n\n**Unit Killed**: A random unit will be killed when a death link is received.\n\n**Faith**: Faith will be decreased by the amount specified in 'Death Link Effect Percent'.\n\n**Gold**: Gold will be decreased by the amount specified in 'Death Link Effect Percent'.\n\n**Era Score**: Era score is decreased by 1."
+  death_link_effect:
+    ['Unit Killed']
+
+  sidneys_secret_documentation-death_link_effect_percent: "The percentage of the effect that will be applied. Only applicable for Gold and Faith effects."
+  death_link_effect_percent:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 100
+    sidneys_secret_range_start: 1
+    sidneys_secret_range_end: 100
+    20: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  # Item & Location Options
+  sidneys_secret_documentation-local_items: "Forces these items to be in their native world."
+  local_items:
+    []
+
+  sidneys_secret_documentation-non_local_items: "Forces these items to be outside their native world."
+  non_local_items:
+    []
+
+  sidneys_secret_documentation-start_inventory: "Start with these items."
+  start_inventory:
+    {}
+
+  sidneys_secret_documentation-start_inventory_from_pool: "Start with these items and don't place them in the world.\n\nThe game decides what the replacement items will be."
+  start_inventory_from_pool:
+    {}
+
+  sidneys_secret_documentation-start_hints: "Start with these item's locations prefilled into the ``!hint`` command."
+  start_hints:
+    []
+
+  sidneys_secret_documentation-start_location_hints: "Start with these locations and their item prefilled into the ``!hint`` command."
+  start_location_hints:
+    []
+
+  sidneys_secret_documentation-exclude_locations: "Prevent these locations from having an important item."
+  exclude_locations:
+    []
+
+  sidneys_secret_documentation-priority_locations: "Prevent these locations from having an unimportant item."
+  priority_locations:
+    []
+
+  sidneys_secret_documentation-item_links: "Share part of your item pool with other players."
+  item_links:
+    []

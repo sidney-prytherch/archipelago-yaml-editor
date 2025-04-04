@@ -32,13 +32,16 @@ description: Default Kingdom Hearts 2 Template
 
 game: Kingdom Hearts 2
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Kingdom Hearts 2:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,10 +54,9 @@ Kingdom Hearts 2:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired."
   accessibility:
-    locations: 0
-    items: 50
+    full: 50
     minimal: 0
 
   sidneys_secret_documentation-LevelDepth: "Determines How many locations you want on levels\n\nLevel 50: 23 checks spread through 50 levels.\nLevel 99: 23 checks spread through 99 levels.\n\nLevel 50 sanity: 49 checks spread through 50 levels.\nLevel 99 sanity: 98 checks spread through 99 levels.\n\nLevel 1: no checks on levels(checks are replaced with stats)"
@@ -68,6 +70,9 @@ Kingdom Hearts 2:
   sidneys_secret_documentation-Sora_Level_EXP: "Sora Level Exp Multiplier"
   Sora_Level_EXP:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 10
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 10
     5: 50
@@ -78,6 +83,9 @@ Kingdom Hearts 2:
   sidneys_secret_documentation-Valor_Form_EXP: "Valor Form Exp Multiplier"
   Valor_Form_EXP:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 10
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 10
     3: 50
@@ -88,6 +96,9 @@ Kingdom Hearts 2:
   sidneys_secret_documentation-Wisdom_Form_EXP: "Wisdom Form Exp Multiplier"
   Wisdom_Form_EXP:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 10
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 10
     3: 50
@@ -98,6 +109,9 @@ Kingdom Hearts 2:
   sidneys_secret_documentation-Limit_Form_EXP: "Limit Form Exp Multiplier"
   Limit_Form_EXP:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 10
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 10
     3: 50
@@ -108,6 +122,9 @@ Kingdom Hearts 2:
   sidneys_secret_documentation-Master_Form_EXP: "Master Form Exp Multiplier"
   Master_Form_EXP:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 10
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 10
     3: 50
@@ -118,6 +135,9 @@ Kingdom Hearts 2:
   sidneys_secret_documentation-Final_Form_EXP: "Final Form Exp Multiplier"
   Final_Form_EXP:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 10
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 10
     3: 50
@@ -128,6 +148,9 @@ Kingdom Hearts 2:
   sidneys_secret_documentation-Summon_EXP: "Summon Exp Multiplier"
   Summon_EXP:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 10
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 10
     5: 50
@@ -146,6 +169,9 @@ Kingdom Hearts 2:
   sidneys_secret_documentation-RandomGrowth: "Amount of Random Progressive Movement Abilities You Start With"
   RandomGrowth:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 20
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 20
     0: 50
@@ -178,6 +204,9 @@ Kingdom Hearts 2:
   sidneys_secret_documentation-LuckyEmblemsAmount: "Number of Lucky Emblems that are in the pool.\n\nIf Goal is not Lucky Emblem Hunt or Lucky Emblem and Hitlist this does nothing."
   LuckyEmblemsAmount:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 60
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 60
     40: 50
@@ -188,6 +217,9 @@ Kingdom Hearts 2:
   sidneys_secret_documentation-LuckyEmblemsRequired: "Number of Lucky Emblems to collect to Win/Unlock Final Xemnas' Door.\n\nIf Goal is not Lucky Emblem Hunt or Lucky Emblem and Hitlist this does nothing."
   LuckyEmblemsRequired:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 60
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 60
     35: 50
@@ -198,6 +230,9 @@ Kingdom Hearts 2:
   sidneys_secret_documentation-BountyAmount: "Number of Bounties that are in the pool.\n\nIf Goal is not Hitlist or Lucky Emblem and Hitlist this does nothing."
   BountyAmount:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 26
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 26
     10: 50
@@ -208,6 +243,9 @@ Kingdom Hearts 2:
   sidneys_secret_documentation-BountyRequired: "Number of Bounties to collect to Win/Unlock Final Xemnas Door.\n\nIf Goal is not Hitlist or Lucky Emblem and Hitlist this does nothing."
   BountyRequired:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 26
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 26
     7: 50
@@ -223,6 +261,9 @@ Kingdom Hearts 2:
   sidneys_secret_documentation-Keyblade_Minimum: "Minimum Stats for Keyblades"
   Keyblade_Minimum:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 20
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 20
     3: 50
@@ -233,6 +274,9 @@ Kingdom Hearts 2:
   sidneys_secret_documentation-Keyblade_Maximum: "Maximum Stats for Keyblades"
   Keyblade_Maximum:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 20
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 20
     7: 50
@@ -281,6 +325,9 @@ Kingdom Hearts 2:
   sidneys_secret_documentation-RandomVisitLockingItem: "Start with random amount of visit locking items."
   RandomVisitLockingItem:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 25
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 25
     0: 50

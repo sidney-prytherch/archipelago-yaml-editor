@@ -32,13 +32,16 @@ description: Default Pokemon Red and Blue Template
 
 game: Pokemon Red and Blue
 requires:
-  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
 
 Pokemon Red and Blue:
   # Game Options
   sidneys_secret_documentation-progression_balancing: "A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.\n\nA lower setting means more getting stuck. A higher setting means less getting stuck."
   progression_balancing:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 99
     random: 0
@@ -51,11 +54,11 @@ Pokemon Red and Blue:
     sidneys_secret_notes-extreme: "equivalent to 99"
     extreme: 0
 
-  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n- **Locations:** ensure everything can be reached and acquired.\n- **Items:** ensure all logically relevant items can be acquired.\n- **Minimal:** ensure what is needed to reach your goal can be acquired."
+  sidneys_secret_documentation-accessibility: "Set rules for reachability of your items/locations.\n\n**Full:** ensure everything can be reached and acquired.\n\n**Minimal:** ensure what is needed to reach your goal can be acquired.\n\n**Items:** ensure all logically relevant items can be acquired. Some items, such as keys, may be self-locking, and\nsome locations may be inaccessible."
   accessibility:
-    locations: 0
-    items: 50
+    full: 0
     minimal: 0
+    items: 50
 
   sidneys_secret_documentation-game_version: "Select Red or Blue version."
   game_version:
@@ -74,6 +77,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-elite_four_badges_condition: "Number of badges required to challenge the Elite Four once the Indigo Plateau has been reached.\nYour rival will reveal the amount needed on the first Route 22 battle (after turning in Oak's Parcel)."
   elite_four_badges_condition:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 8
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 8
     8: 50
@@ -84,6 +90,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-elite_four_key_items_condition: "Percentage of available key items (not counting items you can lose) required to challenge the Elite Four. Does\nnot count HMs. Evolution stones and Exp. All are key items in Archipelago."
   elite_four_key_items_condition:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     0: 50
@@ -94,6 +103,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-elite_four_pokedex_condition: "Percentage of logically-reachable Pokemon that must be registered as \"owned\" in the Pokedex in order to\nchallenge the Elite Four."
   elite_four_pokedex_condition:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     0: 50
@@ -104,6 +116,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-victory_road_condition: "Number of badges required to reach the front entrance of Victory Road."
   victory_road_condition:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 8
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 8
     7: 50
@@ -114,6 +129,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-route_22_gate_condition: "Number of badges required to pass through the Route 22 Gate"
   route_22_gate_condition:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 7
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 7
     7: 50
@@ -124,6 +142,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-viridian_gym_condition: "Number of badges required to enter Viridian Gym."
   viridian_gym_condition:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 7
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 7
     7: 50
@@ -134,6 +155,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-cerulean_cave_badges_condition: "Number of badges needed to access the Cerulean Cave entrance in addition to the required Key Items."
   cerulean_cave_badges_condition:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 8
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 8
     4: 50
@@ -144,6 +168,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-cerulean_cave_key_items_condition: "Percentage of available key items (not counting items you can lose) required to access the Cerulean Cave\nentrance in addition to the required badges. Does not count HMs.\nEvolution stones and Exp. All are key items in Archipelago."
   cerulean_cave_key_items_condition:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     50: 50
@@ -167,6 +194,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-second_fossil_check_condition: "After choosing one of the fossil location items, you can obtain the remaining item from the Cinnabar Lab\nScientist after reviving this number of fossils."
   second_fossil_check_condition:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 3
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 3
     3: 50
@@ -252,22 +282,36 @@ Pokemon Red and Blue:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-trainersanity: "Add a location check to every trainer in the game, which can be obtained by talking to a trainer after defeating\nthem. Does not affect gym leaders and some scripted event battles (including all Rival, Giovanni, and\nCinnabar Gym battles)."
+  sidneys_secret_documentation-trainersanity: "Add location checks to trainers, which can be obtained by talking to a trainer after defeating them. Does not\naffect gym leaders and some scripted event battles. You may specify a number of trainers to have checks, and in\nthis case they will be randomly selected. There is no in-game indication as to which trainers have checks."
   trainersanity:
-    'false': 50
-    'true': 0
-
-  sidneys_secret_documentation-dexsanity: "Adds location checks for Pokemon flagged \"owned\" on your Pokedex. You may specify a percentage of Pokemon to\nhave checks added. If Accessibility is set to locations, this will be the percentage of all logically reachable\nPokemon that will get a location check added to it. With items or minimal Accessibility, it will be the percentage\nof all 151 Pokemon.\nIf Pokedex is required, the items for Pokemon acquired before acquiring the Pokedex can be found by talking to\nProfessor Oak or evaluating the Pokedex via Oak's PC."
-  dexsanity:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 317
     sidneys_secret_range_start: 0
-    sidneys_secret_range_end: 100
+    sidneys_secret_range_end: 317
     random: 0
     random-low: 0
     random-high: 0
     sidneys_secret_notes-disabled: "equivalent to 0"
     disabled: 50
-    sidneys_secret_notes-full: "equivalent to 100"
+    sidneys_secret_notes-full: "equivalent to 317"
+    full: 0
+
+  sidneys_secret_documentation-dexsanity: "Adds location checks for Pokemon flagged \"owned\" on your Pokedex. You may specify the exact number of Dexsanity\nchecks to add, and they will be distributed to Pokemon randomly.\nIf Accessibility is set to Full, Dexsanity checks for Pokemon that are not logically reachable will be removed,\nso the number could be lower than you specified.\nIf Pokedex is required, the Dexsanity checks for Pokemon you acquired before acquiring the Pokedex can be found by\ntalking to Professor Oak or evaluating the Pokedex via Oak's PC."
+  dexsanity:
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 151
+    sidneys_secret_range_start: 0
+    sidneys_secret_range_end: 151
+    random: 0
+    random-low: 0
+    random-high: 0
+    sidneys_secret_notes-disabled: "equivalent to 0"
+    disabled: 50
+    sidneys_secret_notes-full: "equivalent to 151"
     full: 0
 
   sidneys_secret_documentation-randomize_pokedex: "Randomize the location of the Pokedex, or start with it."
@@ -289,6 +333,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-oaks_aide_rt_2: "Number of Pokemon registered in the Pokedex required to receive the item from Oak's Aide on Route 2.\nVanilla is 10."
   oaks_aide_rt_2:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 80
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 80
     10: 50
@@ -299,6 +346,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-oaks_aide_rt_11: "Number of Pokemon registered in the Pokedex required to receive the item from Oak's Aide on Route 11.\nVanilla is 30."
   oaks_aide_rt_11:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 80
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 80
     20: 50
@@ -309,6 +359,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-oaks_aide_rt_15: "Number of Pokemon registered in the Pokedex required to receive the item from Oak's Aide on Route 15.\nVanilla is 50."
   oaks_aide_rt_15:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 80
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 80
     30: 50
@@ -356,9 +409,12 @@ Pokemon Red and Blue:
     'false': 50
     'true': 0
 
-  sidneys_secret_documentation-blind_trainers: "Chance each frame that you are standing on a tile in a trainer's line of sight that they will fail to initiate a\nbattle. If you move into and out of their line of sight without stopping, this chance will only trigger once."
+  sidneys_secret_documentation-blind_trainers: "Chance each frame that you are standing on a tile in a trainer's line of sight that they will fail to initiate a\nbattle. If you move into and out of their line of sight without stopping, this chance will only trigger once.\nTrainers which have Trainersanity location checks ignore the Blind Trainers setting."
   blind_trainers:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     0: 50
@@ -369,6 +425,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-minimum_steps_between_encounters: "Minimum number of steps between wild Pokemon encounters."
   minimum_steps_between_encounters:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 255
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 255
     3: 50
@@ -386,12 +445,15 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-exp_modifier: "Modifier for EXP gained. When specifying a number, exp is multiplied by this amount and divided by 16."
   exp_modifier:
     #
-    sidneys_secret_range_start: 4.0
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 4
+    # Maximum value is 255
+    sidneys_secret_range_start: 4
     sidneys_secret_range_end: 255
     random: 0
     random-low: 0
     random-high: 0
-    sidneys_secret_notes-half: "equivalent to 8.0"
+    sidneys_secret_notes-half: "equivalent to 8"
     half: 0
     sidneys_secret_notes-normal: "equivalent to 16"
     normal: 50
@@ -466,6 +528,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-minimum_catch_rate: "Minimum catch rate for each Pokemon. If randomize_catch_rates is on, this will be the minimum value that can be\nchosen. Otherwise, it will raise any Pokemon's catch rate up to this value if its normal catch rate is lower."
   minimum_catch_rate:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 255
     sidneys_secret_range_start: 1
     sidneys_secret_range_end: 255
     3: 50
@@ -525,6 +590,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-tm_same_type_compatibility: "Chance of each TM being usable on each Pokemon whose type matches the move."
   tm_same_type_compatibility:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     random: 0
@@ -540,6 +608,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-tm_normal_type_compatibility: "Chance of each TM being usable on each Pokemon if the move is Normal type and the Pokemon is not."
   tm_normal_type_compatibility:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     random: 0
@@ -555,6 +626,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-tm_other_type_compatibility: "Chance of each TM being usable on each Pokemon if the move a type other than Normal or one of the Pokemon's types."
   tm_other_type_compatibility:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     random: 0
@@ -570,6 +644,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-hm_same_type_compatibility: "Chance of each HM being usable on each Pokemon whose type matches the move.\nAt least one Pokemon will always be able to learn the moves needed to meet your accessibility requirements."
   hm_same_type_compatibility:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     random: 0
@@ -585,6 +662,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-hm_normal_type_compatibility: "Chance of each HM being usable on each Pokemon if the move is Normal type and the Pokemon is not.\nAt least one Pokemon will always be able to learn the moves needed to meet your accessibility requirements."
   hm_normal_type_compatibility:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     random: 0
@@ -600,6 +680,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-hm_other_type_compatibility: "Chance of each HM being usable on each Pokemon if the move a type other than Normal or one of the Pokemon's types.\nAt least one Pokemon will always be able to learn the moves needed to meet your accessibility requirements."
   hm_other_type_compatibility:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     random: 0
@@ -631,6 +714,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-secondary_type_chance: "If randomize_pokemon_types is on, this is the chance each Pokemon will have a secondary type. If follow_evolutions\nis selected, it is the chance a second type will be added at each evolution stage. vanilla will give secondary types\nto Pokemon that normally have a secondary type."
   secondary_type_chance:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     random: 0
@@ -648,6 +734,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-normal_matchups: "If 'randomize' is chosen for Randomize Type Chart, this will be the weight for neutral matchups.\nNo effect if 'chaos' is chosen"
   normal_matchups:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 225
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 225
     143: 50
@@ -658,6 +747,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-super_effective_matchups: "If 'randomize' is chosen for Randomize Type Chart, this will be the weight for super effective matchups.\nNo effect if 'chaos' is chosen"
   super_effective_matchups:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 225
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 225
     38: 50
@@ -668,6 +760,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-not_very_effective_matchups: "If 'randomize' is chosen for Randomize Type Chart, this will be the weight for not very effective matchups.\nNo effect if 'chaos' is chosen"
   not_very_effective_matchups:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 225
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 225
     38: 50
@@ -678,12 +773,19 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-immunity_matchups: "If 'randomize' is chosen for Randomize Type Chart, this will be the exact number of immunities.\nNo effect if 'chaos' is chosen"
   immunity_matchups:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     6: 50
     random: 0
     random-low: 0
     random-high: 0
+
+  sidneys_secret_documentation-type_chart_seed: "You can enter a number to use as a seed for the type chart. If you enter anything besides a number or \"random\",\nit will be used as a type chart group name, and everyone using the same group name will get the same type chart,\nmade using the type chart options of one random player within the group. If a group name is used, the type matchup\ninformation will not be made available for trackers."
+  type_chart_seed:
+    random: 50
 
   sidneys_secret_documentation-safari_zone_normal_battles: "Change the Safari Zone to have standard wild Pokemon battles."
   safari_zone_normal_battles:
@@ -709,6 +811,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-master_ball_price: "Price for Master Balls. Can only be bought if Better Shops is set to Add Master Ball, but this will affect the\nsell price regardless. Vanilla is 0"
   master_ball_price:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 999999
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 999999
     5000: 50
@@ -719,6 +824,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-starting_money: "The amount of money you start with."
   starting_money:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 999999
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 999999
     3000: 50
@@ -744,6 +852,9 @@ Pokemon Red and Blue:
   sidneys_secret_documentation-trap_percentage: "Chance for each filler item to be replaced with trap items. Keep in mind that trainersanity vastly increases the\nnumber of filler items. The trap weight options will determine which traps can be chosen from and at what likelihood."
   trap_percentage:
     #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
     sidneys_secret_range_start: 0
     sidneys_secret_range_end: 100
     0: 50
@@ -786,14 +897,14 @@ Pokemon Red and Blue:
     high: 0
     disabled: 50
 
-  sidneys_secret_documentation-randomize_pokemon_palettes: "Modify palettes of Pokemon. Primary Type will set Pokemons' palettes based on their primary type, Follow\nEvolutions will randomize palettes but palettes will remain the same through evolutions (except Eeveelutions),\nCompletely Random will randomize all Pokemons' palettes individually"
+  sidneys_secret_documentation-randomize_pokemon_palettes: "Modify Super Gameboy palettes of Pokemon. Primary Type will set Pokemons' palettes based on their primary type,\nFollow Evolutions will randomize palettes but they will remain the same through evolutions (except Eeveelutions),\nCompletely Random will randomize all Pokemons' palettes individually"
   randomize_pokemon_palettes:
     vanilla: 50
     primary_type: 0
     follow_evolutions: 0
     completely_random: 0
 
-  sidneys_secret_documentation-death_link: "When you die, everyone dies. Of course the reverse is true too."
+  sidneys_secret_documentation-death_link: "When you die, everyone who enabled death link dies. Of course, the reverse is true too."
   death_link:
     'false': 50
     'true': 0
